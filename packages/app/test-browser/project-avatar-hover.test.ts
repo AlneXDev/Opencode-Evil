@@ -10,6 +10,9 @@ const solid = createRequire(require.resolve("vite-plugin-solid"))
 
 const { transformSync } = solid("@babel/core")
 
+// This file runs with --isolate. Replace the shared hyperscript preload so Solid owns refs and mount effects.
+Bun.plugin.clearAll()
+
 Bun.plugin({
   name: "project-avatar-solid",
   setup(build) {
