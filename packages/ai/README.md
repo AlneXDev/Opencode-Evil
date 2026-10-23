@@ -270,6 +270,14 @@ Package entrypoints are `@opencode/ai/providers/alibaba`, `alibaba/chat`, `aliba
 and `alibaba/responses`. Live recordings cover all three APIs in Singapore; regional URL construction
 is unit-tested for all six regions.
 
+### Images
+
+`alibaba.image(...)` uses the native multimodal generation API (`/api/v1/services/aigc/multimodal-generation/generation`)
+for Qwen-Image (`qwen-image-2.0`, `qwen-image-2.0-pro`) and Wan (`wan2.7-image`, `wan2.7-image-pro`). `size` lowers to
+`W*H`, and `images` are sent as URLs or data URLs for editing. Native `parameters` include `negativePrompt`,
+`promptExtend`, `watermark`, `thinkingMode`, and `enableSequential`; raw keys such as `bbox_list` or `size: "2K"`
+pass through. Results are URLs that Model Studio keeps for 24 hours. A complete `baseURL` for images includes `/api/v1`.
+
 ## Z.AI
 
 `ZAI` uses the standard API. Chat Completions is the default language-model API;
@@ -547,6 +555,7 @@ call rather than being dropped, so check this table before swapping only the `mo
 | Google (Gemini)       | 1   | ✗         | ✓             | ✓      | ✗        | ✓ (no public URLs)               | ✗                   |
 | xAI                   | ✓   | ✗         | ✓             | ✗      | ✗        | ✓                                | ✗                   |
 | Z.ai                  | ✗   | ✓         | ✗             | ✗      | ✗        | ✗                                | ✗                   |
+| Alibaba               | ✓   | ✓         | ✗             | ✓      | ✗        | ✓                                | ✗                   |
 | Meta                  | ✓   | ✓ (hint)  | ✗             | ✗      | ✓        | ✓                                | ✗                   |
 | Black Forest Labs     | 1   | per model | per model     | ✓      | ✓        | per model (1–8)                  | `flux-pro-1.0-fill` |
 | fal                   | ✓   | per model | per model     | ✓      | ✓        | 1 (several on `/edit`, `/multi`) | ✓                   |
