@@ -240,7 +240,6 @@ export const layer = Layer.effect(
   Effect.gen(function* () {
     const hooks = yield* PluginHooks.Service
     const transport = yield* SessionModelTransport.Service
-    const app = yield* App.Metadata
     const prepare = Effect.fn("SessionModelRequest.prepare")(function* <
       S extends SessionRequest & { tools?: Definitions },
     >(kind: SessionRequestKind, input: Input, shape: (draft: SessionRequest, tools: Definitions) => Effect.Effect<S>) {
@@ -287,15 +286,7 @@ export const layer = Layer.effect(
       const base = LLM.request({
         model: model.model,
         http: {
-          headers: {
-            "x-session-affinity": affinity,
-            "X-Session-Id": affinity,
-            ...(session.parentID ? { "x-parent-session-id": session.parentID } : {}),
-            "User-Agent": App.useragent(app),
-            "x-opencode-project": session.projectID,
-            "x-opencode-session": affinity,
-            "x-opencode-client": app.name,
-          },
+          headers: {},
         },
         // TODO: Persist cache lineage so nested forks reuse the root session's cache key.
         promptCacheKey: /^ses_[0-9a-f]{64}$/.test(affinity) ? affinity.slice(4) : affinity,
