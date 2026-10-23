@@ -1,3 +1,14 @@
+> [!IMPORTANT]
+> **OpenCode Evil** is a fork of [anomalyco/opencode](https://github.com/anomalyco/opencode) at **v1.19.4**.
+>
+> - **Guardrails removed** — hard and soft refusal text stripped from every prompt; a generic anti-refusal compliance block is also prepended to the system message at request time, so custom agent prompts cannot drop it.
+> - **All 130 Zen models kept** — none removed from the catalog.
+> - **Legacy Zen paths restored** — all `opencode` model URLs rewritten to `https://opencode.ai/zen/v1`; `opencode-go` intentionally stays on `/inference/go/*`.
+> - **Side-by-side identity** — appId `ai.opencode.desktop.evil`, productName `OpenCode Evil`, own install directory (`opencode-evil`) and own database. No auto-update feed, no protocol takeover; the stock OpenCode install and DB are untouched.
+> - **Multi-platform builds** — Windows (NSIS), Linux (AppImage/deb/rpm), macOS (dmg/zip), built by GitHub Actions.
+>
+> Patch/build notes: [`evil/README.md`](evil/README.md). Releases: see the **Releases** tab.
+
 <p align="center">
   <a href="https://opencode.ai">
     <picture>
