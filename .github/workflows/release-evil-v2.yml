@@ -127,6 +127,9 @@ jobs:
         with:
           bun-version: 1.4.4
 
+      - name: Install node-pty for all platforms
+        run: bun install --os="*" --cpu="*" --libc="*" @lydell/node-pty@1.2.0-beta.12
+
       - name: Install Linux packaging tools
         if: runner.os == 'Linux'
         run: |
