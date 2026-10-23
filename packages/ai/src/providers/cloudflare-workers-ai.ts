@@ -41,7 +41,15 @@ export const baseURL = (input: WorkersAIURL) => {
 }
 
 /** The Run API (`/ai/run/{model}`) next to the OpenAI-compatible `/ai/v1` base. */
-export const runBaseURL = (input: WorkersAIURL) => baseURL(input).replace(/\/v1\/?$/, "/run")
+export const runBaseURL = (input: WorkersAIURL) => {
+  const url = baseURL(input)
+  if (!/\/ai\/v1\/?$/.test(url))
+    throw new ProviderConfigurationError({
+      provider: id,
+      message: "CloudflareWorkersAI images need accountId or a baseURL ending in /ai/v1 to derive the Run API base",
+    })
+  return url.replace(/\/v1\/?$/, "/run")
+}
 
 export const route = Route.make({
   id: "cloudflare-workers-ai",
@@ -58,11 +66,14 @@ export const configure = (input: LanguageModelOptions) => {
   const { accountId: _accountId, apiKey: _apiKey, auth: _auth, baseURL: _baseURL, ...defaults } = input
   const auth = AuthOptions.bearer(input, authEnvVars)
   const configured = route.with({ ...defaults, endpoint: { baseURL: baseURL(input) }, auth })
-  const media = MediaRoute.deployment({ ...input, baseURL: runBaseURL(input) }, auth)
   return {
     id,
     model: (modelID: string | ModelID) => configured.model<OpenAIProviderOptionsInput>({ id: modelID }),
-    image: (modelID: string | ModelID) => CloudflareWorkersAIImages.model({ ...media, id: modelID }),
+    image: (modelID: string | ModelID) =>
+      CloudflareWorkersAIImages.model({
+        ...MediaRoute.deployment({ ...input, baseURL: runBaseURL(input) }, auth),
+        id: modelID,
+      }),
     configure,
   }
 }
