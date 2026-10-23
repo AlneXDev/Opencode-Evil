@@ -96,7 +96,10 @@ export interface ModelInput {
   readonly baseURL: string
   readonly headers?: Record<string, string>
   readonly http?: HttpOptions
+  readonly rounding?: EvaluationRounding
 }
+
+export const jevRounding = new EvaluationRounding({ probabilityDecimals: 2, scoreDecimals: 2 })
 
 export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg: ModelInput) =>
   EvaluationModel.make<Options>({
@@ -192,11 +195,11 @@ export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg
                   providerMetadata: { [cfg.providerMetadataKey]: data.usage },
                 })
               : undefined,
-            rounding: new EvaluationRounding({ probabilityDecimals: 2, scoreDecimals: 2 }),
+            rounding: cfg.rounding,
             providerMetadata: Object.keys(meta).length === 0 ? undefined : { [cfg.providerMetadataKey]: meta },
           })
         }),
     },
   })
 
-export const SystemOne = { model } as const
+export const SystemOne = { model, jevRounding } as const

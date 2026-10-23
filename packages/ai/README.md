@@ -195,7 +195,8 @@ DigitalOcean.configure().experimental.evaluation("typesafe-jev-1.13.0")
 ```
 
 OpenRouter reads `OPENROUTER_API_KEY`. Vercel reads `AI_GATEWAY_API_KEY`, then `VERCEL_OIDC_TOKEN`.
-Baseten reads `BASETEN_API_KEY` and accepts `max_len` in `options`. DigitalOcean reads
+Baseten reads `BASETEN_API_KEY`, accepts `max_len` in `options`, and returns unrounded values, so
+`response.rounding` is unset. DigitalOcean reads
 `DIGITALOCEAN_ACCESS_TOKEN`, `DIGITALOCEAN_API_KEY`, then `DO_INFERENCE_API_KEY`.
 The common API uses `boolean`; System One routes lower it to native `noul`.
 Choice and score answers include `confidence` when the provider returns it, such as
