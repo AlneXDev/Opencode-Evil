@@ -50,21 +50,18 @@ export const routes = [route]
 
 export const configure = (input: LanguageModelOptions) => {
   const { accountId: _accountId, apiKey: _apiKey, auth: _auth, baseURL: _baseURL, ...defaults } = input
-  const configured = route.with({
-    ...defaults,
-    endpoint: { baseURL: baseURL(input) },
-    auth: AuthOptions.bearer(input, authEnvVars),
-  })
+  const auth = AuthOptions.bearer(input, authEnvVars)
+  const configured = route.with({ ...defaults, endpoint: { baseURL: baseURL(input) }, auth })
   const evaluation = (modelID: string | ModelID) =>
     SystemOne.model({
       id: modelID,
       provider: id,
       providerMetadataKey: "cloudflare-workers-ai",
-      auth: AuthOptions.bearer(input, authEnvVars),
+      auth,
       baseURL: baseURL(input).replace(/\/v1\/?$/, "/run"),
       headers: input.headers,
       http: HttpOptions.make(input.http),
-      cloudflareRun: "path",
+      cloudflareRun: true,
     })
   return {
     id,

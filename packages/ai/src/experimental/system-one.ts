@@ -10,6 +10,7 @@ import {
   type EvaluationAnswer,
   type EvaluationOptions,
 } from "./evaluation.js"
+import { classifyProviderFailure, providerErrorMessage } from "../provider-error.js"
 import { Auth, type Definition as AuthDefinition } from "../route/auth.js"
 import { RequestExecutor } from "../route/executor.js"
 import { JsonObject, ProviderShared } from "../protocols/shared.js"
@@ -82,7 +83,7 @@ const Response = Schema.Struct({
   provider: Schema.optional(Schema.String),
   provider_metadata: Schema.optional(ProviderMetadata),
 })
-// Cloudflare third-party models wrap the answer in a run record.
+// Third-party models on Cloudflare, such as TypeSafe Jev, wrap the answer in a run record.
 const RunResponse = Schema.Struct({
   result: Schema.Union([Response, Schema.Struct({ state: Schema.Literal("Completed"), result: Response })]),
 })
@@ -95,11 +96,8 @@ export interface ModelInput {
   readonly baseURL: string
   readonly headers?: Record<string, string>
   readonly http?: HttpOptions
-  /**
-   * Cloudflare `/ai/run` at `baseURL`. `path` posts the System One body to `{baseURL}/{id}` with `model` set to the
-   * id's last segment. `input` posts `{ model: id, input }` to `baseURL`. Both unwrap the `{ result }` envelope.
-   */
-  readonly cloudflareRun?: "path" | "input"
+  /** Post `{ model, input }` to Cloudflare's `/ai/run` at `baseURL` and unwrap its `{ result }` envelope. */
+  readonly cloudflareRun?: boolean
 }
 
 export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg: ModelInput) =>
@@ -111,14 +109,7 @@ export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg
       id: "system-one",
       evaluate: (req, send) =>
         Effect.gen(function* () {
-          const base = cfg.baseURL.replace(/\/$/, "")
-          const url = new URL(
-            cfg.cloudflareRun === "path"
-              ? `${base}/${req.model.id}`
-              : cfg.cloudflareRun === "input"
-                ? base
-                : `${base}/systemone`,
-          )
+          const url = new URL(`${cfg.baseURL.replace(/\/$/, "")}${cfg.cloudflareRun ? "" : "/systemone"}`)
           Object.entries(req.http?.query ?? {}).forEach(([key, value]) => url.searchParams.set(key, value))
           const input = {
             ...mergeJsonRecords(req.options, req.http?.body),
@@ -128,12 +119,9 @@ export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg
             ),
           }
           const body = yield* (
-            cfg.cloudflareRun === "input"
+            cfg.cloudflareRun
               ? Schema.encodeUnknownEffect(Schema.fromJsonString(RunRequest))({ model: req.model.id, input })
-              : Schema.encodeUnknownEffect(Schema.fromJsonString(Request))({
-                  ...input,
-                  model: cfg.cloudflareRun === "path" ? req.model.id.split("/").at(-1) : req.model.id,
-                })
+              : Schema.encodeUnknownEffect(Schema.fromJsonString(Request))({ ...input, model: req.model.id })
           ).pipe(
             Effect.mapError(
               (cause) => new AIError({ reason: new InvalidRequestError({ message: cause.message, cause }) }),
@@ -159,12 +147,18 @@ export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg
             Effect.mapError((cause) => fail("Failed to read the System One response", cause)),
           )
           const data = yield* (
-            cfg.cloudflareRun === undefined
-              ? Schema.decodeUnknownEffect(Schema.fromJsonString(Response))(text)
-              : Schema.decodeUnknownEffect(Schema.fromJsonString(RunResponse))(text).pipe(
+            cfg.cloudflareRun
+              ? Schema.decodeUnknownEffect(Schema.fromJsonString(RunResponse))(text).pipe(
                   Effect.map((x) => ("answers" in x.result ? x.result : x.result.result)),
                 )
-          ).pipe(Effect.mapError((cause) => fail("System One returned an invalid response", cause, text)))
+              : Schema.decodeUnknownEffect(Schema.fromJsonString(Response))(text)
+          ).pipe(
+            Effect.mapError((cause) => {
+              const message = providerErrorMessage(text)
+              if (message) return new AIError({ reason: classifyProviderFailure({ message, rawBody: text, http }) })
+              return fail("System One returned an invalid response", cause, text)
+            }),
+          )
 
           const legend: Record<string, Record<string, Schema.Json>> = {}
           const answers = Object.fromEntries(

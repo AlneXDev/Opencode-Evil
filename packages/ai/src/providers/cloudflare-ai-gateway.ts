@@ -128,7 +128,7 @@ export const configure = (input: LanguageModelOptions) => {
       baseURL: rest.endpoint.baseURL.replace(/\/v1\/?$/, "/run"),
       headers: rest.headers,
       http: HttpOptions.make(input.http),
-      cloudflareRun: "input",
+      cloudflareRun: true,
     })
   return {
     id,

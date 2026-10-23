@@ -254,46 +254,50 @@ describe("experimental Evaluation", () => {
     ),
   )
 
-  it.effect("surfaces Cloudflare Workers AI run errors", () =>
+  it.effect("surfaces Cloudflare run envelope errors", () =>
     Evaluation.run({
       model: CloudflareWorkersAI.configure({
         accountId: "test-account",
         apiKey: "cloudflare-key",
       }).experimental.evaluation("@cf/cloudflare/clef"),
       state: "refund",
-      questions: { "bad id": { type: "boolean", instructions: "Is a refund requested?" } },
+      questions: { refund: { type: "boolean", instructions: "Is a refund requested?" } },
     }).pipe(
       Effect.flip,
       Effect.tap((error) =>
         Effect.sync(() => {
-          expect(error.reason._tag).toBe("InvalidRequest")
-          expect(error.message).toContain("String should match pattern")
+          expect(error.reason._tag).toBe("UnknownProvider")
+          expect(error.message).toContain("At least one question is required")
         }),
       ),
       Effect.provide(
         EvaluationClient.layer.pipe(
           Layer.provide(
             dynamicResponse((input) => {
-              expect(input.request.url).toBe(
-                "https://api.cloudflare.com/client/v4/accounts/test-account/ai/run/@cf/cloudflare/clef",
-              )
+              expect(input.request.url).toBe("https://api.cloudflare.com/client/v4/accounts/test-account/ai/run")
               expect(input.request.headers.authorization).toBe("Bearer cloudflare-key")
-              expect(JSON.parse(input.text)).toMatchObject({ model: "clef", questions: { "bad id": { type: "noul" } } })
+              expect(JSON.parse(input.text)).toEqual({
+                model: "@cf/cloudflare/clef",
+                input: {
+                  state: "refund",
+                  questions: { refund: { type: "noul", instructions: "Is a refund requested?" } },
+                },
+              })
               return Effect.succeed(
                 input.respond(
                   JSON.stringify({
                     errors: [
                       {
                         message:
-                          "AiError: AiError: Request body failed validation: questions.bad id.[key]: String should match pattern '^[A-Za-z0-9_.-]{1,100}$'",
-                        code: 3030,
+                          "Model execution failed (User Input Error): Validation error at questions: At least one question is required",
+                        code: 7003,
                       },
                     ],
                     success: false,
                     result: {},
                     messages: [],
                   }),
-                  { status: 422, headers: { "content-type": "application/json" } },
+                  { headers: { "content-type": "application/json" } },
                 ),
               )
             }),
