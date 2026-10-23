@@ -18,7 +18,7 @@ import { createMediaQuery } from "@solid-primitives/media"
 import { FileIcon } from "@opencode/ui/file-icon"
 import { Icon } from "@opencode/ui/icon"
 import { IconButton } from "@opencode/ui/icon-button"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { motionTuning } from "@opencode/ui/motion-tuning"
 import { ProviderModelIcon } from "@/providers/models/provider-group"
 import { useI18n } from "@opencode/ui/context/i18n"
@@ -1496,7 +1496,7 @@ function ComposerEditorSubmitButton(props: {
         tabIndex={props.mode === "normal" ? undefined : -1}
         icon={
           props.held && !props.stopping ? (
-            <Spinner class="size-4" />
+            <Loader class="size-4" />
           ) : (
             <Show
               when={props.stopping ? stopGlyph() : props.mode !== "shell" && sendGlyphs[icons.send]}

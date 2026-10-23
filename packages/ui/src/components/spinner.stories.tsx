@@ -2,8 +2,8 @@ import { Spinner, type SpinnerVariantName } from "./spinner"
 import { spinnerVariants } from "./spinner-variants"
 
 const docs = `### Overview
-Animated loading indicator for inline or page-level loading states. Tabs, \`Loader\`, \`ActivityRing\` and the
-titlebar update button all render it.
+Dot-matrix indicator for AI activity: a running session, turn, subagent or tool. Busy session tabs, \`ActivityRing\`
+and the session progress indicator render it. Other loading states use \`Loader\`.
 
 ### Variants and states
 - Soft Radar by default; Soft Radar (smooth) glides its sweep head between dots instead of stepping.

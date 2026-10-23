@@ -3,7 +3,7 @@ import { createStore } from "solid-js/store"
 import { AppIcon } from "@opencode/ui/app-icon"
 import { Icon } from "@opencode/ui/icon"
 import { Menu } from "@opencode/ui/menu"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { SplitButton, SplitButtonAction, SplitButtonMenuTrigger } from "@opencode/ui/split-button"
 import { showToast } from "@opencode/ui/toast"
 import { Tooltip } from "@opencode/ui/tooltip"
@@ -211,7 +211,7 @@ export default function OpenInAppButton(props: { session: MountedSession; screen
             aria-label={ctx.t("open.ariaLabel", { app: state.current().label })}
           >
             <Show when={state.opening()} fallback={<AppIcon id={state.current().icon} class="size-[18px]" />}>
-              <Spinner class="size-3.5" />
+              <Loader class="size-3.5" />
             </Show>
           </SplitButtonAction>
         </Tooltip>

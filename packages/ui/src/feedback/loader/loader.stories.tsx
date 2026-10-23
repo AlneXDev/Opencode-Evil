@@ -1,13 +1,13 @@
 import { Loader } from "./loader"
 
 const docs = `### Overview
-5×5 dot-grid loader for compact loading states.
+Circular v2 loader for compact loading states.
 
 ### API
 - Accepts standard SVG props.
 
 ### Behavior
-- Reuses the previous session progress indicator's 36-frame, 1.2-second animation.
+- The foreground ring covers 33% of the circumference and rotates continuously.
 
 ### Accessibility
 - Sets \`aria-hidden="true"\` by default.

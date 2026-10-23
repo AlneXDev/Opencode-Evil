@@ -8,7 +8,7 @@ import { arrayMove } from "@dnd-kit/helpers"
 import { Button } from "@opencode/ui/button"
 import { Icon } from "@opencode/ui/icon"
 import { IconButton } from "@opencode/ui/icon-button"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { Tooltip } from "@opencode/ui/tooltip"
 import { prefersReducedMotion } from "@opencode/ui/motion"
 import { useLanguage } from "@/runtime/i18n/language"
@@ -239,7 +239,7 @@ function SessionQueueRow(props: { queue: SessionQueueView; id: string; index: nu
             }}
           >
             <Show when={entry.pending}>
-              <Spinner class="size-3.5 text-v2-text-text-faint" />
+              <Loader class="size-3.5 text-v2-text-text-faint" />
             </Show>
             <Show when={!editing() && !entry.pending}>
               <Tooltip

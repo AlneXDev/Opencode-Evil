@@ -19,7 +19,7 @@ import { FileIcon } from "@opencode/ui/file-icon"
 import { ImagePreview } from "@opencode/ui/image-preview"
 import { SegmentedControl, SegmentedControlItem } from "@opencode/ui/segmented-control"
 import { ScrollView } from "@opencode/ui/scroll-view"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { Markdown } from "@opencode/session-ui/markdown"
 import { MarkdownProvider, useMarkdown } from "@opencode/session-ui/context/markdown"
 import { artifactKind, type ArtifactKind } from "@opencode/util/artifact"
@@ -319,7 +319,7 @@ function MediaLoading() {
       aria-label={ctx.t("common.loading")}
       class="pointer-events-none absolute inset-0 flex items-center justify-center text-text-weak"
     >
-      <Spinner class="size-4" />
+      <Loader class="size-4" />
     </div>
   )
 }

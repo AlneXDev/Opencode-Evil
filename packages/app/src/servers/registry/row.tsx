@@ -1,5 +1,5 @@
 import { Icon } from "@opencode/ui/icon"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { useLanguage } from "@/runtime/i18n/language"
 import { Show } from "solid-js"
 import type { ServerHealth } from "@/runtime/server/health"
@@ -40,7 +40,7 @@ export function ServerHealthIndicator(props: {
             aria-label={language.t("server.status.connecting")}
             class="inline-flex h-3.5 w-1.5 shrink-0 items-center justify-center text-v2-icon-icon-muted"
           >
-            <Spinner class="size-3 shrink-0" />
+            <Loader class="size-3 shrink-0" />
           </span>
         </Show>
       }

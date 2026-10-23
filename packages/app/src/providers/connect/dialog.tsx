@@ -4,7 +4,7 @@ import { useDialog } from "@opencode/ui/context/dialog"
 import { Icon } from "@opencode/ui/icon"
 import { RadioGroup, RadioItem } from "@opencode/ui/radio"
 import { Checkbox } from "@opencode/ui/checkbox"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { TextField } from "@opencode/ui/text-field"
 import { DialogBody, DialogHeader, DialogTitle, Dialog } from "@opencode/ui/dialog"
 import { TextInput } from "@opencode/ui/text-input"
@@ -1147,7 +1147,7 @@ function ProviderConnection(props: {
   function StatusRow(input: { children: JSX.Element }) {
     return (
       <div class="flex items-center gap-2 text-[13px] font-[440] leading-5 tracking-[-0.04px] text-v2-text-text-muted">
-        <Spinner class="size-4 shrink-0 text-v2-icon-icon-muted" />
+        <Loader class="size-4 shrink-0 text-v2-icon-icon-muted" />
         <span>{input.children}</span>
       </div>
     )

@@ -3,7 +3,7 @@ import { createEffect, createMemo, For, type JSX, onCleanup, Show } from "solid-
 import { createStore } from "solid-js/store"
 import { Icon } from "@opencode/ui/icon"
 import { useI18n } from "../../context/i18n"
-import { Spinner } from "../../components/spinner"
+import { Loader } from "../../feedback/loader/loader"
 import { createTypeahead } from "./controller"
 
 export { createTypeahead } from "./controller"
@@ -95,14 +95,14 @@ export function Typeahead<T>(props: {
   return (
     <div class="flex min-w-0 flex-col text-[13px] font-[440] leading-text-compact tracking-[-0.04px] text-v2-text-text-base">
       <div class="flex h-8 shrink-0 items-center gap-2 ps-3 pe-2">
-        {/* The spinner shares the glyph's slot and fades in only for requests slower than 150 ms. */}
+        {/* The loader shares the glyph's slot and fades in only for requests slower than 150 ms. */}
         <span
           data-pending={pending() ? "" : undefined}
           aria-hidden="true"
           class="group grid size-3.5 shrink-0 place-items-center text-v2-icon-icon-muted *:[grid-area:1/1] *:transition-opacity *:duration-150 data-[pending]:*:delay-150"
         >
           <Icon name="magnifying-glass" size="small" class="group-data-[pending]:opacity-0" />
-          <Spinner class="w-3 opacity-0 group-data-[pending]:opacity-100" />
+          <Loader class="size-3 opacity-0 group-data-[pending]:opacity-100" />
         </span>
         <input
           ref={input}

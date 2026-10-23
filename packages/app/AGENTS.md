@@ -59,6 +59,14 @@ Users choose three fonts in Settings > Appearance. Every surface uses one of the
 - Prefer weight tokens (`font-medium`, `var(--font-weight-medium)`) over literal weights. Mono at `600` or more renders IBM Plex Mono Bold, so reserve it for real emphasis.
 - Do not read font settings directly. `src/settings/model.tsx` writes them to the CSS variables above, and the extension host passes the terminal font through `appearance.font`.
 
+## Loading Indicators
+
+This section is the single source for loading indicators across `app`, `ui`, `session-ui`, `gui-extensions` and `desktop`.
+
+- The dot-matrix `Spinner` (`@opencode/ui/spinner`, and `SessionProgressIndicatorV2` and `ActivityRing`, which render it) means the AI is working: a running session, turn, subagent or tool call. Use it only for those states.
+- Every other loading state uses `Loader` (`@opencode/ui/loader`): page, pane and file loads, browser reload, search, connecting, authenticating, sending, installing. Use a purpose-built indicator only when the state has one, such as the titlebar update ring.
+- Choose the indicator at each call site. Never restyle a shared indicator (`Loader`, `ActivityRing`, `Spinner`) to look like another one; that silently changes every caller.
+
 ## Localization
 
 - NEVER hardcode user-visible English strings in production code. ALWAYS use an i18n key for visible copy, placeholders, accessible labels, tooltips, menus, dialogs, toasts, empty states, and displayed errors.

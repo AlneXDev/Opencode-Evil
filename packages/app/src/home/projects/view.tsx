@@ -12,7 +12,7 @@ import {
 import { Icon } from "@opencode/ui/icon"
 import { IconButton } from "@opencode/ui/icon-button"
 import { Button } from "@opencode/ui/button"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { Menu } from "@opencode/ui/menu"
 import { Tooltip } from "@opencode/ui/tooltip"
 import type { HomeProjectSelection, LocalProject } from "@/shell/state/layout"
@@ -276,7 +276,7 @@ function HomeProjectsPanel(props: HomeProjectsViewProps) {
                           onClick={() => props.onAuthenticateServer?.(item)}
                         >
                           <Show when={connecting()}>
-                            <Spinner class="size-3.5" />
+                            <Loader class="size-3.5" />
                           </Show>
                           {props.language.t(connecting() ? "server.status.connecting" : "server.action.authenticate")}
                         </Button>

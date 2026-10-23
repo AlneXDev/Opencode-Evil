@@ -3,7 +3,7 @@ import { Key } from "@solid-primitives/keyed"
 import { createEffect, createMemo, createSignal, For, Index, onCleanup, Show } from "solid-js"
 import { createStore, type SetStoreFunction } from "solid-js/store"
 import { InlineInput } from "@opencode/ui/inline-input"
-import { Spinner } from "@opencode/ui/spinner"
+import { Loader } from "@opencode/ui/loader"
 import { ScrollView } from "@opencode/ui/scroll-view"
 import { Button } from "@opencode/ui/button"
 import { Icon } from "@opencode/ui/icon"
@@ -300,7 +300,7 @@ function HomeSessionSearch(
                   when={!props.searchLoading}
                   fallback={
                     <div class="flex items-center justify-center px-4 py-3 text-v2-text-text-muted [font-weight:440]">
-                      <Spinner class="size-4" />
+                      <Loader class="size-4" />
                     </div>
                   }
                 >
