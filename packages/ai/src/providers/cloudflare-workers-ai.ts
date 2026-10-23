@@ -1,8 +1,10 @@
 import type { ProviderPackage } from "../provider-package.js"
+import { CloudflareWorkersAIImages } from "../protocols/cloudflare-workers-ai-images.js"
 import { OpenAIChat } from "../protocols/openai-chat.js"
 import { AuthOptions, type AtLeastOne, type ProviderAuthOption } from "../route/auth-options.js"
 import { Route, type RouteDefaultsInput } from "../route/client.js"
 import { Endpoint } from "../route/endpoint.js"
+import { MediaRoute } from "../route/media.js"
 import { ProviderConfigurationError, ProviderID, type ModelID } from "../schema/index.js"
 import type { OpenAIProviderOptionsInput } from "./openai-options.js"
 
@@ -26,6 +28,8 @@ export type Settings = ProviderPackage.Settings &
     readonly apiKey?: string
   }
 
+export type { CloudflareWorkersAIImageOptions } from "../protocols/cloudflare-workers-ai-images.js"
+
 export const baseURL = (input: WorkersAIURL) => {
   if (input.baseURL) return input.baseURL
   if (!input.accountId)
@@ -35,6 +39,9 @@ export const baseURL = (input: WorkersAIURL) => {
     })
   return `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(input.accountId)}/ai/v1`
 }
+
+/** The Run API (`/ai/run/{model}`) next to the OpenAI-compatible `/ai/v1` base. */
+export const runBaseURL = (input: WorkersAIURL) => baseURL(input).replace(/\/v1\/?$/, "/run")
 
 export const route = Route.make({
   id: "cloudflare-workers-ai",
@@ -49,14 +56,13 @@ export const routes = [route]
 
 export const configure = (input: LanguageModelOptions) => {
   const { accountId: _accountId, apiKey: _apiKey, auth: _auth, baseURL: _baseURL, ...defaults } = input
-  const configured = route.with({
-    ...defaults,
-    endpoint: { baseURL: baseURL(input) },
-    auth: AuthOptions.bearer(input, authEnvVars),
-  })
+  const auth = AuthOptions.bearer(input, authEnvVars)
+  const configured = route.with({ ...defaults, endpoint: { baseURL: baseURL(input) }, auth })
+  const media = MediaRoute.deployment({ ...input, baseURL: runBaseURL(input) }, auth)
   return {
     id,
     model: (modelID: string | ModelID) => configured.model<OpenAIProviderOptionsInput>({ id: modelID }),
+    image: (modelID: string | ModelID) => CloudflareWorkersAIImages.model({ ...media, id: modelID }),
     configure,
   }
 }

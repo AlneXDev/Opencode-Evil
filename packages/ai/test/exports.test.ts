@@ -178,6 +178,11 @@ describe("public exports", () => {
     expect(Meta.provider.image).toBe(Meta.image)
     expect(ZAI.configure({ apiKey: "fixture" }).image("glm-image").route.id).toBe("zai-images")
     expect(ZAI.provider.image).toBe(ZAI.image)
+    expect(
+      CloudflareWorkersAI.configure({ accountId: "fixture", apiKey: "fixture" }).image(
+        "@cf/black-forest-labs/flux-1-schnell",
+      ).route.id,
+    ).toBe("cloudflare-workers-ai-images")
     expect(XAI.configure({ apiKey: "fixture" }).video("grok-imagine-video-1.5").route.id).toBe("xai-video")
     expect(XAI.provider.video).toBe(XAI.video)
     expect(Google.configure({ apiKey: "fixture" }).video("veo-3.1-generate-preview").route.id).toBe("google-video")
