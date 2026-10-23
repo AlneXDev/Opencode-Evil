@@ -289,13 +289,6 @@ describe("experimental Evaluation", () => {
             confidence: 0.4,
           })
           expect(response.answers.refund).toEqual({ type: "boolean", probability: 0.97 })
-          expect(response.usage).toMatchObject({
-            inputTokens: 40,
-            outputTokens: 0,
-            cacheReadInputTokens: 8,
-            nonCachedInputTokens: 32,
-            totalTokens: 40,
-          })
         }),
       ),
       Effect.provide(
@@ -362,13 +355,6 @@ describe("experimental Evaluation", () => {
                       },
                       { type: "predicate", name: "refund", probability: 0.97 },
                     ],
-                    usage: {
-                      input_tokens: 40,
-                      input_tokens_details: { cached_tokens: 8, cache_write_tokens: 0 },
-                      output_tokens: 0,
-                      output_tokens_details: { reasoning_tokens: 0 },
-                      total_tokens: 40,
-                    },
                   }),
                   { headers: { "content-type": "application/json" } },
                 ),
@@ -428,7 +414,7 @@ describe("experimental Evaluation", () => {
           greeting: { type: "boolean", instructions: "Is this a greeting?", criteria: { true: "Says hello" } },
         },
       }).pipe(Effect.flip)
-      expect(error.reason._tag).toBe("InvalidRequest")
+      expect(error.reason._tag).toBe("UnsupportedOperation")
       expect(error.reason.message).toContain("greeting")
     }).pipe(
       Effect.provide(

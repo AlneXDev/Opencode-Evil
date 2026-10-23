@@ -3,6 +3,7 @@ import type { HttpClientResponse } from "effect/http"
 import {
   EvaluationModel,
   EvaluationResponse,
+  EvaluationRounding,
   type EvaluationAnswer,
   type EvaluationInput,
   type EvaluationRequestFor,
@@ -11,7 +12,7 @@ import { OpenResponses } from "../protocols/open-responses.js"
 import { Endpoint } from "../route/endpoint.js"
 import { MediaProtocol } from "../route/media-protocol.js"
 import { MediaRoute } from "../route/media.js"
-import { AIError, InvalidRequestError, ModelID, mergeJsonRecords, type OpenString } from "../schema/index.js"
+import { ModelID, mergeJsonRecords, type OpenString } from "../schema/index.js"
 import { encodeJson } from "../utils/json.js"
 
 const route = MediaProtocol.identity({ id: "openai-decisions", name: "OpenAI Decisions", provider: "openai" })
@@ -19,12 +20,11 @@ export const DEFAULT_BASE_URL = "https://api.openai.com/v1"
 export const PATH = "/decisions"
 
 /** Native body fields, sent as given. */
-export interface OpenAIDecisionOptions {
-  readonly [key: string]: unknown
+export type OpenAIDecisionOptions = {
   readonly prompt_cache_key?: string
   readonly prompt_cache_options?: Readonly<{ mode?: OpenString<"implicit" | "explicit">; ttl?: OpenString<"30m"> }>
   readonly safety_identifier?: string
-}
+} & Record<string, unknown>
 
 type Request = EvaluationRequestFor<OpenAIDecisionOptions>
 
@@ -54,29 +54,20 @@ const Response = Schema.Struct({
 })
 
 const fromRequest = Effect.fn("OpenAIDecisions.fromRequest")(function* (request: Request) {
-  // Predicates take instructions only, so boolean criteria would be silently dropped.
   const criteria = Object.entries(request.questions).flatMap(([name, question]) =>
     question.type === "boolean" && question.criteria !== undefined ? [name] : [],
   )
   if (criteria.length > 0)
-    return yield* new AIError({
-      reason: new InvalidRequestError({
-        message: `${route.name} predicates do not support boolean criteria: ${criteria.join(", ")}`,
-        parameter: "questions",
-      }),
-    })
+    return yield* route.unsupported(
+      "evaluation.criteria",
+      `${route.name} boolean questions take instructions only; remove criteria from ${criteria.join(", ")}`,
+    )
   return MediaProtocol.json({
     ...mergeJsonRecords(request.options, request.http?.body),
     model: request.model.id,
-    input:
-      typeof request.state === "string"
-        ? request.state
-        : [{ role: "user", content: [{ type: "input_json", data: request.state }] }],
+    input: typeof request.state === "string" ? request.state : [{ role: "user", content: json(request.state) }],
     questions: Object.entries(request.questions).map(([name, question]) => {
-      const instructions =
-        typeof question.instructions === "string"
-          ? question.instructions
-          : [{ type: "input_json", data: question.instructions }]
+      const instructions = typeof question.instructions === "string" ? question.instructions : json(question.instructions)
       if (question.type === "boolean") return { type: "predicate", name, instructions }
       if (question.type === "choice")
         return {
@@ -102,6 +93,7 @@ const fromRequest = Effect.fn("OpenAIDecisions.fromRequest")(function* (request:
   })
 })
 
+const json = (data: EvaluationInput) => [{ type: "input_json", data }]
 const text = (value: EvaluationInput) => (typeof value === "string" ? value : encodeJson(value))
 
 const decodeDocument = route.decodeJson(Response)
@@ -126,6 +118,7 @@ const decodeResponse = Effect.fn("OpenAIDecisions.decodeResponse")(function* (
       }),
     ),
     usage: OpenResponses.mapUsage(output.value.usage, "openai"),
+    rounding: new EvaluationRounding({ probabilityDecimals: 2, scoreDecimals: 2 }),
   })
 })
 
