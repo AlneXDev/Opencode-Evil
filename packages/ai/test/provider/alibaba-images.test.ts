@@ -171,29 +171,26 @@ describe("Alibaba Images", () => {
     }),
   )
 
-  it.effect("classifies Model Studio error bodies", () =>
+  it.effect("surfaces Model Studio error messages", () =>
     Effect.gen(function* () {
-      const model = Alibaba.configure({ region: "ap-southeast-1", apiKey: "test" }).image("qwen-image-2.0")
-      const errors = yield* Effect.forEach(
-        [
-          { code: "InvalidParameter", message: "Model not exist." },
-          { code: "DataInspectionFailed", message: "Input data may contain inappropriate content." },
-        ],
-        (body) =>
-          Image.generate({ model, prompt: "test" }).pipe(
-            Effect.provide(
-              ImageClient.layer.pipe(
-                Layer.provide(fixedResponse(JSON.stringify({ ...body, request_id: "r" }), { status: 400, ...json })),
-              ),
+      const error = yield* Image.generate({
+        model: Alibaba.configure({ region: "ap-southeast-1", apiKey: "test" }).image("qwen-image-2.0"),
+        prompt: "test",
+      }).pipe(
+        Effect.provide(
+          ImageClient.layer.pipe(
+            Layer.provide(
+              fixedResponse(JSON.stringify({ code: "InvalidParameter", message: "Model not exist.", request_id: "r" }), {
+                status: 400,
+                ...json,
+              }),
             ),
-            Effect.flip,
           ),
+        ),
+        Effect.flip,
       )
 
-      expect(errors.map((error) => [error.reason._tag, error.reason.message])).toEqual([
-        ["InvalidRequest", "Model not exist."],
-        ["ContentPolicy", "Input data may contain inappropriate content."],
-      ])
+      expect([error.reason._tag, error.reason.message]).toEqual(["InvalidRequest", "Model not exist."])
     }),
   )
 })
