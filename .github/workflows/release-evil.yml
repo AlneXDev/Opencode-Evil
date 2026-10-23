@@ -1,0 +1,70 @@
+﻿name: Build and Release OpenCode Evil (Windows)
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., 1.19.4-evil-r4)'
+        required: true
+        default: '1.19.4-evil-r4'
+  push:
+    tags:
+      - 'v*-evil-*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    env:
+      OPENCODE_VERSION: ${{ github.event.inputs.version || github.ref_name }}
+      OPENCODE_CHANNEL: prod
+      MODELS_DEV_API_JSON: ${{ github.workspace }}\evil\models-dev-zenlegacy-130.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build desktop (renderer/main)
+        working-directory: packages/desktop
+        run: bun run build
+
+      - name: Package Windows (evil standalone)
+        working-directory: packages/desktop
+        run: bunx electron-builder --win --config electron-builder.evil-standalone.config.ts
+
+      - name: Generate checksums
+        working-directory: packages/desktop/dist-evil
+        shell: pwsh
+        run: |
+          Get-ChildItem -File *.exe, *.blockmap | ForEach-Object {
+            (Get-FileHash $_.FullName -Algorithm SHA256).Hash + '  ' + $_.Name
+          } | Out-File -FilePath SHA256SUMS.txt -Encoding ascii
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version || github.ref_name }}
+          name: OpenCode Evil ${{ github.event.inputs.version || github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            packages/desktop/dist-evil/*.exe
+            packages/desktop/dist-evil/*.blockmap
+            packages/desktop/dist-evil/SHA256SUMS.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
