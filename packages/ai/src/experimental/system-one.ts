@@ -47,14 +47,9 @@ const Question = Schema.Union([
   ),
   Noul,
 ])
-const Request = Schema.StructWithRest(
-  Schema.Struct({
-    model: Schema.String,
-    state: EvaluationInput,
-    questions: Schema.Record(Schema.String, Question),
-  }),
-  [JsonObject],
-)
+const Input = Schema.Struct({ state: EvaluationInput, questions: Schema.Record(Schema.String, Question) })
+const Request = Schema.StructWithRest(Schema.Struct({ model: Schema.String, ...Input.fields }), [JsonObject])
+const RunRequest = Schema.Struct({ model: Schema.String, input: Schema.StructWithRest(Input, [JsonObject]) })
 
 const Probability = Schema.Number.check(Schema.isBetween({ minimum: 0, maximum: 1 }))
 const NoulAnswer = Schema.Struct({ type: Schema.Literal("noul"), noul: Probability })
@@ -87,6 +82,10 @@ const Response = Schema.Struct({
   provider: Schema.optional(Schema.String),
   provider_metadata: Schema.optional(ProviderMetadata),
 })
+// Cloudflare third-party models wrap the answer in a run record.
+const RunResponse = Schema.Struct({
+  result: Schema.Union([Response, Schema.Struct({ state: Schema.Literal("Completed"), result: Response })]),
+})
 
 export interface ModelInput {
   readonly id: string | ModelID
@@ -96,6 +95,11 @@ export interface ModelInput {
   readonly baseURL: string
   readonly headers?: Record<string, string>
   readonly http?: HttpOptions
+  /**
+   * Cloudflare `/ai/run` at `baseURL`. `path` posts the System One body to `{baseURL}/{id}` with `model` set to the
+   * id's last segment. `input` posts `{ model: id, input }` to `baseURL`. Both unwrap the `{ result }` envelope.
+   */
+  readonly cloudflareRun?: "path" | "input"
 }
 
 export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg: ModelInput) =>
@@ -107,16 +111,30 @@ export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg
       id: "system-one",
       evaluate: (req, send) =>
         Effect.gen(function* () {
-          const url = new URL(`${cfg.baseURL.replace(/\/$/, "")}/systemone`)
+          const base = cfg.baseURL.replace(/\/$/, "")
+          const url = new URL(
+            cfg.cloudflareRun === "path"
+              ? `${base}/${req.model.id}`
+              : cfg.cloudflareRun === "input"
+                ? base
+                : `${base}/systemone`,
+          )
           Object.entries(req.http?.query ?? {}).forEach(([key, value]) => url.searchParams.set(key, value))
-          const body = yield* Schema.encodeUnknownEffect(Schema.fromJsonString(Request))({
+          const input = {
             ...mergeJsonRecords(req.options, req.http?.body),
-            model: req.model.id,
             state: req.state,
             questions: Object.fromEntries(
               Object.entries(req.questions).map(([id, x]) => [id, x.type === "boolean" ? { ...x, type: "noul" } : x]),
             ),
-          }).pipe(
+          }
+          const body = yield* (
+            cfg.cloudflareRun === "input"
+              ? Schema.encodeUnknownEffect(Schema.fromJsonString(RunRequest))({ model: req.model.id, input })
+              : Schema.encodeUnknownEffect(Schema.fromJsonString(Request))({
+                  ...input,
+                  model: cfg.cloudflareRun === "path" ? req.model.id.split("/").at(-1) : req.model.id,
+                })
+          ).pipe(
             Effect.mapError(
               (cause) => new AIError({ reason: new InvalidRequestError({ message: cause.message, cause }) }),
             ),
@@ -140,9 +158,13 @@ export const model = <Options extends EvaluationOptions = EvaluationOptions>(cfg
           const text = yield* res.text.pipe(
             Effect.mapError((cause) => fail("Failed to read the System One response", cause)),
           )
-          const data = yield* Schema.decodeUnknownEffect(Schema.fromJsonString(Response))(text).pipe(
-            Effect.mapError((cause) => fail("System One returned an invalid response", cause, text)),
-          )
+          const data = yield* (
+            cfg.cloudflareRun === undefined
+              ? Schema.decodeUnknownEffect(Schema.fromJsonString(Response))(text)
+              : Schema.decodeUnknownEffect(Schema.fromJsonString(RunResponse))(text).pipe(
+                  Effect.map((x) => ("answers" in x.result ? x.result : x.result.result)),
+                )
+          ).pipe(Effect.mapError((cause) => fail("System One returned an invalid response", cause, text)))
 
           const legend: Record<string, Record<string, Schema.Json>> = {}
           const answers = Object.fromEntries(

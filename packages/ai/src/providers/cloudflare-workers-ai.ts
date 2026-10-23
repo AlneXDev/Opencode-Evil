@@ -1,9 +1,10 @@
 import type { ProviderPackage } from "../provider-package.js"
+import { SystemOne } from "../experimental/system-one.js"
 import { OpenAIChat } from "../protocols/openai-chat.js"
 import { AuthOptions, type AtLeastOne, type ProviderAuthOption } from "../route/auth-options.js"
 import { Route, type RouteDefaultsInput } from "../route/client.js"
 import { Endpoint } from "../route/endpoint.js"
-import { ProviderConfigurationError, ProviderID, type ModelID } from "../schema/index.js"
+import { HttpOptions, ProviderConfigurationError, ProviderID, type ModelID } from "../schema/index.js"
 import type { OpenAIProviderOptionsInput } from "./openai-options.js"
 
 export const id = ProviderID.make("cloudflare-workers-ai")
@@ -54,9 +55,21 @@ export const configure = (input: LanguageModelOptions) => {
     endpoint: { baseURL: baseURL(input) },
     auth: AuthOptions.bearer(input, authEnvVars),
   })
+  const evaluation = (modelID: string | ModelID) =>
+    SystemOne.model({
+      id: modelID,
+      provider: id,
+      providerMetadataKey: "cloudflare-workers-ai",
+      auth: AuthOptions.bearer(input, authEnvVars),
+      baseURL: baseURL(input).replace(/\/v1\/?$/, "/run"),
+      headers: input.headers,
+      http: HttpOptions.make(input.http),
+      cloudflareRun: "path",
+    })
   return {
     id,
     model: (modelID: string | ModelID) => configured.model<OpenAIProviderOptionsInput>({ id: modelID }),
+    experimental: { evaluation },
     configure,
   }
 }

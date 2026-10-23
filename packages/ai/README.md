@@ -193,6 +193,15 @@ VercelAIGateway.configure().experimental.evaluation("typesafe-ai/jev")
 ```
 
 OpenRouter reads `OPENROUTER_API_KEY`. Vercel reads `AI_GATEWAY_API_KEY`, then `VERCEL_OIDC_TOKEN`.
+Cloudflare serves its Clef models through Workers AI and TypeSafe Jev through AI Gateway, both on `/ai/run`:
+
+```ts
+import { CloudflareAIGateway, CloudflareWorkersAI } from "@opencode/ai/providers"
+
+CloudflareWorkersAI.configure({ accountId }).experimental.evaluation("@cf/cloudflare/clef")
+CloudflareAIGateway.configure({ accountId }).experimental.evaluation("typesafe/jev")
+```
+
 The common API uses `boolean`; System One routes lower it to native `noul`.
 Choice and score answers include `confidence` when the provider returns it, such as
 `response.answers.department.confidence`. Score legends remain available in provider metadata, and

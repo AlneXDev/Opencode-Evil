@@ -1,10 +1,11 @@
 import type { Config, Redacted } from "effect"
 import type { ProviderPackage } from "../provider-package.js"
+import { SystemOne } from "../experimental/system-one.js"
 import { AnthropicMessages, OpenAIChat, OpenAIResponses } from "../protocols/index.js"
 import { Auth } from "../route/auth.js"
 import type { AtLeastOne, ProviderAuthOption } from "../route/auth-options.js"
 import type { RouteDefaultsInput } from "../route/client.js"
-import { ProviderConfigurationError, ProviderID, type ModelID } from "../schema/index.js"
+import { HttpOptions, ProviderConfigurationError, ProviderID, type ModelID } from "../schema/index.js"
 import { encodeJson } from "../utils/json.js"
 import type { OpenAIProviderOptionsInput } from "./openai-options.js"
 
@@ -118,6 +119,17 @@ export const configure = (input: LanguageModelOptions) => {
   const responses = responsesRoute.with(passthrough("openai"))
   const messages = messagesRoute.with(passthrough("anthropic/v1"))
   const chat = route.with(rest)
+  const evaluation = (value: string | ModelID) =>
+    SystemOne.model({
+      id: value,
+      provider: id,
+      providerMetadataKey: "cloudflare-ai-gateway",
+      auth: rest.auth,
+      baseURL: rest.endpoint.baseURL.replace(/\/v1\/?$/, "/run"),
+      headers: rest.headers,
+      http: HttpOptions.make(input.http),
+      cloudflareRun: "input",
+    })
   return {
     id,
     model: (value: string | ModelID) => {
@@ -131,6 +143,7 @@ export const configure = (input: LanguageModelOptions) => {
         return chat.model<OpenAIProviderOptionsInput>({ id: value.slice("workers-ai/".length) })
       return chat.model<OpenAIProviderOptionsInput>({ id: value })
     },
+    experimental: { evaluation },
     configure,
   }
 }
