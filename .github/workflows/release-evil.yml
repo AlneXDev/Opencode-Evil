@@ -1,4 +1,4 @@
-﻿name: Build and Release OpenCode Evil (Windows)
+﻿name: Build and Release OpenCode Evil (All Platforms)
 
 on:
   workflow_dispatch:
@@ -11,15 +11,30 @@ on:
     tags:
       - 'v*-evil-*'
 
+permissions:
+  contents: write
+
 jobs:
-  build-windows:
-    runs-on: windows-latest
-    permissions:
-      contents: write
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            config: electron-builder.evil-standalone.config.ts
+            artifact_glob: "packages/desktop/dist-evil/*"
+          - os: ubuntu-latest
+            config: electron-builder.evil-standalone.config.ts
+            artifact_glob: "packages/desktop/dist-evil/*"
+          - os: macos-latest
+            config: electron-builder.evil-standalone.config.ts
+            artifact_glob: "packages/desktop/dist-evil/*"
+
+    runs-on: ${{ matrix.os }}
     env:
       OPENCODE_VERSION: ${{ github.event.inputs.version || github.ref_name }}
       OPENCODE_CHANNEL: prod
-      MODELS_DEV_API_JSON: ${{ github.workspace }}\evil\models-dev-zenlegacy-130.json
+      MODELS_DEV_API_JSON: ${{ github.workspace }}/evil/models-dev-zenlegacy-130.json
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,24 +51,54 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Install dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libxss1 libasound2t64
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build desktop (renderer/main)
+      - name: Build desktop
         working-directory: packages/desktop
         run: bun run build
 
-      - name: Package Windows (evil standalone)
+      - name: Package
         working-directory: packages/desktop
-        run: bunx electron-builder --win --config electron-builder.evil-standalone.config.ts
+        run: bunx electron-builder --${{ runner.os == 'Windows' && 'win' || runner.os == 'Linux' && 'linux' || 'mac' }} --config ${{ matrix.config }}
 
       - name: Generate checksums
         working-directory: packages/desktop/dist-evil
-        shell: pwsh
+        shell: bash
         run: |
-          Get-ChildItem -File *.exe, *.blockmap | ForEach-Object {
-            (Get-FileHash $_.FullName -Algorithm SHA256).Hash + '  ' + $_.Name
-          } | Out-File -FilePath SHA256SUMS.txt -Encoding ascii
+          shasum -a 256 * 2>/dev/null | tee SHA256SUMS.txt || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencode-evil-${{ runner.os }}-${{ github.event.inputs.version || github.ref_name }}
+          path: |
+            packages/desktop/dist-evil/*
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Generate combined checksums
+        shell: bash
+        run: |
+          cd artifacts
+          shasum -a 256 * 2>/dev/null | tee SHA256SUMS-all.txt
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -63,8 +108,6 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            packages/desktop/dist-evil/*.exe
-            packages/desktop/dist-evil/*.blockmap
-            packages/desktop/dist-evil/SHA256SUMS.txt
+            artifacts/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
