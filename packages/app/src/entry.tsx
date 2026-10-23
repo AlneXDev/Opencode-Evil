@@ -1,6 +1,6 @@
 // @refresh reload
 
-import * as Sentry from "@sentry/solid"
+import * as Sentry from "@/sentry-disabled"
 import { render } from "solid-js/web"
 import { AppBaseProviders, AppInterface } from "@/app"
 import { loadInitialLocale } from "@/context/language"

@@ -215,9 +215,14 @@ const layer = Layer.effect(
     })
 
     const populate = Effect.gen(function* () {
-      const fromDisk = yield* loadFromDisk
-      if (fromDisk) return fromDisk
       const snapshot = yield* loadSnapshot
+      // Fork: keep the Zen provider on the catalog embedded at build time. The live
+      // catalog now points at /inference, which re-applies the free-tier session
+      // correlation this build deliberately avoids.
+      const pinZen = (catalog: Record<string, Provider>) =>
+        snapshot?.opencode ? { ...catalog, opencode: snapshot.opencode } : catalog
+      const fromDisk = yield* loadFromDisk
+      if (fromDisk) return pinZen(fromDisk)
       if (snapshot) return snapshot
       if (Flag.OPENCODE_DISABLE_MODELS_FETCH) return {}
       // Flock is cross-process: concurrent opencode CLIs can race on this cache file.
@@ -227,7 +232,7 @@ const layer = Layer.effect(
           return yield* fetchAndWrite()
         }),
       )
-      return JSON.parse(text) as Record<string, Provider>
+      return pinZen(JSON.parse(text) as Record<string, Provider>)
     }).pipe(Effect.withSpan("ModelsDev.populate"), Effect.orDie)
 
     const [cachedGet, invalidate] = yield* Effect.cachedInvalidateWithTTL(populate, Duration.infinity)

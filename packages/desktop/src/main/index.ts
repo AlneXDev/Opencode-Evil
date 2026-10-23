@@ -53,12 +53,12 @@ import { setNativeTranslations } from "./native-translations"
 const APP_NAMES: Record<string, string> = {
   dev: "OpenCode Dev",
   beta: "OpenCode Beta",
-  prod: "OpenCode",
+  prod: "OpenCode Evil",
 }
 const APP_IDS: Record<string, string> = {
   dev: "ai.opencode.desktop.dev",
   beta: "ai.opencode.desktop.beta",
-  prod: "ai.opencode.desktop",
+  prod: "ai.opencode.desktop.evil",
 }
 const TEST_ONBOARDING = process.env.OPENCODE_TEST_ONBOARDING === "1"
 const SIDECAR_VERSION = process.env.OPENCODE_SIDECAR_V2 === "1" ? "v2" : "v1"
@@ -145,6 +145,9 @@ const main = Effect.gen(function* () {
     onboardingTestRoot ? join(onboardingTestRoot, "desktop") : join(app.getPath("appData"), appId),
   )
   if (onboardingTestRoot) app.setPath("sessionData", join(onboardingTestRoot, "session"))
+  // Shares the global config and credentials with other OpenCode installs, but never
+  // writes the database they own: the stock app's DB must not be migrated by this fork.
+  if (app.isPackaged && !process.env.OPENCODE_DB) process.env.OPENCODE_DB = join(app.getPath("userData"), "opencode.db")
   initializeOldLayoutEligibility(app.getPath("userData"))
   logger = initLogging()
   initCrashReporter()
@@ -268,7 +271,9 @@ const main = Effect.gen(function* () {
       }),
     ),
   )
-  app.setAsDefaultProtocolClient("opencode")
+  // Evil fork installs side by side with stock OpenCode, so it must not steal the
+  // shared opencode:// handler from the user's existing install unless opted in.
+  if (process.env.OPENCODE_EVIL_PROTOCOL === "1") app.setAsDefaultProtocolClient("opencode")
   registerRendererProtocol()
   setDockIcon()
   const updater = setupAutoUpdater(stopSidecars)

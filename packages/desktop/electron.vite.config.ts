@@ -1,4 +1,5 @@
-import { sentryVitePlugin } from "@sentry/vite-plugin"
+// evil-opencode: telemetry disabled at build time
+const sentryVitePlugin = (..._args: unknown[]) => false
 import { defineConfig } from "electron-vite"
 import appPlugin from "@opencode-ai/app/vite"
 import * as fs from "node:fs/promises"

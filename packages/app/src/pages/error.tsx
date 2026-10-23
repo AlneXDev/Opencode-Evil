@@ -1,5 +1,5 @@
 import { TextField } from "@opencode-ai/ui/text-field"
-import * as Sentry from "@sentry/solid"
+import * as Sentry from "@/sentry-disabled"
 import { Logo } from "@opencode-ai/ui/logo"
 import { Button } from "@opencode-ai/ui/button"
 import { Component, createSignal, onMount, Show } from "solid-js"
@@ -304,7 +304,7 @@ export const ErrorPage: Component<ErrorPageProps> = (props) => {
               {language.t("error.page.action.exportLogs")}
             </Button>
           </Show>
-          <Show when={Sentry.isEnabled}>
+          <Show when={Sentry.isEnabled()}>
             {(_) => {
               const [reported, setReported] = createSignal(false)
               return (

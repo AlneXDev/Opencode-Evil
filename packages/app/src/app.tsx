@@ -1,5 +1,5 @@
 import "@/index.css"
-import * as Sentry from "@sentry/solid"
+import * as Sentry from "@/sentry-disabled"
 import { I18nProvider } from "@opencode-ai/ui/context"
 import { DialogProvider } from "@opencode-ai/ui/context/dialog"
 import { FileComponentProvider } from "@opencode-ai/ui/context/file"

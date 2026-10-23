@@ -1,4 +1,5 @@
-import { sentryVitePlugin } from "@sentry/vite-plugin"
+// evil-opencode: telemetry disabled at build time
+const sentryVitePlugin = (..._args: unknown[]) => false
 import { defineConfig } from "vite"
 import desktopPlugin from "./vite"
 
