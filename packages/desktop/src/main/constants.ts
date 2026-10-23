@@ -11,13 +11,13 @@ export const VERSION = app.isPackaged ? app.getVersion() : (process.env.OPENCODE
 const appNames: Record<string, string> = {
   dev: "OpenCode Dev",
   beta: "OpenCode Beta",
-  prod: "OpenCode",
+  prod: "OpenCode Evil",
 }
 
 const appIDs: Record<string, string> = {
   dev: "ai.opencode.desktop.dev",
   beta: "ai.opencode.desktop.beta",
-  prod: "ai.opencode.desktop",
+  prod: "ai.opencode.desktop.evil",
 }
 
 // Local renderer/server mode keeps the dev application identity.

@@ -1,0 +1,199 @@
+name: Build and Release OpenCode Evil v2
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "OpenCode app version (semver, e.g. 2.1.3)"
+        required: true
+        default: "2.1.3"
+      tag:
+        description: "Release tag (e.g. v2.1.3-evil-r1)"
+        required: true
+        default: "v2.1.3-evil-r1"
+  push:
+    tags:
+      - "v*-evil-*"
+
+permissions:
+  contents: write
+
+env:
+  OPENCODE_CHANNEL: prod
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.meta.outputs.version }}
+      tag: ${{ steps.meta.outputs.tag }}
+    steps:
+      - name: Resolve version and tag
+        id: meta
+        shell: bash
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            V="${{ github.event.inputs.version }}"
+            T="${{ github.event.inputs.tag }}"
+          else
+            T="${{ github.ref_name }}"
+            V="${T%%-evil-*}"
+            V="${V#v}"
+          fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "tag=$T" >> "$GITHUB_OUTPUT"
+          echo "Releasing OpenCode Evil $V as $T"
+
+  build-cli:
+    needs: meta
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Bun
+        uses: ./.github/actions/setup-bun
+        with:
+          bun-version: 1.4.4
+
+      - name: Build CLI binaries
+        run: bun ./packages/cli/script/build.ts
+        env:
+          BUN_COMPILE_RELEASE: bun-v1.4.4
+          OPENCODE_CHANNEL: prod
+          OPENCODE_VERSION: ${{ needs.meta.outputs.version }}
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload CLI binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencode-evil-cli
+          path: packages/cli/dist/cli-*
+          if-no-files-found: error
+          retention-days: 7
+
+  build-desktop:
+    needs:
+      - meta
+      - build-cli
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            platform_flag: --win --x64
+            artifact: windows-x64
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            platform_flag: --linux --x64
+            artifact: linux-x64
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            platform_flag: --mac --arm64
+            artifact: mac-arm64
+          - os: macos-15-intel
+            target: x86_64-apple-darwin
+            platform_flag: --mac --x64
+            artifact: mac-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download CLI binaries
+        uses: actions/download-artifact@v4
+        with:
+          name: opencode-evil-cli
+          path: packages/cli/dist
+
+      - name: Setup Bun
+        uses: ./.github/actions/setup-bun
+        with:
+          bun-version: 1.4.4
+
+      - name: Install Linux packaging tools
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends rpm
+
+      - name: Prepare desktop
+        working-directory: packages/desktop
+        run: bun ./scripts/prepare.ts
+        env:
+          OPENCODE_VERSION: ${{ needs.meta.outputs.version }}
+          OPENCODE_CHANNEL: prod
+          OPENCODE_CLI_TARGET: ${{ matrix.target }}
+          OPENCODE_CLI_DIST: ${{ github.workspace }}/packages/cli/dist
+
+      - name: Build desktop
+        working-directory: packages/desktop
+        run: bun run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+          OPENCODE_VERSION: ${{ needs.meta.outputs.version }}
+          OPENCODE_CHANNEL: prod
+          OPENCODE_CLI_TARGET: ${{ matrix.target }}
+          OPENCODE_CLI_DIST: ${{ github.workspace }}/packages/cli/dist
+
+      - name: Package
+        working-directory: packages/desktop
+        run: bunx electron-builder ${{ matrix.platform_flag }} --publish never --config electron-builder.evil.config.ts
+        timeout-minutes: 60
+        env:
+          OPENCODE_CHANNEL: prod
+          OPENCODE_CLI_TARGET: ${{ matrix.target }}
+          OPENCODE_CLI_DIST: ${{ github.workspace }}/packages/cli/dist
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload desktop artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencode-evil-desktop-${{ matrix.artifact }}
+          path: packages/desktop/dist-evil/*
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    needs:
+      - meta
+      - build-desktop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: opencode-evil-desktop-*
+          path: artifacts
+          merge-multiple: true
+
+      - name: Generate checksums
+        run: |
+          cd artifacts
+          find . -maxdepth 1 -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.meta.outputs.tag }}
+          name: OpenCode Evil ${{ needs.meta.outputs.version }}
+          body: |
+            OpenCode Evil v2 desktop build for Windows, Linux, and macOS.
+
+            - Side-by-side application ID `ai.opencode.desktop.evil`; installs alongside stock OpenCode.
+            - Windows and macOS builds are unsigned. Expect SmartScreen or Gatekeeper warnings.
+            - The updater is disabled by default. New builds are published on this releases page.
+          fail_on_unmatched_files: true
+          files: artifacts/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

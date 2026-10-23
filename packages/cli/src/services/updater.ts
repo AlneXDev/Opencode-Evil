@@ -13,6 +13,11 @@ import { errorMessage } from "../util/error"
 
 export const methods = ["curl", "npm", "pnpm", "bun", "yarn", "vp", "brew", "winget"] as const
 
+// OpenCode Evil releases are desktop installers, not npm packages or curl installs.
+// Never follow the upstream update channel from an Evil build.
+const EVIL_BUILD = true
+const EVIL_RELEASES_URL = "https://github.com/AlneXDev/Opencode-Evil/releases"
+
 export type Method = (typeof methods)[number]
 export type RunResult = { readonly type: "available" | "installed"; readonly version: string }
 export type CheckResult = RunResult | { readonly type: "unavailable"; readonly message: string }
@@ -359,11 +364,13 @@ const make = Effect.gen(function* () {
   })
 
   const latest = (selected?: Method) =>
-    (selected ? Effect.succeed(selected) : method()).pipe(
-      Effect.flatMap((method) =>
-        method === "winget" ? wingetVersion() : release(method).pipe(Effect.map((data) => data.version)),
-      ),
-    )
+    EVIL_BUILD
+      ? Effect.fail(new Error(`OpenCode Evil updates are published at ${EVIL_RELEASES_URL}.`))
+      : (selected ? Effect.succeed(selected) : method()).pipe(
+          Effect.flatMap((method) =>
+            method === "winget" ? wingetVersion() : release(method).pipe(Effect.map((data) => data.version)),
+          ),
+        )
 
   const temporaryDirectory = (prefix: string) =>
     Effect.acquireRelease(fs.makeTempDirectory({ directory: global.cache, prefix }), (directory) =>
@@ -423,6 +430,8 @@ const make = Effect.gen(function* () {
   }
 
   const upgrade = Effect.fnUntraced(function* (method: Method, input: string) {
+    if (EVIL_BUILD)
+      return yield* Effect.fail(new Error(`OpenCode Evil updates are published at ${EVIL_RELEASES_URL}.`))
     if (!parseReleaseVersion(input)) return yield* Effect.fail(new Error(`Invalid version: ${input}`))
     const version = input.trim().replace(/^v/, "")
     const packageName =
@@ -531,6 +540,15 @@ const make = Effect.gen(function* () {
   })
 
   const inspect = Effect.fnUntraced(function* () {
+    if (EVIL_BUILD) {
+      yield* Effect.logInfo("update check skipped", {
+        reason: "evil-build",
+        version: OPENCODE_VERSION,
+        channel: OPENCODE_CHANNEL,
+        releases: EVIL_RELEASES_URL,
+      })
+      return undefined
+    }
     if (OPENCODE_LOCAL || ["1", "true"].includes(process.env.OPENCODE_DISABLE_AUTOUPDATE?.toLowerCase() ?? "")) {
       yield* Effect.logInfo("update check skipped", {
         reason: OPENCODE_LOCAL ? "local-install" : "disabled",
@@ -574,6 +592,8 @@ const make = Effect.gen(function* () {
   })
 
   const apply = Effect.fn("cli.updater.apply")(function* (version: string) {
+    if (EVIL_BUILD)
+      return yield* Effect.fail(new Error(`OpenCode Evil updates are published at ${EVIL_RELEASES_URL}.`))
     if (!(yield* install(version)))
       return yield* Effect.fail(
         new Error(
@@ -583,6 +603,11 @@ const make = Effect.gen(function* () {
   })
 
   const check = Effect.fn("cli.updater.check")(function* () {
+    if (EVIL_BUILD)
+      return {
+        type: "unavailable" as const,
+        message: `OpenCode Evil updates are published at ${EVIL_RELEASES_URL}.`,
+      }
     if (OPENCODE_LOCAL)
       return {
         type: "unavailable" as const,

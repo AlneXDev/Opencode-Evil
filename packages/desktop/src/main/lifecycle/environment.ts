@@ -37,7 +37,12 @@ export const prepareDesktop = Effect.gen(function* () {
   const path = yield* Path.Path
   const paths = yield* DesktopPaths.resolve
 
-  if (app.isPackaged || process.env.OPENCODE_DESKTOP_DISABLE_PROTOCOL_REGISTRATION !== "1")
+  // The evil build never claims the stock opencode:// handler by default. Deep
+  // links still work in development, or when OPENCODE_EVIL_PROTOCOL=1 opts in.
+  if (
+    process.env.OPENCODE_EVIL_PROTOCOL === "1" ||
+    (!app.isPackaged && process.env.OPENCODE_DESKTOP_DISABLE_PROTOCOL_REGISTRATION !== "1")
+  )
     app.setAsDefaultProtocolClient("opencode")
   const runFork = Effect.runForkWith(yield* Effect.context())
   setProtocolReporter((level, message, data) =>

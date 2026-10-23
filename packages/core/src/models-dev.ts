@@ -14,6 +14,7 @@ import { Provider } from "./provider.js"
 import { Variant } from "./variant.js"
 import { KV } from "./kv.js"
 import snapshotText from "./models-dev/snapshot.txt" with { type: "text" }
+import zenLegacyText from "./models-dev/zen-legacy-130.txt" with { type: "text" }
 
 export const CatalogModelStatus = Schema.Literals(["alpha", "beta", "deprecated"])
 export type CatalogModelStatus = typeof CatalogModelStatus.Type
@@ -297,6 +298,30 @@ const bundledSnapshot = Effect.suspend(() =>
       ),
 )
 
+// OpenCode Evil pins the legacy Zen catalog's `opencode` provider over every
+// catalog source. The live models.dev snapshot, cache, and fetch all carry the
+// newer `/inference/openai/v1` catalog; this fork keeps the 130 legacy Zen
+// models on `https://opencode.ai/zen/v1` while leaving `opencode-go` untouched.
+let zenLegacyCache: Snapshot | undefined
+const zenLegacy = Effect.suspend(() =>
+  zenLegacyCache
+    ? Effect.succeed(zenLegacyCache)
+    : decodeCatalog(zenLegacyText).pipe(
+        Effect.map((catalog) => {
+          const zen = normalize(catalog).find((item) => item.info.id === "opencode")
+          if (!zen) throw new Error("models-dev zen legacy catalog is missing the opencode provider")
+          zenLegacyCache = zen
+          return zen
+        }),
+      ),
+)
+
+function pinZen(snapshots: readonly Snapshot[], zen: Snapshot) {
+  const index = snapshots.findIndex((item) => item.info.id === zen.info.id)
+  if (index === -1) return [zen, ...snapshots]
+  return snapshots.map((item, i) => (i === index ? zen : item))
+}
+
 function cacheKey(source: string) {
   if (source === defaultSource) return "models-dev:catalog"
   return `models-dev:catalog:${Hash.fast(source)}`
@@ -384,13 +409,14 @@ export const layer = (options?: Options) =>
       })
 
       const populate = Effect.gen(function* () {
+        const zen = yield* zenLegacy
         const fromFile = yield* loadFromFile
-        if (fromFile) return normalize(fromFile)
+        if (fromFile) return pinZen(normalize(fromFile), zen)
         const cached = options?.file ? undefined : yield* loadFromCache()
-        if (cached) return normalize(cached.catalog)
+        if (cached) return pinZen(normalize(cached.catalog), zen)
         const bundled = yield* loadSnapshot
-        if (bundled) return bundled
-        if (!fetch) return []
+        if (bundled) return pinZen(bundled, zen)
+        if (!fetch) return pinZen([], zen)
         const catalog = yield* lock.withPermit(
           Effect.gen(function* () {
             const stored = options?.file ? undefined : yield* loadFromCache()
@@ -398,7 +424,7 @@ export const layer = (options?: Options) =>
             return yield* fetchAndWrite()
           }),
         )
-        return normalize(catalog)
+        return pinZen(normalize(catalog), zen)
       }).pipe(Effect.withSpan("ModelsDev.populate"), Effect.orDie)
 
       const [cachedGet, invalidate] = yield* Effect.cachedInvalidateWithTTL(populate, Duration.infinity)

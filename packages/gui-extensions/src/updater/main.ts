@@ -9,7 +9,10 @@ import { make } from "./machine"
 const setup: MainSetup<typeof definition> = async (ctx) => {
   const build = ctx.build
   const lifecycle = ctx.lifecycle
-  const enabled = build.packaged && build.channel !== "dev"
+  // The Evil build disables electron-updater by default: its feed belongs to
+  // stock OpenCode, so an update would replace this fork with the upstream app.
+  // Set OPENCODE_EVIL_UPDATER=1 only when pointing at an Evil-owned feed.
+  const enabled = build.packaged && build.channel !== "dev" && process.env.OPENCODE_EVIL_UPDATER === "1"
   // Holds no resources, so it needs no cleanup.
   const context = logContext(ctx.log.write)
   const runPromise = Effect.runPromiseWith(context)

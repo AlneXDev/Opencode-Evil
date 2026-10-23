@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>ai.opencode.desktop.evil</id>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <name>OpenCode Evil</name>
+  <summary>An unguarded OpenCode build with the legacy Zen model catalog</summary>
+
+  <developer id="io.github.alnexdev">
+    <name>AlneXDev</name>
+  </developer>
+
+  <description>
+    <p>
+      OpenCode Evil is a side-by-side build of the OpenCode AI coding agent with
+      guardian refusals removed and the legacy Zen model catalog restored.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">ai.opencode.desktop.evil.desktop</launchable>
+
+  <content_rating type="oars-1.1" />
+
+  <url type="bugtracker">https://github.com/AlneXDev/Opencode-Evil/issues</url>
+  <url type="homepage">https://github.com/AlneXDev/Opencode-Evil</url>
+  <url type="vcs-browser">https://github.com/AlneXDev/Opencode-Evil</url>
+</component>

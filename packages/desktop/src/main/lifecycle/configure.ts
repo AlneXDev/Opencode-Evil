@@ -38,6 +38,12 @@ export function configureApplication() {
     if (testOnboarding) app.setPath("documents", path.join(testRoot, "documents"))
   }
 
+  // Keep the Evil build's database in its own userData directory. The CLI still
+  // shares the global config and credentials with other OpenCode installs, but it
+  // must never open or migrate the stock app's database.
+  if (app.isPackaged && !testRoot && !process.env.OPENCODE_DB)
+    process.env.OPENCODE_DB = path.join(app.getPath("userData"), "opencode.db")
+
   // V8 bytecode for the main bundle survives between launches, like the renderer's code cache.
   enableCompileCache(path.join(app.getPath("userData"), "compile-cache"))
 }
