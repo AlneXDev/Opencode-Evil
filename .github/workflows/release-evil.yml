@@ -79,9 +79,20 @@ jobs:
 
       - name: Package
         working-directory: packages/desktop
-        run: bunx electron-builder --${{ matrix.target }} --config electron-builder.evil-standalone.config.ts
+        run: bunx electron-builder --${{ matrix.target }} --publish never --config electron-builder.evil-standalone.config.ts
 
-      - name: Generate checksums
+      - name: Generate checksums (Windows)
+        if: runner.os == 'Windows'
+        working-directory: packages/desktop/dist-evil
+        shell: pwsh
+        run: |
+          Get-ChildItem -File *.exe, *.blockmap | ForEach-Object {
+            (Get-FileHash $_.FullName -Algorithm SHA256).Hash + '  ' + $_.Name
+          } | Out-File -FilePath SHA256SUMS-Windows.txt -Encoding ascii
+          Get-Content SHA256SUMS-Windows.txt
+
+      - name: Generate checksums (Unix)
+        if: runner.os != 'Windows'
         working-directory: packages/desktop/dist-evil
         shell: bash
         run: |
