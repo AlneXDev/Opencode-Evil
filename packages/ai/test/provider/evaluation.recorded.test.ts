@@ -1,7 +1,7 @@
 import { describe, expect } from "bun:test"
 import { Effect } from "effect"
 import { Evaluation, EvaluationModel, type EvaluationOptions } from "../../src/experimental.js"
-import { OpenCode, OpenRouter, TypeSafeAI } from "../../src/providers.js"
+import { Baseten, DigitalOcean, OpenCode, OpenRouter, TypeSafeAI } from "../../src/providers.js"
 import { recordedTests } from "../recorded-test.js"
 
 const questions = {
@@ -48,6 +48,22 @@ const openrouter = recordedTests({
   metadata: { model: "typesafe/jev-1.13" },
 })
 
+const baseten = recordedTests({
+  prefix: "baseten-evaluation",
+  provider: "baseten",
+  protocol: "system-one",
+  requires: ["BASETEN_API_KEY"],
+  metadata: { model: "decision-models/baseten-elephant-9b-latest" },
+})
+
+const digitalocean = recordedTests({
+  prefix: "digitalocean-evaluation",
+  provider: "digitalocean",
+  protocol: "system-one",
+  requires: ["DIGITALOCEAN_API_KEY"],
+  metadata: { model: "typesafe-jev-1.13.0" },
+})
+
 describe("experimental Evaluation recorded", () => {
   typesafe.effect("evaluates choice score and boolean questions", () =>
     assertEvaluation(
@@ -70,12 +86,28 @@ describe("experimental Evaluation recorded", () => {
       ),
     ),
   )
+
+  baseten.effect("evaluates choice score and boolean questions", () =>
+    assertEvaluation(
+      Baseten.configure({ apiKey: process.env.BASETEN_API_KEY ?? "fixture" }).experimental.evaluation(
+        "decision-models/baseten-elephant-9b-latest",
+      ),
+    ),
+  )
+
+  digitalocean.effect("evaluates choice score and boolean questions", () =>
+    assertEvaluation(
+      DigitalOcean.configure({ apiKey: process.env.DIGITALOCEAN_API_KEY ?? "fixture" }).experimental.evaluation(
+        "typesafe-jev-1.13.0",
+      ),
+    ),
+  )
 })
 
 const assertEvaluation = <Options extends EvaluationOptions>(model: EvaluationModel<Options>) =>
   Effect.gen(function* () {
     const response = yield* Evaluation.run({ model, state, questions })
-    expect(response.model).toContain("jev-")
+    expect(response.model).toMatch(/jev-|baseten-/)
     expect(response.answers.department.type).toBe("choice")
     expect(response.answers.department.choice).toBe("billing")
     expect(response.answers.department.probabilities?.billing).toBeGreaterThan(0.5)
