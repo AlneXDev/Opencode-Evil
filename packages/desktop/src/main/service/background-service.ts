@@ -1,5 +1,6 @@
 import { app } from "electron"
 import { Context, Effect, FileSystem, Layer, Path } from "effect"
+import { APP_ID } from "../constants"
 import { BackgroundServiceState } from "./background-service-state"
 import { cleanStages } from "./cli-stages"
 import { DesktopCli } from "./desktop-cli"
@@ -38,7 +39,11 @@ const connect = Effect.fn("BackgroundService.connect")(function* (mode: "initial
   const cli = yield* desktopCli.resolve
   const version = mode === "initial" ? cli.version : undefined
 
-  if (isolated) process.env.XDG_STATE_HOME = app.getPath("userData")
+  // Evil builds stage their CLI into their own userData; keep their service
+  // registration in that same directory so it never clobbers stock OpenCode's
+  // service.json (both channels now write to the same filename).
+  if (isolated || (app.isPackaged && APP_ID === "ai.opencode.desktop.evil"))
+    process.env.XDG_STATE_HOME = app.getPath("userData")
   const client = yield* Effect.promise(() => import("@opencode/client/service"))
 
   const ensure = () =>
