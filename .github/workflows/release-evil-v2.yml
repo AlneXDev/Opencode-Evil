@@ -67,19 +67,24 @@ jobs:
       - name: Patch allowOnlyOneInstallerInstance.nsh for $pid
         shell: pwsh
         run: |
-          $nshFile = Get-ChildItem -Path "node_modules" -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse | Select-Object -First 1
-          if (-not $nshFile) {
+          $nshFiles = Get-ChildItem -Path "node_modules" -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse -Force -ErrorAction SilentlyContinue
+          if (-not $nshFiles) {
             Write-Host "ERROR: allowOnlyOneInstallerInstance.nsh not found in node_modules!"
             exit 1
           }
-          Write-Host "Patching $($nshFile.FullName)"
-          $content = Get-Content $nshFile.FullName -Raw
-          # Prepend Var /GLOBAL pid to ensure $pid is always declared regardless
-          # of include order with installer-evil.nsh. Without this, makensis
-          # emits warning 6000 which electron-builder (-WX) treats as fatal.
-          $content = "Var /GLOBAL pid" + [Environment]::NewLine + $content
-          Set-Content $nshFile.FullName -Value $content -NoNewline
-          Write-Host "Prepended Var /GLOBAL pid to $($nshFile.FullName)"
+          Write-Host "Found $($nshFiles.Count) copy(ies) of allowOnlyOneInstallerInstance.nsh"
+          $prepend = "Var /GLOBAL pid" + [Environment]::NewLine
+          foreach ($nshFile in $nshFiles) {
+            Write-Host "Patching $($nshFile.FullName)"
+            $content = Get-Content $nshFile.FullName -Raw
+            if (-not $content.StartsWith("Var /GLOBAL pid")) {
+              $content = $prepend + $content
+              Set-Content $nshFile.FullName -Value $content -NoNewline -Encoding UTF8
+              Write-Host "Prepended Var /GLOBAL pid to $($nshFile.FullName)"
+            } else {
+              Write-Host "Already patched: $($nshFile.FullName)"
+            }
+          }
 
       - name: Package Windows Installer
         env:
