@@ -67,10 +67,10 @@ jobs:
       - name: Patch allowOnlyOneInstallerInstance.nsh for $pid
         shell: pwsh
         run: |
-          $nshFile = Get-ChildItem -Path "node_modules/app-builder-lib" -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse | Select-Object -First 1
+          $nshFile = Get-ChildItem -Path "node_modules" -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse | Select-Object -First 1
           if (-not $nshFile) {
-            Write-Host "WARNING: allowOnlyOneInstallerInstance.nsh not found!"
-            exit 0
+            Write-Host "ERROR: allowOnlyOneInstallerInstance.nsh not found in node_modules!"
+            exit 1
           }
           Write-Host "Patching $($nshFile.FullName)"
           $content = Get-Content $nshFile.FullName -Raw

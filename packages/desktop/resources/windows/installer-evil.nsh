@@ -15,6 +15,13 @@ Var /GLOBAL pid
   StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
 !macroend
 
+!macro customCheckAppRunning
+  ; Empty override: the default allowOnlyOneInstallerInstance.nsh logic uses
+  ; APP_EXECUTABLE_FILENAME (OpenCode Evil.exe) which targets only evil processes,
+  ; never normal OpenCode.exe. $pid is declared via the workflow patch to
+  ; allowOnlyOneInstallerInstance.nsh, preventing makensis warning 6000.
+!macroend
+
 !macro customInstall
   ; Chromium's sandbox needs read/execute access to the installed runtime files.
   ; https://github.com/electron/electron/issues/49143#issuecomment-3618354787
