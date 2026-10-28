@@ -3,11 +3,9 @@
 ; so none of it can affect dev/beta/prod builds.
 
 ; Declare $pid globally so allowOnlyOneInstallerInstance.nsh (included by
-; electron-builder) always sees it regardless of include order. When
-; installer-evil.nsh is included after allowOnlyOneInstallerInstance.nsh, the
-; conditional Var pid in that template never runs, but KILL_PROCESS still
-; references $pid. Without this declaration, makensis emits warning 6000 which
-; electron-builder (-WX) treats as fatal.
+; electron-builder) always sees it regardless of include order. The default
+; KILL_PROCESS macro references $pid. Without this declaration, makensis emits
+; warning 6000 which electron-builder (-WX) treats as fatal.
 Var /GLOBAL pid
 
 !macro customInit
@@ -15,14 +13,6 @@ Var /GLOBAL pid
   ; page or section uses $INSTDIR, so a stale InstallLocation left behind by an
   ; older evil build can never redirect the files into the normal OpenCode folder.
   StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
-!macroend
-
-!macro customCheckAppRunning
-  ; Close OpenCode Evil only. The normal application is called OpenCode.exe, so it
-  ; is never matched here: installing or upgrading the evil build cannot close it.
-  nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
-  Pop $0
-  Sleep 500
 !macroend
 
 !macro customInstall
