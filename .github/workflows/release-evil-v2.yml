@@ -4,11 +4,6 @@ on:
   push:
     branches: [evil]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version tag'
-        required: false
-        default: 'v2.1.4-evil'
 
 jobs:
   build:
@@ -28,7 +23,12 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path "packages/cli/.bun-cache" | Out-Null
-          Get-ChildItem "packages/cli/.bun-cache/chunks/bun-windows-x64-baseline-v1.4.4.part.*" | Sort-Object | ForEach-Object { Get-Content $_.FullName -Raw } | Set-Content "packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4"
+          $chunks = Get-ChildItem "packages/cli/.bun-cache/chunks/bun-windows-x64-baseline-v1.4.4.part.*" | Sort-Object
+          $bytes = @()
+          foreach ($chunk in $chunks) {
+            $bytes += [System.IO.File]::ReadAllBytes($chunk.FullName)
+          }
+          [System.IO.File]::WriteAllBytes("packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4", $bytes)
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -51,7 +51,7 @@ jobs:
           name: opencode-evil-desktop-win-x64
           path: packages\desktop\dist\opencode-evil-desktop-win-x64.exe
 
-      - name: Create GitHub Release
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
