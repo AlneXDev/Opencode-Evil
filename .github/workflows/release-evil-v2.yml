@@ -74,17 +74,12 @@ jobs:
           }
           Write-Host "Patching $($nshFile.FullName)"
           $content = Get-Content $nshFile.FullName -Raw
-          $old = '!ifmacrondef customCheckAppRunning' + [Environment]::NewLine + '  !include "getProcessInfo.nsh"' + [Environment]::NewLine + '  Var pid' + [Environment]::NewLine + '!endif'
-          $new = 'Var /GLOBAL pid' + [Environment]::NewLine + '!ifmacrondef customCheckAppRunning' + [Environment]::NewLine + '  !include "getProcessInfo.nsh"' + [Environment]::NewLine + '  Var pid' + [Environment]::NewLine + '!endif'
-          if ($content.Contains($old)) {
-            $content = $content.Replace($old, $new)
-            Set-Content $nshFile.FullName -Value $content -NoNewline
-            Write-Host "Patched successfully"
-          } else {
-            Write-Host "Pattern not found, showing relevant lines:"
-            Get-Content $nshFile.FullName | Select-String -Pattern "customCheckAppRunning|Var pid"
-            exit 1
-          }
+          # Prepend Var /GLOBAL pid to ensure $pid is always declared regardless
+          # of include order with installer-evil.nsh. Without this, makensis
+          # emits warning 6000 which electron-builder (-WX) treats as fatal.
+          $content = "Var /GLOBAL pid" + [Environment]::NewLine + $content
+          Set-Content $nshFile.FullName -Value $content -NoNewline
+          Write-Host "Prepended Var /GLOBAL pid to $($nshFile.FullName)"
 
       - name: Package Windows Installer
         env:
