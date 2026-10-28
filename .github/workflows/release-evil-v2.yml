@@ -37,12 +37,24 @@ jobs:
         shell: pwsh
         run: |
           $files = Get-ChildItem -Path node_modules -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse -Force -ErrorAction SilentlyContinue
+          if (-not $files) { Write-Host "No files found"; exit 1 }
           foreach ($f in $files) {
             $content = Get-Content $f.FullName -Raw
-            if ($content -notmatch 'Var\s+/GLOBAL\s+pid') {
-              Set-Content $f.FullName -Value ("Var /GLOBAL pid`r`n" + $content) -NoNewline
-              Write-Host "Patched $($f.FullName)"
+            # Prepend global pid declaration
+            if ($content -notmatch 'Var /GLOBAL pid') {
+              $content = "Var /GLOBAL pid`r`n" + $content
             }
+            # Also ensure pid is declared in the customCheckAppRunning block
+            if ($content -match '!ifmacrondef customCheckAppRunning') {
+              $old = '!ifmacrondef customCheckAppRunning' + "`r`n" + '  !include "getProcessInfo.nsh"' + "`r`n" + '  Var pid' + "`r`n" + '!endif'
+              $new = '!ifmacrondef customCheckAppRunning' + "`r`n" + '  !include "getProcessInfo.nsh"' + "`r`n" + '!endif'
+              if ($content -match [regex]::Escape('Var pid')) {
+                # Replace Var pid line
+                $content = $content -replace '(?m)^  Var pid\s*$', ''
+              }
+            }
+            Set-Content $f.FullName -Value $content -NoNewline
+            Write-Host "Patched $($f.FullName)"
           }
 
       - name: Build CLI package
