@@ -33,6 +33,18 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Patch allowOnlyOneInstallerInstance.nsh
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Path node_modules -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse -Force -ErrorAction SilentlyContinue
+          foreach ($f in $files) {
+            $content = Get-Content $f.FullName -Raw
+            if ($content -notmatch 'Var\s+/GLOBAL\s+pid') {
+              Set-Content $f.FullName -Value ("Var /GLOBAL pid`r`n" + $content) -NoNewline
+              Write-Host "Patched $($f.FullName)"
+            }
+          }
+
       - name: Build CLI package
         run: bun run --cwd packages/cli build
 
