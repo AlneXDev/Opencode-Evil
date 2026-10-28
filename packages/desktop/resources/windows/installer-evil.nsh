@@ -2,6 +2,13 @@
 ; This file is referenced only by the "evil" channel in electron-builder.config.ts,
 ; so none of it can affect dev/beta/prod builds.
 
+; Declare $pid so allowOnlyOneInstallerInstance.nsh (included by electron-builder)
+; always sees it, regardless of include order. customCheckAppRunning replaces the
+; default check-and-kill logic entirely, but NSIS still parses KILL_PROCESS which
+; references $pid. Without this declaration, makensis emits warning 6000 which
+; electron-builder treats as a fatal error (-WX).
+Var pid
+
 !macro customInit
   ; Pin the per-user install root. This runs after initMultiUser and before any
   ; page or section uses $INSTDIR, so a stale InstallLocation left behind by an
