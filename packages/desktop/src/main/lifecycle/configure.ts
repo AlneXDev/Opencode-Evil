@@ -31,6 +31,9 @@ export function configureApplication() {
 
   const testRoot = createTestRoot()
   app.setPath("userData", testRoot ? path.join(testRoot, "desktop") : path.join(app.getPath("appData"), APP_ID))
+  // Isolate the evil channel's background-service state (registration file, DB, etc.) from normal
+  // OpenCode so the two builds never share a service registration or collide on a listening port.
+  if (APP_NAME === "OpenCode Evil") process.env.XDG_STATE_HOME = app.getPath("userData")
 
   if (testRoot) {
     app.setPath("sessionData", path.join(testRoot, "session"))

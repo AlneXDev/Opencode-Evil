@@ -1,4 +1,4 @@
-import { execFile } from "node:child_process"
+﻿import { execFile } from "node:child_process"
 import { readdir, stat } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
@@ -63,7 +63,7 @@ function macSignOptions(options: CustomMacSignOptions): CustomMacSignOptions {
 function resolveChannel() {
   const raw = process.env.OPENCODE_CHANNEL
 
-  if (raw === "dev" || raw === "beta" || raw === "prod") return raw
+  if (raw === "dev" || raw === "beta" || raw === "evil" || raw === "prod") return raw
 
   if (raw === "latest") return "prod"
 
@@ -74,7 +74,26 @@ const APP_IDS = {
   dev: "ai.opencode.desktop.dev",
   beta: "ai.opencode.desktop.beta",
   prod: "ai.opencode.desktop",
+  evil: "ai.opencode.desktop.evil",
 } as const
+
+// Stable NSIS GUID for the evil channel. Deriving it from APP_ID (the default) would
+// reuse the registration written by the first evil builds, whose InstallLocation points
+// at the normal OpenCode folder. A dedicated GUID keeps the two installs unrelated.
+const EVIL_NSIS_GUID = "fe09962c-9b87-4102-ba23-e87c8f8a562e"
+
+// libappimage (used by AppImageLauncher) resolves the .desktop entry inside an
+// AppImage by globbing `*.desktop` at the squashfs root. If the main
+// executable itself ends in `.desktop` (prod appId `ai.opencode.desktop`), the
+// ELF binary matches the glob and is parsed as a desktop entry, so
+// integration fails with `Malformed desktop entry: Unexpected char '\x7f' at 0`
+// (0x7F is the first byte of the ELF magic).
+// https://github.com/anomalyco/opencode/issues/51867
+// Strip a trailing `.desktop` so the executable can never collide with the
+// desktop-entry glob. Beta/dev appIds end in `.beta`/`.dev` and are unaffected.
+function linuxExecutableName(appId: string): string {
+  return appId.replace(/\.desktop$/, "")
+}
 
 const getBase = (appId: string): Configuration => {
   const target = getCurrentCli()
@@ -139,7 +158,7 @@ const getBase = (appId: string): Configuration => {
       await NativeArch.verify(cli, arch)
       const version = path.join(path.dirname(cli), "opencode-cli.version")
 
-      if ((await stat(version)).size === 0) throw new Error(`Bundled CLI version must be a non-empty file: ${version}`)
+      if ((await stat(version)).size === 0) throw new Error(`Bundled CLI version must be a non-empty file: version`)
 
       if (context.electronPlatformName !== "win32") return
 
@@ -205,7 +224,11 @@ const getBase = (appId: string): Configuration => {
     linux: {
       icon: `resources/icons`,
       category: "Development",
-      executableName: appId,
+      executableName: linuxExecutableName(appId),
+      // Derive the installed `.desktop` filename from `desktopName`
+      // (`ai.opencode.desktop.desktop` for prod) instead of `executableName`,
+      // so window association is unaffected by the executable rename above.
+      syncDesktopName: true,
       desktop: {
         entry: {
           // Match the installed .desktop file and hicolor icon basename so
@@ -263,6 +286,29 @@ export function getConfig() {
         },
         deb: { fpm: [metainfoFpm(appId), legacyDesktopEntryFpm] },
         rpm: { packageName: "opencode", fpm: [rpmNoBuildIdLinksFpm, metainfoFpm(appId), legacyDesktopEntryFpm] },
+      }
+    }
+
+    case "evil": {
+      return {
+        ...base,
+        appId,
+        productName: "OpenCode Evil",
+        // Give the packaged app its own metadata name as well, so its install folder
+        // (APP_FILENAME) and app.asar identity cannot collide with normal OpenCode.
+        extraMetadata: {
+          ...base.extraMetadata,
+          name: "opencode-evil-desktop",
+        },
+        artifactName: "opencode-evil-desktop-${os}-${arch}.${ext}",
+        protocols: { name: "OpenCode Evil", schemes: ["opencode-evil"] },
+        nsis: {
+          ...base.nsis,
+          guid: EVIL_NSIS_GUID,
+          include: path.join(packageDir, "resources", "windows", "installer-evil.nsh"),
+        },
+        deb: { fpm: [metainfoFpm(appId)] },
+        rpm: { packageName: "opencode-evil", fpm: [rpmNoBuildIdLinksFpm, metainfoFpm(appId)] },
       }
     }
   }

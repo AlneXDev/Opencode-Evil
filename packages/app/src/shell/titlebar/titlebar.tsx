@@ -817,10 +817,6 @@ function ChannelIndicator(props: { horizontal?: boolean; sidebar?: boolean }) {
       >
         <img
           src={channel === "beta" ? betaIcon : devIcon}
-          alt={debug() ? "" : label()}
-          class="shrink-0 rounded-[4px] shadow-[var(--v2-elevation-raised)]"
-          classList={{ "size-6": props.sidebar, "size-5": !props.sidebar }}
-          draggable={false}
         />
       </Dynamic>
     </Tooltip>

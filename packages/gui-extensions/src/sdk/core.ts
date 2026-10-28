@@ -61,9 +61,10 @@ export interface Build {
    * - `local`: a build from source, with no channel set.
    * - `dev`: the development channel.
    * - `beta`: the beta channel.
+   * - `evil`: the patched evil-v2 channel.
    * - `prod`: the stable release.
    */
-  readonly channel: "local" | "dev" | "beta" | "prod"
+  readonly channel: "local" | "dev" | "beta" | "evil" | "prod"
   /**
    * Where the code runs. Main is always `desktop`.
    * - `web`: a browser tab.

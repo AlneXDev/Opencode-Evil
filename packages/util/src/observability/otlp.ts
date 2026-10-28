@@ -2,6 +2,10 @@ import { Effect, Layer, Scope } from "effect"
 import { OtlpLogger } from "effect/observability"
 import { runID } from "./shared.js"
 
+// evil-v2: telemetry disabled at build time
+// Outbound OTLP export is opt-in upstream via OTEL_EXPORTER_OTLP_ENDPOINT; this makes it impossible.
+const disabled = true
+
 export interface Options {
   readonly endpoint?: string
   readonly headers?: string
@@ -61,7 +65,7 @@ export function resource(app: App = { client: "opencode", version: "unknown", ch
 }
 
 export function loggers(options: Options | undefined, app: App) {
-  if (!options?.endpoint) return []
+  if (disabled || !options?.endpoint) return []
   return [
     OtlpLogger.make({
       url: `${options.endpoint}/v1/logs`,
@@ -72,7 +76,7 @@ export function loggers(options: Options | undefined, app: App) {
 }
 
 export const tracingLayer = Effect.fnUntraced(function* (options: Options | undefined, app: App) {
-  if (!options?.endpoint) return Layer.empty
+  if (disabled || !options?.endpoint) return Layer.empty
   const [{ layer }, { OTLPTraceExporter }, { BatchSpanProcessor }, { AsyncLocalStorageContextManager }, { context }] =
     yield* Effect.all(
       [

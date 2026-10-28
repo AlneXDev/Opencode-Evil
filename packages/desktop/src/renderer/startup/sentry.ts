@@ -5,7 +5,9 @@ export function desktopVersion() {
 }
 
 export async function initializeSentry(version: string) {
-  if (!import.meta.env.VITE_SENTRY_DSN) return
+  // evil-v2: telemetry disabled at build time
+  const sentryEnabled = false
+  if (!sentryEnabled) return
   const { init } = await import("@sentry/solid")
   init({
     dsn: import.meta.env.VITE_SENTRY_DSN,

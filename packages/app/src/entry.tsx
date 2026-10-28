@@ -55,7 +55,9 @@ if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => void navigator.serviceWorker.register("/sw.js"), { once: true })
 }
 
-if (import.meta.env.VITE_SENTRY_DSN) {
+// evil-v2: telemetry disabled at build time
+const sentryEnabled: boolean = false
+if (sentryEnabled && import.meta.env.VITE_SENTRY_DSN) {
   init({
     dsn: import.meta.env.VITE_SENTRY_DSN,
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT ?? import.meta.env.MODE,

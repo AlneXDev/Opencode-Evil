@@ -568,6 +568,7 @@ export const dict = {
 
   "session.question.progress": "{{current}} of {{total}} questions",
   "session.question.title": "Question",
+  "session.elicitation.selectPlaceholder": "Select an option",
   "session.websearch.title": "Third-party web search",
   "session.websearch.description": "Select the search provider agents use to search the web",
   "session.websearch.provider": "Search provider",
@@ -609,6 +610,7 @@ export const dict = {
   "titlebar.channel.local": "Local",
   "titlebar.channel.dev": "Dev",
   "titlebar.channel.beta": "Beta",
+  "titlebar.channel.evil": "Evil",
 
   "common.closeTab": "Close tab",
   "common.dismiss": "Dismiss",

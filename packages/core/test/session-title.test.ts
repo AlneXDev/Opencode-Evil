@@ -646,6 +646,35 @@ it.effect("does not rename after a failed title stream", () =>
   }),
 )
 
+it.effect("renames when an unrelated session event lands while generation is in flight", () =>
+  Effect.gen(function* () {
+    yield* enableTitleAgent
+    const sessionID = Session.ID.make("ses_title_unrelated_event")
+    yield* insertSession(sessionID)
+    yield* prompt(sessionID, "Generate this title")
+    const started = yield* Deferred.make<void>()
+    const release = yield* Deferred.make<void>()
+    titleStream = () =>
+      Stream.unwrap(
+        Deferred.succeed(started, undefined).pipe(
+          Effect.andThen(Deferred.await(release)),
+          Effect.as(successfulTitle()),
+        ),
+      )
+    const title = yield* SessionTitle.Service
+    const fiber = yield* title.generate(sessionID).pipe(Effect.forkScoped)
+    yield* Deferred.await(started)
+    const events = yield* Bus.Service
+    yield* events.publish(SessionEvent.AgentSelected, { sessionID, agent: Agent.ID.make("build") })
+    yield* Deferred.succeed(release, undefined)
+    yield* Fiber.join(fiber)
+
+    const store = yield* SessionStore.Service
+    expect(requests).toHaveLength(1)
+    expect((yield* store.get(sessionID))?.title).toBe("Generated Title")
+  }),
+)
+
 it.effect("preserves a manual rename completed while generation is in flight", () =>
   Effect.gen(function* () {
     yield* enableTitleAgent

@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { app, BrowserWindow, screen, shell } from "electron"
+import { APP_NAME } from "../constants"
 import { resolveExternalURL } from "../files/external-url"
 import { windowArguments } from "./bootstrap"
 import { WINDOW_IDS_KEY } from "../storage/keys"
@@ -48,7 +49,7 @@ export function createEarlyWindow() {
     height: state.height,
     show: true,
     autoHideMenuBar: true,
-    title: "OpenCode",
+    title: APP_NAME,
     icon: path.join(icons, `icon.${process.platform === "win32" ? "ico" : "png"}`),
     backgroundColor: storedBackgroundColor(),
     ...(process.platform === "darwin" ? { titleBarStyle: "hidden" as const, trafficLightPosition: { x: 14, y: 14 } } : {}),
@@ -63,6 +64,9 @@ export function createEarlyWindow() {
   })
 
   manageWindowState(win, file, state, displays)
+  // The renderer's index.html carries a static <title>OpenCode</title>, which would replace the
+  // channel-specific title in the taskbar and alt-tab switcher. Keep the title set above.
+  win.on("page-title-updated", (event) => event.preventDefault())
   // Closing the only window before the rest of the app has adopted it is a quit.
   win.once("closed", () => {
     if (pending?.win !== win) return

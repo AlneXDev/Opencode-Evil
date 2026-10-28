@@ -1,10 +1,16 @@
 import { app } from "electron"
 import { Context, Effect, FileSystem, Layer, Path } from "effect"
+import path from "node:path"
 import { BackgroundServiceState } from "./background-service-state"
 import { cleanStages } from "./cli-stages"
 import { DesktopCli } from "./desktop-cli"
 import { SidecarCredentials } from "./sidecar-credentials"
 import { sidecarProbe } from "./sidecar-probe"
+import { APP_NAME } from "../constants"
+
+// Whether this build is the evil channel: it owns its own service registration and port so it can
+// run side by side with normal OpenCode without colliding on the shared service.json / listening port.
+const IS_EVIL_CHANNEL = APP_NAME === "OpenCode Evil"
 
 export * as BackgroundService from "./background-service"
 
@@ -38,19 +44,25 @@ const connect = Effect.fn("BackgroundService.connect")(function* (mode: "initial
   const cli = yield* desktopCli.resolve
   const version = mode === "initial" ? cli.version : undefined
 
-  if (isolated) process.env.XDG_STATE_HOME = app.getPath("userData")
+  if (IS_EVIL_CHANNEL || isolated) process.env.XDG_STATE_HOME = app.getPath("userData")
   const client = yield* Effect.promise(() => import("@opencode/client/service"))
 
   const ensure = () =>
     client.Service.ensure({
       file:
-        process.env.OPENCODE_DESKTOP_SERVER_CHANNEL === "local"
+        IS_EVIL_CHANNEL
           ? path.join(
               process.env.XDG_STATE_HOME ?? path.join(app.getPath("home"), ".local", "state"),
               "opencode",
-              "service-local.json",
+              "service-evil.json",
             )
-          : undefined,
+          : process.env.OPENCODE_DESKTOP_SERVER_CHANNEL === "local"
+            ? path.join(
+                process.env.XDG_STATE_HOME ?? path.join(app.getPath("home"), ".local", "state"),
+                "opencode",
+                "service-local.json",
+              )
+            : undefined,
       version,
       // A fixed port makes a second contender fail to bind and back off; port 0 never collides, so two
       // services could boot against the same database.

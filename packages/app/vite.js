@@ -62,7 +62,8 @@ const dropUnloadedOfficeFiles = {
 const bundleNestedWorkerDeps = {
   name: "opencode-desktop:bundle-nested-worker-deps",
   resolveId(id, importer) {
-    if (!importer || !workerDeps.includes(id) || !importer.includes("node_modules")) return
+    if (!importer || !importer.includes("node_modules")) return
+    if (!workerDeps.some((dep) => id === dep || id.startsWith(`${dep}/`))) return
 
     try {
       return createRequire(importer).resolve(id)
@@ -75,7 +76,7 @@ const bundleNestedWorkerDeps = {
 export const channel = (() => {
   const raw = process.env.OPENCODE_CHANNEL
 
-  if (raw === "local" || raw === "dev" || raw === "beta" || raw === "prod") return raw
+  if (raw === "local" || raw === "dev" || raw === "beta" || raw === "evil" || raw === "prod") return raw
 
   if (process.env.OPENCODE_CHANNEL === "latest") return "prod"
 
