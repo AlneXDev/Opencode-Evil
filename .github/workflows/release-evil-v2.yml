@@ -1,0 +1,79 @@
+name: Build and Release OpenCode Evil v2
+
+on:
+  push:
+    branches: [evil]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag'
+        required: false
+        default: 'v2.1.4-evil'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Restore bun-cache
+        run: |
+          mkdir -p packages/cli/.bun-cache
+          cat packages/cli/.bun-cache/chunks/bun-windows-x64-baseline-v1.4.4.part.* > packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build CLI
+        env:
+          OPENCODE_CHANNEL: evil
+          OPENCODE_VERSION: 2.1.4
+        run: bun run --cwd packages/cli build --single --baseline --skip-install
+
+      - name: Package Windows Installer
+        env:
+          OPENCODE_CHANNEL: evil
+          OPENCODE_CLI_DIST: ${{ github.workspace }}/packages/cli/dist
+        run: bun run --cwd packages/desktop package:win
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencode-evil-desktop-win-x64
+          path: packages/desktop/dist/opencode-evil-desktop-win-x64.exe
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v2.1.4-evil-${{ github.run_number }}
+          name: OpenCode Evil v2.1.4 - Build ${{ github.run_number }}
+          body: |
+            ## OpenCode Evil v2.1.4
+
+            Side-by-side with normal OpenCode. Install this to run both simultaneously.
+
+            ## Files
+
+            - **opencode-evil-desktop-win-x64.exe** - Windows installer (~258 MB)
+
+            ## Features
+            - Full compliance block (system prompts only)
+            - Telemetry disabled
+            - V1-style auto session titles
+            - Side-by-side with normal OpenCode
+            - Separate install dir, workspaces, data dirs
+            - Separate service registration (service-evil.json)
+            - Separate userData dir (ai.opencode.desktop.evil)
+          files: packages/desktop/dist/opencode-evil-desktop-win-x64.exe
+          draft: false
+          prerelease: false
