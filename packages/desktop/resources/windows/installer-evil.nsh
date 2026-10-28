@@ -2,8 +2,6 @@
 ; This file is referenced only by the "evil" channel in electron-builder.config.ts,
 ; so none of it can affect dev/beta/prod builds.
 
-Var /GLOBAL pid
-
 !macro customInit
   ; Pin the per-user install root. This runs after initMultiUser and before any
   ; page or section uses $INSTDIR, so a stale InstallLocation left behind by an
@@ -11,9 +9,12 @@ Var /GLOBAL pid
   StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
 !macroend
 
+!macro customCheckAppRunning
+  ; Empty - let default behavior handle it, or do nothing
+!macroend
+
 !macro CHECK_APP_RUNNING
-  ; Close OpenCode Evil only. Normal OpenCode uses OpenCode.exe, which is never
-  ; matched here. Installing/upgrading the evil build cannot touch normal OpenCode.
+  ; Override to avoid $pid issues - just kill our own process
   nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
   Pop $0
   Sleep 500
