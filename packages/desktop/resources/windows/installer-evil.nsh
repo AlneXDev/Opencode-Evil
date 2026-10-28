@@ -15,14 +15,6 @@ Var /GLOBAL pid
   StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
 !macroend
 
-!macro customCheckAppRunning
-  ; Close OpenCode Evil only. The normal application is called OpenCode.exe, so it
-  ; is never matched here: installing or upgrading the evil build cannot close it.
-  nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
-  Pop $0
-  Sleep 500
-!macroend
-
 !macro customInstall
   ; Chromium's sandbox needs read/execute access to the installed runtime files.
   ; https://github.com/electron/electron/issues/49143#issuecomment-3618354787
