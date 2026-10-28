@@ -9,15 +9,36 @@
   StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
 !macroend
 
-!macro customCheckAppRunning
-  ; Empty - let default behavior handle it, or do nothing
+; Override the default app-running check to avoid $pid issues and only target OpenCode Evil.exe
+!macro _CHECK_APP_RUNNING
+  !ifmacrodef FIND_PROCESS
+    !insertmacro FIND_PROCESS "OpenCode Evil.exe" $R0
+    ${if} $R0 == 0
+      MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION "OpenCode Evil is running. Please close it and try again." /SD IDOK IDOK 0
+      Quit
+      doStopProcessEvil:
+      DetailPrint "Closing OpenCode Evil..."
+      nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
+      Pop $0
+      Sleep 1000
+      !insertmacro FIND_PROCESS "OpenCode Evil.exe" $R0
+      ${if} $R0 == 0
+        Goto doStopProcessEvil
+      ${endIf}
+    ${endIf}
+  !else
+    nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
+    Pop $0
+    Sleep 500
+  !endif
 !macroend
 
 !macro CHECK_APP_RUNNING
-  ; Override to avoid $pid issues - just kill our own process
-  nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
-  Pop $0
-  Sleep 500
+  Var /GLOBAL CmdPath
+  Var /GLOBAL PowerShellPath
+  StrCpy $CmdPath "$SYSDIR\cmd.exe"
+  StrCpy $PowerShellPath "$SYSDIR\WindowsPowerShell\v1.0\powershell.exe"
+  !insertmacro _CHECK_APP_RUNNING
 !macroend
 
 !macro customInstall
