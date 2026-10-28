@@ -30,6 +30,28 @@ jobs:
           }
           [System.IO.File]::WriteAllBytes("packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4", $bytes)
 
+      - name: Diagnostics
+        shell: pwsh
+        run: |
+          Write-Host "=== Bun version ==="
+          bun --version
+          Write-Host "=== Bun-cache dir ==="
+          Get-ChildItem "packages/cli/.bun-cache/" | Select-Object Name, Length
+          Write-Host "=== Bun-cache chunks ==="
+          Get-ChildItem "packages/cli/.bun-cache/chunks/" | Select-Object Name, Length
+          Write-Host "=== Bun-cache binary ==="
+          if (Test-Path "packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4") {
+            Get-Item "packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4" | Select-Object Name, Length
+          } else {
+            Write-Host "Bun-cache binary NOT found!"
+          }
+          Write-Host "=== CLI dist ==="
+          if (Test-Path "packages/cli/dist") {
+            Get-ChildItem "packages/cli/dist" | Select-Object Name, Length
+          } else {
+            Write-Host "CLI dist NOT found!"
+          }
+
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
