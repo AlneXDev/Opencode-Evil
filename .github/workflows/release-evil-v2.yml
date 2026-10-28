@@ -30,28 +30,6 @@ jobs:
           }
           [System.IO.File]::WriteAllBytes("packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4", $bytes)
 
-      - name: Diagnostics
-        shell: pwsh
-        run: |
-          Write-Host "=== Bun version ==="
-          bun --version
-          Write-Host "=== Bun-cache dir ==="
-          Get-ChildItem "packages/cli/.bun-cache/" | Select-Object Name, Length
-          Write-Host "=== Bun-cache chunks ==="
-          Get-ChildItem "packages/cli/.bun-cache/chunks/" | Select-Object Name, Length
-          Write-Host "=== Bun-cache binary ==="
-          if (Test-Path "packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4") {
-            Get-Item "packages/cli/.bun-cache/bun-windows-x64-baseline-v1.4.4" | Select-Object Name, Length
-          } else {
-            Write-Host "Bun-cache binary NOT found!"
-          }
-          Write-Host "=== CLI dist ==="
-          if (Test-Path "packages/cli/dist") {
-            Get-ChildItem "packages/cli/dist" | Select-Object Name, Length
-          } else {
-            Write-Host "CLI dist NOT found!"
-          }
-
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
@@ -63,28 +41,6 @@ jobs:
 
       - name: Build desktop package
         run: bun run --cwd packages/desktop build
-
-      - name: Patch allowOnlyOneInstallerInstance.nsh for $pid
-        shell: pwsh
-        run: |
-          $nshFiles = Get-ChildItem -Path "node_modules" -Filter "allowOnlyOneInstallerInstance.nsh" -Recurse -Force -ErrorAction SilentlyContinue
-          if (-not $nshFiles) {
-            Write-Host "ERROR: allowOnlyOneInstallerInstance.nsh not found in node_modules!"
-            exit 1
-          }
-          Write-Host "Found $($nshFiles.Count) copy(ies) of allowOnlyOneInstallerInstance.nsh"
-          $prepend = "Var /GLOBAL pid" + [Environment]::NewLine
-          foreach ($nshFile in $nshFiles) {
-            Write-Host "Patching $($nshFile.FullName)"
-            $content = Get-Content $nshFile.FullName -Raw
-            if (-not $content.StartsWith("Var /GLOBAL pid")) {
-              $content = $prepend + $content
-              Set-Content $nshFile.FullName -Value $content -NoNewline -Encoding UTF8
-              Write-Host "Prepended Var /GLOBAL pid to $($nshFile.FullName)"
-            } else {
-              Write-Host "Already patched: $($nshFile.FullName)"
-            }
-          }
 
       - name: Package Windows Installer
         env:

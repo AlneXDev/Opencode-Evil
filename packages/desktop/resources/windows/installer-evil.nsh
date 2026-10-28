@@ -2,12 +2,6 @@
 ; This file is referenced only by the "evil" channel in electron-builder.config.ts,
 ; so none of it can affect dev/beta/prod builds.
 
-; Declare $pid globally so allowOnlyOneInstallerInstance.nsh (included by
-; electron-builder) always sees it regardless of include order. The default
-; _CHECK_APP_RUNNING macro references $pid. Without this declaration, makensis
-; emits warning 6000 which electron-builder (-WX) treats as fatal.
-Var /GLOBAL pid
-
 !macro customInit
   ; Pin the per-user install root. This runs after initMultiUser and before any
   ; page or section uses $INSTDIR, so a stale InstallLocation left behind by an
@@ -15,11 +9,12 @@ Var /GLOBAL pid
   StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
 !macroend
 
-!macro customCheckAppRunning
-  ; Empty override: the default allowOnlyOneInstallerInstance.nsh logic uses
-  ; APP_EXECUTABLE_FILENAME (OpenCode Evil.exe) which targets only evil processes,
-  ; never normal OpenCode.exe. $pid is declared via the workflow patch to
-  ; allowOnlyOneInstallerInstance.nsh, preventing makensis warning 6000.
+!macro CHECK_APP_RUNNING
+  ; Close OpenCode Evil only. Normal OpenCode uses OpenCode.exe, which is never
+  ; matched here. Installing/upgrading the evil build cannot touch normal OpenCode.
+  nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe"'
+  Pop $0
+  Sleep 500
 !macroend
 
 !macro customInstall
