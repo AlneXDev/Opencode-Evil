@@ -39,6 +39,13 @@ jobs:
           OPENCODE_VERSION: 2.1.4
         run: bun run --cwd packages/cli build --single --baseline --skip-install
 
+      - name: Copy CLI to desktop resources
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "packages/desktop/resources" | Out-Null
+          Copy-Item "packages/cli/dist/cli-windows-x64-baseline/bin/opencode.exe" -Destination "packages/desktop/resources/opencode-cli.exe"
+          New-Item -ItemType File -Path "packages/desktop/resources/opencode-cli.version" -Value "2.1.4" | Out-Null
+
       - name: Package Windows Installer
         env:
           OPENCODE_CHANNEL: evil
