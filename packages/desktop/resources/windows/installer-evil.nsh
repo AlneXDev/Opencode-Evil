@@ -2,8 +2,6 @@
 ; This file is referenced only by the "evil" channel in electron-builder.config.ts,
 ; so none of it can affect dev/beta/prod builds.
 
-Var /GLOBAL pid
-
 !macro customInit
   ; Pin the per-user install root. This runs after initMultiUser and before any
   ; page or section uses $INSTDIR, so a stale InstallLocation left behind by an
