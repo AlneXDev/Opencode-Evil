@@ -4,6 +4,9 @@ import { Session } from "@opencode/schema/session"
 import { FSUtil } from "@opencode/util/fs-util"
 import { DateTime, Effect, Ref, Schema } from "effect"
 import { withTimestampedFallback } from "@opencode/util/session-title-fallback"
+
+declare const OPENCODE_CLI_NAME: string | undefined
+
 import type {
   AuthenticateRequest,
   AuthenticateResponse,
@@ -113,7 +116,7 @@ export function make(input: {
       }
       if (params.clientCapabilities?._meta?.["terminal-auth"] === true) {
         authMethod._meta = {
-          "terminal-auth": { command: "opencode", args: ["auth", "login"], label: "OpenCode Login" },
+          "terminal-auth": { command: typeof OPENCODE_CLI_NAME === "string" ? OPENCODE_CLI_NAME : "opencode", args: ["auth", "login"], label: "OpenCode Login" },
         }
       }
       return {

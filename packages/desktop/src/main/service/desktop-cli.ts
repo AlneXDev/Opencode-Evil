@@ -5,11 +5,11 @@ import { existsSync, readFileSync } from "node:fs"
 import { promisify } from "node:util"
 import { app } from "electron"
 import { Context, Effect, FileSystem, Layer, Option, Path, Schema } from "effect"
-import installer from "../../../../../install?raw"
 import { DesktopPaths } from "../paths"
 import { BUNDLED_CLI_VERSION_KEY } from "../storage/keys"
+import { CHANNEL } from "../constants"
 import { getStore } from "../storage/store"
-import { parseCliVersion } from "./cli-version"
+import { parseCliVersion, stageName } from "./cli-version"
 
 const execFileAsync = promisify(execFile)
 
@@ -43,7 +43,12 @@ export const layer = Layer.effect(
       const home = app.getPath("home")
       yield* runInstaller(cli.binary, home)
 
-      return path.join(home, ".opencode", "bin", "opencode")
+      return path.join(
+        home,
+        CHANNEL === "evil" ? ".opencode-evil" : ".opencode",
+        "bin",
+        CHANNEL === "evil" ? "opencodevil2-node" : "opencode"
+      )
     })
 
     return Service.of({ resolve, install })
@@ -101,7 +106,7 @@ const bundledVersion = Effect.fn("DesktopCli.bundledVersion")(function* (bundled
   // async read waits behind everything else the main thread is doing at that moment.
   const shipped = yield* Effect.sync(() => {
     try {
-      return readFileSync(path.join(path.dirname(bundled), "opencode-cli.version"), "utf8").trim()
+      return readFileSync(path.join(path.dirname(bundled), `${CHANNEL === "evil" ? "opencodevil-cli" : "opencode-cli"}.version`), "utf8").trim()
     } catch {
       return ""
     }
@@ -140,7 +145,7 @@ const installCli = Effect.fn("DesktopCli.install")(function* (source: string, ve
   const fs = yield* FileSystem.FileSystem
   const path = yield* Path.Path
   // x64 and ARM64 installers share userData on Windows ARM64, so a same-version switch must not reuse the other copy.
-  const stage = `${version}-${process.arch}`.replace(/[^a-zA-Z0-9._-]/g, "-")
+  const stage = stageName(version)
   const directory = path.join(app.getPath("userData"), "cli", stage)
   const destination = path.join(directory, executableName())
 
@@ -209,7 +214,13 @@ const runInstaller = Effect.fn("DesktopCli.installForUser")(function* (binary: s
 })
 
 function executableName() {
-  return process.platform === "win32" ? "opencode-cli.exe" : "opencode-cli"
+  return process.platform === "win32"
+    ? CHANNEL === "evil"
+      ? "opencodevil-cli.exe"
+      : "opencode-cli.exe"
+    : CHANNEL === "evil"
+    ? "opencodevil-cli"
+    : "opencode-cli"
 }
 
 function developmentExecutableName() {

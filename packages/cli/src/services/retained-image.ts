@@ -3,6 +3,7 @@ export * as RetainedImage from "./retained-image"
 import { Effect, FileSystem } from "effect"
 import { randomBytes } from "node:crypto"
 import path from "node:path"
+import { OPENCODE_CHANNEL } from "../version"
 
 // Windows refuses to delete the last hard link of a running executable, and bun 1.4 spins
 // forever when its package replacement meets one. Any other link to the image can be removed,
@@ -58,10 +59,12 @@ export function installed(home: string) {
   const runtime = path.basename(process.execPath, path.extname(process.execPath)).toLowerCase()
   if (runtime === "bun" || runtime === "node" || runtime === "nodejs") return false
   const executable = path.resolve(process.execPath)
+  const isEvil = OPENCODE_CHANNEL === "evil"
   return (
     executable.split(path.sep).includes("node_modules") ||
     /[\\/]winget[\\/]packages[\\/]/i.test(executable) ||
-    executable === path.resolve(home, ".opencode", "bin", "opencode.exe")
+    executable === path.resolve(home, ".opencode", "bin", "opencode.exe") ||
+    (isEvil && executable === path.resolve(home, ".opencode-evil", "bin", "opencodevil2-node.exe"))
   )
 }
 

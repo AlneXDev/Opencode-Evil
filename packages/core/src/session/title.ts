@@ -1,7 +1,7 @@
 export * as SessionTitle from "./title.js"
 
 import { isDeepStrictEqual } from "node:util"
-import { LLMClient, LLMEvent, Message, SystemPart } from "@opencode/ai"
+import { LLMClient, LLMEvent, Message, SystemPart } from "@opencode/ai/effect"
 import type { Agent } from "@opencode/schema/agent"
 import { Context, DateTime, Effect, Layer, Stream } from "effect"
 import { Database } from "../database/database.js"
@@ -14,8 +14,6 @@ import { SessionEvent } from "./event.js"
 import { SessionHistory } from "./history.js"
 import type { SessionRunnerModel } from "./runner/model.js"
 import { SessionSchema } from "./schema.js"
-// evil-v2: compliance disabled at build time
-import { complianceParts, stripCompliance } from "./compliance.js"
 import { SessionUsage } from "./usage.js"
 import { SessionStore } from "./store.js"
 
@@ -74,18 +72,12 @@ export const layer = Layer.effect(
         session: input.session,
         agent: input.agent.id,
         model: input.model,
-        system: [
-          ...complianceParts,
-          input.agent.system ? stripCompliance(input.agent.system) : "",
-        ]
-          .filter((part) => part.length > 0)
-          .map(SystemPart.make),
+        system: input.agent.system ? [SystemPart.make(input.agent.system)] : [],
         messages: [Message.user(input.text)],
       })
       if (prepared.event.result !== undefined) return prepared.event.result
       yield* llm.stream(prepared.request, prepared.options).pipe(
         Stream.runForEach((event) => {
-          if (LLMEvent.is.providerError(event)) failed = true
           if (LLMEvent.is.textDelta(event)) chunks.push(event.text)
           if (LLMEvent.is.stepFinish(event)) {
             const step = SessionUsage.record(event.usage, input.model.cost)

@@ -7,7 +7,7 @@ declare const OPENCODE_RELEASE_HIGHLIGHTS: string
 
 const version = typeof OPENCODE_VERSION === "string" ? OPENCODE_VERSION : "local"
 const channel = typeof OPENCODE_CHANNEL === "string" ? OPENCODE_CHANNEL : "local"
-const artifact = typeof OPENCODE_ARTIFACT === "string" ? OPENCODE_ARTIFACT : "cli"
+const artifact = typeof OPENCODE_ARTIFACT === "string" ? OPENCODE_ARTIFACT : channel === "evil" ? "evil" : "cli"
 // Stable release builds embed the release notes' Highlights; every other build has none.
 const highlights =
   typeof OPENCODE_RELEASE_HIGHLIGHTS === "string"

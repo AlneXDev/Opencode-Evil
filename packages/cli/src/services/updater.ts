@@ -187,12 +187,11 @@ const make = Effect.gen(function* () {
       )
   })
 
-  const curlPath = path.resolve(
-    global.home,
-    ".opencode",
-    "bin",
-    process.platform === "win32" ? "opencode.exe" : "opencode",
-  )
+  const cliHome = OPENCODE_CHANNEL === "evil" ? ".opencode-evil" : ".opencode"
+  const cliBinary = OPENCODE_CHANNEL === "evil"
+    ? (process.platform === "win32" ? "opencodevil2-node.exe" : "opencodevil2-node")
+    : (process.platform === "win32" ? "opencode.exe" : "opencode")
+  const curlPath = path.resolve(global.home, cliHome, "bin", cliBinary)
   const curlBinary = yield* fs.realPath(curlPath).pipe(Effect.orElseSucceed(() => curlPath))
 
   // On Windows a bare `bash` may be the WSL launcher, which cannot run the installer against Windows paths.
@@ -441,6 +440,7 @@ const make = Effect.gen(function* () {
         "npm",
         "install",
         "--global",
+        `--allow-scripts=${packageName}`,
         ...((OPENCODE_ARTIFACT === "cli" && !installedPackage?.endsWith("/cli-node")) ||
         (installedPackage && packageName !== installedPackage)
           ? ["--force"]

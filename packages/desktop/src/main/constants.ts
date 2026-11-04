@@ -26,9 +26,3 @@ const appIDs: Record<string, string> = {
 export const APP_NAME = app.isPackaged ? appNames[CHANNEL] : "OpenCode Dev"
 
 export const APP_ID = app.isPackaged ? appIDs[CHANNEL] : "ai.opencode.desktop.dev"
-
-// URL protocol scheme derived from the app id:
-// ai.opencode.desktop.evil -> opencode-evil, ai.opencode.desktop -> opencode
-export const PROTOCOL_SCHEME = APP_ID.replace(/^ai\.opencode\.desktop(?:\.(\w+))?$/, (_: string, suffix: string | undefined) =>
-  suffix ? `opencode-${suffix}` : "opencode",
-)

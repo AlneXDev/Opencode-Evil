@@ -6,10 +6,14 @@
   ; Pin the per-user install root. This runs after initMultiUser and before any
   ; page or section uses $INSTDIR, so a stale InstallLocation left behind by an
   ; older evil build can never redirect the files into the normal OpenCode folder.
-  StrCpy $INSTDIR "$LocalAppData\Programs\opencode-evil-desktop"
+  StrCpy $INSTDIR "$LocalAppData\Programs\OpenCode Evil"
 !macroend
 
 !macro customCheckAppRunning
+  ; Kill only OpenCode Evil.exe and its children (the bundled CLI), never the
+  ; normal OpenCode.exe.
+  nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "OpenCode Evil.exe" /T'
+  Pop $0
 !macroend
 
 !macro customInstall

@@ -4,6 +4,8 @@ import type { DiscoverOptions, Endpoint, Info } from "./service.js"
 import { defaultEnsureTiming } from "./service-timing.js"
 import { matchesVersion } from "./service-version.js"
 
+declare const OPENCODE_CHANNEL: string
+
 // Shared by the Effect and Promise clients. Keep this module free of Effect so the
 // Promise client never loads the Effect runtime.
 
@@ -35,9 +37,10 @@ function fail(message: string) {
   return { _tag: "fail" as const, error: new Error(message) }
 }
 
-/** The default registration file. */
-export function fallback() {
-  return join(process.env["XDG_STATE_HOME"] ?? join(homedir(), ".local", "state"), "opencode", "service.json")
+/** The default registration file for the evil channel. */
+export function fallback(channel = OPENCODE_CHANNEL) {
+  const name = channel === "evil" ? "service-evil.json" : "service.json"
+  return join(process.env["XDG_STATE_HOME"] ?? join(homedir(), ".local", "state"), "opencode", name)
 }
 
 /** Whether two registrations describe the same service instance. */

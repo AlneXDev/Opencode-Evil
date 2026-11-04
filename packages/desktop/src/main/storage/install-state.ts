@@ -1,3 +1,5 @@
+import { CHANNEL } from "../constants"
+
 export function hasExistingAppState(entries: Array<{ name: string; directory: boolean }>) {
   return entries.some((entry) => {
     if (entry.name === "opencode.settings") return true
@@ -8,6 +10,6 @@ export function hasExistingAppState(entries: Array<{ name: string; directory: bo
 
     if (/^window-state-.+\.json$/.test(entry.name)) return true
 
-    return entry.directory && entry.name === "opencode"
+    return entry.directory && entry.name === (CHANNEL === "evil" ? "opencode-evil" : "opencode")
   })
 }
