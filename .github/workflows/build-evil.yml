@@ -19,6 +19,7 @@ jobs:
     timeout-minutes: 60
     env:
       OPENCODE_CHANNEL: evil
+      OPENCODE_VERSION: 2.2.5
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
       - name: Check out repository
