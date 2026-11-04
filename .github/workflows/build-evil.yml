@@ -82,7 +82,7 @@ jobs:
         if: inputs.target == 'windows-x64'
         shell: bash
         run: |
-          cp -r dist/desktop dist/desktop-app
+          cp -r dist/desktop/app dist/desktop-app
 
       - name: Pack NSIS installer
         if: inputs.target == 'windows-x64'
