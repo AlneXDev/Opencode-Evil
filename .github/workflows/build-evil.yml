@@ -19,7 +19,6 @@ jobs:
     timeout-minutes: 60
     env:
       OPENCODE_CHANNEL: evil
-      OPENCODE_TARGET: ${{ inputs.target }}
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
       - name: Check out repository
@@ -39,8 +38,11 @@ jobs:
       - name: Build CLI
         working-directory: packages/cli
         run: |
-          bun run build
-          if ($env:RUNNER_OS -eq 'Windows') { Remove-Item -Recurse -Force dist/.bun -ErrorAction SilentlyContinue } else { rm -rf dist/.bun }
+          if ($env:RUNNER_OS -eq 'Windows') {
+            bun run build --single --baseline
+          } else {
+            bun run build --target ${{ inputs.target }}
+          }
         env:
           BUN_COMPILE_RELEASE: bun-v1.4.4
           OPENCODE_CHANNEL: evil
@@ -48,21 +50,18 @@ jobs:
       - name: Copy CLI to desktop resources
         shell: bash
         run: |
-          # Determine the CLI binary name for the evil channel
           BIN_NAME="opencodevil2-node"
           EXE=""
-          if [[ "$OPENCODE_TARGET" == windows* ]]; then
+          if [[ "$RUNNER_OS" == Windows ]]; then
             BIN_NAME="opencodevil2-node.exe"
             EXE=".exe"
           fi
-          # Find the built CLI binary
           CLI_BIN=$(find packages/cli/dist -name "$BIN_NAME" -type f 2>/dev/null | head -1)
           if [[ -z "$CLI_BIN" ]]; then
             echo "CLI binary not found: $BIN_NAME"
             exit 1
           fi
           echo "Found CLI binary: $CLI_BIN"
-          # Copy to desktop resources (evil channel name)
           mkdir -p packages/desktop/resources
           cp "$CLI_BIN" "packages/desktop/resources/opencodevil-cli${EXE}"
 
@@ -71,7 +70,6 @@ jobs:
         run: bun run build
         env:
           OPENCODE_CHANNEL: evil
-          OPENCODE_TARGET: ${{ inputs.target }}
 
       - name: Pack desktop app
         working-directory: packages/desktop
@@ -79,7 +77,6 @@ jobs:
         run: bun run pack
         env:
           OPENCODE_CHANNEL: evil
-          OPENCODE_TARGET: ${{ inputs.target }}
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
