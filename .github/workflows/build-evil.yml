@@ -1,0 +1,65 @@
+name: build-evil
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Build target"
+        required: false
+        type: choice
+        options: [windows-x64, linux-x64, darwin-x64, darwin-arm64]
+        default: windows-x64
+
+permissions:
+  contents: read
+
+jobs:
+  build-desktop:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      OPENCODE_CHANNEL: evil
+      OPENCODE_TARGET: ${{ inputs.target }}
+      NODE_OPTIONS: --max-old-space-size=8192
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Bun
+        uses: ./.github/actions/setup-bun
+        with:
+          bun-version: 1.4.4
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build CLI
+        working-directory: packages/cli
+        run: bun run build && rm -rf dist/.bun
+        env:
+          BUN_COMPILE_RELEASE: bun-v1.4.4
+          OPENCODE_CHANNEL: evil
+
+      - name: Build desktop app
+        working-directory: packages/desktop
+        run: bun run build
+        env:
+          OPENCODE_CHANNEL: evil
+          OPENCODE_TARGET: ${{ inputs.target }}
+
+      - name: Pack desktop app
+        working-directory: packages/desktop
+        run: bun run pack
+        env:
+          OPENCODE_CHANNEL: evil
+          OPENCODE_TARGET: ${{ inputs.target }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: evil-desktop-${{ inputs.target }}
+          path: packages/desktop/dist/desktop
+          retention-days: 7
