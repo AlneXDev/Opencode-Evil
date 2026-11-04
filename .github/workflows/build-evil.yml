@@ -78,6 +78,29 @@ jobs:
         env:
           OPENCODE_CHANNEL: evil
 
+      - name: Preserve unpacked app for installer
+        if: inputs.target == 'windows-x64'
+        shell: bash
+        run: |
+          cp -r dist/desktop dist/desktop-app
+
+      - name: Pack NSIS installer
+        if: inputs.target == 'windows-x64'
+        working-directory: packages/desktop
+        timeout-minutes: 30
+        run: bun run pack
+        env:
+          OPENCODE_CHANNEL: evil
+          OPENCODE_DESKTOP_APP: ../../dist/desktop-app
+
+      - name: Upload NSIS installer
+        if: inputs.target == 'windows-x64'
+        uses: actions/upload-artifact@v4
+        with:
+          name: evil-desktop-installer-windows-x64
+          path: dist/desktop/opencode-evil-desktop-win-x64.exe
+          retention-days: 7
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
