@@ -38,7 +38,9 @@ jobs:
 
       - name: Build CLI
         working-directory: packages/cli
-        run: bun run build && rm -rf dist/.bun
+        run: |
+          bun run build
+          if ($env:RUNNER_OS -eq 'Windows') { Remove-Item -Recurse -Force dist/.bun -ErrorAction SilentlyContinue } else { rm -rf dist/.bun }
         env:
           BUN_COMPILE_RELEASE: bun-v1.4.4
           OPENCODE_CHANNEL: evil
