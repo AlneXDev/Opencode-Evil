@@ -82,5 +82,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: evil-desktop-${{ inputs.target }}
-          path: packages/desktop/dist/desktop
+          path: dist/desktop
           retention-days: 7
