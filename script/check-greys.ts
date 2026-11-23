@@ -68,7 +68,9 @@ const entries = (
   await Promise.all(
     files.map(async (file) => {
       const source = await Bun.file(path.join(repo(), file)).text()
-      const exception = EXCEPTIONS.find(([re]) => re.test(file))?.[1]
+      // On Windows Bun.Glob yields backslash paths, so normalize before matching the forward-slash EXCEPTIONS.
+      const normalized = file.replaceAll("\\", "/")
+      const exception = EXCEPTIONS.find(([re]) => re.test(normalized))?.[1]
       const allowed = allowedRanges(source)
       return declarations(source).flatMap((decl) =>
         neutrals(decl.value).map((hex) => ({
