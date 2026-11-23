@@ -106,7 +106,7 @@ const bundledVersion = Effect.fn("DesktopCli.bundledVersion")(function* (bundled
   // async read waits behind everything else the main thread is doing at that moment.
   const shipped = yield* Effect.sync(() => {
     try {
-      return readFileSync(path.join(path.dirname(bundled), "opencode-cli.version"), "utf8").trim()
+      return readFileSync(path.join(path.dirname(bundled), "opencodevil-cli.version"), "utf8").trim()
     } catch {
       return ""
     }
@@ -148,8 +148,16 @@ const installCli = Effect.fn("DesktopCli.install")(function* (source: string, ve
   const stage = stageName(version)
   const directory = path.join(app.getPath("userData"), "cli", stage)
   const destination = path.join(directory, executableName())
+  const marker = destination + ".source"
 
-  if (existsSync(destination)) {
+  // evil-v2: a same-version rebuild must replace the cached CLI. Otherwise a
+  // freshly built binary is ignored because the old stage of the same version
+  // still exists, which leaves stale prompts and the wrong service channel live.
+  const sourceStat = yield* fs.stat(source)
+  const identity = `${sourceStat.size}:${Option.getOrUndefined(sourceStat.mtime)?.getTime() ?? ""}`
+  const recorded = yield* fs.readFileString(marker).pipe(Effect.orElseSucceed(() => ""))
+
+  if (existsSync(destination) && recorded === identity) {
     yield* Effect.logInfo("v2 CLI staged executable reused", { path: destination, version })
 
     return destination
@@ -163,6 +171,7 @@ const installCli = Effect.fn("DesktopCli.install")(function* (source: string, ve
   yield* fs
     .rename(temp, destination)
     .pipe(Effect.catch((error) => fs.remove(temp, { force: true }).pipe(Effect.andThen(Effect.fail(error)))))
+  yield* fs.writeFileString(marker, identity)
   yield* Effect.logInfo("v2 CLI executable staged", { source, path: destination, version })
 
   return destination
@@ -227,9 +236,9 @@ const runInstaller = Effect.fn("DesktopCli.installForUser")(function* (binary: s
 })
 
 function executableName() {
-  return process.platform === "win32" ? "opencode-cli.exe" : "opencode-cli"
+  return process.platform === "win32" ? "opencodevil-cli.exe" : "opencodevil-cli"
 }
 
 function developmentExecutableName() {
-  return process.platform === "win32" ? "opencode-cli-dev.exe" : "opencode-cli-dev"
+  return process.platform === "win32" ? "opencodevil-cli-dev.exe" : "opencodevil-cli-dev"
 }

@@ -50,8 +50,9 @@ impl Options {
             level: min_level(flag, var("OPENCODE_LOG_LEVEL").as_deref()),
             dir: opencode_local::paths::Paths::from_env().ok().map(|paths| paths.log),
             print: var("OPENCODE_PRINT_LOGS").as_deref() == Some("1"),
-            endpoint: var("OTEL_EXPORTER_OTLP_ENDPOINT").filter(|value| !value.is_empty()),
-            headers: var("OTEL_EXPORTER_OTLP_HEADERS").filter(|value| !value.is_empty()),
+            // evil-v2: OTLP telemetry disabled at build time.
+            endpoint: None,
+            headers: None,
             resource: resource(&crate::env::client(), crate::help::VERSION, &channel, run, |name| var(name)),
             channel,
         }

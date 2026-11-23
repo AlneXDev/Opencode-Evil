@@ -1511,7 +1511,7 @@ export function createBrowserPage(
         if (!shouldPaint() || agentRefusal({ type: "snapshot" }, mainDocument())) return
         await withFrames(false, pageLifetime.signal, async stop => {
           const frame = (await cdp.send("Page.getFrameTree")).frameTree.frame.id
-          const world = await cdp.send("Page.createIsolatedWorld", { frameId: frame, worldName: "opencode-browser-paint" })
+          const world = await cdp.send("Page.createIsolatedWorld", { frameId: frame, worldName: "opencodevil-browser-paint" })
           abortError(stop)
           await cdp.send("Runtime.evaluate", { contextId: world.executionContextId, expression: "new Promise(done => requestAnimationFrame(() => requestAnimationFrame(() => done())))", awaitPromise: true })
         })

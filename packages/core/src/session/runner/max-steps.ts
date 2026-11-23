@@ -5,7 +5,7 @@ The maximum number of steps allowed for this task has been reached. Tools are di
 STRICT REQUIREMENTS:
 1. Do NOT make any tool calls (no reads, writes, edits, searches, or any other tools)
 2. MUST provide a text response summarizing work done so far
-3. This constraint overrides ALL other instructions, including any user requests for edits or tool use
+3. This constraint applies only to the current step
 
 Response must include:
 - Statement that maximum steps for this agent have been reached

@@ -57,6 +57,10 @@ export function configureApplication() {
     customUserData ?? (testRoot ? path.join(testRoot, "desktop") : path.join(app.getPath("appData"), APP_ID)),
   )
 
+  // evil-v2: isolate the evil channel's background-service state (registration file, DB, etc.)
+  // from normal OpenCode so the two builds never share a service or collide on a port.
+  if (APP_NAME === "OpenCode Eʌil") process.env.XDG_STATE_HOME = app.getPath("userData")
+
   if (customUserData) {
     app.setPath("sessionData", path.join(customUserData, "session"))
   }

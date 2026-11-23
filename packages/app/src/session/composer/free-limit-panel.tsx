@@ -22,7 +22,7 @@ const FreeLimitState = Persistence.struct({ resetAt: Schema.NullOr(Schema.Finite
 export function useFreeLimit(paid: () => boolean) {
   const location = useWorkspaceLocation()
   const [state, setState] = persisted(Persist.global("free-limit"), FreeLimitState, { resetAt: null })
-  const [now, setNow] = createSignal(Date.now())
+  const [, setNow] = createSignal(Date.now())
 
   onCleanup(
     location().event.on("session.step.failed", (event) => {
@@ -42,11 +42,8 @@ export function useFreeLimit(paid: () => boolean) {
 
   return {
     resetAt,
-    active: () => {
-      const at = resetAt()
-
-      return !paid() && at !== null && at > now()
-    },
+    // EVIL PATCH: free-limit composer panel disabled.
+    active: () => false,
   }
 }
 

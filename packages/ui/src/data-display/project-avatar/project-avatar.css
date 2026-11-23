@@ -56,9 +56,10 @@
   --project-avatar-border: var(--v2-avatar-border-green);
 }
 
+/* evil-v2: match the icon's red (#ff5959) for the letter-O avatars too. */
 [data-slot="project-avatar-surface"][data-variant="red"] {
-  --project-avatar-bg: var(--v2-avatar-bg-red);
-  --project-avatar-border: var(--v2-avatar-border-red);
+  --project-avatar-bg: #ff5959;
+  --project-avatar-border: #cc3b3b;
 }
 
 [data-slot="project-avatar-surface"][data-variant="pink"] {

@@ -7,7 +7,7 @@ import path from "node:path"
 export type BrowserFiles = ReturnType<typeof createBrowserFiles>
 
 export function createBrowserFiles(source: () => readonly string[]) {
-  const directory = path.join(tmpdir(), `opencode-browser-client-${crypto.randomUUID()}`)
+  const directory = path.join(tmpdir(), `opencodevil-browser-client-${crypto.randomUUID()}`)
 
   const files = new Map<
     Browser.FileID,

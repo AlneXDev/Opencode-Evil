@@ -38,3 +38,11 @@ tsconfig.tsbuildinfo
 
 # Legal drafts pending review are kept outside the repository; never copy them in.
 legal-drafts-private/
+
+# evil-v2 generated build artifacts
+packages/desktop/dist-evil/
+evil-backup-*/
+packages/*/.bun-cache/
+packages/desktop/resources/opencodevil-cli.exe
+packages/desktop/resources/opencodevil-cli.version
+

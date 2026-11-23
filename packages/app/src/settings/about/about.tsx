@@ -144,6 +144,9 @@ export function SettingsAbout(props: { active: boolean }) {
             </button>
           </Tooltip>
         </div>
+        <p class="settings-about-evil-branding">
+          OpenCode Eʌil — Made by <span class="settings-about-evil-sparkles" aria-hidden="true">✧</span><span class="settings-about-evil-gold">Alne</span>
+        </p>
         <p>{language.t("settings.about.license")}</p>
       </div>
 

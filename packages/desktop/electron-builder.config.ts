@@ -34,7 +34,7 @@ const previewCompressionFpm = (target: "deb" | "rpm") => [`--${target}-compressi
 function resolveChannel() {
   const raw = process.env.OPENCODE_CHANNEL
 
-  if (raw === "dev" || raw === "beta" || raw === "prod") return raw
+  if (raw === "dev" || raw === "beta" || raw === "evil" || raw === "prod") return raw
 
   if (raw === "latest") return "prod"
 
@@ -44,8 +44,13 @@ function resolveChannel() {
 const APP_IDS = {
   dev: "ai.opencode.desktop.dev",
   beta: "ai.opencode.desktop.beta",
+  evil: "ai.opencode.evil.desktop",
   prod: "ai.opencode.desktop",
 } as const
+
+// evil-v2: dedicated NSIS registration so the evil install never reuses or
+// removes the normal OpenCode registration (matching the documented GUID).
+const EVIL_NSIS_GUID = "fe09962c-9b87-4102-ba23-e87c8f8a562e"
 
 // libappimage (used by AppImageLauncher) resolves the .desktop entry inside an
 // AppImage by globbing `*.desktop` at the squashfs root. If the main
@@ -83,7 +88,7 @@ const getBase = (appId: string): Configuration => {
     files: [
       "out/**/*",
       "resources/**/*",
-      "!resources/opencode-cli*",
+      "!resources/opencodevil-cli*",
       `!**/node_modules/@yuuang/ffi-rs-!(${binding}){,/**/*}`,
       // Keep only the target platform's node-pty prebuild when cross-packaging with --cpu=*.
       ...CLI_BINARIES.filter((item) => item.os !== target.os || item.cpu !== target.cpu).map(
@@ -109,7 +114,7 @@ const getBase = (appId: string): Configuration => {
       {
         from: "resources/",
         to: "",
-        filter: ["opencode-cli", "opencode-cli.exe", "opencode-cli.version"],
+        filter: ["opencodevil-cli", "opencodevil-cli.exe", "opencodevil-cli.version"],
       },
     ],
     // Electron stores cookies in plain text by default. The browser pane keeps sign-ins, so encrypt them with the OS
@@ -138,13 +143,13 @@ const getBase = (appId: string): Configuration => {
       if (arch !== target.cpu) throw new Error(`Packaging ${arch} Electron with the ${target.target} CLI`)
       const resources = context.packager.getResourcesDir(context.appOutDir)
       await verifyPreviewBinding(resources, context.electronPlatformName, arch)
-      const cli = path.join(resources, context.electronPlatformName === "win32" ? "opencode-cli.exe" : "opencode-cli")
+      const cli = path.join(resources, context.electronPlatformName === "win32" ? "opencodevil-cli.exe" : "opencodevil-cli")
 
       const file = await stat(cli)
 
       if (!file.isFile() || file.size === 0) throw new Error(`Bundled CLI must be a non-empty file: ${cli}`)
       await NativeArch.verify(cli, arch)
-      const version = path.join(path.dirname(cli), "opencode-cli.version")
+      const version = path.join(path.dirname(cli), "opencodevil-cli.version")
 
       if ((await stat(version)).size === 0) throw new Error(`Bundled CLI version must be a non-empty file: ${version}`)
 
@@ -272,6 +277,28 @@ export function getConfig() {
           packageName: "opencode-beta",
           fpm: [rpmNoBuildIdLinksFpm, ...previewCompressionFpm("rpm"), metainfoFpm(appId)],
         },
+      }
+    }
+
+    case "evil": {
+      return {
+        ...base,
+        appId,
+        productName: "OpenCode Eʌil",
+        extraMetadata: {
+          ...base.extraMetadata,
+          name: "@opencodevil-aidesktop",
+          desktopName: `${appId}.desktop`,
+        },
+        artifactName: "opencode-evil-desktop-${os}-${arch}.${ext}",
+        protocols: { name: "OpenCode Eʌil", schemes: ["opencode-evil"] },
+        nsis: {
+          ...base.nsis,
+          guid: EVIL_NSIS_GUID,
+          include: path.join(packageDir, "resources", "windows", "installer-evil.nsh"),
+        },
+        // No updater feed: the evil build must never stage or install normal OpenCode updates.
+        publish: undefined,
       }
     }
 

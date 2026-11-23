@@ -11,12 +11,34 @@ import { CHANNEL } from "../constants"
 // which set the environment the CLI expects.
 let probe: Promise<Endpoint | undefined> | undefined
 
+// evil-v2: probe only the evil registration file so it never adopts normal OpenCode's service.
+const IS_EVIL_CHANNEL = CHANNEL === "evil"
+
+function probeFile(): string | undefined {
+  if (IS_EVIL_CHANNEL) return "service-evil.json"
+  if (process.env.OPENCODE_DESKTOP_SERVER_CHANNEL === "local") return "service-local.json"
+  return undefined
+}
+
 export function startSidecarProbe() {
   if (!app.isPackaged) return
   const version = CHANNEL === "beta" ? undefined : bundledVersion()
 
   if (version === "") return
-  probe = import("@opencode/client/service").then(({ Service }) => Service.discover({ version })).catch(() => undefined)
+  const file = probeFile()
+  const options = file
+    ? {
+        version,
+        file: path.join(
+          process.env.XDG_STATE_HOME ?? path.join(app.getPath("home"), ".local", "state"),
+          "opencodevil",
+          file,
+        ),
+      }
+    : { version }
+  probe = import("@opencode/client/service")
+    .then(({ Service }) => Service.discover(options))
+    .catch(() => undefined)
 }
 
 /** The probe's result, once: a later connect must not adopt a service that may have exited since boot. */
@@ -29,7 +51,7 @@ export function takeSidecarProbe() {
 
 function bundledVersion() {
   try {
-    return readFileSync(path.join(process.resourcesPath, "opencode-cli.version"), "utf8").trim()
+    return readFileSync(path.join(process.resourcesPath, "opencodevil-cli.version"), "utf8").trim()
   } catch {
     return ""
   }

@@ -432,24 +432,9 @@ fn stopped(tui: &Tui, recalled: Option<String>, offer: Option<Option<String>>) {
     if let Some(text) = &recalled {
         textarea.set_text(text);
     }
-    let Some(reset) = offer else { return };
-    if tui.dialogs.is_open() {
-        return;
-    }
-    let expected = textarea.text();
-    let weak = tui.weak();
-    let check = textarea.clone();
-    go_upsell::offer(
-        &tui.local,
-        go_upsell::Offer {
-            reset,
-            can_continue: Rc::new(move || weak.upgrade().is_some() && check.text() == expected),
-            on_subscribe: Rc::new(bind!(tui, |tui| {
-                tui.keymap.dispatch("prompt.submit", None);
-            })),
-        },
-        now(),
-    );
+    // EVIL PATCH: Go subscription upsell disabled.
+    let _ = offer;
+    let _ = &textarea;
 }
 
 #[cfg(test)]

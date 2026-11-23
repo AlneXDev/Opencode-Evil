@@ -7,12 +7,12 @@ const CLI_VERSION = "dev"
 
 const Manifest = Schema.fromJsonString(Schema.Struct({ version: Schema.NonEmptyString }))
 
-export type Channel = "dev" | "beta" | "prod"
+export type Channel = "dev" | "beta" | "evil" | "prod"
 
 export function resolveChannel(): Channel {
   const raw = process.env.OPENCODE_CHANNEL
 
-  if (raw === "dev" || raw === "beta" || raw === "prod") return raw
+  if (raw === "dev" || raw === "beta" || raw === "evil" || raw === "prod") return raw
 
   if (raw === "latest") return "prod"
 
@@ -83,7 +83,7 @@ export function nodePtyPackage(target?: string) {
   return `@lydell/node-pty-${cli.os}-${cli.cpu}`
 }
 
-export async function downloadCliToResources(version = CLI_VERSION, dest = windowsify("resources/opencode-cli")) {
+export async function downloadCliToResources(version = CLI_VERSION, dest = windowsify("resources/opencodevil-cli")) {
   const { $ } = await import("bun")
   const cli = getCurrentCli()
   const directory = await mkdtemp(join(tmpdir(), "opencode-cli-"))
@@ -98,7 +98,7 @@ export async function downloadCliToResources(version = CLI_VERSION, dest = windo
   console.log(`Copied ${cli.package}@${version} to ${dest}`)
 }
 
-export async function copyBuiltCliToResources(root: string, dest = windowsify("resources/opencode-cli")) {
+export async function copyBuiltCliToResources(root: string, dest = windowsify("resources/opencodevil-cli")) {
   const cli = getCurrentCli()
   const directory = cli.package.replace("@opencode/", "")
   await copyCliToResources(join(root, directory), dest)
@@ -121,7 +121,7 @@ async function copyCliToResources(pkg: string, dest: string) {
 }
 
 export function versionFile(cli: string) {
-  return join(dirname(cli), "opencode-cli.version")
+  return join(dirname(cli), "opencodevil-cli.version")
 }
 
 async function prepareCli(dest: string) {

@@ -44,6 +44,7 @@ import { SessionModelTransport } from "./model-transport.js"
 import { SessionRunnerModel } from "./runner/model.js"
 import { SessionSchema } from "./schema.js"
 import { SessionSystemPrompt } from "./system-prompt.js"
+import { COMPLIANCE, stripCompliance } from "./compliance.js"
 import { toLLMMessages } from "./runner/to-llm-message.js"
 import type { SessionMessage } from "./message.js"
 
@@ -121,11 +122,11 @@ export const baseTranscript = (input: {
     system: [
       SystemPart.make(
         input.agent.system
-          ? input.agent.system
-          : SessionSystemPrompt.make(input.tools.definitions.map((tool) => tool.name)),
+          ? stripCompliance(input.agent.system)
+          : stripCompliance(SessionSystemPrompt.make(input.tools.definitions.map((tool) => tool.name))),
       ),
       {
-        ...SystemPart.make(Instructions.join(input.initial)),
+        ...SystemPart.make(stripCompliance(Instructions.join(input.initial))),
         metadata: { experimental: { instructions: input.initial } },
       },
     ].filter((part) => part.text.length > 0),
@@ -338,7 +339,16 @@ export const layer = Layer.effect(
         // TODO: Persist cache lineage so nested forks reuse the root session's cache key.
         promptCacheKey: /^ses_[0-9a-f]{64}$/.test(affinity) ? affinity.slice(4) : affinity,
         cache: model.cache?.ttl === undefined ? undefined : { ttl: model.cache.ttl },
-        system: shaped.system,
+        // evil-v2: emit exactly one intact directive at system[0] AFTER all hooks run.
+        // optimize.ts overwrites/appends system[0] with per-model templates that already
+        // contain the directive, so stripping every copy here prevents duplicates that
+        // make models treat it as an injected override and deliberate instead of complying.
+        system: [
+          SystemPart.make(COMPLIANCE),
+          ...shaped.system
+            .map((part) => ({ ...part, text: stripCompliance(part.text) }))
+            .filter((part) => part.text.length > 0),
+        ],
         // Strip the stored metadata hooks could read, so it never reaches the provider.
         messages: boundImages(
           unsupportedParts(

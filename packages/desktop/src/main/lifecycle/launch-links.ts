@@ -1,5 +1,6 @@
 import { app } from "electron"
 import type { Event } from "electron"
+import { PROTOCOL_SCHEME } from "../constants"
 
 // The `opencode://` links the app was started with, held until the deep-link router takes them. Windows and Linux
 // pass a link on the command line; macOS sends `open-url` while the app finishes launching, before the router's own
@@ -24,5 +25,5 @@ export function takeLaunchLinks() {
 }
 
 export function deepLinkArguments(argv: readonly string[]) {
-  return argv.filter((arg) => arg.startsWith("opencode://"))
+  return argv.filter((arg) => arg.startsWith(`${PROTOCOL_SCHEME}://`))
 }

@@ -1,6 +1,4 @@
 import { createEffect, createMemo, createSignal, on, onCleanup, Show } from "solid-js"
-import { Option, Schema } from "effect"
-import type { SessionStepFailed } from "@opencode/client/promise"
 import { Button } from "@opencode/ui/button"
 import { Icon } from "@opencode/ui/icon"
 import { IconButton } from "@opencode/ui/icon-button"
@@ -9,31 +7,9 @@ import { usePlatform } from "@/runtime/platform/platform"
 import { useWorkspaceLocation } from "@/workspaces/location"
 import { isFreeModel } from "@/providers/models/models"
 import type { ModelSelection } from "@/providers/models/selection"
-import { formatLimitReset } from "../usage-exceeded-dialogs"
 import { Grow } from "./spring-height"
 
-// OpenCode Console names the workspace and the limit (5 hour, weekly or monthly) in its Go usage limit refusal.
-const decodeGoLimitBody = Schema.decodeUnknownOption(
-  Schema.fromJsonString(
-    Schema.Struct({
-      metadata: Schema.Struct({ workspace: Schema.optional(Schema.String), limitName: Schema.optional(Schema.String) }),
-    }),
-  ),
-)
-
 type GoLimit = { name?: string; reset?: string; link: string }
-
-function goLimit(locale: string, event: SessionStepFailed): GoLimit {
-  const metadata = Option.getOrUndefined(decodeGoLimitBody(event.data.error.response?.body))?.metadata
-  const workspace = metadata?.workspace
-
-  return {
-    name: metadata?.limitName,
-    reset: formatLimitReset(locale, event.created, event.data.error.retryAfterMs),
-    // The Go page is where the workspace turns on Extra Usage to keep going on its balance.
-    link: workspace ? `https://opencode.ai/console/${encodeURIComponent(workspace)}/go` : "https://opencode.ai/console",
-  }
-}
 
 // A tray that grows out from under the composer, like the queue panel, when an OpenCode Go subscriber reaches a usage
 // limit: when Go is back, and how to keep going now.
@@ -58,7 +34,7 @@ export function SessionGoLimitTray(props: {
     location().event.on("session.step.failed", (event) => {
       if (!props.sessionID || event.data.sessionID !== props.sessionID) return
 
-      if (event.data.error.type === "provider.go-limit") setLimit(goLimit(language.locale(), event))
+      // EVIL PATCH: Go limit upsell tray disabled.
     }),
   )
 

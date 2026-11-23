@@ -76,8 +76,7 @@ export function AppBaseProviders(
           <UiI18nBridge>
             <ErrorBoundary
               fallback={(error) => {
-                void import("@sentry/solid").then(({ captureException }) => captureException(error))
-
+                // evil-v2: Sentry error telemetry disabled.
                 return <ErrorPage error={error} />
               }}
             >

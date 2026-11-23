@@ -46,7 +46,7 @@ import {
 } from "./sources"
 
 /** The partition every page of the desktop browser shares, on disk under the app's user data. */
-export const PARTITION = "persist:opencode-browser"
+export const PARTITION = "persist:opencodevil-browser"
 
 const StoredExtension = Schema.Struct({
   id: Schema.String,

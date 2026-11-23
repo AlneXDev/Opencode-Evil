@@ -383,14 +383,8 @@ export const ErrorPage: Component<ErrorPageProps> = (props) => {
   )
 
   onMount(() => {
-    void import("@sentry/solid")
-      .then(({ captureException, isEnabled }) => {
-        const enabled = isEnabled()
-
-        if (enabled) capture = captureException
-        dispatch({ type: "sentry.loaded", enabled })
-      })
-      .catch(() => undefined)
+    // evil-v2: Sentry telemetry disabled at build time.
+    dispatch({ type: "sentry.loaded", enabled: false })
   })
 
   onCleanup(() => {

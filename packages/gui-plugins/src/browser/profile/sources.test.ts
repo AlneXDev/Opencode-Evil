@@ -77,10 +77,10 @@ test("sweeps the copies a crash left behind, but never one a read still uses", a
   const legacy = path.join(home, "temp")
 
   try {
-    const left = path.join(copies.directory, "opencode-browser-import-left")
-    const reading = path.join(copies.directory, "opencode-browser-import-reading")
-    const oldTemp = path.join(legacy, "opencode-browser-import-old")
-    const newTemp = path.join(legacy, "opencode-browser-import-new")
+    const left = path.join(copies.directory, "opencodevil-browser-import-left")
+    const reading = path.join(copies.directory, "opencodevil-browser-import-reading")
+    const oldTemp = path.join(legacy, "opencodevil-browser-import-old")
+    const newTemp = path.join(legacy, "opencodevil-browser-import-new")
     const unrelated = path.join(copies.directory, "something-else")
     await Promise.all([left, reading, oldTemp, newTemp, unrelated].map((directory) => mkdir(directory, { recursive: true })))
     await writeFile(path.join(left, "cookies.sqlite"), "values")
@@ -91,8 +91,8 @@ test("sweeps the copies a crash left behind, but never one a read still uses", a
     await sweepSnapshots(copies, [legacy])
 
     const remaining = async (directory: string) => (await readdir(directory)).toSorted()
-    expect(await remaining(copies.directory)).toEqual(["opencode-browser-import-reading", "something-else"])
-    expect(await remaining(legacy)).toEqual(["opencode-browser-import-new"])
+    expect(await remaining(copies.directory)).toEqual(["opencodevil-browser-import-reading", "something-else"])
+    expect(await remaining(legacy)).toEqual(["opencodevil-browser-import-new"])
     expect(logged).toEqual([])
   } finally {
     await rm(home, { recursive: true, force: true }).catch(() => undefined)
@@ -110,17 +110,17 @@ test("in the shared temporary directory, a planted link is left and a link insid
     await mkdir(victim)
     await writeFile(path.join(victim, "Cookies"), "the user's own file")
     // Another user's entry named as a copy, that points at the user's files; a junction needs no privilege on Windows.
-    const planted = path.join(legacy, "opencode-browser-import-planted")
+    const planted = path.join(legacy, "opencodevil-browser-import-planted")
     await symlink(victim, planted, "junction")
     await lutimes(planted, old, old)
     // An old copy whose file was swapped for a link to the user's directory.
-    const copy = path.join(legacy, "opencode-browser-import-copy")
+    const copy = path.join(legacy, "opencodevil-browser-import-copy")
     await mkdir(copy)
     await writeFile(path.join(copy, "Cookies-wal"), "values")
     await symlink(victim, path.join(copy, "Cookies"), "junction")
     await utimes(copy, old, old)
     // Earlier versions made no directory inside a copy, so the sweep never goes down into one.
-    const nested = path.join(legacy, "opencode-browser-import-nested")
+    const nested = path.join(legacy, "opencodevil-browser-import-nested")
     await mkdir(path.join(nested, "inner"), { recursive: true })
     await writeFile(path.join(nested, "inner", "kept"), "")
     await utimes(nested, old, old)
@@ -129,10 +129,10 @@ test("in the shared temporary directory, a planted link is left and a link insid
 
     await sweepSnapshots({ ...scratch(home), log: (_message, detail) => logged.push(path.basename(detail.directory ?? "")) }, [legacy])
 
-    expect((await readdir(legacy)).toSorted()).toEqual(["opencode-browser-import-nested", "opencode-browser-import-planted"])
+    expect((await readdir(legacy)).toSorted()).toEqual(["opencodevil-browser-import-nested", "opencodevil-browser-import-planted"])
     expect(await readdir(path.join(nested, "inner"))).toEqual(["kept"])
     expect(await readdir(victim)).toEqual(["Cookies"])
-    expect(logged).toEqual(["opencode-browser-import-nested"])
+    expect(logged).toEqual(["opencodevil-browser-import-nested"])
   } finally {
     await rm(home, { recursive: true, force: true }).catch(() => undefined)
   }

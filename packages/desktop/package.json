@@ -17,6 +17,8 @@
     "migration": "bun run script/migration.ts",
     "build": "bun run script/build.ts",
     "pack": "bun run script/pack.ts",
+    "build:evil": "bun run script/build-evil.ts",
+    "package:win:evil": "bun run script/pack-evil.ts",
     "preview": "electron-vite preview"
   },
   "main": "./out/main/index.js",

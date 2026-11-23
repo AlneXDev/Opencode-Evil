@@ -73,7 +73,7 @@ test("lists from a cookie table without any value column, and leaves no copy beh
     insert.run(42, 0, 0, 0, null)
 
     expect(await readChromiumHosts(file, copies)).toEqual([{ host: ".github.com", expires: undefined, used: 1_655_526_400 }])
-    expect((await readdir(copies.directory)).filter((entry) => entry.startsWith("opencode-browser-import-"))).toEqual([])
+    expect((await readdir(copies.directory)).filter((entry) => entry.startsWith("opencodevil-browser-import-"))).toEqual([])
   } finally {
     db.close()
     await rm(directory, { recursive: true, force: true }).catch(() => undefined)

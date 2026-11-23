@@ -1,7 +1,6 @@
 // @refresh reload
 
 import "@/runtime/polyfills"
-import { init } from "@sentry/solid"
 import { render } from "solid-js/web"
 import { AppBaseProviders, AppInterface } from "@/app"
 import { loadInitialLocale } from "@/runtime/i18n/language"
@@ -58,24 +57,7 @@ if (import.meta.env.PROD && "serviceWorker" in navigator) {
   })
 }
 
-if (import.meta.env.VITE_SENTRY_DSN) {
-  init({
-    dsn: import.meta.env.VITE_SENTRY_DSN,
-    environment: import.meta.env.VITE_SENTRY_ENVIRONMENT ?? import.meta.env.MODE,
-    release: import.meta.env.VITE_SENTRY_RELEASE ?? `web@${pkg.version}`,
-    initialScope: {
-      tags: {
-        platform: "web",
-      },
-    },
-    integrations: (integrations) => {
-      return integrations.filter(
-        (i) =>
-          i.name !== "Breadcrumbs" && !(import.meta.env.OPENCODE_CHANNEL === "prod" && i.name === "GlobalHandlers"),
-      )
-    },
-  })
-}
+// evil-v2: Sentry telemetry disabled at build time.
 
 if (root instanceof HTMLElement && root.dataset.opencodeMounted === undefined) {
   // Lazy chunks can import the entry chunk back under a distinct URL, so claim the root before async startup.

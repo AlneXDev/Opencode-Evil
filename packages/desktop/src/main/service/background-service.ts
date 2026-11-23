@@ -14,6 +14,10 @@ import { takeSidecarProbe } from "./sidecar-probe"
 
 export * as BackgroundService from "./background-service"
 
+// evil-v2: the evil channel owns its own service registration and state so it can run
+// side by side with normal OpenCode without sharing a registration file or port.
+const IS_EVIL_CHANNEL = CHANNEL === "evil"
+
 const RegisteredService = Schema.Struct({ version: Schema.optional(Schema.String) })
 
 export interface Interface {
@@ -106,20 +110,26 @@ const prepare = Effect.fn("BackgroundService.prepare")(function* (mode: Backgrou
   const cli = yield* desktopCli.resolve
   const version = reuse ? undefined : serviceVersion({ channel: CHANNEL, isolated, mode, version: cli.version })
 
-  if (isolated) process.env.XDG_STATE_HOME = app.getPath("userData")
+  if (IS_EVIL_CHANNEL || isolated) process.env.XDG_STATE_HOME = app.getPath("userData")
   const client = yield* Effect.promise(() => import("@opencode/client/service"))
 
   const reuseFile = reuse ? process.env.OPENCODE_DESKTOP_REUSE_SERVICE_FILE || undefined : undefined
 
   const file = reuse
     ? reuseFile
-    : process.env.OPENCODE_DESKTOP_SERVER_CHANNEL === "local"
+    : IS_EVIL_CHANNEL
       ? path.join(
           process.env.XDG_STATE_HOME ?? path.join(app.getPath("home"), ".local", "state"),
-          "opencode",
-          "service-local.json",
+          "opencodevil",
+          "service-evil.json",
         )
-      : undefined
+      : process.env.OPENCODE_DESKTOP_SERVER_CHANNEL === "local"
+        ? path.join(
+            process.env.XDG_STATE_HOME ?? path.join(app.getPath("home"), ".local", "state"),
+            "opencode",
+            "service-local.json",
+          )
+        : undefined
 
   return { cli, client, file, isolated, version }
 })

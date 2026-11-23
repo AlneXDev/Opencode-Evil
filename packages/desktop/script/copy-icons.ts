@@ -3,9 +3,10 @@ import { resolveChannel } from "./utils"
 
 const arg = process.argv[2]
 
-const channel = arg === "dev" || arg === "beta" || arg === "prod" ? arg : resolveChannel()
+const channel = arg === "dev" || arg === "beta" || arg === "evil" || arg === "prod" ? arg : resolveChannel()
 
-const src = `./icons/${channel}`
+// EVIL PATCH: use the distinct evil icon set for side-by-side builds.
+const src = process.env.OPENCODE_EVIL === "1" ? "./icons/evil" : `./icons/${channel}`
 
 const dest = "resources/icons"
 

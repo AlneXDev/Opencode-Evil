@@ -57,7 +57,7 @@ export async function runBrowserMain() {
   // SAFETY: `provide` above received each Ipc's own implementation from the main entry, whose type the token carries.
   const ipc = <S extends IpcSpec>(token: Ipc<S>) => provided.get(token.id) as IpcImpl<S>
   const caller: Caller = { window: 1, signal: lifetime.signal }
-  const session = electron.session.fromPartition("persist:opencode-browser")
+  const session = electron.session.fromPartition("persist:opencodevil-browser")
 
   return {
     profile: ipc(BrowserProfile),

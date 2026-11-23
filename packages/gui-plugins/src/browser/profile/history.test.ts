@@ -83,7 +83,7 @@ test("reads a Chromium history: visited web pages, most used and most recent fir
     { url: "https://damaged.test/title", title: "", visits: 2, typed: 0, visited: NOW - 5 * DAY },
     { url: "http://localhost:3000/", title: "Local app", visits: 1, typed: 0, visited: NOW },
   ])
-  expect((await readdir(source.scratch.directory)).filter((entry) => entry.startsWith("opencode-browser-import-"))).toEqual([])
+  expect((await readdir(source.scratch.directory)).filter((entry) => entry.startsWith("opencodevil-browser-import-"))).toEqual([])
 })
 
 test("reads a Chromium history that lacks the optional columns, and nothing from one without addresses", async () => {

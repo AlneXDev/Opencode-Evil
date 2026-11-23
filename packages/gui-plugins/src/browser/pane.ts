@@ -210,7 +210,7 @@ export function createBrowserPane(input: {
       // A server on this machine reaches the same network as this desktop, so its pages browse in the profile. Another
       // server's pages need its network through a proxy, which Chromium sets per partition.
       const shared = server.sameMachine
-      const partition = shared ? input.profile.partition : `opencode-browser-${crypto.randomUUID()}`
+      const partition = shared ? input.profile.partition : `opencodevil-browser-${crypto.randomUUID()}`
 
       const remote = shared ? undefined : electron.session.fromPartition(partition)
       const abort = new AbortController()
