@@ -10,7 +10,7 @@ import { Project } from "../project.js"
 import { AbsolutePath } from "../schema.js"
 import type { Options } from "../config.js"
 
-export const names = ["opencode.json", "opencode.jsonc"]
+export const names = ["opencodevil.json", "opencodevil.jsonc"]
 
 /** Eligible sources in priority order, including paths that may appear later. */
 export interface Sources {
