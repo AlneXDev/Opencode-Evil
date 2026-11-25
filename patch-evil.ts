@@ -252,4 +252,22 @@ replace(
   "cli: evil install URL",
 )
 
+// 10. Web UI must use the red evil icon set, not the dev set.
+replace(
+  "packages/app/vite.icons.ts",
+  `  const selected = channel === "beta" || channel === "prod" ? channel : "dev"`,
+  `  // evil-v2: the evil channel has its own red icon set; using "dev" here made
+  // the web UI serve blue/dev favicons even in an evil build.
+  const selected = channel === "beta" || channel === "prod" || channel === "evil" ? channel : "dev"`,
+  "app: use evil favicons for the evil channel",
+)
+replace(
+  "packages/app/vite.js",
+  `  if (raw === "local" || raw === "dev" || raw === "beta" || raw === "prod") return raw`,
+  `  // evil-v2: keep the evil channel so the web UI embeds the red evil icon set
+  // instead of falling back to dev.
+  if (raw === "local" || raw === "dev" || raw === "beta" || raw === "prod" || raw === "evil") return raw`,
+  "app: keep evil channel in vite",
+)
+
 console.log("evil patch complete")

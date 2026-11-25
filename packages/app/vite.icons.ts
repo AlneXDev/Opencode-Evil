@@ -3,7 +3,9 @@ import type { Plugin } from "vite"
 import manifest from "./manifest.json" with { type: "json" }
 
 export function icons(channel: string): Plugin {
-  const selected = channel === "beta" || channel === "prod" ? channel : "dev"
+  // evil-v2: the evil channel has its own red icon set; using "dev" here made
+  // the web UI serve blue/dev favicons even in an evil build.
+  const selected = channel === "beta" || channel === "prod" || channel === "evil" ? channel : "dev"
   const prefix = `icons/${selected}`
 
   const iconFiles = [

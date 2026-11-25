@@ -85,7 +85,9 @@ const skipComponentsLab = {
 export const channel = (() => {
   const raw = process.env.OPENCODE_CHANNEL
 
-  if (raw === "local" || raw === "dev" || raw === "beta" || raw === "prod") return raw
+  // evil-v2: keep the evil channel so the web UI embeds the red evil icon set
+  // instead of falling back to dev.
+  if (raw === "local" || raw === "dev" || raw === "beta" || raw === "prod" || raw === "evil") return raw
 
   if (process.env.OPENCODE_CHANNEL === "latest") return "prod"
 
