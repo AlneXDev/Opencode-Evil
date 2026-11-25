@@ -21,6 +21,7 @@ import {
 import { Dynamic } from "solid-js/web"
 import { CommandProvider } from "@/shell/commands/command"
 import { DesktopCommands } from "@/shell/commands/desktop"
+import { KeySequenceHint } from "@/shell/commands/key-sequence"
 import { ProjectIconsProvider } from "@/shell/layout/project-icons"
 import { GlobalProvider } from "@/runtime/server/runtime"
 import { LanguageProvider, UiI18nBridge, type Locale } from "@/runtime/i18n/language"
@@ -57,6 +58,8 @@ function BodyTypography() {
 
   return null
 }
+
+// evil-v2: Sentry error telemetry disabled (no crash capture on any channel).
 
 export function AppBaseProviders(
   props: ParentProps<{
@@ -116,6 +119,7 @@ export function AppInterface(props: {
               {rootProps.children}
               <VoiceOverlay />
             </VoiceProvider>
+            <KeySequenceHint />
           </CommandProvider>
         </ProjectIconsProvider>
       </GlobalProvider>
