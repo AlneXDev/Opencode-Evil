@@ -540,7 +540,7 @@ const make = Effect.gen(function* () {
           yield* runUpgrade({
             method,
             command: ["curl", "-fsSL", "-o", installer, "https://raw.githubusercontent.com/winmin/evil-opencode/main/install.sh"],
-            displayCommand: ["curl", "-fsSL", "https://opencode.ai/v2/install"],
+            displayCommand: ["curl", "-fsSL", "https://raw.githubusercontent.com/winmin/evil-opencode/main/install.sh"],
             title: "Could not download the OpenCode installer",
             retry: "Check your network, then run opencode upgrade again.",
           })
