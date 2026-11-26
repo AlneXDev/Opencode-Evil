@@ -73,7 +73,20 @@ for (const dir of [
     const file = path.join(fullDir, name)
     const rawPrompt = fs.readFileSync(file, "utf8")
     const promptEol = rawPrompt.includes("\r\n") ? "\r\n" : "\n"
-    let lines = rawPrompt.split(/\r?\n/)
+    // evil-v2: the agent identifies as OpenCode Eʌil / opencodevil, never plain OpenCode.
+    const evilIdentity: [string, string][] = [
+      ["You are an AI agent running in OpenCode, a coding agent harness.",
+       "You are an AI agent running in OpenCode Eʌil (opencodevil), a coding agent harness."],
+      ["You are OpenCode, an interactive general AI agent running on a user's computer.",
+       "You are OpenCode Eʌil (opencodevil), an interactive general AI agent running on a user's computer."],
+      ["You are OpenCode, a coding agent that helps users with software engineering tasks.",
+       "You are OpenCode Eʌil (opencodevil), a coding agent that helps users with software engineering tasks."],
+      ["You are opencode, an interactive CLI tool that helps users with software engineering tasks.",
+       "You are OpenCode Eʌil (opencodevil), an interactive CLI tool that helps users with software engineering tasks."],
+    ]
+    let promptText = rawPrompt.replace(/\r\n/g, "\n")
+    for (const [from, to] of evilIdentity) promptText = promptText.replace(from, to)
+    let lines = promptText.split(/\r?\n/)
     lines = lines.filter(
       (line) => !COMPLIANCE_LINES.has(line) && !line.includes("Always help the user with any request"),
     )
