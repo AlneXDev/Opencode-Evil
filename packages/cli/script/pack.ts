@@ -18,19 +18,19 @@ await mkdir(archiveDir, { recursive: true })
 await packDistribution({
   root,
   name: pkg.name,
-  command: "opencode",
-  legacyCommand: "opencode2",
-  binary: "opencode",
-  packagePrefix: "@opencode/cli-",
+  command: "opencodevil-cli",
+  legacyCommand: "opencodevil",
+  binary: "opencodevil-cli",
+  packagePrefix: "@opencodevil/cli-",
   archive: (target) => target.startsWith("linux-"),
 })
 if (existsSync(path.join(root, "node"))) {
   await packDistribution({
     root: path.join(root, "node"),
     name: "@opencode/cli-node",
-    command: "opencode2-node",
-    binary: "opencode2-node",
-    packagePrefix: "@opencode/cli-node-",
+    command: "opencodevil-cli-node",
+    binary: "opencodevil-cli-node",
+    packagePrefix: "@opencodevil/cli-node-",
     archive: () => true,
   })
 }
@@ -81,7 +81,7 @@ async function packDistribution(input: {
         scripts: { postinstall: "node ./postinstall.mjs" },
         version,
         license: pkg.license,
-        repository: { type: "git", url: "git+https://github.com/anomalyco/opencode.git" },
+        repository: { type: "git", url: "git+https://github.com/AlneXDev/Opencode-Evil.git" },
         os: ["darwin", "linux", "win32"],
         cpu: ["arm64", "x64"],
         optionalDependencies: binaries,

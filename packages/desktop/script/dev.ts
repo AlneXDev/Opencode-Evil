@@ -68,7 +68,7 @@ async function prepareDevServer(source: ServerSource) {
   if (process.env.OPENCODE_DESKTOP_REUSE_SERVER !== "1") return prepareServer(source)
 
   if (source.type === "download") {
-    return downloadCliToResources(source.version, windowsify("resources/opencode-cli-dev"))
+    return downloadCliToResources(source.version, windowsify("resources/opencodevil-cli-dev"))
   }
 
   process.env.OPENCODE_DESKTOP_CLI_DEV = join(import.meta.dirname, "../../cli")
@@ -76,13 +76,13 @@ async function prepareDevServer(source: ServerSource) {
 
 async function prepareServer(source: ServerSource) {
   if (source.type === "download")
-    return downloadCliToResources(source.version, windowsify("resources/opencode-cli-dev"))
+    return downloadCliToResources(source.version, windowsify("resources/opencodevil-cli-dev"))
   buildWebUi()
   process.env.OPENCODE_DESKTOP_CLI_DEV = join(import.meta.dirname, "../../cli")
 
   if (process.platform !== "win32") return
   process.env.OPENCODE_DESKTOP_WSL_CLI_BUILD = join(import.meta.dirname, "../../cli/script/build.ts")
-  process.env.OPENCODE_DESKTOP_WSL_CLI_OUTPUT = join(import.meta.dirname, "../resources/opencode-cli-wsl")
+  process.env.OPENCODE_DESKTOP_WSL_CLI_OUTPUT = join(import.meta.dirname, "../resources/opencodevil-cli-wsl")
 }
 
 // The source CLI serves packages/app/dist only to paired devices, and nothing on the way to the
@@ -110,14 +110,14 @@ function buildWebUi() {
 
 function defaultDevUserData() {
   if (process.platform === "win32") {
-    return join(process.env.APPDATA ?? join(homedir(), "AppData", "Roaming"), "ai.opencode.desktop.dev")
+    return join(process.env.APPDATA ?? join(homedir(), "AppData", "Roaming"), "ai.opencode.evil.desktop.dev")
   }
 
   if (process.platform === "darwin") {
-    return join(homedir(), "Library", "Application Support", "ai.opencode.desktop.dev")
+    return join(homedir(), "Library", "Application Support", "ai.opencode.evil.desktop.dev")
   }
 
-  return join(process.env.XDG_CONFIG_HOME ?? join(homedir(), ".config"), "ai.opencode.desktop.dev")
+  return join(process.env.XDG_CONFIG_HOME ?? join(homedir(), ".config"), "ai.opencode.evil.desktop.dev")
 }
 
 function isPidAlive(pid: number) {
@@ -215,7 +215,7 @@ function cloneLockedDevProfile() {
     }
   }
 
-  const isolatedServiceFile = join(sourceDir, "opencode", "service-local.json")
+  const isolatedServiceFile = join(sourceDir, "opencodevil", "service-evil-local.json")
 
   if (hasLiveRegisteredService(isolatedServiceFile)) {
     process.env.XDG_STATE_HOME = sourceDir

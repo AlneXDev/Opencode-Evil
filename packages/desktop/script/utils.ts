@@ -86,7 +86,7 @@ export function nodePtyPackage(target?: string) {
 export async function downloadCliToResources(version = CLI_VERSION, dest = windowsify("resources/opencodevil-cli")) {
   const { $ } = await import("bun")
   const cli = getCurrentCli()
-  const directory = await mkdtemp(join(tmpdir(), "opencode-cli-"))
+  const directory = await mkdtemp(join(tmpdir(), "opencodevil-cli-"))
 
   try {
     await $`bun install --no-save --cwd ${directory} ${`${cli.package}@${version}`} ${`--os=${cli.os}`} ${`--cpu=${cli.cpu}`}`
@@ -109,7 +109,7 @@ export async function copyBuiltCliToResources(root: string, dest = windowsify("r
 // 200 MB binary on first launch.
 async function copyCliToResources(pkg: string, dest: string) {
   const cli = getCurrentCli()
-  await copyFile(join(pkg, "bin", cli.os === "win32" ? "opencode.exe" : "opencode"), dest)
+  await copyFile(join(pkg, "bin", cli.os === "win32" ? "opencodevil-cli.exe" : "opencodevil-cli"), dest)
   await prepareCli(dest)
 
   const manifest = Option.getOrUndefined(

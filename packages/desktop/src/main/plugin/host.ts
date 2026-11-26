@@ -337,7 +337,7 @@ export function createHost(input: {
   }
 
   const about = {
-    name: "opencode",
+    name: "opencodevil",
     version: VERSION,
     channel: CHANNEL,
     platform: "desktop",
