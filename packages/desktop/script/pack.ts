@@ -36,7 +36,8 @@ if (app) {
   // The installer uses the channel's icons; the rest of the app is already built and signed.
   await $`bun ./script/copy-icons.ts ${resolveChannel()}`
   await $`bunx electron-builder ${flags} --prepackaged ${app}`
-  await cp(`dist/opencode-desktop-win-${cli.cpu}.exe`, path.join(out, `opencode-desktop-win-${cli.cpu}.exe`))
+  const installer = resolveChannel() === "evil" ? `opencode-evil-desktop-win-${cli.cpu}.exe` : `opencode-desktop-win-${cli.cpu}.exe`
+  await cp(`dist/${installer}`, path.join(out, installer))
 }
 
 if (!app && os === "linux") {
@@ -66,6 +67,7 @@ if (!app && os === "win") {
 // electron-updater reads its feed from that file, so write the one those targets would.
 async function writeUpdateConfig(resources: string) {
   const publish = getConfig().publish
+  if (!publish) return
   const name: string = (await Bun.file("package.json").json()).name
   await Bun.write(
     path.join(resources, "app-update.yml"),

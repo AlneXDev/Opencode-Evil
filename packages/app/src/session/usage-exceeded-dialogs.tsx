@@ -62,7 +62,7 @@ export function useUsageExceededDialogs(input?: {
   const dialog = useDialog()
   const { params } = useSessionLayout()
 
-  const [chatgptUsageLimit, setChatGPTUsageLimit] = persisted(
+  const [chatgptUsageLimit] = persisted(
     Persist.global("chatgpt-usage-limit"),
     Persistence.struct({ lastSeenAt: Schema.NullOr(Schema.Finite) }),
     { lastSeenAt: null },
@@ -81,13 +81,7 @@ export function useUsageExceededDialogs(input?: {
 
       if (chatgptUsageLimit.lastSeenAt && Date.now() - chatgptUsageLimit.lastSeenAt < CHATGPT_USAGE_LIMIT_WINDOW) return
 
-      void import("@/providers/connect/chatgpt-usage-limit").then((usage) => {
-        if (dialog.active) return
-        setChatGPTUsageLimit("lastSeenAt", Date.now())
-        dialog.show(() => (
-          <usage.DialogChatGPTUsageLimit workspace={error.type === "provider.chatgpt-workspace-limit"} />
-        ))
-      })
+      // EVIL PATCH: ChatGPT usage-limit upsell dialog disabled.
     }),
   )
 }

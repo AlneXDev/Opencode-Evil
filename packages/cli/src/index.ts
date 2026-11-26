@@ -162,8 +162,8 @@ Effect.gen(function* () {
   ),
   Effect.provide(
     Observability.layer({
-      endpoint: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
-      headers: process.env.OTEL_EXPORTER_OTLP_HEADERS,
+      endpoint: OPENCODE_CHANNEL === "evil" ? undefined : process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
+      headers: OPENCODE_CHANNEL === "evil" ? undefined : process.env.OTEL_EXPORTER_OTLP_HEADERS,
       client: process.env.OPENCODE_CLIENT ?? OPENCODE_ARTIFACT,
       version: OPENCODE_VERSION,
       channel: OPENCODE_CHANNEL,

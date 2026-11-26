@@ -35,6 +35,8 @@ export default {
   nsis: {
     ...config.nsis,
     guid: "fe09962c-9b87-4102-ba23-e87c8f8a562e",
+    installerIcon: "resources/icons-evil/icon.ico",
+    installerHeaderIcon: "resources/icons-evil/icon.ico",
     include: path.join(packageDir, "resources", "windows", "installer-evil.nsh"),
   },
   win: { ...config.win, icon: "resources/icons-evil/icon.ico" },

@@ -61,7 +61,8 @@ export function installed(home: string) {
   return (
     executable.split(path.sep).includes("node_modules") ||
     /[\\/]winget[\\/]packages[\\/]/i.test(executable) ||
-    executable === path.resolve(home, ".opencodevil", "bin", "opencodevil-cli.exe")
+    executable === path.resolve(home, ".opencodevil", "bin", process.platform === "win32" ? "opencodevil-cli.exe" : "opencodevil-cli") ||
+    executable === path.resolve(home, ".opencode", "bin", process.platform === "win32" ? "opencode.exe" : "opencode")
   )
 }
 

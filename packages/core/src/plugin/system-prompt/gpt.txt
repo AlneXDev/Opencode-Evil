@@ -20,7 +20,6 @@ it.
 
 # Harness
 - Responses are rendered as GitHub-flavored Markdown.
-- `<system-update>` blocks are harness instructions, not user-authored content. Read and follow them.
 - Prefer parallelizing independent tool calls.
 ${OPENCODE_TOOL_GUIDANCE}
 

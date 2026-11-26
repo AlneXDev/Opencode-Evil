@@ -44,7 +44,7 @@ impl Isolation {
             ("XDG_CONFIG_HOME", self.path("config")),
             ("XDG_DATA_HOME", self.path("data")),
             ("XDG_CACHE_HOME", self.path("cache")),
-            ("OPENCODE_CONFIG_DIR", self.path("config/opencode")),
+            ("OPENCODE_CONFIG_DIR", self.path("config/opencodevil")),
         ]
         .map(|(name, value)| format!("{name}='{}'", value.display()))
         .join(" ");
@@ -95,14 +95,14 @@ fn stop(pid: u32) {
 async fn typescript_service_status_sees_a_service_rust_started() {
     let Some(ts_root) = ts_root() else { return };
     let isolation = Isolation { root: opencode_util::temp::tempdir().unwrap() };
-    for dir in ["home", "state/opencode", "config/opencode", "data", "cache"] {
+    for dir in ["home", "state/opencodevil", "config/opencodevil", "data", "cache"] {
         std::fs::create_dir_all(isolation.path(dir)).unwrap();
     }
     let port = free_port();
     // A source build is channel `local`: its service config is `service-local.json`.
     std::fs::write(isolation.path("config/opencode/service-local.json"), format!("{{\"port\":{port}}}\n")).unwrap();
     let wrapper = isolation.wrapper(&ts_root);
-    let state = isolation.path("state/opencode");
+    let state = isolation.path("state/opencodevil");
     let mut options = Options::new(state.join("service.json"), state.clone(), &TsCommand::new(&wrapper));
     options.timing = Timing { deadline: Duration::from_secs(60), ..Timing::default() };
     let mut started = 0;

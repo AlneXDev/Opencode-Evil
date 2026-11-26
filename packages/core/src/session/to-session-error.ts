@@ -42,9 +42,9 @@ export function toSessionError(cause: unknown): SessionError.Error {
   if (cause instanceof AIError) {
     // ChatGPT's usage limit arrives in HTTP and stream errors alike, whatever their reason, so its code decides the type.
     if (cause.reason.body?.includes("subscription_sharing_usage_limit_exceeded"))
-      return providerError("provider.chatgpt-limit", cause.reason)
+      return providerError("provider.evil-disabled-chatgpt-limit", cause.reason)
     if (cause.reason.body?.includes("subscription_sharing_workplace_individual_usage_limit_exceeded"))
-      return providerError("provider.chatgpt-workspace-limit", cause.reason)
+      return providerError("provider.evil-disabled-chatgpt-workspace-limit", cause.reason)
     switch (cause.reason._tag) {
       case "RateLimit":
         return providerError("provider.rate-limit", cause.reason)

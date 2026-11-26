@@ -13,13 +13,13 @@ export const env = { OPENCODE_CHANNEL: "local", OPENCODE_TS_BIN: "/nonexistent/o
 export const configFile = "home/.config/opencode/service-local.json"
 
 export async function writeConfig(root: string, config: unknown) {
-  await mkdir(path.join(root, "home/.config/opencode"), { recursive: true })
+  await mkdir(path.join(root, "home/.config/opencodevil"), { recursive: true })
   await writeFile(path.join(root, configFile), JSON.stringify(config, null, 2) + "\n", { mode: 0o600 })
 }
 
 export async function register(root: string, server: string | undefined, password: string | undefined) {
   if (server === undefined || password === undefined) throw new Error("register needs the fake server")
-  await mkdir(path.join(root, "home/.local/state/opencode"), { recursive: true })
+  await mkdir(path.join(root, "home/.local/state/opencodevil"), { recursive: true })
   await writeFile(
     path.join(root, "home/.local/state/opencode/service-local.json"),
     JSON.stringify({ id: "fake", version: "local", url: server, pid: process.pid, password }),

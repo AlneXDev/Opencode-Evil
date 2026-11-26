@@ -59,7 +59,6 @@ let removedLines = 0
 for (const dir of [
   "packages/core/src/session/runner/prompt",
   "packages/core/src/plugin/system-prompt",
-  "packages/core/src/plugin/goal",
 ]) {
   const fullDir = path.join(root, dir)
   if (!fs.existsSync(fullDir)) continue
