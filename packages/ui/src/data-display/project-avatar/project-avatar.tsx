@@ -68,15 +68,22 @@ export type ProjectAvatarVariant = (typeof PROJECT_AVATAR_VARIANTS)[number]
 // "outline" is a neutral, muted style (e.g. recently closed projects) and is not part of the color rotation.
 export type ProjectAvatarStyle = ProjectAvatarVariant | "outline"
 
-// evil-v2: every project gets the red evil "O" by default; explicit overrides still win.
+// Project IDs hash the normalized origin remote (`git-remote:github.com/anomalyco/opencode`); V1 used the root commit.
+const OPENCODE_PROJECT_IDS = new Set([
+  "012780c4098d08caa4ea8c479ed0a4690489f38d",
+  "476fbfe6befa9e63ddd7f9ae71655999a0104256",
+  "4b0ea68d7af9a6031a7ffda7ad66e0cb83315750",
+])
+
 export function getProjectAvatarSource(id?: string, icon?: { color?: string; url?: string; override?: string }) {
   if (icon?.override) return icon.override
 
   if (icon?.color) return undefined
 
-  // evil-v2: red OpenCode "O" with the inner square vertically centered
-  // (upstream favicon.svg places it 32px too low).
-  return "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20fill%3D%22%23ff5959%22%2F%3E%3Cpath%20d%3D%22M320%20320V192H192V320H320Z%22%20fill%3D%22%23cc3b3b%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M384%20416H128V96H384V416ZM320%20160H192V352H320V160Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+  // evil-v2: red OpenCode "O" only for the upstream project IDs; every other
+  // project shows the first grapheme of its display name (CSS uppercases it).
+  if (id && OPENCODE_PROJECT_IDS.has(id))
+    return "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20fill%3D%22%23ff5959%22%2F%3E%3Cpath%20d%3D%22M320%20320V192H192V320H320Z%22%20fill%3D%22%23cc3b3b%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M384%20416H128V96H384V416ZM320%20160H192V352H320V160Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
 
   return icon?.url
 }
