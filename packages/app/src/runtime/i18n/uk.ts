@@ -814,8 +814,8 @@ export const dict = {
   "server.connect.address.invalid": "Введіть дійсну адресу сервера HTTP або HTTPS.",
   "server.connect.failed": "Не вдалося підключитися. Перевірте адресу сервера та пароль, потім повторіть спробу.",
   "server.connect.scan": "Сканувати QR-код",
-  "server.connect.scan.description": "Наведіть камеру на QR-код, показаний opencode pair.",
-  "server.connect.scan.invalid": "Це не код підключення OpenCode. Відскануйте код, показаний opencode pair.",
+  "server.connect.scan.description": "Наведіть камеру на QR-код, показаний opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Це не код підключення OpenCode. Відскануйте код, показаний opencodevil-cli pair.",
   "server.connect.camera": "Камера для сполучення",
   "server.connect.camera.starting": "Відкриваємо камеру…",
   "server.connect.mixedContent":
@@ -923,7 +923,7 @@ export const dict = {
   "voice.captions.hide": "Приховати субтитри",
   "voice.connecting": "Підключення…",
   "voice.you": "Ви:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Для голосових викликів на цьому сервері потрібен ключ API OpenAI.",
   "voice.failure.microphone": "Для виклику потрібен доступ до мікрофона.",
   "voice.failure.dropped": "Виклик перервано.",
@@ -1154,21 +1154,21 @@ export const dict = {
   "server.connect.link": "Посилання для сполучення",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Вставте повне посилання для сполучення з opencode pair або з «Налаштування → Сполучення» на комп’ютері сервера.",
+    "Вставте повне посилання для сполучення з opencodevil-cli pair або з «Налаштування → Сполучення» на комп’ютері сервера.",
   "server.connect.password.prompt": "Немає посилання для сполучення?",
   "server.connect.password.use": "Використати пароль",
-  "server.connect.password.hint": "Щоб побачити його, виконайте opencode service get password на комп’ютері сервера.",
+  "server.connect.password.hint": "Щоб побачити його, виконайте opencodevil-cli service get password на комп’ютері сервера.",
   "server.connect.link.prompt": "Маєте посилання для сполучення?",
   "server.connect.link.use": "Використати посилання для сполучення",
   "server.connect.pair.link":
     "Виконайте цю команду на комп’ютері сервера, щоб отримати посилання для сполучення та QR-код.",
   "server.connect.scan.failed": "Цей браузер не зміг прочитати QR-код. Введіть дані підключення вручну.",
   "server.connect.link.expired":
-    "Термін дії цього посилання для сполучення минув або його вже використано. Виконайте opencode pair, щоб отримати нове.",
+    "Термін дії цього посилання для сполучення минув або його вже використано. Виконайте opencodevil-cli pair, щоб отримати нове.",
   "server.connect.link.unreachable":
     "Не вдалося зв’язатися з {{url}}. Переконайтеся, що цей пристрій має доступ до сервера, і спробуйте ще раз.",
   "server.connect.link.legacy":
-    "Цей код сполучення зі старішої версії OpenCode. Оновіть OpenCode на сервері, потім знову виконайте opencode pair.",
+    "Цей код сполучення зі старішої версії OpenCode. Оновіть OpenCode на сервері, потім знову виконайте opencodevil-cli pair.",
   "server.connect.camera.native":
     "Ця сторінка не може використовувати камеру через HTTP. Вставте посилання для сполучення вище.",
   "dialog.server.signedOut":

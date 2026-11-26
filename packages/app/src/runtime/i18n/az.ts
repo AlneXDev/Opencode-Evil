@@ -728,8 +728,8 @@ export const dict = {
   "server.connect.address.invalid": "Etibarlı HTTP və ya HTTPS server ünvanını daxil edin.",
   "server.connect.failed": "Bağlana bilmədik. Server ünvanını və şifrəni yoxlayın, sonra yenidən cəhd edin.",
   "server.connect.scan": "QR kodu skan edin",
-  "server.connect.scan.description": "Kameranızı opencode pair tərəfindən göstərilən QR koda yönəldin.",
-  "server.connect.scan.invalid": "Bu, OpenCode qoşulma kodu deyil. opencode pair tərəfindən göstərilən kodu skan edin.",
+  "server.connect.scan.description": "Kameranızı opencodevil-cli pair tərəfindən göstərilən QR koda yönəldin.",
+  "server.connect.scan.invalid": "Bu, OpenCode qoşulma kodu deyil. opencodevil-cli pair tərəfindən göstərilən kodu skan edin.",
   "server.connect.camera": "Kamera cütləşdirilir",
   "server.connect.camera.starting": "Kamera açılır…",
   "server.connect.mixedContent":
@@ -839,7 +839,7 @@ export const dict = {
   "voice.captions.hide": "Altyazıları gizlət",
   "voice.connecting": "Qoşulur…",
   "voice.you": "Siz:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Səsli zənglər üçün bu serverdə OpenAI API açarı lazımdır.",
   "voice.failure.microphone": "Zəng etmək üçün mikrofona giriş tələb olunur.",
   "voice.failure.dropped": "Zəng kəsildi.",
@@ -1063,20 +1063,20 @@ export const dict = {
   "server.connect.link": "Cütləşdirmə linki",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair əmrindən və ya serverin kompüterində Tənzimləmələr → Cütləşdirmə bölməsindən tam cütləşdirmə linkini yapışdırın.",
+    "opencodevil-cli pair əmrindən və ya serverin kompüterində Tənzimləmələr → Cütləşdirmə bölməsindən tam cütləşdirmə linkini yapışdırın.",
   "server.connect.password.prompt": "Cütləşdirmə linki yoxdur?",
   "server.connect.password.use": "Şifrədən istifadə et",
-  "server.connect.password.hint": "Onu görmək üçün serverin kompüterində opencode service get password əmrini işlədin.",
+  "server.connect.password.hint": "Onu görmək üçün serverin kompüterində opencodevil-cli service get password əmrini işlədin.",
   "server.connect.link.prompt": "Cütləşdirmə linkiniz var?",
   "server.connect.link.use": "Cütləşdirmə linkindən istifadə et",
   "server.connect.pair.link": "Cütləşdirmə linki və QR kod almaq üçün bu əmri serverin kompüterində işlədin.",
   "server.connect.scan.failed": "Bu brauzer QR kodu oxuya bilmədi. Bağlantı məlumatlarını əl ilə daxil edin.",
   "server.connect.link.expired":
-    "Bu cütləşdirmə linkinin vaxtı bitib və ya artıq istifadə olunub. Yenisini almaq üçün opencode pair işlədin.",
+    "Bu cütləşdirmə linkinin vaxtı bitib və ya artıq istifadə olunub. Yenisini almaq üçün opencodevil-cli pair işlədin.",
   "server.connect.link.unreachable":
     "{{url}} ünvanına çatmaq mümkün olmadı. Bu cihazın serverə çata bildiyini yoxlayıb yenidən cəhd edin.",
   "server.connect.link.legacy":
-    "Bu cütləşdirmə kodu OpenCode-un köhnə versiyasındandır. Serverdə OpenCode-u yeniləyin, sonra opencode pair-i yenidən işlədin.",
+    "Bu cütləşdirmə kodu OpenCode-un köhnə versiyasındandır. Serverdə OpenCode-u yeniləyin, sonra opencodevil-cli pair-i yenidən işlədin.",
   "server.connect.camera.native":
     "Bu səhifə HTTP üzərindən kameradan istifadə edə bilməz. Cütləşdirmə linkini yuxarıya yapışdırın.",
   "dialog.server.signedOut":

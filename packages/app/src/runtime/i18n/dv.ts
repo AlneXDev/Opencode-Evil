@@ -861,7 +861,7 @@ export const dict = {
   "voice.captions.hide": "ކެޕްޝަންތައް ފޮރުވާ",
   "voice.connecting": "ގުޅުވަމުން…",
   "voice.you": "ތިބާ:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "އަޑު ކޯލްތަކަށް މި ސަރވަރގައި OpenAI API ކީއެއް ބޭނުންވެއެވެ.",
   "voice.failure.microphone": "ކޯލް ކުރުމަށް މައިކްރޮފޯނަށް އެކްސެސް ބޭނުންވެއެވެ.",
   "voice.failure.dropped": "ކޯލް ކެނޑިއްޖެއެވެ.",
@@ -1095,10 +1095,10 @@ export const dict = {
   "server.connect.link": "ޕެއަރިންގ ލިންކް",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair އިން، ނުވަތަ ސަރވަރގެ ކޮމްޕިއުޓަރުގައި ސެޓިންގްސް ← Pairing އިން ލިބޭ މުޅި ޕެއަރިންގ ލިންކް ޕޭސްޓް ކުރާށެވެ.",
+    "opencodevil-cli pair އިން، ނުވަތަ ސަރވަރގެ ކޮމްޕިއުޓަރުގައި ސެޓިންގްސް ← Pairing އިން ލިބޭ މުޅި ޕެއަރިންގ ލިންކް ޕޭސްޓް ކުރާށެވެ.",
   "server.connect.password.prompt": "ޕެއަރިންގ ލިންކެއް ނެތްތަ؟",
   "server.connect.password.use": "ޕާސްވޯޑް ބޭނުންކުރާ",
-  "server.connect.password.hint": "އެ ފެނުމަށް، ސަރވަރގެ ކޮމްޕިއުޓަރުގައި opencode service get password ހިންގާށެވެ.",
+  "server.connect.password.hint": "އެ ފެނުމަށް، ސަރވަރގެ ކޮމްޕިއުޓަރުގައި opencodevil-cli service get password ހިންގާށެވެ.",
   "server.connect.link.prompt": "ޕެއަރިންގ ލިންކެއް އެބަ އޮތްތަ؟",
   "server.connect.link.use": "ޕެއަރިންގ ލިންކް ބޭނުންކުރާ",
   "server.connect.pair.link":
@@ -1106,11 +1106,11 @@ export const dict = {
   "server.connect.scan.failed":
     "މި ބްރައުޒަރަށް QR ކޯޑް ކިޔޭ ގޮތެއް ނުވިއެވެ. ކަނެކްޝަންގެ ތަފްޞީލު އަމިއްލައަށް ލިޔެލާށެވެ.",
   "server.connect.link.expired":
-    "މި ޕެއަރިންގ ލިންކްގެ މުއްދަތު ހަމަވެއްޖެ ނުވަތަ މިހާރުވެސް ބޭނުންކޮށްފައިވެއެވެ. އާ ލިންކެއް ހޯދުމަށް opencode pair ހިންގާށެވެ.",
+    "މި ޕެއަރިންގ ލިންކްގެ މުއްދަތު ހަމަވެއްޖެ ނުވަތަ މިހާރުވެސް ބޭނުންކޮށްފައިވެއެވެ. އާ ލިންކެއް ހޯދުމަށް opencodevil-cli pair ހިންގާށެވެ.",
   "server.connect.link.unreachable":
     "⁨{{url}}⁩ އާ ނުގުޅުނެވެ. މި ޑިވައިސްއަށް ސަރވަރާ ގުޅޭކަން ޗެކްކޮށް، އަލުން ޖައްސަވާ.",
   "server.connect.link.legacy":
-    "މި ޕެއަރިންގ ކޯޑަކީ OpenCode ގެ ކުރީގެ ވަރޝަނެއްގެ ކޯޑެކެވެ. ސަރވަރގައި OpenCode އަޕްޑޭޓްކޮށް، ދެން opencode pair އަލުން ހިންގާށެވެ.",
+    "މި ޕެއަރިންގ ކޯޑަކީ OpenCode ގެ ކުރީގެ ވަރޝަނެއްގެ ކޯޑެކެވެ. ސަރވަރގައި OpenCode އަޕްޑޭޓްކޮށް، ދެން opencodevil-cli pair އަލުން ހިންގާށެވެ.",
   "server.connect.camera.native":
     "މި ޕޭޖަށް HTTP މެދުވެރިކޮށް ކެމެރާ ބޭނުން ނުކުރެވޭނެއެވެ. މަތީގައި ޕެއަރިންގ ލިންކް ޕޭސްޓް ކުރާށެވެ.",
   "dialog.server.signedOut":

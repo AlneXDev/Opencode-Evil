@@ -736,8 +736,8 @@ export const dict = {
   "server.connect.failed":
     "Nepavyko prisijungti. Patikrinkite serverio adresą ir slaptažodį, tada bandykite dar kartą.",
   "server.connect.scan": "Nuskaitykite QR kodą",
-  "server.connect.scan.description": "Nukreipkite fotoaparatą į QR kodą, rodomą opencode pair.",
-  "server.connect.scan.invalid": "Tai nėra OpenCode susiejimo kodas. Nuskaitykite kodą, kurį rodo opencode pair.",
+  "server.connect.scan.description": "Nukreipkite fotoaparatą į QR kodą, rodomą opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Tai nėra OpenCode susiejimo kodas. Nuskaitykite kodą, kurį rodo opencodevil-cli pair.",
   "server.connect.camera": "Kameros susiejimas",
   "server.connect.camera.starting": "Atidaroma kamera…",
   "server.connect.mixedContent":
@@ -864,7 +864,7 @@ export const dict = {
   "voice.captions.hide": "Slėpti subtitrus",
   "voice.connecting": "Jungiamasi…",
   "voice.you": "Jūs:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Balso skambučiams šiame serveryje reikia OpenAI API rakto.",
   "voice.failure.microphone": "Norint skambinti, reikia prieigos prie mikrofono.",
   "voice.failure.dropped": "Skambutis nutrūko.",
@@ -1089,22 +1089,22 @@ export const dict = {
   "server.connect.link": "Susiejimo nuoroda",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Įklijuokite visą susiejimo nuorodą iš opencode pair arba iš Nustatymai → Susiejimas serverio kompiuteryje.",
+    "Įklijuokite visą susiejimo nuorodą iš opencodevil-cli pair arba iš Nustatymai → Susiejimas serverio kompiuteryje.",
   "server.connect.password.prompt": "Neturite susiejimo nuorodos?",
   "server.connect.password.use": "Naudoti slaptažodį",
   "server.connect.password.hint":
-    "Norėdami jį pamatyti, serverio kompiuteryje paleiskite opencode service get password.",
+    "Norėdami jį pamatyti, serverio kompiuteryje paleiskite opencodevil-cli service get password.",
   "server.connect.link.prompt": "Turite susiejimo nuorodą?",
   "server.connect.link.use": "Naudoti susiejimo nuorodą",
   "server.connect.pair.link":
     "Paleiskite šią komandą serverio kompiuteryje, kad gautumėte susiejimo nuorodą ir QR kodą.",
   "server.connect.scan.failed": "Ši naršyklė negalėjo nuskaityti QR kodo. Įveskite ryšio duomenis rankiniu būdu.",
   "server.connect.link.expired":
-    "Ši susiejimo nuoroda nebegalioja arba jau buvo panaudota. Paleiskite opencode pair, kad gautumėte naują.",
+    "Ši susiejimo nuoroda nebegalioja arba jau buvo panaudota. Paleiskite opencodevil-cli pair, kad gautumėte naują.",
   "server.connect.link.unreachable":
     "Nepavyko pasiekti {{url}}. Patikrinkite, ar šis įrenginys gali pasiekti serverį, ir bandykite dar kartą.",
   "server.connect.link.legacy":
-    "Šis susiejimo kodas yra iš senesnės OpenCode versijos. Atnaujinkite OpenCode serveryje, tada vėl paleiskite opencode pair.",
+    "Šis susiejimo kodas yra iš senesnės OpenCode versijos. Atnaujinkite OpenCode serveryje, tada vėl paleiskite opencodevil-cli pair.",
   "server.connect.camera.native":
     "Šis puslapis negali naudoti kameros per HTTP. Įklijuokite susiejimo nuorodą aukščiau.",
   "dialog.server.signedOut":

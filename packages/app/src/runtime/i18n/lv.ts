@@ -723,8 +723,8 @@ export const dict = {
   "server.connect.failed":
     "Nevarēja izveidot savienojumu. Pārbaudiet servera adresi un paroli, pēc tam mēģiniet vēlreiz.",
   "server.connect.scan": "Skenējiet QR kodu",
-  "server.connect.scan.description": "Pavērsiet kameru pret QR kodu, ko parāda opencode pair.",
-  "server.connect.scan.invalid": "Šis nav kods OpenCode savienošanai pārī. Skenējiet kodu, ko parāda opencode pair.",
+  "server.connect.scan.description": "Pavērsiet kameru pret QR kodu, ko parāda opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Šis nav kods OpenCode savienošanai pārī. Skenējiet kodu, ko parāda opencodevil-cli pair.",
   "server.connect.camera": "Kameras savienošana pārī",
   "server.connect.camera.starting": "Tiek atvērta kamera…",
   "server.connect.mixedContent":
@@ -848,7 +848,7 @@ export const dict = {
   "voice.captions.hide": "Slēpt subtitrus",
   "voice.connecting": "Savienojas…",
   "voice.you": "Jūs:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Balss zvaniem šajā serverī nepieciešama OpenAI API atslēga.",
   "voice.failure.microphone": "Lai zvanītu, nepieciešama piekļuve mikrofonam.",
   "voice.failure.dropped": "Zvans tika pārtraukts.",
@@ -1080,21 +1080,21 @@ export const dict = {
   "server.connect.link": "Saite savienošanai pārī",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Ielīmējiet pilnu saiti savienošanai pārī no opencode pair vai no Iestatījumi → Savienošana pārī servera datorā.",
+    "Ielīmējiet pilnu saiti savienošanai pārī no opencodevil-cli pair vai no Iestatījumi → Savienošana pārī servera datorā.",
   "server.connect.password.prompt": "Nav saites savienošanai pārī?",
   "server.connect.password.use": "Izmantot paroli",
-  "server.connect.password.hint": "Lai to redzētu, servera datorā izpildiet opencode service get password.",
+  "server.connect.password.hint": "Lai to redzētu, servera datorā izpildiet opencodevil-cli service get password.",
   "server.connect.link.prompt": "Ir saite savienošanai pārī?",
   "server.connect.link.use": "Izmantot saiti savienošanai pārī",
   "server.connect.pair.link": "Izpildiet šo komandu servera datorā, lai iegūtu saiti savienošanai pārī un QR kodu.",
   "server.connect.scan.failed":
     "Šī pārlūkprogramma nevarēja nolasīt QR kodu. Ievadiet savienojuma informāciju manuāli.",
   "server.connect.link.expired":
-    "Šīs saites savienošanai pārī termiņš ir beidzies vai tā jau ir izmantota. Izpildiet opencode pair, lai iegūtu jaunu.",
+    "Šīs saites savienošanai pārī termiņš ir beidzies vai tā jau ir izmantota. Izpildiet opencodevil-cli pair, lai iegūtu jaunu.",
   "server.connect.link.unreachable":
     "Nevarēja sasniegt {{url}}. Pārbaudiet, vai šī ierīce var sasniegt serveri, un mēģiniet vēlreiz.",
   "server.connect.link.legacy":
-    "Šis kods savienošanai pārī ir no vecākas OpenCode versijas. Atjauniniet OpenCode serverī un vēlreiz izpildiet opencode pair.",
+    "Šis kods savienošanai pārī ir no vecākas OpenCode versijas. Atjauniniet OpenCode serverī un vēlreiz izpildiet opencodevil-cli pair.",
   "server.connect.camera.native":
     "Šī lapa nevar izmantot kameru caur HTTP. Ielīmējiet saiti savienošanai pārī augstāk.",
   "dialog.server.signedOut":

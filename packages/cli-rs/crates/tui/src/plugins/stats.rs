@@ -156,7 +156,7 @@ fn poster(read: &dyn Read, stats: &SessionStatsInfo) -> Node {
     let total = number(tokens);
     let mut children = Vec::new();
     let title =
-        vec![bold("opencode / stats", "text.base"), text(dates(stats.range.from, stats.range.to), "text.muted")];
+        vec![bold("OpenCode Eʌil / stats", "text.base"), text(dates(stats.range.from, stats.range.to), "text.muted")];
     let title = if width < 44 { Node::column(title) } else { Node::row(title) };
     children.push(title.justify(Justify::SpaceBetween).layout(full()));
     if !compact {
@@ -190,7 +190,7 @@ fn poster(read: &dyn Read, stats: &SessionStatsInfo) -> Node {
         })
         .collect();
     children.push(Node::row(metrics).justify(Justify::SpaceAround).layout(full()));
-    children.push(Node::row(vec![text("opencode.ai", "text.base")]).justify(Justify::End).layout(full()));
+    children.push(Node::row(vec![text("github.com/AlneXDev/Opencode-Evil", "text.base")]).justify(Justify::End).layout(full()));
     Node::column(children)
         .align(Align::Center)
         .gap(if compact { 1 } else { 2 })

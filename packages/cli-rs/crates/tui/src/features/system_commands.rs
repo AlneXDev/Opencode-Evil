@@ -6,7 +6,7 @@ use opentui::native::{Control, MouseTracking};
 use crate::dialogs::settings::{set_path, update};
 use crate::prelude::*;
 
-const DOCS: &str = "https://opencode.ai/docs";
+const DOCS: &str = "https://github.com/AlneXDev/Opencode-Evil";
 
 pub fn install(tui: &Rc<Tui>) -> Vec<Disposer> {
     let info = tui.settings.info();

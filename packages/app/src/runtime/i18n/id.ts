@@ -790,8 +790,8 @@ export const dict = {
   "server.connect.address.invalid": "Masukkan alamat server HTTP atau HTTPS yang valid.",
   "server.connect.failed": "Tidak dapat terhubung. Periksa alamat server dan kata sandi, lalu coba lagi.",
   "server.connect.scan": "Pindai kode QR",
-  "server.connect.scan.description": "Arahkan kamera Anda ke kode QR yang ditampilkan oleh opencode pair.",
-  "server.connect.scan.invalid": "Ini bukan kode pemasangan OpenCode. Pindai kode yang ditampilkan oleh opencode pair.",
+  "server.connect.scan.description": "Arahkan kamera Anda ke kode QR yang ditampilkan oleh opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Ini bukan kode pemasangan OpenCode. Pindai kode yang ditampilkan oleh opencodevil-cli pair.",
   "server.connect.camera": "Kamera pemasangan",
   "server.connect.camera.starting": "Membuka kamera…",
   "server.connect.mixedContent":
@@ -896,7 +896,7 @@ export const dict = {
   "voice.captions.hide": "Sembunyikan teks",
   "voice.connecting": "Menghubungkan…",
   "voice.you": "Anda:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Panggilan suara memerlukan kunci API OpenAI di server ini.",
   "voice.failure.microphone": "Akses mikrofon diperlukan untuk melakukan panggilan.",
   "voice.failure.dropped": "Panggilan terputus.",
@@ -1124,21 +1124,21 @@ export const dict = {
   "server.connect.link": "Tautan pemasangan",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Tempel tautan pemasangan lengkap dari opencode pair, atau dari Pengaturan → Pemasangan di komputer server.",
+    "Tempel tautan pemasangan lengkap dari opencodevil-cli pair, atau dari Pengaturan → Pemasangan di komputer server.",
   "server.connect.password.prompt": "Tidak punya tautan pemasangan?",
   "server.connect.password.use": "Gunakan kata sandi",
-  "server.connect.password.hint": "Untuk melihatnya, jalankan opencode service get password di komputer server.",
+  "server.connect.password.hint": "Untuk melihatnya, jalankan opencodevil-cli service get password di komputer server.",
   "server.connect.link.prompt": "Punya tautan pemasangan?",
   "server.connect.link.use": "Gunakan tautan pemasangan",
   "server.connect.pair.link":
     "Jalankan perintah ini di komputer server untuk mendapatkan tautan pemasangan dan kode QR.",
   "server.connect.scan.failed": "Peramban ini tidak dapat membaca kode QR. Masukkan detail koneksi Anda secara manual.",
   "server.connect.link.expired":
-    "Tautan pemasangan ini kedaluwarsa atau sudah digunakan. Jalankan opencode pair untuk mendapatkan yang baru.",
+    "Tautan pemasangan ini kedaluwarsa atau sudah digunakan. Jalankan opencodevil-cli pair untuk mendapatkan yang baru.",
   "server.connect.link.unreachable":
     "Tidak dapat menjangkau {{url}}. Pastikan perangkat ini dapat menjangkau server, lalu coba lagi.",
   "server.connect.link.legacy":
-    "Kode pemasangan ini berasal dari versi OpenCode yang lebih lama. Perbarui OpenCode di server, lalu jalankan opencode pair lagi.",
+    "Kode pemasangan ini berasal dari versi OpenCode yang lebih lama. Perbarui OpenCode di server, lalu jalankan opencodevil-cli pair lagi.",
   "server.connect.camera.native":
     "Halaman ini tidak dapat menggunakan kamera melalui HTTP. Tempel tautan pemasangan di atas.",
   "dialog.server.signedOut":

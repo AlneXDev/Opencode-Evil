@@ -50,7 +50,7 @@ export function parseDeepLink(value: string): DeepLink | undefined {
   if (!URL.canParse(value)) return
   const url = new URL(value)
 
-  if (url.protocol !== "opencode:" && url.protocol !== "opencode-evil:") return
+  if (url.protocol !== "opencode-evil:") return
   const directory = url.searchParams.get("directory")
 
   if (!directory || /[\u0000-\u001f\u007f]/.test(directory)) return

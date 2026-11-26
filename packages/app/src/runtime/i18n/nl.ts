@@ -24,8 +24,8 @@ export const dict = {
   "server.connect.failed":
     "Kan geen verbinding maken. Controleer het serveradres en het wachtwoord en probeer het opnieuw.",
   "server.connect.scan": "Scan de QR-code",
-  "server.connect.scan.description": "Richt uw camera op de QR-code weergegeven door opencode pair.",
-  "server.connect.scan.invalid": "Dit is geen OpenCode-koppelingscode. Scan de code weergegeven door opencode pair.",
+  "server.connect.scan.description": "Richt uw camera op de QR-code weergegeven door opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Dit is geen OpenCode-koppelingscode. Scan de code weergegeven door opencodevil-cli pair.",
   "server.connect.camera": "Camera koppelen",
   "server.connect.camera.starting": "Camera openen…",
   "server.connect.mixedContent":
@@ -844,7 +844,7 @@ export const dict = {
   "voice.captions.hide": "Ondertiteling verbergen",
   "voice.connecting": "Verbinden…",
   "voice.you": "Jij:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Voor spraakoproepen is een OpenAI-API-sleutel op deze server nodig.",
   "voice.failure.microphone": "Microfoontoegang is vereist om te bellen.",
   "voice.failure.dropped": "De verbinding met de oproep is verbroken.",
@@ -1073,21 +1073,21 @@ export const dict = {
   "server.connect.link": "Koppelingslink",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Plak de volledige koppelingslink van opencode pair, of uit Instellingen → Koppelen op de computer van de server.",
+    "Plak de volledige koppelingslink van opencodevil-cli pair, of uit Instellingen → Koppelen op de computer van de server.",
   "server.connect.password.prompt": "Geen koppelingslink?",
   "server.connect.password.use": "Wachtwoord gebruiken",
-  "server.connect.password.hint": "Voer opencode service get password uit op de computer van de server om het te zien.",
+  "server.connect.password.hint": "Voer opencodevil-cli service get password uit op de computer van de server om het te zien.",
   "server.connect.link.prompt": "Heb je een koppelingslink?",
   "server.connect.link.use": "Koppelingslink gebruiken",
   "server.connect.pair.link":
     "Voer deze opdracht uit op de computer van de server om een koppelingslink en QR-code te krijgen.",
   "server.connect.scan.failed": "Deze browser kan de QR-code niet lezen. Voer je verbindingsgegevens handmatig in.",
   "server.connect.link.expired":
-    "Deze koppelingslink is verlopen of al gebruikt. Voer opencode pair uit om een nieuwe te krijgen.",
+    "Deze koppelingslink is verlopen of al gebruikt. Voer opencodevil-cli pair uit om een nieuwe te krijgen.",
   "server.connect.link.unreachable":
     "Kan {{url}} niet bereiken. Controleer of dit apparaat de server kan bereiken en probeer het opnieuw.",
   "server.connect.link.legacy":
-    "Deze koppelingscode komt van een oudere versie van OpenCode. Werk OpenCode op de server bij en voer opencode pair opnieuw uit.",
+    "Deze koppelingscode komt van een oudere versie van OpenCode. Werk OpenCode op de server bij en voer opencodevil-cli pair opnieuw uit.",
   "server.connect.camera.native":
     "Deze pagina kan de camera niet gebruiken via HTTP. Plak de koppelingslink hierboven.",
   "dialog.server.signedOut":

@@ -52,20 +52,20 @@ pub(super) fn ask(tui: &Tui, target: &str, back: impl Fn() + 'static) {
 /// Describe the plugin directory's real path, the hash of its files, and whether the decision can be saved.
 fn question(target: &str, artifact: &Artifact, unsaved: Option<&str>) -> String {
     let saved =
-        unsaved.map(|reason| format!("\nYour answer lasts until opencode exits: {reason}.")).unwrap_or_default();
+        unsaved.map(|reason| format!("\nYour answer lasts until OpenCode Eʌil exits: {reason}.")).unwrap_or_default();
     // The real path as a user would type it: Windows' canonical form starts `\\?\` (`\\?\C:\`, `\\?\UNC\`).
     let path = opencode_util::path::strip_verbatim(&artifact.path.to_string_lossy()).into_owned();
     #[cfg(luau)]
     if opencode_plugin::luau::approves(artifact) {
         return format!(
-            "This project wants to run a Luau plugin inside opencode:\n\n{target}\nPlugin directory: {path}\
+            "This project wants to run a Luau plugin inside OpenCode Eʌil:\n\n{target}\nPlugin directory: {path}\
              \nSHA-256 of its files: {}…\n\nIt has no direct access to your files, but it acts through opencode with \
              your permissions. Approve it only if you trust this project.{saved}",
             opencode_plugin::luau::tree_of(artifact).short(),
         );
     }
     format!(
-        "This project wants to run TypeScript code in opencode's JS host:\n\n{target}\nModule directory: {path}\
+        "This project wants to run TypeScript code in OpenCode Eʌil's JS host:\n\n{target}\nModule directory: {path}\
          \nSHA-256 of its files: {}…\n\nIt runs with your permissions. Approve it only if you trust this project.{saved}",
         artifact.short(),
     )
@@ -83,7 +83,7 @@ mod tests {
         assert!(text.contains(&format!("SHA-256 of its files: {}…", "ab".repeat(8))), "{text}");
         assert!(!text.contains("lasts until"), "{text}");
         let text = question("/p", &artifact, Some("it is shared"));
-        assert!(text.contains("Your answer lasts until opencode exits: it is shared."), "{text}");
+        assert!(text.contains("Your answer lasts until OpenCode Eʌil exits: it is shared."), "{text}");
     }
 
     // Expected: on Windows the real path is shown as a user would type it, without the verbatim prefix that
@@ -111,6 +111,6 @@ mod tests {
         let tree = Artifact { target: "/p".into(), path: "/p".into(), sha256: "ab".repeat(32) };
         let text = question("/p", &opencode_plugin::luau::artifact(tree.clone()), None);
         assert!(text.contains("run a Luau plugin") && text.contains(&format!("files: {}…", "ab".repeat(8))), "{text}");
-        assert!(question("/p", &tree, None).contains("TypeScript code in opencode's JS host"));
+        assert!(question("/p", &tree, None).contains("TypeScript code in OpenCode Eʌil's JS host"));
     }
 }

@@ -737,8 +737,8 @@ export const dict = {
   "server.connect.address.invalid": "Zadejte platnou adresu serveru HTTP nebo HTTPS.",
   "server.connect.failed": "Připojení se nezdařilo. Zkontrolujte adresu serveru a heslo a zkuste to znovu.",
   "server.connect.scan": "Naskenovat QR kód",
-  "server.connect.scan.description": "Namiřte kameru na QR kód zobrazený příkazem opencode pair.",
-  "server.connect.scan.invalid": "Toto není párovací kód OpenCode. Naskenujte kód zobrazený příkazem opencode pair.",
+  "server.connect.scan.description": "Namiřte kameru na QR kód zobrazený příkazem opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Toto není párovací kód OpenCode. Naskenujte kód zobrazený příkazem opencodevil-cli pair.",
   "server.connect.camera": "Kamera pro párování",
   "server.connect.camera.starting": "Otevírání kamery…",
   "server.connect.mixedContent":
@@ -857,7 +857,7 @@ export const dict = {
   "voice.captions.hide": "Skrýt titulky",
   "voice.connecting": "Připojování…",
   "voice.you": "Vy:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Hlasové hovory vyžadují na tomto serveru API klíč OpenAI.",
   "voice.failure.microphone": "Pro volání je nutný přístup k mikrofonu.",
   "voice.failure.dropped": "Hovor byl přerušen.",
@@ -1083,20 +1083,20 @@ export const dict = {
   "server.connect.link": "Párovací odkaz",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Vložte celý párovací odkaz z příkazu opencode pair nebo z Nastavení → Párování na počítači se serverem.",
+    "Vložte celý párovací odkaz z příkazu opencodevil-cli pair nebo z Nastavení → Párování na počítači se serverem.",
   "server.connect.password.prompt": "Nemáte párovací odkaz?",
   "server.connect.password.use": "Použít heslo",
-  "server.connect.password.hint": "Heslo zobrazíte spuštěním opencode service get password na počítači se serverem.",
+  "server.connect.password.hint": "Heslo zobrazíte spuštěním opencodevil-cli service get password na počítači se serverem.",
   "server.connect.link.prompt": "Máte párovací odkaz?",
   "server.connect.link.use": "Použít párovací odkaz",
   "server.connect.pair.link": "Spusťte tento příkaz na počítači se serverem a získejte párovací odkaz a QR kód.",
   "server.connect.scan.failed": "Tento prohlížeč nedokázal přečíst QR kód. Zadejte údaje pro připojení ručně.",
   "server.connect.link.expired":
-    "Platnost tohoto párovacího odkazu vypršela nebo už byl použit. Nový získáte příkazem opencode pair.",
+    "Platnost tohoto párovacího odkazu vypršela nebo už byl použit. Nový získáte příkazem opencodevil-cli pair.",
   "server.connect.link.unreachable":
     "{{url}} není dostupné. Ověřte, že se toto zařízení může spojit se serverem, a zkuste to znovu.",
   "server.connect.link.legacy":
-    "Tento párovací kód pochází ze starší verze OpenCode. Aktualizujte OpenCode na serveru a znovu spusťte opencode pair.",
+    "Tento párovací kód pochází ze starší verze OpenCode. Aktualizujte OpenCode na serveru a znovu spusťte opencodevil-cli pair.",
   "server.connect.camera.native": "Tato stránka nemůže přes HTTP použít kameru. Vložte párovací odkaz výše.",
   "dialog.server.signedOut":
     "Vaše přihlášení k tomuto serveru již není platné. Vložte nový párovací odkaz nebo zadejte heslo serveru.",

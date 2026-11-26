@@ -726,8 +726,8 @@ export const dict = {
   "server.connect.address.invalid": "Yaroqli HTTP yoki HTTPS server manzilini kiriting.",
   "server.connect.failed": "Ulanib bo‘lmadi. Server manzili va parolni tekshiring, keyin qayta urinib ko'ring.",
   "server.connect.scan": "QR kodini skanerlang",
-  "server.connect.scan.description": "Kamerani opencode pair koʻrsatgan QR kodga qarating.",
-  "server.connect.scan.invalid": "Bu OpenCode ulash kodi emas. opencode pair koʻrsatgan kodni skanerlang.",
+  "server.connect.scan.description": "Kamerani opencodevil-cli pair koʻrsatgan QR kodga qarating.",
+  "server.connect.scan.invalid": "Bu OpenCode ulash kodi emas. opencodevil-cli pair koʻrsatgan kodni skanerlang.",
   "server.connect.camera": "Kamerani ulash",
   "server.connect.camera.starting": "Kamera ochilmoqda…",
   "server.connect.mixedContent":
@@ -839,7 +839,7 @@ export const dict = {
   "voice.captions.hide": "Subtitrlarni yashirish",
   "voice.connecting": "Ulanmoqda…",
   "voice.you": "Siz:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Ovozli qo‘ng‘iroqlar uchun ushbu serverda OpenAI API kaliti kerak.",
   "voice.failure.microphone": "Qo‘ng‘iroq qilish uchun mikrofonga ruxsat kerak.",
   "voice.failure.dropped": "Qo‘ng‘iroq uzildi.",
@@ -1069,22 +1069,22 @@ export const dict = {
   "server.connect.link": "Ulash havolasi",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair yoki server kompyuteridagi Sozlamalar → Ulash bo‘limidan to‘liq ulash havolasini joylashtiring.",
+    "opencodevil-cli pair yoki server kompyuteridagi Sozlamalar → Ulash bo‘limidan to‘liq ulash havolasini joylashtiring.",
   "server.connect.password.prompt": "Ulash havolasi yo‘qmi?",
   "server.connect.password.use": "Paroldan foydalanish",
   "server.connect.password.hint":
-    "Uni ko‘rish uchun server kompyuterida opencode service get password buyrug‘ini ishga tushiring.",
+    "Uni ko‘rish uchun server kompyuterida opencodevil-cli service get password buyrug‘ini ishga tushiring.",
   "server.connect.link.prompt": "Ulash havolasi bormi?",
   "server.connect.link.use": "Ulash havolasidan foydalanish",
   "server.connect.pair.link":
     "Ulash havolasi va QR kodni olish uchun ushbu buyruqni server kompyuterida ishga tushiring.",
   "server.connect.scan.failed": "Bu brauzer QR kodni o‘qiy olmadi. Ulanish ma’lumotlarini qo‘lda kiriting.",
   "server.connect.link.expired":
-    "Bu ulash havolasining muddati tugagan yoki u allaqachon ishlatilgan. Yangisini olish uchun opencode pair buyrug‘ini ishga tushiring.",
+    "Bu ulash havolasining muddati tugagan yoki u allaqachon ishlatilgan. Yangisini olish uchun opencodevil-cli pair buyrug‘ini ishga tushiring.",
   "server.connect.link.unreachable":
     "{{url}} ga ulanib bo‘lmadi. Ushbu qurilma serverga ulana olishini tekshiring, so‘ng qayta urinib ko‘ring.",
   "server.connect.link.legacy":
-    "Bu ulash kodi OpenCode’ning eski versiyasidan. Serverda OpenCode’ni yangilang, so‘ng opencode pair buyrug‘ini qayta ishga tushiring.",
+    "Bu ulash kodi OpenCode’ning eski versiyasidan. Serverda OpenCode’ni yangilang, so‘ng opencodevil-cli pair buyrug‘ini qayta ishga tushiring.",
   "server.connect.camera.native":
     "Bu sahifa HTTP orqali kameradan foydalana olmaydi. Yuqoridagi ulash havolasini joylashtiring.",
   "dialog.server.signedOut":

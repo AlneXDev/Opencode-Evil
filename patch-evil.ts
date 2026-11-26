@@ -256,7 +256,7 @@ replace(
 replace(
   "packages/cli/src/services/updater.ts",
   "https://opencode.ai/v2/install",
-  "https://raw.githubusercontent.com/winmin/evil-opencode/main/install.sh",
+  "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install",
   "cli: evil install URL",
 )
 

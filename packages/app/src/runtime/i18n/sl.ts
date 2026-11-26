@@ -747,8 +747,8 @@ export const dict = {
   "server.connect.failed":
     "Povezave ni bilo mogoče vzpostaviti. Preverite naslov strežnika in geslo ter poskusite znova.",
   "server.connect.scan": "Skeniraj QR kodo",
-  "server.connect.scan.description": "Usmerite kamero na QR kodo, ki jo prikaže opencode pair.",
-  "server.connect.scan.invalid": "To ni OpenCode paritna koda. Skenirajte kodo, ki jo prikaže opencode pair.",
+  "server.connect.scan.description": "Usmerite kamero na QR kodo, ki jo prikaže opencodevil-cli pair.",
+  "server.connect.scan.invalid": "To ni OpenCode paritna koda. Skenirajte kodo, ki jo prikaže opencodevil-cli pair.",
   "server.connect.camera": "Paritvena kamera",
   "server.connect.camera.starting": "Odpiranje kamere…",
   "server.connect.mixedContent":
@@ -857,7 +857,7 @@ export const dict = {
   "voice.captions.hide": "Skrij podnapise",
   "voice.connecting": "Povezovanje …",
   "voice.you": "Vi:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Za glasovne klice potrebuje ta strežnik ključ API za OpenAI.",
   "voice.failure.microphone": "Za klic je potreben dostop do mikrofona.",
   "voice.failure.dropped": "Klic je bil prekinjen.",
@@ -1088,21 +1088,21 @@ export const dict = {
   "server.connect.link": "Povezava za seznanjanje",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Prilepite celotno povezavo za seznanjanje iz opencode pair ali iz Nastavitve → Seznanjanje na računalniku strežnika.",
+    "Prilepite celotno povezavo za seznanjanje iz opencodevil-cli pair ali iz Nastavitve → Seznanjanje na računalniku strežnika.",
   "server.connect.password.prompt": "Nimate povezave za seznanjanje?",
   "server.connect.password.use": "Uporabi geslo",
-  "server.connect.password.hint": "Za prikaz gesla na računalniku strežnika zaženite opencode service get password.",
+  "server.connect.password.hint": "Za prikaz gesla na računalniku strežnika zaženite opencodevil-cli service get password.",
   "server.connect.link.prompt": "Imate povezavo za seznanjanje?",
   "server.connect.link.use": "Uporabi povezavo za seznanjanje",
   "server.connect.pair.link":
     "Zaženite ta ukaz na računalniku strežnika, da dobite povezavo za seznanjanje in kodo QR.",
   "server.connect.scan.failed": "Ta brskalnik ne more prebrati kode QR. Podatke o povezavi vnesite ročno.",
   "server.connect.link.expired":
-    "Ta povezava za seznanjanje je potekla ali je bila že uporabljena. Za novo zaženite opencode pair.",
+    "Ta povezava za seznanjanje je potekla ali je bila že uporabljena. Za novo zaženite opencodevil-cli pair.",
   "server.connect.link.unreachable":
     "{{url}} ni dosegljiv. Preverite, ali ta naprava lahko doseže strežnik, in poskusite znova.",
   "server.connect.link.legacy":
-    "Ta koda za seznanjanje je iz starejše različice OpenCode. Posodobite OpenCode na strežniku in znova zaženite opencode pair.",
+    "Ta koda za seznanjanje je iz starejše različice OpenCode. Posodobite OpenCode na strežniku in znova zaženite opencodevil-cli pair.",
   "server.connect.camera.native":
     "Ta stran prek HTTP ne more uporabljati kamere. Zgoraj prilepite povezavo za seznanjanje.",
   "dialog.server.signedOut":

@@ -23,9 +23,9 @@ export const dict = {
   "server.connect.address.invalid": "Inserisci un indirizzo server HTTP o HTTPS valido.",
   "server.connect.failed": "Impossibile connettersi. Controlla l'indirizzo del server e la password, quindi riprova.",
   "server.connect.scan": "Scansiona il codice QR",
-  "server.connect.scan.description": "Punta la fotocamera sul codice QR mostrato da opencode pair.",
+  "server.connect.scan.description": "Punta la fotocamera sul codice QR mostrato da opencodevil-cli pair.",
   "server.connect.scan.invalid":
-    "Questo non è un codice di abbinamento OpenCode. Scansiona il codice mostrato da opencode pair.",
+    "Questo non è un codice di abbinamento OpenCode. Scansiona il codice mostrato da opencodevil-cli pair.",
   "server.connect.camera": "Associazione della fotocamera",
   "server.connect.camera.starting": "Apertura della fotocamera…",
   "server.connect.mixedContent":
@@ -858,7 +858,7 @@ export const dict = {
   "voice.captions.hide": "Nascondi sottotitoli",
   "voice.connecting": "Connessione…",
   "voice.you": "Tu:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Le chiamate vocali richiedono una chiave API OpenAI su questo server.",
   "voice.failure.microphone": "Per chiamare è necessario l'accesso al microfono.",
   "voice.failure.dropped": "La chiamata si è interrotta.",
@@ -1083,10 +1083,10 @@ export const dict = {
   "server.connect.link": "Link di abbinamento",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Incolla il link di abbinamento completo da opencode pair o da Impostazioni → Abbinamento sul computer del server.",
+    "Incolla il link di abbinamento completo da opencodevil-cli pair o da Impostazioni → Abbinamento sul computer del server.",
   "server.connect.password.prompt": "Nessun link di abbinamento?",
   "server.connect.password.use": "Usa password",
-  "server.connect.password.hint": "Per vederla, esegui opencode service get password sul computer del server.",
+  "server.connect.password.hint": "Per vederla, esegui opencodevil-cli service get password sul computer del server.",
   "server.connect.link.prompt": "Hai un link di abbinamento?",
   "server.connect.link.use": "Usa link di abbinamento",
   "server.connect.pair.link":
@@ -1094,11 +1094,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Questo browser non riesce a leggere il codice QR. Inserisci manualmente i dettagli della connessione.",
   "server.connect.link.expired":
-    "Questo link di abbinamento è scaduto o è già stato usato. Esegui opencode pair per ottenerne uno nuovo.",
+    "Questo link di abbinamento è scaduto o è già stato usato. Esegui opencodevil-cli pair per ottenerne uno nuovo.",
   "server.connect.link.unreachable":
     "Impossibile raggiungere {{url}}. Verifica che questo dispositivo possa raggiungere il server, poi riprova.",
   "server.connect.link.legacy":
-    "Questo codice di abbinamento proviene da una versione precedente di OpenCode. Aggiorna OpenCode sul server, poi esegui di nuovo opencode pair.",
+    "Questo codice di abbinamento proviene da una versione precedente di OpenCode. Aggiorna OpenCode sul server, poi esegui di nuovo opencodevil-cli pair.",
   "server.connect.camera.native":
     "Questa pagina non può usare la fotocamera tramite HTTP. Incolla il link di abbinamento qui sopra.",
   "dialog.server.signedOut":

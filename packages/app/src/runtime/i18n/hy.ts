@@ -724,8 +724,8 @@ export const dict = {
   "server.connect.address.invalid": "Մուտքագրեք վավեր HTTP կամ HTTPS սերվերի հասցե։",
   "server.connect.failed": "Չկապվեց. Ստուգեք սերվերի հասցեն և գաղտնաբառը, ապա փորձեք նորից։",
   "server.connect.scan": "Սկանավորեք QR կոդը",
-  "server.connect.scan.description": "Տեսախցիկն ուղղեք opencode pair-ի ցուցադրած QR կոդին։",
-  "server.connect.scan.invalid": "Սա OpenCode-ի զուգակցման կոդ չէ։ Սկանավորեք opencode pair-ի ցուցադրած կոդը։",
+  "server.connect.scan.description": "Տեսախցիկն ուղղեք opencodevil-cli pair-ի ցուցադրած QR կոդին։",
+  "server.connect.scan.invalid": "Սա OpenCode-ի զուգակցման կոդ չէ։ Սկանավորեք opencodevil-cli pair-ի ցուցադրած կոդը։",
   "server.connect.camera": "Զույգագրման վահանակը",
   "server.connect.camera.starting": "Բացվում է վահանակը…",
   "server.connect.mixedContent": "Այս HTTP սերվերին հնարավոր չէ միանալ HTTPS էջից։ Օգտագործեք HTTPS սերվերի հասցե։",
@@ -1058,20 +1058,20 @@ export const dict = {
   "server.connect.link": "Զուգակցման հղում",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Տեղադրեք ամբողջական զուգակցման հղումը opencode pair-ից կամ սերվերի համակարգչի Կարգավորումներ → Զուգակցում բաժնից։",
+    "Տեղադրեք ամբողջական զուգակցման հղումը opencodevil-cli pair-ից կամ սերվերի համակարգչի Կարգավորումներ → Զուգակցում բաժնից։",
   "server.connect.password.prompt": "Զուգակցման հղում չկա՞",
   "server.connect.password.use": "Օգտագործել գաղտնաբառ",
-  "server.connect.password.hint": "Այն տեսնելու համար սերվերի համակարգչում գործարկեք opencode service get password։",
+  "server.connect.password.hint": "Այն տեսնելու համար սերվերի համակարգչում գործարկեք opencodevil-cli service get password։",
   "server.connect.link.prompt": "Ունե՞ք զուգակցման հղում",
   "server.connect.link.use": "Օգտագործել զուգակցման հղում",
   "server.connect.pair.link": "Գործարկեք այս հրամանը սերվերի համակարգչում՝ զուգակցման հղում և QR կոդ ստանալու համար։",
   "server.connect.scan.failed": "Այս դիտարկիչը չկարողացավ կարդալ QR կոդը։ Մուտքագրեք կապի տվյալները ձեռքով։",
   "server.connect.link.expired":
-    "Այս զուգակցման հղման ժամկետը սպառվել է կամ այն արդեն օգտագործվել է։ Գործարկեք opencode pair՝ նորը ստանալու համար։",
+    "Այս զուգակցման հղման ժամկետը սպառվել է կամ այն արդեն օգտագործվել է։ Գործարկեք opencodevil-cli pair՝ նորը ստանալու համար։",
   "server.connect.link.unreachable":
     "Չհաջողվեց հասնել {{url}}-ին։ Ստուգեք, որ այս սարքը կարող է հասնել սերվերին, ապա կրկին փորձեք։",
   "server.connect.link.legacy":
-    "Այս զուգակցման կոդը OpenCode-ի ավելի հին տարբերակից է։ Թարմացրեք OpenCode-ը սերվերում, ապա կրկին գործարկեք opencode pair։",
+    "Այս զուգակցման կոդը OpenCode-ի ավելի հին տարբերակից է։ Թարմացրեք OpenCode-ը սերվերում, ապա կրկին գործարկեք opencodevil-cli pair։",
   "server.connect.camera.native": "Այս էջը չի կարող օգտագործել տեսախցիկը HTTP-ով։ Տեղադրեք զուգակցման հղումը վերևում։",
   "dialog.server.signedOut":
     "Այս սերվերում ձեր մուտքն այլևս վավեր չէ։ Տեղադրեք նոր զուգակցման հղում կամ մուտքագրեք սերվերի գաղտնաբառը։",

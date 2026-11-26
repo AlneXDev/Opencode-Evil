@@ -23,9 +23,9 @@ export const dict = {
   "server.connect.address.invalid": "Insira um endereço de servidor HTTP ou HTTPS válido.",
   "server.connect.failed": "Não foi possível conectar. Verifique o endereço e a senha do servidor e tente novamente.",
   "server.connect.scan": "Digitalize o código QR",
-  "server.connect.scan.description": "Aponte sua câmera para o código QR mostrado por opencode pair.",
+  "server.connect.scan.description": "Aponte sua câmera para o código QR mostrado por opencodevil-cli pair.",
   "server.connect.scan.invalid":
-    "Este não é um código de emparelhamento OpenCode. Digitalize o código mostrado por opencode pair.",
+    "Este não é um código de emparelhamento OpenCode. Digitalize o código mostrado por opencodevil-cli pair.",
   "server.connect.camera": "Câmera de emparelhamento",
   "server.connect.camera.starting": "Abrindo a câmera…",
   "server.connect.mixedContent":
@@ -864,7 +864,7 @@ export const dict = {
   "voice.captions.hide": "Ocultar legendas",
   "voice.connecting": "Conectando…",
   "voice.you": "Você:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Chamadas de voz exigem uma chave de API da OpenAI neste servidor.",
   "voice.failure.microphone": "É necessário acesso ao microfone para fazer chamadas.",
   "voice.failure.dropped": "A chamada foi desconectada.",
@@ -1095,10 +1095,10 @@ export const dict = {
   "server.connect.link": "Link de emparelhamento",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Cole o link de emparelhamento completo gerado por opencode pair ou em Configurações → Emparelhamento no computador do servidor.",
+    "Cole o link de emparelhamento completo gerado por opencodevil-cli pair ou em Configurações → Emparelhamento no computador do servidor.",
   "server.connect.password.prompt": "Sem link de emparelhamento?",
   "server.connect.password.use": "Usar senha",
-  "server.connect.password.hint": "Para vê-la, execute opencode service get password no computador do servidor.",
+  "server.connect.password.hint": "Para vê-la, execute opencodevil-cli service get password no computador do servidor.",
   "server.connect.link.prompt": "Tem um link de emparelhamento?",
   "server.connect.link.use": "Usar link de emparelhamento",
   "server.connect.pair.link":
@@ -1106,11 +1106,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Este navegador não conseguiu ler o código QR. Insira os detalhes da conexão manualmente.",
   "server.connect.link.expired":
-    "Este link de emparelhamento expirou ou já foi usado. Execute opencode pair para obter um novo.",
+    "Este link de emparelhamento expirou ou já foi usado. Execute opencodevil-cli pair para obter um novo.",
   "server.connect.link.unreachable":
     "Não foi possível acessar {{url}}. Verifique se este dispositivo consegue alcançar o servidor e tente novamente.",
   "server.connect.link.legacy":
-    "Este código de emparelhamento é de uma versão mais antiga do OpenCode. Atualize o OpenCode no servidor e execute opencode pair novamente.",
+    "Este código de emparelhamento é de uma versão mais antiga do OpenCode. Atualize o OpenCode no servidor e execute opencodevil-cli pair novamente.",
   "server.connect.camera.native": "Esta página não pode usar a câmera via HTTP. Cole o link de emparelhamento acima.",
   "dialog.server.signedOut":
     "Seu login neste servidor não é mais válido. Cole um novo link de emparelhamento ou insira a senha do servidor.",

@@ -43,9 +43,7 @@ export function installScript(input: { version: string; binary?: string }) {
   const version = requireVersion(input.version)
 
   return `set -eu
-curl -fsSL https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/main/install | bash -s -- ${input.binary ? `--binary ${input.binary}` : `--version ${quote(version)}`}
-mkdir -p "$HOME/.opencodevil/bin"
-cp "$HOME/.opencode/bin/opencode" "$HOME/.opencodevil/bin/opencodevil-cli"
+curl -fsSL https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install | bash -s -- --evil ${input.binary ? `--binary ${input.binary}` : `--version ${quote(version)}`}
 test "$("$HOME/.opencodevil/bin/opencodevil-cli" --version | awk '{print $NF}' | sed 's/^v//')" = ${quote(version)}
 `
 }

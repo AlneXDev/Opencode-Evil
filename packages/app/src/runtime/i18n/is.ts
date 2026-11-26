@@ -714,8 +714,8 @@ export const dict = {
   "server.connect.address.invalid": "Sláðu inn gilt HTTP eða HTTPS netfang netþjóns.",
   "server.connect.failed": "Ekki tókst að tengjast. Athugaðu netfang netþjóns og lykilorð, reyndu svo aftur.",
   "server.connect.scan": "Skanna QR kóða",
-  "server.connect.scan.description": "Beindu myndavélinni þinni að QR kóðanum sem opencode pair sýnir.",
-  "server.connect.scan.invalid": "Þetta er ekki OpenCode pörunarkóði. Skannaðu kóðann sem opencode pair sýnir.",
+  "server.connect.scan.description": "Beindu myndavélinni þinni að QR kóðanum sem opencodevil-cli pair sýnir.",
+  "server.connect.scan.invalid": "Þetta er ekki OpenCode pörunarkóði. Skannaðu kóðann sem opencodevil-cli pair sýnir.",
   "server.connect.camera": "Pörun myndavél",
   "server.connect.camera.starting": "Opnar myndavél...",
   "server.connect.mixedContent":
@@ -834,7 +834,7 @@ export const dict = {
   "voice.captions.hide": "Fela skjátexta",
   "voice.connecting": "Tengist…",
   "voice.you": "Þú:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Raddsímtöl krefjast OpenAI API-lykils á þessum netþjóni.",
   "voice.failure.microphone": "Aðgangur að hljóðnema er nauðsynlegur til að hringja.",
   "voice.failure.dropped": "Símtalið rofnaði.",
@@ -1053,20 +1053,20 @@ export const dict = {
   "server.connect.link": "Pörunartengill",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Límdu allan pörunartengilinn úr opencode pair, eða úr Stillingar → Pörun á tölvu netþjónsins.",
+    "Límdu allan pörunartengilinn úr opencodevil-cli pair, eða úr Stillingar → Pörun á tölvu netþjónsins.",
   "server.connect.password.prompt": "Enginn pörunartengill?",
   "server.connect.password.use": "Nota lykilorð",
-  "server.connect.password.hint": "Keyrðu opencode service get password á tölvu netþjónsins til að sjá það.",
+  "server.connect.password.hint": "Keyrðu opencodevil-cli service get password á tölvu netþjónsins til að sjá það.",
   "server.connect.link.prompt": "Ertu með pörunartengil?",
   "server.connect.link.use": "Nota pörunartengil",
   "server.connect.pair.link": "Keyrðu þessa skipun á tölvu netþjónsins til að fá pörunartengil og QR-kóða.",
   "server.connect.scan.failed": "Þessi vafri gat ekki lesið QR-kóðann. Sláðu inn tengiupplýsingarnar handvirkt.",
   "server.connect.link.expired":
-    "Þessi pörunartengill er útrunninn eða hefur þegar verið notaður. Keyrðu opencode pair til að fá nýjan.",
+    "Þessi pörunartengill er útrunninn eða hefur þegar verið notaður. Keyrðu opencodevil-cli pair til að fá nýjan.",
   "server.connect.link.unreachable":
     "Ekki náðist samband við {{url}}. Athugaðu að þetta tæki nái sambandi við netþjóninn og reyndu svo aftur.",
   "server.connect.link.legacy":
-    "Þessi pörunarkóði er úr eldri útgáfu af OpenCode. Uppfærðu OpenCode á netþjóninum og keyrðu svo opencode pair aftur.",
+    "Þessi pörunarkóði er úr eldri útgáfu af OpenCode. Uppfærðu OpenCode á netþjóninum og keyrðu svo opencodevil-cli pair aftur.",
   "server.connect.camera.native":
     "Þessi síða getur ekki notað myndavélina yfir HTTP. Límdu pörunartengilinn hér fyrir ofan.",
   "dialog.server.signedOut":

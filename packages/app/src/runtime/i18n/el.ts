@@ -725,9 +725,9 @@ export const dict = {
   "server.connect.failed":
     "Δεν ήταν δυνατή η σύνδεση. Ελέγξτε τη διεύθυνση του διακομιστή και τον κωδικό πρόσβασης και, στη συνέχεια, δοκιμάστε ξανά.",
   "server.connect.scan": "Σάρωση κωδικού QR",
-  "server.connect.scan.description": "Στρέψτε την κάμερά σας στον κωδικό QR που εμφανίζεται από το opencode pair.",
+  "server.connect.scan.description": "Στρέψτε την κάμερά σας στον κωδικό QR που εμφανίζεται από το opencodevil-cli pair.",
   "server.connect.scan.invalid":
-    "Αυτός δεν είναι κωδικός σύζευξης OpenCode. Σαρώστε τον κωδικό που εμφανίζεται από το opencode pair.",
+    "Αυτός δεν είναι κωδικός σύζευξης OpenCode. Σαρώστε τον κωδικό που εμφανίζεται από το opencodevil-cli pair.",
   "server.connect.camera": "Κάμερα ζευγοποίησης",
   "server.connect.camera.starting": "Άνοιγμα κάμερας…",
   "server.connect.mixedContent":
@@ -853,7 +853,7 @@ export const dict = {
   "voice.captions.hide": "Απόκρυψη υποτίτλων",
   "voice.connecting": "Σύνδεση…",
   "voice.you": "Εσείς:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Οι φωνητικές κλήσεις απαιτούν κλειδί API του OpenAI σε αυτόν τον διακομιστή.",
   "voice.failure.microphone": "Απαιτείται πρόσβαση στο μικρόφωνο για την κλήση.",
   "voice.failure.dropped": "Η κλήση αποσυνδέθηκε.",
@@ -1085,11 +1085,11 @@ export const dict = {
   "server.connect.link": "Σύνδεσμος ζευγοποίησης",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Επικολλήστε ολόκληρο τον σύνδεσμο ζευγοποίησης από το opencode pair ή από Ρυθμίσεις → Ζευγοποίηση στον υπολογιστή του διακομιστή.",
+    "Επικολλήστε ολόκληρο τον σύνδεσμο ζευγοποίησης από το opencodevil-cli pair ή από Ρυθμίσεις → Ζευγοποίηση στον υπολογιστή του διακομιστή.",
   "server.connect.password.prompt": "Δεν έχετε σύνδεσμο ζευγοποίησης;",
   "server.connect.password.use": "Χρήση κωδικού πρόσβασης",
   "server.connect.password.hint":
-    "Για να τον δείτε, εκτελέστε opencode service get password στον υπολογιστή του διακομιστή.",
+    "Για να τον δείτε, εκτελέστε opencodevil-cli service get password στον υπολογιστή του διακομιστή.",
   "server.connect.link.prompt": "Έχετε σύνδεσμο ζευγοποίησης;",
   "server.connect.link.use": "Χρήση συνδέσμου ζευγοποίησης",
   "server.connect.pair.link":
@@ -1097,11 +1097,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Αυτό το πρόγραμμα περιήγησης δεν μπόρεσε να διαβάσει τον κωδικό QR. Εισαγάγετε τα στοιχεία σύνδεσης χειροκίνητα.",
   "server.connect.link.expired":
-    "Αυτός ο σύνδεσμος ζευγοποίησης έληξε ή έχει ήδη χρησιμοποιηθεί. Εκτελέστε opencode pair για να λάβετε νέο.",
+    "Αυτός ο σύνδεσμος ζευγοποίησης έληξε ή έχει ήδη χρησιμοποιηθεί. Εκτελέστε opencodevil-cli pair για να λάβετε νέο.",
   "server.connect.link.unreachable":
     "Δεν ήταν δυνατή η πρόσβαση στο {{url}}. Βεβαιωθείτε ότι αυτή η συσκευή μπορεί να φτάσει στον διακομιστή και δοκιμάστε ξανά.",
   "server.connect.link.legacy":
-    "Αυτός ο κωδικός ζευγοποίησης είναι από παλαιότερη έκδοση του OpenCode. Ενημερώστε το OpenCode στον διακομιστή και εκτελέστε ξανά opencode pair.",
+    "Αυτός ο κωδικός ζευγοποίησης είναι από παλαιότερη έκδοση του OpenCode. Ενημερώστε το OpenCode στον διακομιστή και εκτελέστε ξανά opencodevil-cli pair.",
   "server.connect.camera.native":
     "Αυτή η σελίδα δεν μπορεί να χρησιμοποιήσει την κάμερα μέσω HTTP. Επικολλήστε τον σύνδεσμο ζευγοποίησης παραπάνω.",
   "dialog.server.signedOut":

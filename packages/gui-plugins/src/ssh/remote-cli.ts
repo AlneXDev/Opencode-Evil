@@ -88,9 +88,7 @@ export function installScript(input: { version: string; directory?: string; sour
   // installations use archives so their destination and shell setup stay isolated.
   if (input.source.type === "installer")
     return `set -eu
-curl -fsSL https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/main/install | bash -s -- ${input.source.binary ? `--binary ${input.source.binary}` : `--version ${quote(version)}`}
-mkdir -p "$HOME/.opencodevil/bin"
-cp "$HOME/.opencode/bin/opencode" "$HOME/.opencodevil/bin/opencodevil-cli"
+curl -fsSL https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install | bash -s -- --evil ${input.source.binary ? `--binary ${input.source.binary}` : `--version ${quote(version)}`}
 ${verifyScript('"$HOME/.opencodevil/bin/opencodevil-cli"', version)}
 `
 

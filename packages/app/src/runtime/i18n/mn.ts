@@ -726,8 +726,8 @@ export const dict = {
   "server.connect.address.invalid": "Хүчинтэй HTTP эсвэл HTTPS серверийн хаягийг оруулна уу.",
   "server.connect.failed": "Холбогдож чадсангүй. Серверийн хаяг ба нууц үгийг шалгаад дахин оролдоно уу.",
   "server.connect.scan": "QR кодыг сканнердах",
-  "server.connect.scan.description": "Камераа opencode pair-ийн харуулсан QR код руу чиглүүлнэ үү.",
-  "server.connect.scan.invalid": "Энэ OpenCode холболтын код биш. opencode pair-ийн харуулсан кодыг уншуулна уу.",
+  "server.connect.scan.description": "Камераа opencodevil-cli pair-ийн харуулсан QR код руу чиглүүлнэ үү.",
+  "server.connect.scan.invalid": "Энэ OpenCode холболтын код биш. opencodevil-cli pair-ийн харуулсан кодыг уншуулна уу.",
   "server.connect.camera": "Камер холбох",
   "server.connect.camera.starting": "Камер нээж байна…",
   "server.connect.mixedContent":
@@ -836,7 +836,7 @@ export const dict = {
   "voice.captions.hide": "Хадмал нуух",
   "voice.connecting": "Холбогдож байна…",
   "voice.you": "Та:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Дуут дуудлагад энэ сервер дээр OpenAI API түлхүүр шаардлагатай.",
   "voice.failure.microphone": "Дуудлага хийхэд микрофоны хандалт шаардлагатай.",
   "voice.failure.dropped": "Дуудлага тасарлаа.",
@@ -1067,22 +1067,22 @@ export const dict = {
   "server.connect.link": "Хослуулах холбоос",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair-ээс эсвэл серверийн компьютер дээрх Тохиргоо → Хослуулах хэсгээс бүтэн хослуулах холбоосыг буулгана уу.",
+    "opencodevil-cli pair-ээс эсвэл серверийн компьютер дээрх Тохиргоо → Хослуулах хэсгээс бүтэн хослуулах холбоосыг буулгана уу.",
   "server.connect.password.prompt": "Хослуулах холбоос алга уу?",
   "server.connect.password.use": "Нууц үг ашиглах",
   "server.connect.password.hint":
-    "Үүнийг харахын тулд серверийн компьютер дээр opencode service get password ажиллуулна уу.",
+    "Үүнийг харахын тулд серверийн компьютер дээр opencodevil-cli service get password ажиллуулна уу.",
   "server.connect.link.prompt": "Хослуулах холбоос байгаа юу?",
   "server.connect.link.use": "Хослуулах холбоос ашиглах",
   "server.connect.pair.link":
     "Хослуулах холбоос болон QR код авахын тулд энэ командыг серверийн компьютер дээр ажиллуулна уу.",
   "server.connect.scan.failed": "Энэ хөтөч QR кодыг уншиж чадсангүй. Холболтын мэдээллээ гараар оруулна уу.",
   "server.connect.link.expired":
-    "Энэ хослуулах холбоосын хугацаа дууссан эсвэл аль хэдийн ашиглагдсан. Шинийг авахын тулд opencode pair ажиллуулна уу.",
+    "Энэ хослуулах холбоосын хугацаа дууссан эсвэл аль хэдийн ашиглагдсан. Шинийг авахын тулд opencodevil-cli pair ажиллуулна уу.",
   "server.connect.link.unreachable":
     "{{url}}-д хүрч чадсангүй. Энэ төхөөрөмж серверт хүрч чадаж байгааг шалгаад дахин оролдоно уу.",
   "server.connect.link.legacy":
-    "Энэ хослуулах код OpenCode-ийн хуучин хувилбарынх байна. Сервер дээрх OpenCode-ийг шинэчлээд opencode pair-ийг дахин ажиллуулна уу.",
+    "Энэ хослуулах код OpenCode-ийн хуучин хувилбарынх байна. Сервер дээрх OpenCode-ийг шинэчлээд opencodevil-cli pair-ийг дахин ажиллуулна уу.",
   "server.connect.camera.native": "Энэ хуудас HTTP-ээр камер ашиглах боломжгүй. Дээрх хослуулах холбоосыг буулгана уу.",
   "dialog.server.signedOut":
     "Энэ серверт хийсэн таны нэвтрэлт хүчингүй болсон. Шинэ хослуулах холбоос буулгах эсвэл серверийн нууц үгийг оруулна уу.",

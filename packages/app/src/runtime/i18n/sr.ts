@@ -735,8 +735,8 @@ export const dict = {
   "server.connect.address.invalid": "Унесите важећу HTTP или HTTPS адресу сервера.",
   "server.connect.failed": "Није могуће повезати се. Проверите адресу сервера и лозинку, па покушајте поново.",
   "server.connect.scan": "Скенирај QR код",
-  "server.connect.scan.description": "Усмерите камеру на QR код који приказује opencode pair.",
-  "server.connect.scan.invalid": "Ово није OpenCode код за повезивање. Скенирајте код који приказује opencode pair.",
+  "server.connect.scan.description": "Усмерите камеру на QR код који приказује opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Ово није OpenCode код за повезивање. Скенирајте код који приказује opencodevil-cli pair.",
   "server.connect.camera": "Камера за упаривање",
   "server.connect.camera.starting": "Отварање камере…",
   "server.connect.mixedContent":
@@ -844,7 +844,7 @@ export const dict = {
   "voice.captions.hide": "Сакриј титлове",
   "voice.connecting": "Повезивање…",
   "voice.you": "Ви:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "За гласовне позиве потребан је OpenAI API кључ на овом серверу.",
   "voice.failure.microphone": "За позив је потребан приступ микрофону.",
   "voice.failure.dropped": "Позив је прекинут.",
@@ -1074,20 +1074,20 @@ export const dict = {
   "server.connect.link": "Веза за упаривање",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Налепите целу везу за упаривање из opencode pair или из Подешавања → Упаривање на рачунару сервера.",
+    "Налепите целу везу за упаривање из opencodevil-cli pair или из Подешавања → Упаривање на рачунару сервера.",
   "server.connect.password.prompt": "Немате везу за упаривање?",
   "server.connect.password.use": "Користи лозинку",
-  "server.connect.password.hint": "Да бисте је видели, покрените opencode service get password на рачунару сервера.",
+  "server.connect.password.hint": "Да бисте је видели, покрените opencodevil-cli service get password на рачунару сервера.",
   "server.connect.link.prompt": "Имате везу за упаривање?",
   "server.connect.link.use": "Користи везу за упаривање",
   "server.connect.pair.link": "Покрените ову команду на рачунару сервера да бисте добили везу за упаривање и QR код.",
   "server.connect.scan.failed": "Овај прегледач није могао да прочита QR код. Ручно унесите податке за повезивање.",
   "server.connect.link.expired":
-    "Ова веза за упаривање је истекла или је већ искоришћена. Покрените opencode pair да бисте добили нову.",
+    "Ова веза за упаривање је истекла или је већ искоришћена. Покрените opencodevil-cli pair да бисте добили нову.",
   "server.connect.link.unreachable":
     "Није могуће приступити {{url}}. Проверите да ли овај уређај може да приступи серверу, па покушајте поново.",
   "server.connect.link.legacy":
-    "Овај код за упаривање је из старије верзије OpenCode. Ажурирајте OpenCode на серверу, па поново покрените opencode pair.",
+    "Овај код за упаривање је из старије верзије OpenCode. Ажурирајте OpenCode на серверу, па поново покрените opencodevil-cli pair.",
   "server.connect.camera.native":
     "Ова страница не може да користи камеру преко HTTP. Налепите везу за упаривање изнад.",
   "dialog.server.signedOut":

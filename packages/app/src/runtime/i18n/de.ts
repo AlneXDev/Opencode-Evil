@@ -28,9 +28,9 @@ export const dict = {
   "server.connect.failed":
     "Es konnte keine Verbindung hergestellt werden. Überprüfen Sie die Serveradresse und das Passwort und versuchen Sie es dann erneut.",
   "server.connect.scan": "Scannen Sie den QR-Code",
-  "server.connect.scan.description": "Richten Sie Ihre Kamera auf den von opencode pair angezeigten Code QR.",
+  "server.connect.scan.description": "Richten Sie Ihre Kamera auf den von opencodevil-cli pair angezeigten Code QR.",
   "server.connect.scan.invalid":
-    "Dies ist kein OpenCode-Pairing-Code. Scannen Sie den von opencode pair angezeigten Code.",
+    "Dies ist kein OpenCode-Pairing-Code. Scannen Sie den von opencodevil-cli pair angezeigten Code.",
   "server.connect.camera": "Kamera koppeln",
   "server.connect.camera.starting": "Kamera wird geöffnet…",
   "server.connect.mixedContent":
@@ -859,7 +859,7 @@ export const dict = {
   "voice.captions.hide": "Untertitel ausblenden",
   "voice.connecting": "Verbindung wird hergestellt…",
   "voice.you": "Sie:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Für Sprachanrufe wird auf diesem Server ein OpenAI-API-Schlüssel benötigt.",
   "voice.failure.microphone": "Für Anrufe ist Mikrofonzugriff erforderlich.",
   "voice.failure.dropped": "Der Anruf wurde getrennt.",
@@ -1089,11 +1089,11 @@ export const dict = {
   "server.connect.link": "Kopplungslink",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Fügen Sie den vollständigen Kopplungslink aus opencode pair oder aus Einstellungen → Kopplung auf dem Computer des Servers ein.",
+    "Fügen Sie den vollständigen Kopplungslink aus opencodevil-cli pair oder aus Einstellungen → Kopplung auf dem Computer des Servers ein.",
   "server.connect.password.prompt": "Kein Kopplungslink?",
   "server.connect.password.use": "Passwort verwenden",
   "server.connect.password.hint":
-    "Führen Sie opencode service get password auf dem Computer des Servers aus, um es anzuzeigen.",
+    "Führen Sie opencodevil-cli service get password auf dem Computer des Servers aus, um es anzuzeigen.",
   "server.connect.link.prompt": "Haben Sie einen Kopplungslink?",
   "server.connect.link.use": "Kopplungslink verwenden",
   "server.connect.pair.link":
@@ -1101,11 +1101,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Dieser Browser konnte den QR-Code nicht lesen. Geben Sie Ihre Verbindungsdaten manuell ein.",
   "server.connect.link.expired":
-    "Dieser Kopplungslink ist abgelaufen oder wurde bereits verwendet. Führen Sie opencode pair aus, um einen neuen zu erhalten.",
+    "Dieser Kopplungslink ist abgelaufen oder wurde bereits verwendet. Führen Sie opencodevil-cli pair aus, um einen neuen zu erhalten.",
   "server.connect.link.unreachable":
     "{{url}} ist nicht erreichbar. Prüfen Sie, ob dieses Gerät den Server erreichen kann, und versuchen Sie es erneut.",
   "server.connect.link.legacy":
-    "Dieser Kopplungscode stammt aus einer älteren OpenCode-Version. Aktualisieren Sie OpenCode auf dem Server und führen Sie dann erneut opencode pair aus.",
+    "Dieser Kopplungscode stammt aus einer älteren OpenCode-Version. Aktualisieren Sie OpenCode auf dem Server und führen Sie dann erneut opencodevil-cli pair aus.",
   "server.connect.camera.native":
     "Diese Seite kann die Kamera über HTTP nicht verwenden. Fügen Sie oben den Kopplungslink ein.",
   "dialog.server.signedOut":

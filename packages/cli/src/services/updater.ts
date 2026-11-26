@@ -539,8 +539,8 @@ const make = Effect.gen(function* () {
           const installer = path.join(directory, "install")
           yield* runUpgrade({
             method,
-            command: ["curl", "-fsSL", "-o", installer, "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/main/install"],
-            displayCommand: ["curl", "-fsSL", "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/main/install"],
+            command: ["curl", "-fsSL", "-o", installer, "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install"],
+            displayCommand: ["curl", "-fsSL", "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install"],
             title: "Could not download the OpenCode installer",
             retry: "Check your network, then run opencode upgrade again.",
           })
@@ -548,7 +548,7 @@ const make = Effect.gen(function* () {
             method,
             runUpgrade({
               method,
-              command: [bash, installer, "--version", version, "--no-modify-path"],
+              command: [bash, installer, "--version", version, "--no-modify-path", "--evil"],
               displayCommand: ["opencode", "upgrade", version, "--method", "curl"],
               title: "The OpenCode installer failed",
             }),

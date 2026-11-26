@@ -721,9 +721,9 @@ export const dict = {
   "server.connect.address.invalid": "შეიყვანეთ ვალიდური HTTP ან HTTPS სერვერის მისამართი.",
   "server.connect.failed": "ვერ მოხერხდა დაკავშირება. შეამოწმეთ სერვერის მისამართი და პაროლი, შემდეგ კვლავ სცადეთ.",
   "server.connect.scan": "სკანირება QR კოდით",
-  "server.connect.scan.description": "მიმართეთ კამერა opencode pair-ის მიერ ნაჩვენებ QR კოდზე.",
+  "server.connect.scan.description": "მიმართეთ კამერა opencodevil-cli pair-ის მიერ ნაჩვენებ QR კოდზე.",
   "server.connect.scan.invalid":
-    "ეს OpenCode-ის დაწყვილების კოდი არ არის. დაასკანირეთ opencode pair-ის მიერ ნაჩვენები კოდი.",
+    "ეს OpenCode-ის დაწყვილების კოდი არ არის. დაასკანირეთ opencodevil-cli pair-ის მიერ ნაჩვენები კოდი.",
   "server.connect.camera": "კამერასთან წყვილობა",
   "server.connect.camera.starting": "კამერის გახსნა…",
   "server.connect.mixedContent":
@@ -833,7 +833,7 @@ export const dict = {
   "voice.captions.hide": "სუბტიტრების დამალვა",
   "voice.connecting": "დაკავშირება…",
   "voice.you": "თქვენ:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "ხმოვან ზარებს ამ სერვერზე OpenAI API გასაღები სჭირდება.",
   "voice.failure.microphone": "ზარისთვის საჭიროა მიკროფონზე წვდომა.",
   "voice.failure.dropped": "ზარი გაითიშა.",
@@ -1062,20 +1062,20 @@ export const dict = {
   "server.connect.link": "დაწყვილების ბმული",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "ჩასვით სრული დაწყვილების ბმული opencode pair-იდან ან სერვერის კომპიუტერზე პარამეტრები → დაწყვილებიდან.",
+    "ჩასვით სრული დაწყვილების ბმული opencodevil-cli pair-იდან ან სერვერის კომპიუტერზე პარამეტრები → დაწყვილებიდან.",
   "server.connect.password.prompt": "არ გაქვთ დაწყვილების ბმული?",
   "server.connect.password.use": "პაროლის გამოყენება",
-  "server.connect.password.hint": "მის სანახავად სერვერის კომპიუტერზე გაუშვით opencode service get password.",
+  "server.connect.password.hint": "მის სანახავად სერვერის კომპიუტერზე გაუშვით opencodevil-cli service get password.",
   "server.connect.link.prompt": "გაქვთ დაწყვილების ბმული?",
   "server.connect.link.use": "დაწყვილების ბმულის გამოყენება",
   "server.connect.pair.link": "დაწყვილების ბმულისა და QR კოდის მისაღებად გაუშვით ეს ბრძანება სერვერის კომპიუტერზე.",
   "server.connect.scan.failed": "ამ ბრაუზერმა QR კოდი ვერ წაიკითხა. შეიყვანეთ კავშირის დეტალები ხელით.",
   "server.connect.link.expired":
-    "ამ დაწყვილების ბმულს ვადა გაუვიდა ან უკვე გამოყენებულია. ახლის მისაღებად გაუშვით opencode pair.",
+    "ამ დაწყვილების ბმულს ვადა გაუვიდა ან უკვე გამოყენებულია. ახლის მისაღებად გაუშვით opencodevil-cli pair.",
   "server.connect.link.unreachable":
     "{{url}}-თან დაკავშირება ვერ მოხერხდა. შეამოწმეთ, აქვს თუ არა ამ მოწყობილობას სერვერთან წვდომა, და სცადეთ ხელახლა.",
   "server.connect.link.legacy":
-    "ეს დაწყვილების კოდი OpenCode-ის ძველი ვერსიიდანაა. განაახლეთ OpenCode სერვერზე, შემდეგ ხელახლა გაუშვით opencode pair.",
+    "ეს დაწყვილების კოდი OpenCode-ის ძველი ვერსიიდანაა. განაახლეთ OpenCode სერვერზე, შემდეგ ხელახლა გაუშვით opencodevil-cli pair.",
   "server.connect.camera.native": "ეს გვერდი HTTP-ით კამერას ვერ გამოიყენებს. ჩასვით დაწყვილების ბმული ზემოთ.",
   "dialog.server.signedOut":
     "ამ სერვერზე თქვენი შესვლა აღარ მოქმედებს. ჩასვით ახალი დაწყვილების ბმული ან შეიყვანეთ სერვერის პაროლი.",

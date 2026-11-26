@@ -714,8 +714,8 @@ export const dict = {
   "server.connect.failed":
     "Nuk mund të lidhej. Kontrolloni adresën dhe fjalëkalimin e serverit, më pas provoni përsëri.",
   "server.connect.scan": "Skanoni kodin QR",
-  "server.connect.scan.description": "Drejtoje kamerën drejt kodit QR të treguar nga opencode pair.",
-  "server.connect.scan.invalid": "Ky nuk është një kod çiftimi OpenCode. Skanoni kodin e treguar nga opencode pair.",
+  "server.connect.scan.description": "Drejtoje kamerën drejt kodit QR të treguar nga opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Ky nuk është një kod çiftimi OpenCode. Skanoni kodin e treguar nga opencodevil-cli pair.",
   "server.connect.camera": "Çiftimi i kamerës",
   "server.connect.camera.starting": "Hapja e kamerës…",
   "server.connect.mixedContent":
@@ -835,7 +835,7 @@ export const dict = {
   "voice.captions.hide": "Fshih titrat",
   "voice.connecting": "Po lidhet…",
   "voice.you": "Ju:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Thirrjet zanore kërkojnë një çelës API të OpenAI në këtë server.",
   "voice.failure.microphone": "Për të thirrur kërkohet qasja në mikrofon.",
   "voice.failure.dropped": "Thirrja u shkëput.",
@@ -1063,21 +1063,21 @@ export const dict = {
   "server.connect.link": "Lidhja e çiftimit",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Ngjitni lidhjen e plotë të çiftimit nga opencode pair, ose nga Cilësimet → Çiftimi në kompjuterin e serverit.",
+    "Ngjitni lidhjen e plotë të çiftimit nga opencodevil-cli pair, ose nga Cilësimet → Çiftimi në kompjuterin e serverit.",
   "server.connect.password.prompt": "Nuk keni lidhje çiftimi?",
   "server.connect.password.use": "Përdor fjalëkalimin",
-  "server.connect.password.hint": "Për ta parë, ekzekutoni opencode service get password në kompjuterin e serverit.",
+  "server.connect.password.hint": "Për ta parë, ekzekutoni opencodevil-cli service get password në kompjuterin e serverit.",
   "server.connect.link.prompt": "Keni një lidhje çiftimi?",
   "server.connect.link.use": "Përdor lidhjen e çiftimit",
   "server.connect.pair.link":
     "Ekzekutoni këtë komandë në kompjuterin e serverit për të marrë një lidhje çiftimi dhe kod QR.",
   "server.connect.scan.failed": "Ky shfletues nuk mundi ta lexonte kodin QR. Futni manualisht detajet e lidhjes.",
   "server.connect.link.expired":
-    "Kjo lidhje çiftimi ka skaduar ose është përdorur tashmë. Ekzekutoni opencode pair për të marrë një të re.",
+    "Kjo lidhje çiftimi ka skaduar ose është përdorur tashmë. Ekzekutoni opencodevil-cli pair për të marrë një të re.",
   "server.connect.link.unreachable":
     "{{url}} nuk u arrit. Kontrolloni që kjo pajisje mund të arrijë serverin, pastaj provoni sërish.",
   "server.connect.link.legacy":
-    "Ky kod çiftimi është nga një version më i vjetër i OpenCode. Përditësoni OpenCode në server, pastaj ekzekutoni sërish opencode pair.",
+    "Ky kod çiftimi është nga një version më i vjetër i OpenCode. Përditësoni OpenCode në server, pastaj ekzekutoni sërish opencodevil-cli pair.",
   "server.connect.camera.native":
     "Kjo faqe nuk mund të përdorë kamerën përmes HTTP. Ngjitni lidhjen e çiftimit më lart.",
   "dialog.server.signedOut":

@@ -721,8 +721,8 @@ export const dict = {
   "server.connect.address.invalid": "Dogry HTTP ýa-da HTTPS serwer salgysyny giriziň.",
   "server.connect.failed": "Birikip bilmedim Serweriň salgysyny we parolyny barlaň, soňra gaýtadan synanyşyň.",
   "server.connect.scan": "QR koduny skanirläň",
-  "server.connect.scan.description": "Kamerany opencode pair görkezýän QR koda gönükdiriň.",
-  "server.connect.scan.invalid": "Bu OpenCode jübütleme kody däl. opencode pair görkezýän kody skanirläň.",
+  "server.connect.scan.description": "Kamerany opencodevil-cli pair görkezýän QR koda gönükdiriň.",
+  "server.connect.scan.invalid": "Bu OpenCode jübütleme kody däl. opencodevil-cli pair görkezýän kody skanirläň.",
   "server.connect.camera": "Jübüt kamera",
   "server.connect.camera.starting": "Kamerany açmak…",
   "server.connect.mixedContent":
@@ -828,7 +828,7 @@ export const dict = {
   "voice.captions.hide": "Subtitrleri gizle",
   "voice.connecting": "Birikdirilýär…",
   "voice.you": "Siz:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Sesli jaňlar üçin bu serwerde OpenAI API açary gerek.",
   "voice.failure.microphone": "Jaň etmek üçin mikrofona rugsat gerek.",
   "voice.failure.dropped": "Jaň kesildi.",
@@ -1052,21 +1052,21 @@ export const dict = {
   "server.connect.link": "Jübütleme baglanyşygy",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair-dan ýa-da serwer kompýuterindäki Sazlamalar → Jübütleme bölüminden doly jübütleme baglanyşygyny ýelmäň.",
+    "opencodevil-cli pair-dan ýa-da serwer kompýuterindäki Sazlamalar → Jübütleme bölüminden doly jübütleme baglanyşygyny ýelmäň.",
   "server.connect.password.prompt": "Jübütleme baglanyşygy ýokmy?",
   "server.connect.password.use": "Paroly ulanyň",
-  "server.connect.password.hint": "Ony görmek üçin serwer kompýuterinde opencode service get password işlediň.",
+  "server.connect.password.hint": "Ony görmek üçin serwer kompýuterinde opencodevil-cli service get password işlediň.",
   "server.connect.link.prompt": "Jübütleme baglanyşygyňyz barmy?",
   "server.connect.link.use": "Jübütleme baglanyşygyny ulanyň",
   "server.connect.pair.link":
     "Jübütleme baglanyşygyny we QR koduny almak üçin bu buýrugy serwer kompýuterinde işlediň.",
   "server.connect.scan.failed": "Bu brauzer QR koduny okap bilmedi. Birikme maglumatlaryňyzy el bilen giriziň.",
   "server.connect.link.expired":
-    "Bu jübütleme baglanyşygynyň möhleti geçdi ýa-da eýýäm ulanyldy. Täzesini almak üçin opencode pair işlediň.",
+    "Bu jübütleme baglanyşygynyň möhleti geçdi ýa-da eýýäm ulanyldy. Täzesini almak üçin opencodevil-cli pair işlediň.",
   "server.connect.link.unreachable":
     "{{url}} salgysyna ýetip bolmady. Bu enjamyň serwere ýetip bilýändigini barlaň, soňra täzeden synanyşyň.",
   "server.connect.link.legacy":
-    "Bu jübütleme kody OpenCode-yň köne wersiýasyndan. Serwerde OpenCode-y täzeläň, soňra opencode pair-y gaýtadan işlediň.",
+    "Bu jübütleme kody OpenCode-yň köne wersiýasyndan. Serwerde OpenCode-y täzeläň, soňra opencodevil-cli pair-y gaýtadan işlediň.",
   "server.connect.camera.native":
     "Bu sahypa HTTP arkaly kamerany ulanyp bilmeýär. Jübütleme baglanyşygyny ýokarda ýelmäň.",
   "dialog.server.signedOut":

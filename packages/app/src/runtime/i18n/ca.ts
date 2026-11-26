@@ -727,9 +727,9 @@ export const dict = {
   "server.connect.failed":
     "No s'ha pogut connectar. Comproveu l'adreça i la contrasenya del servidor i torneu-ho a provar.",
   "server.connect.scan": "Escaneja el codi QR",
-  "server.connect.scan.description": "Apunteu la càmera al codi QR que mostra opencode pair.",
+  "server.connect.scan.description": "Apunteu la càmera al codi QR que mostra opencodevil-cli pair.",
   "server.connect.scan.invalid":
-    "Aquest no és un codi d'aparellament OpenCode. Escaneja el codi mostrat per opencode pair.",
+    "Aquest no és un codi d'aparellament OpenCode. Escaneja el codi mostrat per opencodevil-cli pair.",
   "server.connect.camera": "Càmera d'aparellament",
   "server.connect.camera.starting": "Obertura de la càmera...",
   "server.connect.mixedContent":
@@ -857,7 +857,7 @@ export const dict = {
   "voice.captions.hide": "Amaga els subtítols",
   "voice.connecting": "S'està connectant…",
   "voice.you": "Tu:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Les trucades de veu necessiten una clau d'API d'OpenAI en aquest servidor.",
   "voice.failure.microphone": "Cal accés al micròfon per trucar.",
   "voice.failure.dropped": "La trucada s'ha desconnectat.",
@@ -1089,10 +1089,10 @@ export const dict = {
   "server.connect.link": "Enllaç d'aparellament",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Enganxeu l'enllaç d'aparellament complet d'opencode pair o de Configuració → Aparellament a l'ordinador del servidor.",
+    "Enganxeu l'enllaç d'aparellament complet d'opencodevil-cli pair o de Configuració → Aparellament a l'ordinador del servidor.",
   "server.connect.password.prompt": "No teniu cap enllaç d'aparellament?",
   "server.connect.password.use": "Utilitza una contrasenya",
-  "server.connect.password.hint": "Per veure-la, executeu opencode service get password a l'ordinador del servidor.",
+  "server.connect.password.hint": "Per veure-la, executeu opencodevil-cli service get password a l'ordinador del servidor.",
   "server.connect.link.prompt": "Teniu un enllaç d'aparellament?",
   "server.connect.link.use": "Utilitza un enllaç d'aparellament",
   "server.connect.pair.link":
@@ -1100,11 +1100,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Aquest navegador no ha pogut llegir el codi QR. Introduïu els detalls de connexió manualment.",
   "server.connect.link.expired":
-    "Aquest enllaç d'aparellament ha caducat o ja s'ha utilitzat. Executeu opencode pair per obtenir-ne un de nou.",
+    "Aquest enllaç d'aparellament ha caducat o ja s'ha utilitzat. Executeu opencodevil-cli pair per obtenir-ne un de nou.",
   "server.connect.link.unreachable":
     "No s'ha pogut accedir a {{url}}. Comproveu que aquest dispositiu pot accedir al servidor i torneu-ho a provar.",
   "server.connect.link.legacy":
-    "Aquest codi d'aparellament és d'una versió antiga d'OpenCode. Actualitzeu OpenCode al servidor i torneu a executar opencode pair.",
+    "Aquest codi d'aparellament és d'una versió antiga d'OpenCode. Actualitzeu OpenCode al servidor i torneu a executar opencodevil-cli pair.",
   "server.connect.camera.native":
     "Aquesta pàgina no pot utilitzar la càmera per HTTP. Enganxeu l'enllaç d'aparellament a dalt.",
   "dialog.server.signedOut":

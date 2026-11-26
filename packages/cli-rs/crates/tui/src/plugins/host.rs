@@ -214,11 +214,11 @@ impl Host for Tui {
             .is_some_and(opencode_plugin::luau::approves)
         {
             let message =
-                "This project wants to run a Luau plugin inside opencode. Run /plugins to approve or decline it.";
+                "This project wants to run a Luau plugin inside OpenCode Eʌil. Run /plugins to approve or decline it.";
             return pending_toast(self, target, message);
         }
         let message =
-            "This project wants to run TypeScript code in opencode's JS host. Run /plugins to approve or decline it.";
+            "This project wants to run TypeScript code in OpenCode Eʌil's JS host. Run /plugins to approve or decline it.";
         pending_toast(self, target, message);
     }
 

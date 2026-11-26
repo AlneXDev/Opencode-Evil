@@ -14,8 +14,6 @@
   Pop $0
   nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "opencodevil-cli.exe"'
   Pop $0
-  nsExec::ExecToLog '"$SYSDIR\taskkill.exe" /F /IM "opencode-pty.exe"'
-  Pop $0
   Sleep 500
 !macroend
 

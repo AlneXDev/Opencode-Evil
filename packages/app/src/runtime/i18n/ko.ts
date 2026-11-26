@@ -734,7 +734,7 @@ export const dict = {
   "server.connect.address.invalid": "유효한 HTTP 또는 HTTPS 서버 주소를 입력하세요.",
   "server.connect.failed": "연결할 수 없습니다. 서버 주소와 비밀번호를 확인한 후 다시 시도하세요.",
   "server.connect.scan": "QR 코드 스캔",
-  "server.connect.scan.description": "opencode pair에서 표시된 QR 코드를 카메라로 가리키세요.",
+  "server.connect.scan.description": "opencodevil-cli pair에서 표시된 QR 코드를 카메라로 가리키세요.",
   "server.connect.scan.invalid":
     "이것은 OpenCode 페어링 코드가 아닙니다. opencode 페어링에서 표시된 코드를 스캔하세요.",
   "server.connect.camera": "카메라 페어링",
@@ -840,7 +840,7 @@ export const dict = {
   "voice.captions.hide": "자막 숨기기",
   "voice.connecting": "연결 중…",
   "voice.you": "나:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "음성 통화를 사용하려면 이 서버에 OpenAI API 키가 필요합니다.",
   "voice.failure.microphone": "통화하려면 마이크 접근 권한이 필요합니다.",
   "voice.failure.dropped": "통화 연결이 끊어졌습니다.",
@@ -1059,20 +1059,20 @@ export const dict = {
   "server.connect.link": "페어링 링크",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair 또는 서버 컴퓨터의 설정 → 페어링에서 받은 전체 페어링 링크를 붙여넣으세요.",
+    "opencodevil-cli pair 또는 서버 컴퓨터의 설정 → 페어링에서 받은 전체 페어링 링크를 붙여넣으세요.",
   "server.connect.password.prompt": "페어링 링크가 없나요?",
   "server.connect.password.use": "비밀번호 사용",
-  "server.connect.password.hint": "비밀번호를 확인하려면 서버 컴퓨터에서 opencode service get password를 실행하세요.",
+  "server.connect.password.hint": "비밀번호를 확인하려면 서버 컴퓨터에서 opencodevil-cli service get password를 실행하세요.",
   "server.connect.link.prompt": "페어링 링크가 있나요?",
   "server.connect.link.use": "페어링 링크 사용",
   "server.connect.pair.link": "서버 컴퓨터에서 이 명령을 실행하여 페어링 링크와 QR 코드를 받으세요.",
   "server.connect.scan.failed": "이 브라우저에서 QR 코드를 읽을 수 없습니다. 연결 세부 정보를 수동으로 입력하세요.",
   "server.connect.link.expired":
-    "이 페어링 링크는 만료되었거나 이미 사용되었습니다. 새 링크를 받으려면 opencode pair를 실행하세요.",
+    "이 페어링 링크는 만료되었거나 이미 사용되었습니다. 새 링크를 받으려면 opencodevil-cli pair를 실행하세요.",
   "server.connect.link.unreachable":
     "{{url}}에 연결할 수 없습니다. 이 기기에서 서버에 접근할 수 있는지 확인한 후 다시 시도하세요.",
   "server.connect.link.legacy":
-    "이 페어링 코드는 이전 버전의 OpenCode에서 생성되었습니다. 서버의 OpenCode를 업데이트한 후 opencode pair를 다시 실행하세요.",
+    "이 페어링 코드는 이전 버전의 OpenCode에서 생성되었습니다. 서버의 OpenCode를 업데이트한 후 opencodevil-cli pair를 다시 실행하세요.",
   "server.connect.camera.native": "이 페이지는 HTTP에서 카메라를 사용할 수 없습니다. 위에 페어링 링크를 붙여넣으세요.",
   "dialog.server.signedOut":
     "이 서버의 로그인이 더 이상 유효하지 않습니다. 새 페어링 링크를 붙여넣거나 서버 비밀번호를 입력하세요.",

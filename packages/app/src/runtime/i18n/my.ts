@@ -735,7 +735,7 @@ export const dict = {
   "server.connect.address.invalid": "မှန်ကန်သော HTTP သို့မဟုတ် HTTPS server လိပ်စာကို ထည့်ပါ။",
   "server.connect.failed": "ချိတ်ဆက်၍ မရပါ။ Server လိပ်စာနှင့် စကားဝှက်ကို စစ်ဆေးပြီး ပြန်ကြိုးစားပါ။",
   "server.connect.scan": "QR ကုဒ် စကင်",
-  "server.connect.scan.description": "opencode pair မှ ပြသထားသော QR ကုဒ်ကို သင်၏ ကင်မရာဖြင့် ညွှန်ပါ။",
+  "server.connect.scan.description": "opencodevil-cli pair မှ ပြသထားသော QR ကုဒ်ကို သင်၏ ကင်မရာဖြင့် ညွှန်ပါ။",
   "server.connect.scan.invalid":
     "ဒါသည် OpenCode အစုံပေါင်းကုဒ်မဟုတ်ပါ။ OpenCode pairing မှ ဖော်ပြထားသောကုဒ်ကို စကင်လုပ်ပါ။",
   "server.connect.camera": "ကင်မရာကို အစုံပေါင်းခြင်း",
@@ -842,7 +842,7 @@ export const dict = {
   "voice.captions.hide": "စာတန်းထိုး ဖျောက်ရန်",
   "voice.connecting": "ချိတ်ဆက်နေသည်…",
   "voice.you": "သင်:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "အသံခေါ်ဆိုမှုများအတွက် ဤဆာဗာတွင် OpenAI API သော့ လိုအပ်သည်။",
   "voice.failure.microphone": "ခေါ်ဆိုရန် မိုက်ခရိုဖုန်း အသုံးပြုခွင့် လိုအပ်သည်။",
   "voice.failure.dropped": "ခေါ်ဆိုမှု ပြတ်တောက်သွားသည်။",
@@ -1068,20 +1068,20 @@ export const dict = {
   "server.connect.link": "Pairing လင့်ခ်",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair မှ သို့မဟုတ် ဆာဗာကွန်ပျူတာရှိ ဆက်တင်များ → Pairing မှ pairing လင့်ခ်အပြည့်အစုံကို ကူးထည့်ပါ။",
+    "opencodevil-cli pair မှ သို့မဟုတ် ဆာဗာကွန်ပျူတာရှိ ဆက်တင်များ → Pairing မှ pairing လင့်ခ်အပြည့်အစုံကို ကူးထည့်ပါ။",
   "server.connect.password.prompt": "Pairing လင့်ခ် မရှိဘူးလား။",
   "server.connect.password.use": "စကားဝှက် အသုံးပြုရန်",
-  "server.connect.password.hint": "၎င်းကို ကြည့်ရန် ဆာဗာကွန်ပျူတာတွင် opencode service get password ကို လုပ်ဆောင်ပါ။",
+  "server.connect.password.hint": "၎င်းကို ကြည့်ရန် ဆာဗာကွန်ပျူတာတွင် opencodevil-cli service get password ကို လုပ်ဆောင်ပါ။",
   "server.connect.link.prompt": "Pairing လင့်ခ် ရှိပါသလား။",
   "server.connect.link.use": "Pairing လင့်ခ် အသုံးပြုရန်",
   "server.connect.pair.link": "Pairing လင့်ခ်နှင့် QR ကုဒ် ရယူရန် ဆာဗာကွန်ပျူတာတွင် ဤအမိန့်ကို လုပ်ဆောင်ပါ။",
   "server.connect.scan.failed": "ဤဘရောက်ဇာသည် QR ကုဒ်ကို ဖတ်၍ မရပါ။ ချိတ်ဆက်မှုအချက်အလက်များကို လက်ဖြင့် ထည့်ပါ။",
   "server.connect.link.expired":
-    "ဤ pairing လင့်ခ် သက်တမ်းကုန်သွားပြီ သို့မဟုတ် အသုံးပြုပြီးဖြစ်သည်။ အသစ်ရရန် opencode pair ကို လုပ်ဆောင်ပါ။",
+    "ဤ pairing လင့်ခ် သက်တမ်းကုန်သွားပြီ သို့မဟုတ် အသုံးပြုပြီးဖြစ်သည်။ အသစ်ရရန် opencodevil-cli pair ကို လုပ်ဆောင်ပါ။",
   "server.connect.link.unreachable":
     "{{url}} သို့ မရောက်နိုင်ပါ။ ဤစက်မှ ဆာဗာသို့ ရောက်နိုင်ကြောင်း စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။",
   "server.connect.link.legacy":
-    "ဤ pairing ကုဒ်သည် OpenCode ဗားရှင်းဟောင်းမှ ဖြစ်သည်။ ဆာဗာတွင် OpenCode ကို အပ်ဒိတ်လုပ်ပြီး opencode pair ကို ထပ်မံ လုပ်ဆောင်ပါ။",
+    "ဤ pairing ကုဒ်သည် OpenCode ဗားရှင်းဟောင်းမှ ဖြစ်သည်။ ဆာဗာတွင် OpenCode ကို အပ်ဒိတ်လုပ်ပြီး opencodevil-cli pair ကို ထပ်မံ လုပ်ဆောင်ပါ။",
   "server.connect.camera.native":
     "ဤစာမျက်နှာသည် HTTP ပေါ်တွင် ကင်မရာကို အသုံးပြု၍ မရပါ။ အထက်တွင် pairing လင့်ခ်ကို ကူးထည့်ပါ။",
   "dialog.server.signedOut":

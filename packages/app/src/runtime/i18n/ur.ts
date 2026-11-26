@@ -849,7 +849,7 @@ export const dict = {
   "voice.captions.hide": "کیپشنز چھپائیں",
   "voice.connecting": "منسلک ہو رہا ہے…",
   "voice.you": "آپ:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "وائس کالز کے لیے اس سرور پر OpenAI API کلید درکار ہے۔",
   "voice.failure.microphone": "کال کرنے کے لیے مائیکروفون تک رسائی درکار ہے۔",
   "voice.failure.dropped": "کال منقطع ہو گئی۔",
@@ -1074,20 +1074,20 @@ export const dict = {
   "server.connect.link": "جوڑنے کا لنک",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair سے، یا سرور والے کمپیوٹر پر ترتیبات ← Pairing سے، جوڑنے کا مکمل لنک چسپاں کریں۔",
+    "opencodevil-cli pair سے، یا سرور والے کمپیوٹر پر ترتیبات ← Pairing سے، جوڑنے کا مکمل لنک چسپاں کریں۔",
   "server.connect.password.prompt": "جوڑنے کا لنک نہیں ہے؟",
   "server.connect.password.use": "پاس ورڈ استعمال کریں",
-  "server.connect.password.hint": "اسے دیکھنے کے لیے سرور والے کمپیوٹر پر opencode service get password چلائیں۔",
+  "server.connect.password.hint": "اسے دیکھنے کے لیے سرور والے کمپیوٹر پر opencodevil-cli service get password چلائیں۔",
   "server.connect.link.prompt": "جوڑنے کا لنک موجود ہے؟",
   "server.connect.link.use": "جوڑنے کا لنک استعمال کریں",
   "server.connect.pair.link": "جوڑنے کا لنک اور QR کوڈ حاصل کرنے کے لیے سرور والے کمپیوٹر پر یہ کمانڈ چلائیں۔",
   "server.connect.scan.failed": "یہ براؤزر QR کوڈ نہیں پڑھ سکا۔ اپنے کنکشن کی تفصیلات دستی طور پر درج کریں۔",
   "server.connect.link.expired":
-    "جوڑنے کے اس لنک کی میعاد ختم ہو گئی ہے یا یہ پہلے ہی استعمال ہو چکا ہے۔ نیا لنک حاصل کرنے کے لیے opencode pair چلائیں۔",
+    "جوڑنے کے اس لنک کی میعاد ختم ہو گئی ہے یا یہ پہلے ہی استعمال ہو چکا ہے۔ نیا لنک حاصل کرنے کے لیے opencodevil-cli pair چلائیں۔",
   "server.connect.link.unreachable":
     "⁨{{url}}⁩ تک رسائی نہیں ہو سکی۔ چیک کریں کہ یہ ڈیوائس سرور تک پہنچ سکتی ہے، پھر دوبارہ کوشش کریں۔",
   "server.connect.link.legacy":
-    "جوڑنے کا یہ کوڈ OpenCode کے پرانے ورژن کا ہے۔ سرور پر OpenCode اپ ڈیٹ کریں، پھر دوبارہ opencode pair چلائیں۔",
+    "جوڑنے کا یہ کوڈ OpenCode کے پرانے ورژن کا ہے۔ سرور پر OpenCode اپ ڈیٹ کریں، پھر دوبارہ opencodevil-cli pair چلائیں۔",
   "server.connect.camera.native": "یہ صفحہ HTTP پر کیمرہ استعمال نہیں کر سکتا۔ اوپر جوڑنے کا لنک چسپاں کریں۔",
   "dialog.server.signedOut":
     "اس سرور کے لیے آپ کا سائن ان اب درست نہیں رہا۔ جوڑنے کا نیا لنک چسپاں کریں، یا سرور کا پاس ورڈ درج کریں۔",

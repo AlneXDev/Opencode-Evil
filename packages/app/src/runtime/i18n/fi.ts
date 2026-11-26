@@ -24,8 +24,8 @@ export const dict = {
   "server.connect.failed":
     "Yhteyttä ei voitu muodostaa. Tarkista palvelimen osoite ja salasana ja yritä sitten uudelleen.",
   "server.connect.scan": "Skannaa QR-koodi",
-  "server.connect.scan.description": "Suuntaa kamerasi QR-koodiin, joka näkyy opencode pair:ssä.",
-  "server.connect.scan.invalid": "Tämä ei ole OpenCode-pariliitoskoodi. Skannaa opencode pair:n näyttämä koodi.",
+  "server.connect.scan.description": "Suuntaa kamerasi QR-koodiin, joka näkyy opencodevil-cli pair:ssä.",
+  "server.connect.scan.invalid": "Tämä ei ole OpenCode-pariliitoskoodi. Skannaa opencodevil-cli pair:n näyttämä koodi.",
   "server.connect.camera": "Kameraparin muodostaminen",
   "server.connect.camera.starting": "Avataan kameraa…",
   "server.connect.mixedContent":
@@ -834,7 +834,7 @@ export const dict = {
   "voice.captions.hide": "Piilota tekstitys",
   "voice.connecting": "Yhdistetään…",
   "voice.you": "Sinä:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Äänipuhelut vaativat OpenAI-API-avaimen tällä palvelimella.",
   "voice.failure.microphone": "Soittaminen vaatii mikrofonin käyttöoikeuden.",
   "voice.failure.dropped": "Puhelu katkesi.",
@@ -1058,20 +1058,20 @@ export const dict = {
   "server.connect.link": "Pariliitoslinkki",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Liitä koko pariliitoslinkki komennosta opencode pair tai palvelimen tietokoneen kohdasta Asetukset → Pariliitos.",
+    "Liitä koko pariliitoslinkki komennosta opencodevil-cli pair tai palvelimen tietokoneen kohdasta Asetukset → Pariliitos.",
   "server.connect.password.prompt": "Eikö pariliitoslinkkiä ole?",
   "server.connect.password.use": "Käytä salasanaa",
-  "server.connect.password.hint": "Näet sen suorittamalla palvelimen tietokoneella opencode service get password.",
+  "server.connect.password.hint": "Näet sen suorittamalla palvelimen tietokoneella opencodevil-cli service get password.",
   "server.connect.link.prompt": "Onko sinulla pariliitoslinkki?",
   "server.connect.link.use": "Käytä pariliitoslinkkiä",
   "server.connect.pair.link": "Suorita tämä komento palvelimen tietokoneella saadaksesi pariliitoslinkin ja QR-koodin.",
   "server.connect.scan.failed": "Tämä selain ei pystynyt lukemaan QR-koodia. Syötä yhteystietosi manuaalisesti.",
   "server.connect.link.expired":
-    "Tämä pariliitoslinkki on vanhentunut tai jo käytetty. Hae uusi suorittamalla opencode pair.",
+    "Tämä pariliitoslinkki on vanhentunut tai jo käytetty. Hae uusi suorittamalla opencodevil-cli pair.",
   "server.connect.link.unreachable":
     "Osoitteeseen {{url}} ei saatu yhteyttä. Varmista, että tämä laite tavoittaa palvelimen, ja yritä uudelleen.",
   "server.connect.link.legacy":
-    "Tämä pariliitoskoodi on OpenCoden vanhemmasta versiosta. Päivitä OpenCode palvelimella ja suorita sitten opencode pair uudelleen.",
+    "Tämä pariliitoskoodi on OpenCoden vanhemmasta versiosta. Päivitä OpenCode palvelimella ja suorita sitten opencodevil-cli pair uudelleen.",
   "server.connect.camera.native":
     "Tämä sivu ei voi käyttää kameraa HTTP:n kautta. Liitä pariliitoslinkki yllä olevaan kenttään.",
   "dialog.server.signedOut":

@@ -722,8 +722,8 @@ export const dict = {
   "server.connect.address.invalid": "Introduceți o adresă validă de server HTTP sau HTTPS.",
   "server.connect.failed": "Nu s-a putut conecta. Verificați adresa serverului și parola, apoi încercați din nou.",
   "server.connect.scan": "Scanează codul QR",
-  "server.connect.scan.description": "Îndreptați camera către codul QR afișat de opencode pair.",
-  "server.connect.scan.invalid": "Acesta nu este un cod de asociere OpenCode. Scanați codul afișat de opencode pair.",
+  "server.connect.scan.description": "Îndreptați camera către codul QR afișat de opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Acesta nu este un cod de asociere OpenCode. Scanați codul afișat de opencodevil-cli pair.",
   "server.connect.camera": "Împerecherea camerei",
   "server.connect.camera.starting": "Deschiderea camerei…",
   "server.connect.mixedContent":
@@ -848,7 +848,7 @@ export const dict = {
   "voice.captions.hide": "Ascunde subtitrările",
   "voice.connecting": "Se conectează…",
   "voice.you": "Tu:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Apelurile vocale necesită o cheie API OpenAI pe acest server.",
   "voice.failure.microphone": "Pentru a apela este necesar accesul la microfon.",
   "voice.failure.dropped": "Apelul s-a întrerupt.",
@@ -1079,21 +1079,21 @@ export const dict = {
   "server.connect.link": "Link de asociere",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Lipește linkul de asociere complet din opencode pair sau din Setări → Asociere de pe computerul serverului.",
+    "Lipește linkul de asociere complet din opencodevil-cli pair sau din Setări → Asociere de pe computerul serverului.",
   "server.connect.password.prompt": "Nu ai link de asociere?",
   "server.connect.password.use": "Folosește parola",
-  "server.connect.password.hint": "Pentru a o vedea, rulează opencode service get password pe computerul serverului.",
+  "server.connect.password.hint": "Pentru a o vedea, rulează opencodevil-cli service get password pe computerul serverului.",
   "server.connect.link.prompt": "Ai un link de asociere?",
   "server.connect.link.use": "Folosește linkul de asociere",
   "server.connect.pair.link":
     "Rulează această comandă pe computerul serverului pentru a obține un link de asociere și un cod QR.",
   "server.connect.scan.failed": "Acest browser nu a putut citi codul QR. Introdu manual detaliile conexiunii.",
   "server.connect.link.expired":
-    "Acest link de asociere a expirat sau a fost deja folosit. Rulează opencode pair pentru a obține unul nou.",
+    "Acest link de asociere a expirat sau a fost deja folosit. Rulează opencodevil-cli pair pentru a obține unul nou.",
   "server.connect.link.unreachable":
     "{{url}} nu a putut fi accesat. Verifică dacă acest dispozitiv poate accesa serverul, apoi încearcă din nou.",
   "server.connect.link.legacy":
-    "Acest cod de asociere provine dintr-o versiune mai veche de OpenCode. Actualizează OpenCode pe server, apoi rulează din nou opencode pair.",
+    "Acest cod de asociere provine dintr-o versiune mai veche de OpenCode. Actualizează OpenCode pe server, apoi rulează din nou opencodevil-cli pair.",
   "server.connect.camera.native":
     "Această pagină nu poate folosi camera prin HTTP. Lipește linkul de asociere mai sus.",
   "dialog.server.signedOut":

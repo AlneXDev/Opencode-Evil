@@ -723,9 +723,9 @@ export const dict = {
   "server.connect.address.invalid": "වලංගු HTTP හෝ HTTPS සේවාදායක ලිපිනයක් ඇතුළත් කරන්න.",
   "server.connect.failed": "සම්බන්ධ වීමට නොහැකි විය. සේවාදායක ලිපිනය සහ මුරපදය පරීක්ෂා කර නැවත උත්සාහ කරන්න.",
   "server.connect.scan": "QR කේතය පරිලෝකනය කරන්න",
-  "server.connect.scan.description": "opencode pair මගින් පෙන්වන QR කේතය වෙත ඔබේ කැමරාව යොමු කරන්න.",
+  "server.connect.scan.description": "opencodevil-cli pair මගින් පෙන්වන QR කේතය වෙත ඔබේ කැමරාව යොමු කරන්න.",
   "server.connect.scan.invalid":
-    "මෙය OpenCode යුගල කිරීමේ කේතයක් නොවේ. opencode pair මගින් පෙන්වන කේතය පරිලෝකනය කරන්න.",
+    "මෙය OpenCode යුගල කිරීමේ කේතයක් නොවේ. opencodevil-cli pair මගින් පෙන්වන කේතය පරිලෝකනය කරන්න.",
   "server.connect.camera": "කැමරාව යුගල කිරීම",
   "server.connect.camera.starting": "කැමරාව විවෘත කරමින්...",
   "server.connect.mixedContent":
@@ -833,7 +833,7 @@ export const dict = {
   "voice.captions.hide": "උපසිරැසි සඟවන්න",
   "voice.connecting": "සම්බන්ධ වෙමින්…",
   "voice.you": "ඔබ:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "හඬ ඇමතුම් සඳහා මෙම සේවාදායකයේ OpenAI API යතුරක් අවශ්‍යයි.",
   "voice.failure.microphone": "ඇමතීමට මයික්‍රෆෝන ප්‍රවේශය අවශ්‍යයි.",
   "voice.failure.dropped": "ඇමතුම විසන්ධි විය.",
@@ -1062,21 +1062,21 @@ export const dict = {
   "server.connect.link": "යුගල කිරීමේ සබැඳිය",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair වෙතින් හෝ සේවාදායකයේ පරිගණකයේ සැකසීම් → යුගල කිරීම වෙතින් සම්පූර්ණ යුගල කිරීමේ සබැඳිය අලවන්න.",
+    "opencodevil-cli pair වෙතින් හෝ සේවාදායකයේ පරිගණකයේ සැකසීම් → යුගල කිරීම වෙතින් සම්පූර්ණ යුගල කිරීමේ සබැඳිය අලවන්න.",
   "server.connect.password.prompt": "යුගල කිරීමේ සබැඳියක් නැද්ද?",
   "server.connect.password.use": "මුරපදය භාවිතා කරන්න",
-  "server.connect.password.hint": "එය බැලීමට, සේවාදායකයේ පරිගණකයේ opencode service get password ධාවනය කරන්න.",
+  "server.connect.password.hint": "එය බැලීමට, සේවාදායකයේ පරිගණකයේ opencodevil-cli service get password ධාවනය කරන්න.",
   "server.connect.link.prompt": "යුගල කිරීමේ සබැඳියක් තිබේද?",
   "server.connect.link.use": "යුගල කිරීමේ සබැඳිය භාවිතා කරන්න",
   "server.connect.pair.link":
     "යුගල කිරීමේ සබැඳියක් සහ QR කේතයක් ලබා ගැනීමට සේවාදායකයේ පරිගණකයේ මෙම විධානය ධාවනය කරන්න.",
   "server.connect.scan.failed": "මෙම බ්‍රවුසරයට QR කේතය කියවිය නොහැකි විය. ඔබගේ සම්බන්ධතා විස්තර අතින් ඇතුළත් කරන්න.",
   "server.connect.link.expired":
-    "මෙම යුගල කිරීමේ සබැඳිය කල් ඉකුත් වී හෝ දැනටමත් භාවිතා කර ඇත. නව එකක් ලබා ගැනීමට opencode pair ධාවනය කරන්න.",
+    "මෙම යුගල කිරීමේ සබැඳිය කල් ඉකුත් වී හෝ දැනටමත් භාවිතා කර ඇත. නව එකක් ලබා ගැනීමට opencodevil-cli pair ධාවනය කරන්න.",
   "server.connect.link.unreachable":
     "{{url}} වෙත ළඟා විය නොහැකි විය. මෙම උපාංගයට සේවාදායකය වෙත ළඟා විය හැකි බව පරීක්ෂා කර, නැවත උත්සාහ කරන්න.",
   "server.connect.link.legacy":
-    "මෙම යුගල කිරීමේ කේතය OpenCode හි පැරණි අනුවාදයකින්. සේවාදායකයේ OpenCode යාවත්කාලීන කර, opencode pair නැවත ධාවනය කරන්න.",
+    "මෙම යුගල කිරීමේ කේතය OpenCode හි පැරණි අනුවාදයකින්. සේවාදායකයේ OpenCode යාවත්කාලීන කර, opencodevil-cli pair නැවත ධාවනය කරන්න.",
   "server.connect.camera.native": "මෙම පිටුවට HTTP හරහා කැමරාව භාවිතා කළ නොහැක. ඉහත යුගල කිරීමේ සබැඳිය අලවන්න.",
   "dialog.server.signedOut":
     "මෙම සේවාදායකය සඳහා ඔබගේ පිවිසුම තවදුරටත් වලංගු නොවේ. නව යුගල කිරීමේ සබැඳියක් අලවන්න, නැතහොත් සේවාදායක මුරපදය ඇතුළත් කරන්න.",

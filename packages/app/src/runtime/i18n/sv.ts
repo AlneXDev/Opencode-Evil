@@ -23,8 +23,8 @@ export const dict = {
   "server.connect.address.invalid": "Ange en giltig HTTP- eller HTTPS-serveradress.",
   "server.connect.failed": "Kunde inte ansluta. Kontrollera serveradressen och lösenordet och försök sedan igen.",
   "server.connect.scan": "Skanna QR-koden",
-  "server.connect.scan.description": "Rikta kameran mot QR-koden som visas av opencode pair.",
-  "server.connect.scan.invalid": "Detta är inte en OpenCode parningskod. Skanna koden som visas av opencode pair.",
+  "server.connect.scan.description": "Rikta kameran mot QR-koden som visas av opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Detta är inte en OpenCode parningskod. Skanna koden som visas av opencodevil-cli pair.",
   "server.connect.camera": "Para ihop kamera",
   "server.connect.camera.starting": "Öppnar kameran...",
   "server.connect.mixedContent":
@@ -834,7 +834,7 @@ export const dict = {
   "voice.captions.hide": "Dölj textning",
   "voice.connecting": "Ansluter…",
   "voice.you": "Du:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Röstsamtal kräver en OpenAI API-nyckel på den här servern.",
   "voice.failure.microphone": "Mikrofonåtkomst krävs för att ringa.",
   "voice.failure.dropped": "Samtalet kopplades bort.",
@@ -1062,21 +1062,21 @@ export const dict = {
   "server.connect.link": "Parningslänk",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Klistra in hela parningslänken från opencode pair, eller från Inställningar → Parning på serverns dator.",
+    "Klistra in hela parningslänken från opencodevil-cli pair, eller från Inställningar → Parning på serverns dator.",
   "server.connect.password.prompt": "Ingen parningslänk?",
   "server.connect.password.use": "Använd lösenord",
-  "server.connect.password.hint": "Kör opencode service get password på serverns dator för att se det.",
+  "server.connect.password.hint": "Kör opencodevil-cli service get password på serverns dator för att se det.",
   "server.connect.link.prompt": "Har du en parningslänk?",
   "server.connect.link.use": "Använd parningslänk",
   "server.connect.pair.link": "Kör det här kommandot på serverns dator för att få en parningslänk och QR-kod.",
   "server.connect.scan.failed":
     "Den här webbläsaren kunde inte läsa QR-koden. Ange dina anslutningsuppgifter manuellt.",
   "server.connect.link.expired":
-    "Den här parningslänken har gått ut eller har redan använts. Kör opencode pair för att få en ny.",
+    "Den här parningslänken har gått ut eller har redan använts. Kör opencodevil-cli pair för att få en ny.",
   "server.connect.link.unreachable":
     "Det gick inte att nå {{url}}. Kontrollera att den här enheten når servern och försök sedan igen.",
   "server.connect.link.legacy":
-    "Den här parningskoden kommer från en äldre version av OpenCode. Uppdatera OpenCode på servern och kör sedan opencode pair igen.",
+    "Den här parningskoden kommer från en äldre version av OpenCode. Uppdatera OpenCode på servern och kör sedan opencodevil-cli pair igen.",
   "server.connect.camera.native": "Den här sidan kan inte använda kameran över HTTP. Klistra in parningslänken ovan.",
   "dialog.server.signedOut":
     "Din inloggning för den här servern är inte längre giltig. Klistra in en ny parningslänk eller ange serverns lösenord.",

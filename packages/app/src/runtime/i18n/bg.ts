@@ -728,8 +728,8 @@ export const dict = {
   "server.connect.address.invalid": "Въведете валиден HTTP или HTTPS адрес на сървър.",
   "server.connect.failed": "Свързването е неуспешно. Проверете адреса и паролата на сървъра и опитайте отново.",
   "server.connect.scan": "Сканиране на QR код",
-  "server.connect.scan.description": "Насочете камерата към QR кода, показан от opencode pair.",
-  "server.connect.scan.invalid": "Това не е код за сдвояване с OpenCode. Сканирайте кода, показан от opencode pair.",
+  "server.connect.scan.description": "Насочете камерата към QR кода, показан от opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Това не е код за сдвояване с OpenCode. Сканирайте кода, показан от opencodevil-cli pair.",
   "server.connect.camera": "Камера за сдвояване",
   "server.connect.camera.starting": "Отваряне на камерата…",
   "server.connect.mixedContent":
@@ -839,7 +839,7 @@ export const dict = {
   "voice.captions.hide": "Скриване на субтитри",
   "voice.connecting": "Свързване…",
   "voice.you": "Вие:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Гласовите разговори изискват OpenAI API ключ на този сървър.",
   "voice.failure.microphone": "За обаждане е нужен достъп до микрофона.",
   "voice.failure.dropped": "Разговорът прекъсна.",
@@ -1069,21 +1069,21 @@ export const dict = {
   "server.connect.link": "Връзка за сдвояване",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Поставете пълната връзка за сдвояване от opencode pair или от Настройки → Сдвояване на компютъра със сървъра.",
+    "Поставете пълната връзка за сдвояване от opencodevil-cli pair или от Настройки → Сдвояване на компютъра със сървъра.",
   "server.connect.password.prompt": "Нямате връзка за сдвояване?",
   "server.connect.password.use": "Използване на парола",
-  "server.connect.password.hint": "За да я видите, изпълнете opencode service get password на компютъра със сървъра.",
+  "server.connect.password.hint": "За да я видите, изпълнете opencodevil-cli service get password на компютъра със сървъра.",
   "server.connect.link.prompt": "Имате връзка за сдвояване?",
   "server.connect.link.use": "Използване на връзка за сдвояване",
   "server.connect.pair.link":
     "Изпълнете тази команда на компютъра със сървъра, за да получите връзка за сдвояване и QR код.",
   "server.connect.scan.failed": "Този браузър не можа да прочете QR кода. Въведете ръчно данните за връзка.",
   "server.connect.link.expired":
-    "Тази връзка за сдвояване е изтекла или вече е използвана. Изпълнете opencode pair, за да получите нова.",
+    "Тази връзка за сдвояване е изтекла или вече е използвана. Изпълнете opencodevil-cli pair, за да получите нова.",
   "server.connect.link.unreachable":
     "Няма връзка с {{url}}. Проверете дали това устройство има достъп до сървъра и опитайте отново.",
   "server.connect.link.legacy":
-    "Този код за сдвояване е от по-стара версия на OpenCode. Актуализирайте OpenCode на сървъра и изпълнете opencode pair отново.",
+    "Този код за сдвояване е от по-стара версия на OpenCode. Актуализирайте OpenCode на сървъра и изпълнете opencodevil-cli pair отново.",
   "server.connect.camera.native":
     "Тази страница не може да използва камерата през HTTP. Поставете връзката за сдвояване по-горе.",
   "dialog.server.signedOut":

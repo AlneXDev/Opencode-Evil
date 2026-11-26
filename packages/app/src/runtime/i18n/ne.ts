@@ -838,7 +838,7 @@ export const dict = {
   "voice.captions.hide": "क्याप्सन लुकाउनुहोस्",
   "voice.connecting": "जडान गर्दै…",
   "voice.you": "तपाईं:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "भ्वाइस कलका लागि यस सर्भरमा OpenAI API कुञ्जी चाहिन्छ।",
   "voice.failure.microphone": "कल गर्न माइक्रोफोन पहुँच आवश्यक छ।",
   "voice.failure.dropped": "कल विच्छेद भयो।",
@@ -1062,20 +1062,20 @@ export const dict = {
   "server.connect.link": "जोडी लिङ्क",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair बाट, वा सर्भरको कम्प्युटरमा सेटिङहरू → जोडी बाट पूरा जोडी लिङ्क टाँस्नुहोस्।",
+    "opencodevil-cli pair बाट, वा सर्भरको कम्प्युटरमा सेटिङहरू → जोडी बाट पूरा जोडी लिङ्क टाँस्नुहोस्।",
   "server.connect.password.prompt": "जोडी लिङ्क छैन?",
   "server.connect.password.use": "पासवर्ड प्रयोग गर्नुहोस्",
-  "server.connect.password.hint": "यो हेर्न, सर्भरको कम्प्युटरमा opencode service get password चलाउनुहोस्।",
+  "server.connect.password.hint": "यो हेर्न, सर्भरको कम्प्युटरमा opencodevil-cli service get password चलाउनुहोस्।",
   "server.connect.link.prompt": "जोडी लिङ्क छ?",
   "server.connect.link.use": "जोडी लिङ्क प्रयोग गर्नुहोस्",
   "server.connect.pair.link": "जोडी लिङ्क र QR कोड पाउन सर्भरको कम्प्युटरमा यो आदेश चलाउनुहोस्।",
   "server.connect.scan.failed": "यो ब्राउजरले QR कोड पढ्न सकेन। आफ्नो जडान विवरण म्यानुअल रूपमा प्रविष्ट गर्नुहोस्।",
   "server.connect.link.expired":
-    "यो जोडी लिङ्कको म्याद सकियो वा पहिले नै प्रयोग भइसक्यो। नयाँ पाउन opencode pair चलाउनुहोस्।",
+    "यो जोडी लिङ्कको म्याद सकियो वा पहिले नै प्रयोग भइसक्यो। नयाँ पाउन opencodevil-cli pair चलाउनुहोस्।",
   "server.connect.link.unreachable":
     "{{url}} मा पुग्न सकिएन। यो यन्त्रले सर्भरमा पुग्न सक्छ भनी जाँच गरी फेरि प्रयास गर्नुहोस्।",
   "server.connect.link.legacy":
-    "यो जोडी कोड OpenCode को पुरानो संस्करणको हो। सर्भरमा OpenCode अद्यावधिक गर्नुहोस्, त्यसपछि फेरि opencode pair चलाउनुहोस्।",
+    "यो जोडी कोड OpenCode को पुरानो संस्करणको हो। सर्भरमा OpenCode अद्यावधिक गर्नुहोस्, त्यसपछि फेरि opencodevil-cli pair चलाउनुहोस्।",
   "server.connect.camera.native": "यो पृष्ठले HTTP मार्फत क्यामेरा प्रयोग गर्न सक्दैन। माथि जोडी लिङ्क टाँस्नुहोस्।",
   "dialog.server.signedOut":
     "यस सर्भरका लागि तपाईंको साइन इन अब मान्य छैन। नयाँ जोडी लिङ्क टाँस्नुहोस्, वा सर्भरको पासवर्ड प्रविष्ट गर्नुहोस्।",

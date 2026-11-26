@@ -837,7 +837,7 @@ export const dict = {
   "voice.captions.hide": "ক্যাপশন লুকান",
   "voice.connecting": "সংযোগ করা হচ্ছে…",
   "voice.you": "আপনি:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "ভয়েস কলের জন্য এই সার্ভারে একটি OpenAI API কী প্রয়োজন।",
   "voice.failure.microphone": "কল করতে মাইক্রোফোন অ্যাক্সেস প্রয়োজন।",
   "voice.failure.dropped": "কলের সংযোগ বিচ্ছিন্ন হয়েছে।",
@@ -1063,20 +1063,20 @@ export const dict = {
   "server.connect.link": "পেয়ারিং লিঙ্ক",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair থেকে, বা সার্ভারের কম্পিউটারে সেটিংস → পেয়ারিং থেকে সম্পূর্ণ পেয়ারিং লিঙ্কটি পেস্ট করুন।",
+    "opencodevil-cli pair থেকে, বা সার্ভারের কম্পিউটারে সেটিংস → পেয়ারিং থেকে সম্পূর্ণ পেয়ারিং লিঙ্কটি পেস্ট করুন।",
   "server.connect.password.prompt": "পেয়ারিং লিঙ্ক নেই?",
   "server.connect.password.use": "পাসওয়ার্ড ব্যবহার করুন",
-  "server.connect.password.hint": "এটি দেখতে, সার্ভারের কম্পিউটারে opencode service get password চালান।",
+  "server.connect.password.hint": "এটি দেখতে, সার্ভারের কম্পিউটারে opencodevil-cli service get password চালান।",
   "server.connect.link.prompt": "পেয়ারিং লিঙ্ক আছে?",
   "server.connect.link.use": "পেয়ারিং লিঙ্ক ব্যবহার করুন",
   "server.connect.pair.link": "পেয়ারিং লিঙ্ক ও QR কোড পেতে সার্ভারের কম্পিউটারে এই কমান্ডটি চালান।",
   "server.connect.scan.failed": "এই ব্রাউজার QR কোডটি পড়তে পারেনি। আপনার সংযোগের বিবরণ ম্যানুয়ালি লিখুন।",
   "server.connect.link.expired":
-    "এই পেয়ারিং লিঙ্কের মেয়াদ শেষ হয়েছে বা এটি ইতিমধ্যে ব্যবহার করা হয়েছে। নতুন একটি পেতে opencode pair চালান।",
+    "এই পেয়ারিং লিঙ্কের মেয়াদ শেষ হয়েছে বা এটি ইতিমধ্যে ব্যবহার করা হয়েছে। নতুন একটি পেতে opencodevil-cli pair চালান।",
   "server.connect.link.unreachable":
     "{{url}}-এ পৌঁছানো যায়নি। এই ডিভাইস সার্ভারে পৌঁছাতে পারে কিনা পরীক্ষা করুন, তারপর আবার চেষ্টা করুন।",
   "server.connect.link.legacy":
-    "এই পেয়ারিং কোডটি OpenCode-এর একটি পুরোনো সংস্করণের। সার্ভারে OpenCode আপডেট করুন, তারপর আবার opencode pair চালান।",
+    "এই পেয়ারিং কোডটি OpenCode-এর একটি পুরোনো সংস্করণের। সার্ভারে OpenCode আপডেট করুন, তারপর আবার opencodevil-cli pair চালান।",
   "server.connect.camera.native": "এই পৃষ্ঠা HTTP-তে ক্যামেরা ব্যবহার করতে পারে না। উপরে পেয়ারিং লিঙ্কটি পেস্ট করুন।",
   "dialog.server.signedOut":
     "এই সার্ভারের জন্য আপনার সাইন-ইন আর বৈধ নয়। একটি নতুন পেয়ারিং লিঙ্ক পেস্ট করুন, অথবা সার্ভারের পাসওয়ার্ড লিখুন।",

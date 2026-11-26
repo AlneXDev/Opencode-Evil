@@ -195,7 +195,7 @@ function makeRoutes(
     Mcp.node.replace(
       Mcp.configured({
         clientInfo: {
-          name: "opencode",
+          name: "opencodevil",
           version: options.app?.version ?? "unknown",
         },
       }),

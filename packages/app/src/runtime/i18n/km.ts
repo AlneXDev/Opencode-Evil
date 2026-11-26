@@ -721,8 +721,8 @@ export const dict = {
   "server.connect.address.invalid": "បញ្ចូលអាសយដ្ឋានម៉ាស៊ីនមេ HTTP ឬ HTTPS ត្រឹមត្រូវ។",
   "server.connect.failed": "មិនអាចភ្ជាប់បានទេ។ សូមពិនិត្យអាសយដ្ឋានម៉ាស៊ីនមេ និងពាក្យសម្ងាត់ រួចព្យាយាមម្តងទៀត។",
   "server.connect.scan": "ស្កេនកូដ QR",
-  "server.connect.scan.description": "បង្ខំកាមេរ៉ារបស់អ្នកទៅកូដ QR ដែលបង្ហាញដោយ opencode pair។",
-  "server.connect.scan.invalid": "នេះមិនមែនជាកូដផ្គុំ OpenCode ទេ។ ស្កេនកូដដែលបង្ហាញដោយ opencode pair។",
+  "server.connect.scan.description": "បង្ខំកាមេរ៉ារបស់អ្នកទៅកូដ QR ដែលបង្ហាញដោយ opencodevil-cli pair។",
+  "server.connect.scan.invalid": "នេះមិនមែនជាកូដផ្គុំ OpenCode ទេ។ ស្កេនកូដដែលបង្ហាញដោយ opencodevil-cli pair។",
   "server.connect.camera": "កំពុងផ្គុំកាមេរ៉ា",
   "server.connect.camera.starting": "កំពុងបើកកាមេរ៉ា…",
   "server.connect.mixedContent":
@@ -1050,20 +1050,20 @@ export const dict = {
   "server.connect.link": "តំណផ្គូផ្គង",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "បិទភ្ជាប់តំណផ្គូផ្គងពេញលេញពី opencode pair ឬពី ការកំណត់ → ការផ្គូផ្គង នៅលើកុំព្យូទ័ររបស់ម៉ាស៊ីនមេ។",
+    "បិទភ្ជាប់តំណផ្គូផ្គងពេញលេញពី opencodevil-cli pair ឬពី ការកំណត់ → ការផ្គូផ្គង នៅលើកុំព្យូទ័ររបស់ម៉ាស៊ីនមេ។",
   "server.connect.password.prompt": "គ្មានតំណផ្គូផ្គង?",
   "server.connect.password.use": "ប្រើពាក្យសម្ងាត់",
-  "server.connect.password.hint": "ដើម្បីមើលវា សូមដំណើរការ opencode service get password នៅលើកុំព្យូទ័ររបស់ម៉ាស៊ីនមេ។",
+  "server.connect.password.hint": "ដើម្បីមើលវា សូមដំណើរការ opencodevil-cli service get password នៅលើកុំព្យូទ័ររបស់ម៉ាស៊ីនមេ។",
   "server.connect.link.prompt": "មានតំណផ្គូផ្គង?",
   "server.connect.link.use": "ប្រើតំណផ្គូផ្គង",
   "server.connect.pair.link": "ដំណើរការពាក្យបញ្ជានេះនៅលើកុំព្យូទ័ររបស់ម៉ាស៊ីនមេ ដើម្បីទទួលបានតំណផ្គូផ្គង និងកូដ QR។",
   "server.connect.scan.failed": "កម្មវិធីរុករកនេះមិនអាចអានកូដ QR បានទេ។ បញ្ចូលព័ត៌មានការតភ្ជាប់របស់អ្នកដោយដៃ។",
   "server.connect.link.expired":
-    "តំណផ្គូផ្គងនេះបានផុតកំណត់ ឬត្រូវបានប្រើរួចហើយ។ ដំណើរការ opencode pair ដើម្បីទទួលបានតំណថ្មី។",
+    "តំណផ្គូផ្គងនេះបានផុតកំណត់ ឬត្រូវបានប្រើរួចហើយ។ ដំណើរការ opencodevil-cli pair ដើម្បីទទួលបានតំណថ្មី។",
   "server.connect.link.unreachable":
     "មិនអាចទៅដល់ {{url}} បានទេ។ ពិនិត្យថាឧបករណ៍នេះអាចទៅដល់ម៉ាស៊ីនមេ រួចព្យាយាមម្តងទៀត។",
   "server.connect.link.legacy":
-    "លេខកូដផ្គូផ្គងនេះមកពីកំណែចាស់របស់ OpenCode។ ធ្វើបច្ចុប្បន្នភាព OpenCode នៅលើម៉ាស៊ីនមេ រួចដំណើរការ opencode pair ម្តងទៀត។",
+    "លេខកូដផ្គូផ្គងនេះមកពីកំណែចាស់របស់ OpenCode។ ធ្វើបច្ចុប្បន្នភាព OpenCode នៅលើម៉ាស៊ីនមេ រួចដំណើរការ opencodevil-cli pair ម្តងទៀត។",
   "server.connect.camera.native": "ទំព័រនេះមិនអាចប្រើកាមេរ៉ាតាម HTTP បានទេ។ បិទភ្ជាប់តំណផ្គូផ្គងខាងលើ។",
   "dialog.server.signedOut":
     "ការចូលគណនីរបស់អ្នកសម្រាប់ម៉ាស៊ីនមេនេះលែងមានសុពលភាពហើយ។ បិទភ្ជាប់តំណផ្គូផ្គងថ្មី ឬបញ្ចូលពាក្យសម្ងាត់ម៉ាស៊ីនមេ។",

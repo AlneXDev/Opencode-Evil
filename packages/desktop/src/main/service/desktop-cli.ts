@@ -48,7 +48,7 @@ export const layer = Layer.effect(
       const home = app.getPath("home")
       yield* runInstaller(cli.binary, home)
 
-      return path.join(home, ".opencode", "bin", "opencode")
+      return path.join(home, ".opencodevil", "bin", "opencodevil")
     })
 
     return Service.of({ resolve, install })
@@ -207,7 +207,7 @@ const INSTALL_TIMEOUT_MS = 60_000
 
 const runInstaller = Effect.fn("DesktopCli.installForUser")(function* (binary: string, home: string) {
   yield* Effect.callback<void, Error>((resume) => {
-    const child = spawn("/bin/bash", ["-s", "--", "--binary", binary], {
+    const child = spawn("/bin/bash", ["-s", "--", "--evil", "--binary", binary], {
       env: { ...process.env, HOME: home },
       stdio: ["pipe", "ignore", "pipe"],
     })

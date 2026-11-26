@@ -924,7 +924,7 @@ export const dict = {
   "voice.captions.hide": "Скрыть субтитры",
   "voice.connecting": "Подключение…",
   "voice.you": "Вы:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Для голосовых звонков на этом сервере нужен ключ API OpenAI.",
   "voice.failure.microphone": "Для звонка нужен доступ к микрофону.",
   "voice.failure.dropped": "Звонок прервался.",
@@ -1152,22 +1152,22 @@ export const dict = {
   "server.connect.link": "Ссылка сопряжения",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Вставьте полную ссылку сопряжения из opencode pair или из «Настройки → Сопряжение» на компьютере с сервером.",
+    "Вставьте полную ссылку сопряжения из opencodevil-cli pair или из «Настройки → Сопряжение» на компьютере с сервером.",
   "server.connect.password.prompt": "Нет ссылки сопряжения?",
   "server.connect.password.use": "Использовать пароль",
   "server.connect.password.hint":
-    "Чтобы его увидеть, выполните opencode service get password на компьютере с сервером.",
+    "Чтобы его увидеть, выполните opencodevil-cli service get password на компьютере с сервером.",
   "server.connect.link.prompt": "Есть ссылка сопряжения?",
   "server.connect.link.use": "Использовать ссылку сопряжения",
   "server.connect.pair.link":
     "Выполните эту команду на компьютере с сервером, чтобы получить ссылку сопряжения и QR-код.",
   "server.connect.scan.failed": "Этот браузер не смог прочитать QR-код. Введите данные подключения вручную.",
   "server.connect.link.expired":
-    "Срок действия ссылки сопряжения истёк или она уже использована. Выполните opencode pair, чтобы получить новую.",
+    "Срок действия ссылки сопряжения истёк или она уже использована. Выполните opencodevil-cli pair, чтобы получить новую.",
   "server.connect.link.unreachable":
     "Не удалось подключиться к {{url}}. Проверьте, что это устройство может достучаться до сервера, и повторите попытку.",
   "server.connect.link.legacy":
-    "Этот код сопряжения из старой версии OpenCode. Обновите OpenCode на сервере, затем снова выполните opencode pair.",
+    "Этот код сопряжения из старой версии OpenCode. Обновите OpenCode на сервере, затем снова выполните opencodevil-cli pair.",
   "server.connect.camera.native": "Эта страница не может использовать камеру по HTTP. Вставьте ссылку сопряжения выше.",
   "dialog.server.signedOut":
     "Ваш вход на этот сервер больше не действителен. Вставьте новую ссылку сопряжения или введите пароль сервера.",

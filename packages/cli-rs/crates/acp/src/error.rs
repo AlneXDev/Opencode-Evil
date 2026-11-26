@@ -178,7 +178,7 @@ impl Failure {
                 RpcError::internal_error(json_object! { "service"?: service, "errorName"?: error_name }, safe_message)
             }
             Self::ServerUnavailable => {
-                RpcError::internal_error(json!({ "errorName": "ServerUnavailable" }), "OpenCode server is unavailable")
+                RpcError::internal_error(json!({ "errorName": "ServerUnavailable" }), "OpenCode Eʌil server is unavailable")
             }
             Self::CatalogNotReady(reason) => Self::ServiceFailure {
                 safe_message: not_ready_message(*reason).to_owned(),

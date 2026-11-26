@@ -871,7 +871,7 @@ export const dict = {
   "voice.captions.hide": "Ukryj napisy",
   "voice.connecting": "Łączenie…",
   "voice.you": "Ty:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Rozmowy głosowe wymagają klucza API OpenAI na tym serwerze.",
   "voice.failure.microphone": "Do rozmowy wymagany jest dostęp do mikrofonu.",
   "voice.failure.dropped": "Rozmowa została rozłączona.",
@@ -1101,20 +1101,20 @@ export const dict = {
   "server.connect.link": "Link parowania",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Wklej pełny link parowania z opencode pair lub z Ustawienia → Parowanie na komputerze serwera.",
+    "Wklej pełny link parowania z opencodevil-cli pair lub z Ustawienia → Parowanie na komputerze serwera.",
   "server.connect.password.prompt": "Nie masz linku parowania?",
   "server.connect.password.use": "Użyj hasła",
-  "server.connect.password.hint": "Aby je zobaczyć, uruchom opencode service get password na komputerze serwera.",
+  "server.connect.password.hint": "Aby je zobaczyć, uruchom opencodevil-cli service get password na komputerze serwera.",
   "server.connect.link.prompt": "Masz link parowania?",
   "server.connect.link.use": "Użyj linku parowania",
   "server.connect.pair.link": "Uruchom to polecenie na komputerze serwera, aby uzyskać link parowania i kod QR.",
   "server.connect.scan.failed": "Ta przeglądarka nie mogła odczytać kodu QR. Wprowadź dane połączenia ręcznie.",
   "server.connect.link.expired":
-    "Ten link parowania wygasł lub został już użyty. Uruchom opencode pair, aby uzyskać nowy.",
+    "Ten link parowania wygasł lub został już użyty. Uruchom opencodevil-cli pair, aby uzyskać nowy.",
   "server.connect.link.unreachable":
     "Nie można połączyć się z {{url}}. Sprawdź, czy to urządzenie ma dostęp do serwera, i spróbuj ponownie.",
   "server.connect.link.legacy":
-    "Ten kod parowania pochodzi ze starszej wersji OpenCode. Zaktualizuj OpenCode na serwerze, a następnie ponownie uruchom opencode pair.",
+    "Ten kod parowania pochodzi ze starszej wersji OpenCode. Zaktualizuj OpenCode na serwerze, a następnie ponownie uruchom opencodevil-cli pair.",
   "server.connect.camera.native": "Ta strona nie może używać kamery przez HTTP. Wklej link parowania powyżej.",
   "dialog.server.signedOut":
     "Twoje logowanie do tego serwera jest już nieważne. Wklej nowy link parowania lub wprowadź hasło serwera.",

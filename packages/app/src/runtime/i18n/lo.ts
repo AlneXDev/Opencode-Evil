@@ -822,7 +822,7 @@ export const dict = {
   "voice.captions.hide": "ເຊື່ອງຄຳບັນຍາຍ",
   "voice.connecting": "ກຳລັງເຊື່ອມຕໍ່…",
   "voice.you": "ທ່ານ:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "ການໂທດ້ວຍສຽງຕ້ອງມີລະຫັດ API ຂອງ OpenAI ໃນເຊີບເວີນີ້.",
   "voice.failure.microphone": "ຕ້ອງອະນຸຍາດໃຫ້ເຂົ້າເຖິງໄມໂຄຣໂຟນເພື່ອໂທ.",
   "voice.failure.dropped": "ການໂທຖືກຕັດການເຊື່ອມຕໍ່.",
@@ -1045,19 +1045,19 @@ export const dict = {
   "server.connect.link": "ລິ້ງຈັບຄູ່",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "ວາງລິ້ງຈັບຄູ່ແບບເຕັມຈາກ opencode pair, ຫຼືຈາກ ການຕັ້ງຄ່າ → ການຈັບຄູ່ ໃນຄອມພິວເຕີຂອງເຊີບເວີ.",
+    "ວາງລິ້ງຈັບຄູ່ແບບເຕັມຈາກ opencodevil-cli pair, ຫຼືຈາກ ການຕັ້ງຄ່າ → ການຈັບຄູ່ ໃນຄອມພິວເຕີຂອງເຊີບເວີ.",
   "server.connect.password.prompt": "ບໍ່ມີລິ້ງຈັບຄູ່ບໍ?",
   "server.connect.password.use": "ໃຊ້ລະຫັດຜ່ານ",
-  "server.connect.password.hint": "ເພື່ອເບິ່ງລະຫັດຜ່ານ, ໃຫ້ແລ່ນ opencode service get password ໃນຄອມພິວເຕີຂອງເຊີບເວີ.",
+  "server.connect.password.hint": "ເພື່ອເບິ່ງລະຫັດຜ່ານ, ໃຫ້ແລ່ນ opencodevil-cli service get password ໃນຄອມພິວເຕີຂອງເຊີບເວີ.",
   "server.connect.link.prompt": "ມີລິ້ງຈັບຄູ່ບໍ?",
   "server.connect.link.use": "ໃຊ້ລິ້ງຈັບຄູ່",
   "server.connect.pair.link": "ແລ່ນຄຳສັ່ງນີ້ໃນຄອມພິວເຕີຂອງເຊີບເວີເພື່ອຮັບລິ້ງຈັບຄູ່ ແລະ QR code.",
   "server.connect.scan.failed": "ເບຣາວເຊີນີ້ບໍ່ສາມາດອ່ານ QR code ໄດ້. ໃສ່ລາຍລະອຽດການເຊື່ອມຕໍ່ຂອງທ່ານເອງ.",
-  "server.connect.link.expired": "ລິ້ງຈັບຄູ່ນີ້ໝົດອາຍຸ ຫຼືຖືກໃຊ້ແລ້ວ. ແລ່ນ opencode pair ເພື່ອຮັບລິ້ງໃໝ່.",
+  "server.connect.link.expired": "ລິ້ງຈັບຄູ່ນີ້ໝົດອາຍຸ ຫຼືຖືກໃຊ້ແລ້ວ. ແລ່ນ opencodevil-cli pair ເພື່ອຮັບລິ້ງໃໝ່.",
   "server.connect.link.unreachable":
     "ບໍ່ສາມາດເຂົ້າເຖິງ {{url}} ໄດ້. ກວດສອບວ່າອຸປະກອນນີ້ສາມາດເຂົ້າເຖິງເຊີບເວີໄດ້, ແລ້ວລອງອີກຄັ້ງ.",
   "server.connect.link.legacy":
-    "ລະຫັດຈັບຄູ່ນີ້ມາຈາກ OpenCode ລຸ້ນເກົ່າ. ອັບເດດ OpenCode ໃນເຊີບເວີ, ແລ້ວແລ່ນ opencode pair ອີກຄັ້ງ.",
+    "ລະຫັດຈັບຄູ່ນີ້ມາຈາກ OpenCode ລຸ້ນເກົ່າ. ອັບເດດ OpenCode ໃນເຊີບເວີ, ແລ້ວແລ່ນ opencodevil-cli pair ອີກຄັ້ງ.",
   "server.connect.camera.native": "ໜ້ານີ້ບໍ່ສາມາດໃຊ້ກ້ອງຜ່ານ HTTP ໄດ້. ວາງລິ້ງຈັບຄູ່ຂ້າງເທິງ.",
   "dialog.server.signedOut":
     "ການເຂົ້າສູ່ລະບົບຂອງທ່ານສຳລັບເຊີບເວີນີ້ບໍ່ຖືກຕ້ອງອີກຕໍ່ໄປ. ວາງລິ້ງຈັບຄູ່ໃໝ່, ຫຼືໃສ່ລະຫັດຜ່ານເຊີບເວີ.",

@@ -737,9 +737,9 @@ export const dict = {
   "server.connect.address.invalid": "有効なHTTPまたはHTTPSサーバーアドレスを入力してください。",
   "server.connect.failed": "接続できませんでした。サーバーアドレスとパスワードを確認して、もう一度お試しください。",
   "server.connect.scan": "QRコードをスキャン",
-  "server.connect.scan.description": "opencode pair に表示されたQRコードにカメラを向けてください。",
+  "server.connect.scan.description": "opencodevil-cli pair に表示されたQRコードにカメラを向けてください。",
   "server.connect.scan.invalid":
-    "これはOpenCodeのペアリングコードではありません。opencode pair に表示されたコードをスキャンしてください。",
+    "これはOpenCodeのペアリングコードではありません。opencodevil-cli pair に表示されたコードをスキャンしてください。",
   "server.connect.camera": "ペアリング用カメラ",
   "server.connect.camera.starting": "カメラを開いています…",
   "server.connect.mixedContent":
@@ -843,7 +843,7 @@ export const dict = {
   "voice.captions.hide": "字幕を非表示",
   "voice.connecting": "接続中…",
   "voice.you": "あなた:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "音声通話を使用するには、このサーバーにOpenAI APIキーが必要です。",
   "voice.failure.microphone": "通話するにはマイクへのアクセスが必要です。",
   "voice.failure.dropped": "通話が切断されました。",
@@ -1069,22 +1069,22 @@ export const dict = {
   "server.connect.link": "ペアリングリンク",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair、またはサーバーのコンピューターの「設定 → ペアリング」で表示されるペアリングリンクを完全な形で貼り付けてください。",
+    "opencodevil-cli pair、またはサーバーのコンピューターの「設定 → ペアリング」で表示されるペアリングリンクを完全な形で貼り付けてください。",
   "server.connect.password.prompt": "ペアリングリンクがありませんか？",
   "server.connect.password.use": "パスワードを使用",
   "server.connect.password.hint":
-    "パスワードを確認するには、サーバーのコンピューターで opencode service get password を実行してください。",
+    "パスワードを確認するには、サーバーのコンピューターで opencodevil-cli service get password を実行してください。",
   "server.connect.link.prompt": "ペアリングリンクをお持ちですか？",
   "server.connect.link.use": "ペアリングリンクを使用",
   "server.connect.pair.link":
     "サーバーのコンピューターでこのコマンドを実行して、ペアリングリンクとQRコードを取得してください。",
   "server.connect.scan.failed": "このブラウザーではQRコードを読み取れませんでした。接続情報を手動で入力してください。",
   "server.connect.link.expired":
-    "このペアリングリンクは期限切れか、すでに使用されています。opencode pair を実行して新しいリンクを取得してください。",
+    "このペアリングリンクは期限切れか、すでに使用されています。opencodevil-cli pair を実行して新しいリンクを取得してください。",
   "server.connect.link.unreachable":
     "{{url}}にアクセスできませんでした。このデバイスからサーバーにアクセスできることを確認して、再試行してください。",
   "server.connect.link.legacy":
-    "このペアリングコードは古いバージョンのOpenCodeのものです。サーバーのOpenCodeを更新してから、もう一度 opencode pair を実行してください。",
+    "このペアリングコードは古いバージョンのOpenCodeのものです。サーバーのOpenCodeを更新してから、もう一度 opencodevil-cli pair を実行してください。",
   "server.connect.camera.native":
     "このページではHTTP経由でカメラを使用できません。上にペアリングリンクを貼り付けてください。",
   "dialog.server.signedOut":

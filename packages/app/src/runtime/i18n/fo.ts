@@ -711,8 +711,8 @@ export const dict = {
   "server.connect.address.invalid": "Skriva eina gylduga HTTP ella HTTPS ambætaraadressu.",
   "server.connect.failed": "Fekk ikki samband. Kanna ambætaraadressuna og loyniorðið, og royn síðani aftur.",
   "server.connect.scan": "Skanna QR-kotu",
-  "server.connect.scan.description": "Peika myndatólið á QR-kotuna, sum opencode pair vísir.",
-  "server.connect.scan.invalid": "Hetta er ikki ein OpenCode paringarkoda. Skanna kotuna, sum opencode pair vísir.",
+  "server.connect.scan.description": "Peika myndatólið á QR-kotuna, sum opencodevil-cli pair vísir.",
+  "server.connect.scan.invalid": "Hetta er ikki ein OpenCode paringarkoda. Skanna kotuna, sum opencodevil-cli pair vísir.",
   "server.connect.camera": "Para myndatól",
   "server.connect.camera.starting": "Opna myndatól...",
   "server.connect.mixedContent":
@@ -829,7 +829,7 @@ export const dict = {
   "voice.captions.hide": "Fjal undirtekstir",
   "voice.connecting": "Setir samband…",
   "voice.you": "Tú:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Røddarsamrøður krevja ein OpenAI API-lykil á hesum ambætaranum.",
   "voice.failure.microphone": "Atgongd til mikrofonina krevst fyri at ringja.",
   "voice.failure.dropped": "Samrøðan slitnaði.",
@@ -1055,20 +1055,20 @@ export const dict = {
   "server.connect.link": "Paringarleinki",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Set alt paringarleinkið inn frá opencode pair, ella frá Innstillingar → Paring á teldu ambætarans.",
+    "Set alt paringarleinkið inn frá opencodevil-cli pair, ella frá Innstillingar → Paring á teldu ambætarans.",
   "server.connect.password.prompt": "Einki paringarleinki?",
   "server.connect.password.use": "Brúka loyniorð",
-  "server.connect.password.hint": "Fyri at síggja tað, koyr opencode service get password á teldu ambætarans.",
+  "server.connect.password.hint": "Fyri at síggja tað, koyr opencodevil-cli service get password á teldu ambætarans.",
   "server.connect.link.prompt": "Hevur tú eitt paringarleinki?",
   "server.connect.link.use": "Brúka paringarleinki",
   "server.connect.pair.link": "Koyr hesa skipanina á teldu ambætarans fyri at fáa eitt paringarleinki og eina QR-kotu.",
   "server.connect.scan.failed": "Hesin kagin kundi ikki lesa QR-kotuna. Skriva sambandsupplýsingarnar manuelt.",
   "server.connect.link.expired":
-    "Hetta paringarleinkið er útgingið ella longu brúkt. Koyr opencode pair fyri at fáa eitt nýtt.",
+    "Hetta paringarleinkið er útgingið ella longu brúkt. Koyr opencodevil-cli pair fyri at fáa eitt nýtt.",
   "server.connect.link.unreachable":
     "Kundi ikki røkka {{url}}. Kanna at henda eindin røkkur ambætaran, og royn síðani aftur.",
   "server.connect.link.legacy":
-    "Henda paringarkotan er frá eini eldri útgávu av OpenCode. Dagfør OpenCode á ambætaranum, og koyr síðani opencode pair aftur.",
+    "Henda paringarkotan er frá eini eldri útgávu av OpenCode. Dagfør OpenCode á ambætaranum, og koyr síðani opencodevil-cli pair aftur.",
   "server.connect.camera.native": "Henda síðan kann ikki brúka myndatólið yvir HTTP. Set paringarleinkið inn omanfyri.",
   "dialog.server.signedOut":
     "Innritanin á hesum ambætaranum er ikki gyldug longur. Set eitt nýtt paringarleinki inn, ella skriva loyniorðið hjá ambætaranum.",

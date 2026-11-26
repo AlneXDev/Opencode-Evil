@@ -787,9 +787,9 @@ export const dict = {
   "server.connect.address.invalid": "Geçerli bir HTTP veya HTTPS sunucu adresi girin.",
   "server.connect.failed": "Bağlantı kurulamadı. Sunucu adresini ve şifreyi kontrol edip tekrar deneyin.",
   "server.connect.scan": "QR kodunu tarayın",
-  "server.connect.scan.description": "Kameranızı opencode pair tarafından gösterilen QR koduna doğrultun.",
+  "server.connect.scan.description": "Kameranızı opencodevil-cli pair tarafından gösterilen QR koduna doğrultun.",
   "server.connect.scan.invalid":
-    "Bu bir OpenCode eşleştirme kodu değildir. opencode pair tarafından gösterilen kodu tarayın.",
+    "Bu bir OpenCode eşleştirme kodu değildir. opencodevil-cli pair tarafından gösterilen kodu tarayın.",
   "server.connect.camera": "Kamera eşleniyor",
   "server.connect.camera.starting": "Kamera açılıyor…",
   "server.connect.mixedContent":
@@ -906,7 +906,7 @@ export const dict = {
   "voice.captions.hide": "Altyazıları gizle",
   "voice.connecting": "Bağlanıyor…",
   "voice.you": "Siz:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Sesli aramalar için bu sunucuda bir OpenAI API anahtarı gerekir.",
   "voice.failure.microphone": "Arama yapmak için mikrofon erişimi gerekir.",
   "voice.failure.dropped": "Arama kesildi.",
@@ -1132,22 +1132,22 @@ export const dict = {
   "server.connect.link": "Eşleştirme bağlantısı",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair komutundan veya sunucunun bilgisayarındaki Ayarlar → Eşleştirme bölümünden alınan eşleştirme bağlantısının tamamını yapıştırın.",
+    "opencodevil-cli pair komutundan veya sunucunun bilgisayarındaki Ayarlar → Eşleştirme bölümünden alınan eşleştirme bağlantısının tamamını yapıştırın.",
   "server.connect.password.prompt": "Eşleştirme bağlantınız yok mu?",
   "server.connect.password.use": "Parola kullan",
   "server.connect.password.hint":
-    "Görmek için sunucunun bilgisayarında opencode service get password komutunu çalıştırın.",
+    "Görmek için sunucunun bilgisayarında opencodevil-cli service get password komutunu çalıştırın.",
   "server.connect.link.prompt": "Eşleştirme bağlantınız var mı?",
   "server.connect.link.use": "Eşleştirme bağlantısı kullan",
   "server.connect.pair.link":
     "Eşleştirme bağlantısı ve QR kodu almak için bu komutu sunucunun bilgisayarında çalıştırın.",
   "server.connect.scan.failed": "Bu tarayıcı QR kodunu okuyamadı. Bağlantı ayrıntılarınızı elle girin.",
   "server.connect.link.expired":
-    "Bu eşleştirme bağlantısının süresi doldu veya zaten kullanıldı. Yenisini almak için opencode pair komutunu çalıştırın.",
+    "Bu eşleştirme bağlantısının süresi doldu veya zaten kullanıldı. Yenisini almak için opencodevil-cli pair komutunu çalıştırın.",
   "server.connect.link.unreachable":
     "{{url}} adresine ulaşılamadı. Bu cihazın sunucuya erişebildiğini kontrol edip tekrar deneyin.",
   "server.connect.link.legacy":
-    "Bu eşleştirme kodu OpenCode'un eski bir sürümüne ait. Sunucudaki OpenCode'u güncelleyip opencode pair komutunu yeniden çalıştırın.",
+    "Bu eşleştirme kodu OpenCode'un eski bir sürümüne ait. Sunucudaki OpenCode'u güncelleyip opencodevil-cli pair komutunu yeniden çalıştırın.",
   "server.connect.camera.native":
     "Bu sayfa HTTP üzerinden kamerayı kullanamaz. Eşleştirme bağlantısını yukarıya yapıştırın.",
   "dialog.server.signedOut":

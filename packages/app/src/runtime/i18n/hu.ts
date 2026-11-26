@@ -724,8 +724,8 @@ export const dict = {
   "server.connect.address.invalid": "Adjon meg egy érvényes HTTP vagy HTTPS szervercímet.",
   "server.connect.failed": "Nem sikerült csatlakozni. Ellenőrizze a szerver címét és jelszavát, majd próbálja újra.",
   "server.connect.scan": "QR-kód beolvasása",
-  "server.connect.scan.description": "Irányítsa kameráját a opencode pair által mutatott QR kódra.",
-  "server.connect.scan.invalid": "Ez nem egy OpenCode párosítási kód. Olvassa be a opencode pair által mutatott kódot.",
+  "server.connect.scan.description": "Irányítsa kameráját a opencodevil-cli pair által mutatott QR kódra.",
+  "server.connect.scan.invalid": "Ez nem egy OpenCode párosítási kód. Olvassa be a opencodevil-cli pair által mutatott kódot.",
   "server.connect.camera": "Kamera párosítása",
   "server.connect.camera.starting": "Kamera nyitása…",
   "server.connect.mixedContent":
@@ -845,7 +845,7 @@ export const dict = {
   "voice.captions.hide": "Feliratok elrejtése",
   "voice.connecting": "Csatlakozás…",
   "voice.you": "Ön:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "A hanghívásokhoz OpenAI API-kulcs szükséges ezen a szerveren.",
   "voice.failure.microphone": "A híváshoz mikrofonhozzáférés szükséges.",
   "voice.failure.dropped": "A hívás megszakadt.",
@@ -1070,21 +1070,21 @@ export const dict = {
   "server.connect.link": "Párosítási link",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Illessze be a teljes párosítási linket az opencode pair parancsból, vagy a szerver gépén a Beállítások → Párosítás menüből.",
+    "Illessze be a teljes párosítási linket az opencodevil-cli pair parancsból, vagy a szerver gépén a Beállítások → Párosítás menüből.",
   "server.connect.password.prompt": "Nincs párosítási linkje?",
   "server.connect.password.use": "Jelszó használata",
   "server.connect.password.hint":
-    "A megtekintéséhez futtassa az opencode service get password parancsot a szerver gépén.",
+    "A megtekintéséhez futtassa az opencodevil-cli service get password parancsot a szerver gépén.",
   "server.connect.link.prompt": "Van párosítási linkje?",
   "server.connect.link.use": "Párosítási link használata",
   "server.connect.pair.link": "Futtassa ezt a parancsot a szerver gépén a párosítási link és QR-kód lekéréséhez.",
   "server.connect.scan.failed": "Ez a böngésző nem tudta beolvasni a QR-kódot. Adja meg kézzel a kapcsolat adatait.",
   "server.connect.link.expired":
-    "Ez a párosítási link lejárt vagy már felhasználták. Új link kéréséhez futtassa az opencode pair parancsot.",
+    "Ez a párosítási link lejárt vagy már felhasználták. Új link kéréséhez futtassa az opencodevil-cli pair parancsot.",
   "server.connect.link.unreachable":
     "Nem érhető el: {{url}}. Ellenőrizze, hogy ez az eszköz eléri-e a szervert, majd próbálja újra.",
   "server.connect.link.legacy":
-    "Ez a párosítási kód az OpenCode egy régebbi verziójából származik. Frissítse az OpenCode-ot a szerveren, majd futtassa újra az opencode pair parancsot.",
+    "Ez a párosítási kód az OpenCode egy régebbi verziójából származik. Frissítse az OpenCode-ot a szerveren, majd futtassa újra az opencodevil-cli pair parancsot.",
   "server.connect.camera.native":
     "Ez az oldal HTTP-n keresztül nem használhatja a kamerát. Illessze be a párosítási linket fent.",
   "dialog.server.signedOut":

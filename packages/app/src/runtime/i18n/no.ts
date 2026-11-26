@@ -27,8 +27,8 @@ export const dict = {
   "server.connect.address.invalid": "Skriv inn en gyldig HTTP- eller HTTPS-serveradresse.",
   "server.connect.failed": "Kunne ikke koble til. Sjekk serveradressen og passordet, og prøv på nytt.",
   "server.connect.scan": "Skann QR-koden",
-  "server.connect.scan.description": "Pek kameraet mot QR-koden vist av opencode pair.",
-  "server.connect.scan.invalid": "Dette er ikke en OpenCode-paringskode. Skann koden vist av opencode pair.",
+  "server.connect.scan.description": "Pek kameraet mot QR-koden vist av opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Dette er ikke en OpenCode-paringskode. Skann koden vist av opencodevil-cli pair.",
   "server.connect.camera": "Sammenkobling av kamera",
   "server.connect.camera.starting": "Åpner kamera …",
   "server.connect.mixedContent":
@@ -899,7 +899,7 @@ export const dict = {
   "voice.captions.hide": "Skjul teksting",
   "voice.connecting": "Kobler til …",
   "voice.you": "Du:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Taleanrop krever en OpenAI API-nøkkel på denne serveren.",
   "voice.failure.microphone": "Mikrofontilgang kreves for å ringe.",
   "voice.failure.dropped": "Anropet ble frakoblet.",
@@ -1124,19 +1124,19 @@ export const dict = {
   "server.connect.link": "Paringslenke",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Lim inn hele paringslenken fra opencode pair, eller fra Innstillinger → Paring på serverens datamaskin.",
+    "Lim inn hele paringslenken fra opencodevil-cli pair, eller fra Innstillinger → Paring på serverens datamaskin.",
   "server.connect.password.prompt": "Ingen paringslenke?",
   "server.connect.password.use": "Bruk passord",
-  "server.connect.password.hint": "Kjør opencode service get password på serverens datamaskin for å se det.",
+  "server.connect.password.hint": "Kjør opencodevil-cli service get password på serverens datamaskin for å se det.",
   "server.connect.link.prompt": "Har du en paringslenke?",
   "server.connect.link.use": "Bruk paringslenke",
   "server.connect.pair.link": "Kjør denne kommandoen på serverens datamaskin for å få en paringslenke og QR-kode.",
   "server.connect.scan.failed": "Denne nettleseren kunne ikke lese QR-koden. Skriv inn tilkoblingsdetaljene manuelt.",
   "server.connect.link.expired":
-    "Denne paringslenken er utløpt eller allerede brukt. Kjør opencode pair for å få en ny.",
+    "Denne paringslenken er utløpt eller allerede brukt. Kjør opencodevil-cli pair for å få en ny.",
   "server.connect.link.unreachable": "Kunne ikke nå {{url}}. Sjekk at denne enheten kan nå serveren, og prøv igjen.",
   "server.connect.link.legacy":
-    "Denne paringskoden er fra en eldre versjon av OpenCode. Oppdater OpenCode på serveren, og kjør opencode pair på nytt.",
+    "Denne paringskoden er fra en eldre versjon av OpenCode. Oppdater OpenCode på serveren, og kjør opencodevil-cli pair på nytt.",
   "server.connect.camera.native": "Denne siden kan ikke bruke kameraet over HTTP. Lim inn paringslenken ovenfor.",
   "dialog.server.signedOut":
     "Påloggingen din for denne serveren er ikke lenger gyldig. Lim inn en ny paringslenke, eller skriv inn serverpassordet.",

@@ -726,8 +726,8 @@ export const dict = {
   "server.connect.address.invalid": "یک نشانی معتبر سرور HTTP یا HTTPS وارد کنید.",
   "server.connect.failed": "اتصال ممکن نشد. نشانی سرور و گذرواژه را بررسی کنید و دوباره تلاش کنید.",
   "server.connect.scan": "پویش کد QR",
-  "server.connect.scan.description": "دوربین را به‌سمت کد QR نمایش‌داده‌شده توسط opencode pair بگیرید.",
-  "server.connect.scan.invalid": "این کد جفت‌سازی OpenCode نیست. کدی را پویش کنید که opencode pair نشان می‌دهد.",
+  "server.connect.scan.description": "دوربین را به‌سمت کد QR نمایش‌داده‌شده توسط opencodevil-cli pair بگیرید.",
+  "server.connect.scan.invalid": "این کد جفت‌سازی OpenCode نیست. کدی را پویش کنید که opencodevil-cli pair نشان می‌دهد.",
   "server.connect.camera": "دوربین جفت‌سازی",
   "server.connect.camera.starting": "در حال باز کردن دوربین…",
   "server.connect.mixedContent":
@@ -832,7 +832,7 @@ export const dict = {
   "voice.captions.hide": "پنهان کردن زیرنویس",
   "voice.connecting": "در حال اتصال…",
   "voice.you": "شما:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "تماس صوتی به کلید API ‏OpenAI روی این سرور نیاز دارد.",
   "voice.failure.microphone": "برای تماس، دسترسی به میکروفون لازم است.",
   "voice.failure.dropped": "تماس قطع شد.",
@@ -1055,20 +1055,20 @@ export const dict = {
   "server.connect.link": "پیوند جفت‌سازی",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "پیوند کامل جفت‌سازی را از opencode pair یا از «تنظیمات ← جفت‌سازی» در رایانه سرور بچسبانید.",
+    "پیوند کامل جفت‌سازی را از opencodevil-cli pair یا از «تنظیمات ← جفت‌سازی» در رایانه سرور بچسبانید.",
   "server.connect.password.prompt": "پیوند جفت‌سازی ندارید؟",
   "server.connect.password.use": "استفاده از گذرواژه",
-  "server.connect.password.hint": "برای دیدن آن، در رایانه سرور opencode service get password را اجرا کنید.",
+  "server.connect.password.hint": "برای دیدن آن، در رایانه سرور opencodevil-cli service get password را اجرا کنید.",
   "server.connect.link.prompt": "پیوند جفت‌سازی دارید؟",
   "server.connect.link.use": "استفاده از پیوند جفت‌سازی",
   "server.connect.pair.link": "این دستور را در رایانه سرور اجرا کنید تا پیوند جفت‌سازی و کد QR بگیرید.",
   "server.connect.scan.failed": "این مرورگر نتوانست کد QR را بخواند. جزئیات اتصال را دستی وارد کنید.",
   "server.connect.link.expired":
-    "این پیوند جفت‌سازی منقضی شده یا قبلاً استفاده شده است. برای دریافت پیوند جدید opencode pair را اجرا کنید.",
+    "این پیوند جفت‌سازی منقضی شده یا قبلاً استفاده شده است. برای دریافت پیوند جدید opencodevil-cli pair را اجرا کنید.",
   "server.connect.link.unreachable":
     "دسترسی به ⁨{{url}}⁩ ممکن نشد. مطمئن شوید این دستگاه به سرور دسترسی دارد و دوباره تلاش کنید.",
   "server.connect.link.legacy":
-    "این کد جفت‌سازی از نسخه قدیمی‌تر OpenCode است. OpenCode را روی سرور به‌روزرسانی کنید و دوباره opencode pair را اجرا کنید.",
+    "این کد جفت‌سازی از نسخه قدیمی‌تر OpenCode است. OpenCode را روی سرور به‌روزرسانی کنید و دوباره opencodevil-cli pair را اجرا کنید.",
   "server.connect.camera.native":
     "این صفحه نمی‌تواند از طریق HTTP از دوربین استفاده کند. پیوند جفت‌سازی را در بالا بچسبانید.",
   "dialog.server.signedOut":

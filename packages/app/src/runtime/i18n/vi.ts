@@ -838,7 +838,7 @@ export const dict = {
   "voice.captions.hide": "Ẩn phụ đề",
   "voice.connecting": "Đang kết nối…",
   "voice.you": "Bạn:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Cuộc gọi thoại cần khóa API OpenAI trên máy chủ này.",
   "voice.failure.microphone": "Cần quyền truy cập micrô để gọi.",
   "voice.failure.dropped": "Cuộc gọi đã bị ngắt.",
@@ -1059,20 +1059,20 @@ export const dict = {
   "server.connect.link": "Liên kết ghép cặp",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Dán toàn bộ liên kết ghép cặp từ opencode pair, hoặc từ Cài đặt → Ghép cặp trên máy tính chạy máy chủ.",
+    "Dán toàn bộ liên kết ghép cặp từ opencodevil-cli pair, hoặc từ Cài đặt → Ghép cặp trên máy tính chạy máy chủ.",
   "server.connect.password.prompt": "Không có liên kết ghép cặp?",
   "server.connect.password.use": "Dùng mật khẩu",
-  "server.connect.password.hint": "Để xem mật khẩu, hãy chạy opencode service get password trên máy tính chạy máy chủ.",
+  "server.connect.password.hint": "Để xem mật khẩu, hãy chạy opencodevil-cli service get password trên máy tính chạy máy chủ.",
   "server.connect.link.prompt": "Có liên kết ghép cặp?",
   "server.connect.link.use": "Dùng liên kết ghép cặp",
   "server.connect.pair.link": "Chạy lệnh này trên máy tính chạy máy chủ để nhận liên kết ghép cặp và mã QR.",
   "server.connect.scan.failed": "Trình duyệt này không thể đọc mã QR. Nhập chi tiết kết nối của bạn thủ công.",
   "server.connect.link.expired":
-    "Liên kết ghép cặp này đã hết hạn hoặc đã được sử dụng. Chạy opencode pair để nhận liên kết mới.",
+    "Liên kết ghép cặp này đã hết hạn hoặc đã được sử dụng. Chạy opencodevil-cli pair để nhận liên kết mới.",
   "server.connect.link.unreachable":
     "Không thể kết nối tới {{url}}. Kiểm tra xem thiết bị này có kết nối được tới máy chủ không, sau đó thử lại.",
   "server.connect.link.legacy":
-    "Mã ghép cặp này từ phiên bản OpenCode cũ hơn. Cập nhật OpenCode trên máy chủ, sau đó chạy lại opencode pair.",
+    "Mã ghép cặp này từ phiên bản OpenCode cũ hơn. Cập nhật OpenCode trên máy chủ, sau đó chạy lại opencodevil-cli pair.",
   "server.connect.camera.native": "Trang này không thể dùng camera qua HTTP. Hãy dán liên kết ghép cặp ở trên.",
   "dialog.server.signedOut":
     "Thông tin đăng nhập của bạn cho máy chủ này không còn hợp lệ. Dán liên kết ghép cặp mới hoặc nhập mật khẩu máy chủ.",

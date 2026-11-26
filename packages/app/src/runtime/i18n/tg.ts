@@ -726,9 +726,9 @@ export const dict = {
   "server.connect.address.invalid": "Суроғаи сервери дурусти HTTP ё HTTPS-ро ворид кунед.",
   "server.connect.failed": "Пайваст шуда натавонист. Суроғаи сервер ва паролро тафтиш кунед ва аз нав кӯшиш кунед.",
   "server.connect.scan": "Рамзи QR-ро скан кунед",
-  "server.connect.scan.description": "Камераро ба рамзи QR, ки opencode pair нишон медиҳад, равона кунед.",
+  "server.connect.scan.description": "Камераро ба рамзи QR, ки opencodevil-cli pair нишон медиҳад, равона кунед.",
   "server.connect.scan.invalid":
-    "Ин рамзи ҷуфткунии OpenCode нест. Рамзеро, ки opencode pair нишон медиҳад, скан кунед.",
+    "Ин рамзи ҷуфткунии OpenCode нест. Рамзеро, ки opencodevil-cli pair нишон медиҳад, скан кунед.",
   "server.connect.camera": "Камераи ҷуфткунӣ",
   "server.connect.camera.starting": "Кушодани камера…",
   "server.connect.mixedContent":
@@ -842,7 +842,7 @@ export const dict = {
   "voice.captions.hide": "Пинҳон кардани субтитрҳо",
   "voice.connecting": "Пайвастшавӣ…",
   "voice.you": "Шумо:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Барои зангҳои овозӣ дар ин сервер калиди API-и OpenAI лозим аст.",
   "voice.failure.microphone": "Барои занг задан дастрасӣ ба микрофон лозим аст.",
   "voice.failure.dropped": "Занг қатъ шуд.",
@@ -1073,21 +1073,21 @@ export const dict = {
   "server.connect.link": "Пайванди ҷуфткунӣ",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Пайванди пурраи ҷуфткуниро аз opencode pair ё аз Танзимот → Ҷуфткунӣ дар компютери сервер гузоред.",
+    "Пайванди пурраи ҷуфткуниро аз opencodevil-cli pair ё аз Танзимот → Ҷуфткунӣ дар компютери сервер гузоред.",
   "server.connect.password.prompt": "Пайванди ҷуфткунӣ надоред?",
   "server.connect.password.use": "Истифодаи парол",
-  "server.connect.password.hint": "Барои дидани он дар компютери сервер opencode service get password-ро иҷро кунед.",
+  "server.connect.password.hint": "Барои дидани он дар компютери сервер opencodevil-cli service get password-ро иҷро кунед.",
   "server.connect.link.prompt": "Пайванди ҷуфткунӣ доред?",
   "server.connect.link.use": "Истифодаи пайванди ҷуфткунӣ",
   "server.connect.pair.link":
     "Барои гирифтани пайванди ҷуфткунӣ ва рамзи QR ин фармонро дар компютери сервер иҷро кунед.",
   "server.connect.scan.failed": "Ин браузер рамзи QR-ро хонда натавонист. Тафсилоти пайвасти худро дастӣ ворид кунед.",
   "server.connect.link.expired":
-    "Мӯҳлати ин пайванди ҷуфткунӣ гузашт ё он аллакай истифода шудааст. Барои гирифтани пайванди нав opencode pair-ро иҷро кунед.",
+    "Мӯҳлати ин пайванди ҷуфткунӣ гузашт ё он аллакай истифода шудааст. Барои гирифтани пайванди нав opencodevil-cli pair-ро иҷро кунед.",
   "server.connect.link.unreachable":
     "Ба {{url}} расида натавонист. Санҷед, ки ин дастгоҳ ба сервер дастрасӣ дорад, баъд аз нав кӯшиш кунед.",
   "server.connect.link.legacy":
-    "Ин рамзи ҷуфткунӣ аз версияи кӯҳнаи OpenCode аст. OpenCode-ро дар сервер навсозӣ кунед, баъд opencode pair-ро аз нав иҷро кунед.",
+    "Ин рамзи ҷуфткунӣ аз версияи кӯҳнаи OpenCode аст. OpenCode-ро дар сервер навсозӣ кунед, баъд opencodevil-cli pair-ро аз нав иҷро кунед.",
   "server.connect.camera.native":
     "Ин саҳифа камераро тавассути HTTP истифода бурда наметавонад. Пайванди ҷуфткуниро дар боло гузоред.",
   "dialog.server.signedOut":

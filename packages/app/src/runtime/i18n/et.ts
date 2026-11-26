@@ -707,8 +707,8 @@ export const dict = {
   "server.connect.address.invalid": "Sisestage kehtiv serveri aadress HTTP või HTTPS.",
   "server.connect.failed": "Ühendust ei õnnestunud luua. Kontrollige serveri aadressi ja parooli ning proovige uuesti.",
   "server.connect.scan": "Skaneeri QR-kood",
-  "server.connect.scan.description": "Suunake oma kaamera koodile QR, mida näitab opencode pair.",
-  "server.connect.scan.invalid": "See ei ole OpenCode sidumiskood. Skannige koodi, mida näitab opencode pair.",
+  "server.connect.scan.description": "Suunake oma kaamera koodile QR, mida näitab opencodevil-cli pair.",
+  "server.connect.scan.invalid": "See ei ole OpenCode sidumiskood. Skannige koodi, mida näitab opencodevil-cli pair.",
   "server.connect.camera": "Kaamera sidumine",
   "server.connect.camera.starting": "Kaamera avamine…",
   "server.connect.mixedContent":
@@ -825,7 +825,7 @@ export const dict = {
   "voice.captions.hide": "Peida subtiitrid",
   "voice.connecting": "Ühendamine…",
   "voice.you": "Sina:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Häälkõnede jaoks on selles serveris vaja OpenAI API-võtit.",
   "voice.failure.microphone": "Helistamiseks on vaja juurdepääsu mikrofonile.",
   "voice.failure.dropped": "Kõne katkes.",
@@ -1048,19 +1048,19 @@ export const dict = {
   "server.connect.link": "Sidumislink",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Kleebi täielik sidumislink käsust opencode pair või serveri arvutist jaotisest Seaded → Sidumine.",
+    "Kleebi täielik sidumislink käsust opencodevil-cli pair või serveri arvutist jaotisest Seaded → Sidumine.",
   "server.connect.password.prompt": "Sidumislinki pole?",
   "server.connect.password.use": "Kasuta parooli",
-  "server.connect.password.hint": "Selle nägemiseks käivita serveri arvutis opencode service get password.",
+  "server.connect.password.hint": "Selle nägemiseks käivita serveri arvutis opencodevil-cli service get password.",
   "server.connect.link.prompt": "Kas sul on sidumislink?",
   "server.connect.link.use": "Kasuta sidumislinki",
   "server.connect.pair.link": "Sidumislingi ja QR-koodi saamiseks käivita see käsk serveri arvutis.",
   "server.connect.scan.failed": "See brauser ei suutnud QR-koodi lugeda. Sisesta ühenduse üksikasjad käsitsi.",
-  "server.connect.link.expired": "See sidumislink on aegunud või juba kasutatud. Uue saamiseks käivita opencode pair.",
+  "server.connect.link.expired": "See sidumislink on aegunud või juba kasutatud. Uue saamiseks käivita opencodevil-cli pair.",
   "server.connect.link.unreachable":
     "Aadressiga {{url}} ei õnnestunud ühendust saada. Kontrolli, et see seade pääseb serverini, ja proovi uuesti.",
   "server.connect.link.legacy":
-    "See sidumiskood on OpenCode'i vanemast versioonist. Uuenda serveris OpenCode ja käivita uuesti opencode pair.",
+    "See sidumiskood on OpenCode'i vanemast versioonist. Uuenda serveris OpenCode ja käivita uuesti opencodevil-cli pair.",
   "server.connect.camera.native":
     "See leht ei saa HTTP kaudu kaamerat kasutada. Kleebi sidumislink ülalolevale väljale.",
   "dialog.server.signedOut":

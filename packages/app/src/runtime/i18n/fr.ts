@@ -24,9 +24,9 @@ export const dict = {
   "server.connect.failed":
     "Impossible de se connecter. Vérifiez l'adresse et le mot de passe du serveur, puis réessayez.",
   "server.connect.scan": "Scanner le code QR",
-  "server.connect.scan.description": "Pointez votre appareil photo vers le code QR affiché par opencode pair.",
+  "server.connect.scan.description": "Pointez votre appareil photo vers le code QR affiché par opencodevil-cli pair.",
   "server.connect.scan.invalid":
-    "Il ne s'agit pas d'un code d'appairage OpenCode. Scannez le code affiché par opencode pair.",
+    "Il ne s'agit pas d'un code d'appairage OpenCode. Scannez le code affiché par opencodevil-cli pair.",
   "server.connect.camera": "Caméra de couplage",
   "server.connect.camera.starting": "Ouverture de la caméra…",
   "server.connect.mixedContent":
@@ -1105,11 +1105,11 @@ export const dict = {
   "server.connect.link": "Lien d’appairage",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Collez le lien d’appairage complet fourni par opencode pair, ou depuis Paramètres → Appairage sur l’ordinateur du serveur.",
+    "Collez le lien d’appairage complet fourni par opencodevil-cli pair, ou depuis Paramètres → Appairage sur l’ordinateur du serveur.",
   "server.connect.password.prompt": "Pas de lien d’appairage ?",
   "server.connect.password.use": "Utiliser un mot de passe",
   "server.connect.password.hint":
-    "Pour l’afficher, exécutez opencode service get password sur l’ordinateur du serveur.",
+    "Pour l’afficher, exécutez opencodevil-cli service get password sur l’ordinateur du serveur.",
   "server.connect.link.prompt": "Vous avez un lien d’appairage ?",
   "server.connect.link.use": "Utiliser un lien d’appairage",
   "server.connect.pair.link":
@@ -1117,11 +1117,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Ce navigateur n’a pas pu lire le code QR. Saisissez manuellement vos informations de connexion.",
   "server.connect.link.expired":
-    "Ce lien d’appairage a expiré ou a déjà été utilisé. Exécutez opencode pair pour en obtenir un nouveau.",
+    "Ce lien d’appairage a expiré ou a déjà été utilisé. Exécutez opencodevil-cli pair pour en obtenir un nouveau.",
   "server.connect.link.unreachable":
     "Impossible de joindre {{url}}. Vérifiez que cet appareil peut accéder au serveur, puis réessayez.",
   "server.connect.link.legacy":
-    "Ce code d’appairage provient d’une ancienne version d’OpenCode. Mettez à jour OpenCode sur le serveur, puis exécutez à nouveau opencode pair.",
+    "Ce code d’appairage provient d’une ancienne version d’OpenCode. Mettez à jour OpenCode sur le serveur, puis exécutez à nouveau opencodevil-cli pair.",
   "server.connect.camera.native":
     "Cette page ne peut pas utiliser la caméra via HTTP. Collez le lien d’appairage ci-dessus.",
   "dialog.server.signedOut":

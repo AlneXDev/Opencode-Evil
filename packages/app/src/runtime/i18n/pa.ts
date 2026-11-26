@@ -848,7 +848,7 @@ export const dict = {
   "voice.captions.hide": "کیپشن لُکاؤ",
   "voice.connecting": "جڑ رہیا اے…",
   "voice.you": "تسیں:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "وائس کالاں لئی ایس سرور تے OpenAI API کلید چاہیدی اے۔",
   "voice.failure.microphone": "کال کرن لئی مائیکروفون دی اجازت چاہیدی اے۔",
   "voice.failure.dropped": "کال منقطع ہو گئی۔",
@@ -1068,20 +1068,20 @@ export const dict = {
   "server.connect.link": "پیئرنگ لنک",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair توں، یا سرور آلے کمپیوٹر تے ترتیبات ← Pairing توں پورا پیئرنگ لنک چپکاؤ۔",
+    "opencodevil-cli pair توں، یا سرور آلے کمپیوٹر تے ترتیبات ← Pairing توں پورا پیئرنگ لنک چپکاؤ۔",
   "server.connect.password.prompt": "پیئرنگ لنک نئیں؟",
   "server.connect.password.use": "پاس ورڈ ورتو",
-  "server.connect.password.hint": "ایہنوں ویکھن لئی سرور آلے کمپیوٹر تے opencode service get password چلاؤ۔",
+  "server.connect.password.hint": "ایہنوں ویکھن لئی سرور آلے کمپیوٹر تے opencodevil-cli service get password چلاؤ۔",
   "server.connect.link.prompt": "پیئرنگ لنک اے؟",
   "server.connect.link.use": "پیئرنگ لنک ورتو",
   "server.connect.pair.link": "پیئرنگ لنک تے QR کوڈ لین لئی سرور آلے کمپیوٹر تے ایہہ کمانڈ چلاؤ۔",
   "server.connect.scan.failed": "ایہہ براؤزر QR کوڈ نئیں پڑھ سکیا۔ اپنے کنکشن دیاں تفصیلاں ہتھ نال درج کرو۔",
   "server.connect.link.expired":
-    "ایس پیئرنگ لنک دی میعاد مُک گئی اے یا ایہہ پہلاں ای ورتیا جا چکیا اے۔ نواں لین لئی opencode pair چلاؤ۔",
+    "ایس پیئرنگ لنک دی میعاد مُک گئی اے یا ایہہ پہلاں ای ورتیا جا چکیا اے۔ نواں لین لئی opencodevil-cli pair چلاؤ۔",
   "server.connect.link.unreachable":
     "⁨{{url}}⁩ تک نئیں اپڑ سکے۔ چیک کرو کہ ایہہ ڈیوائس سرور تک اپڑ سکدی اے، فیر کوشش کرو۔",
   "server.connect.link.legacy":
-    "ایہہ پیئرنگ کوڈ OpenCode دے پرانے ورژن دا اے۔ سرور تے OpenCode اپ ڈیٹ کرو، فیر opencode pair دوبارہ چلاؤ۔",
+    "ایہہ پیئرنگ کوڈ OpenCode دے پرانے ورژن دا اے۔ سرور تے OpenCode اپ ڈیٹ کرو، فیر opencodevil-cli pair دوبارہ چلاؤ۔",
   "server.connect.camera.native": "ایہہ صفحہ HTTP تے کیمرہ نئیں ورت سکدا۔ اُتے پیئرنگ لنک چپکاؤ۔",
   "dialog.server.signedOut":
     "ایس سرور لئی تہاڈا سائن ان ہن درست نئیں۔ نواں پیئرنگ لنک چپکاؤ، یا سرور دا پاس ورڈ درج کرو۔",

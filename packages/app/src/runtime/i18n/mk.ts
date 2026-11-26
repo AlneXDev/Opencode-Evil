@@ -726,8 +726,8 @@ export const dict = {
   "server.connect.failed":
     "Не можеше да се поврзе. Проверете ја адресата на серверот и лозинката, потоа обидете се повторно.",
   "server.connect.scan": "Скенирај QR код",
-  "server.connect.scan.description": "Насочете ја вашата камера кон QR кодот прикажан од opencode pair.",
-  "server.connect.scan.invalid": "Ова не е OpenCode паринг код. Скенирајте го кодот прикажан од opencode pair.",
+  "server.connect.scan.description": "Насочете ја вашата камера кон QR кодот прикажан од opencodevil-cli pair.",
+  "server.connect.scan.invalid": "Ова не е OpenCode паринг код. Скенирајте го кодот прикажан од opencodevil-cli pair.",
   "server.connect.camera": "Парирање со камера",
   "server.connect.camera.starting": "Отворање на камерата…",
   "server.connect.mixedContent":
@@ -837,7 +837,7 @@ export const dict = {
   "voice.captions.hide": "Скриј титлови",
   "voice.connecting": "Се поврзува…",
   "voice.you": "Вие:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "За гласовни повици потребен е OpenAI API клуч на овој сервер.",
   "voice.failure.microphone": "За повикување потребен е пристап до микрофонот.",
   "voice.failure.dropped": "Повикот се прекина.",
@@ -1066,10 +1066,10 @@ export const dict = {
   "server.connect.link": "Врска за спарување",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Залепете ја целата врска за спарување од opencode pair или од Поставки → Спарување на компјутерот на серверот.",
+    "Залепете ја целата врска за спарување од opencodevil-cli pair или од Поставки → Спарување на компјутерот на серверот.",
   "server.connect.password.prompt": "Немате врска за спарување?",
   "server.connect.password.use": "Користи лозинка",
-  "server.connect.password.hint": "За да ја видите, извршете opencode service get password на компјутерот на серверот.",
+  "server.connect.password.hint": "За да ја видите, извршете opencodevil-cli service get password на компјутерот на серверот.",
   "server.connect.link.prompt": "Имате врска за спарување?",
   "server.connect.link.use": "Користи врска за спарување",
   "server.connect.pair.link":
@@ -1077,11 +1077,11 @@ export const dict = {
   "server.connect.scan.failed":
     "Овој прелистувач не можеше да го прочита QR кодот. Внесете ги деталите за поврзување рачно.",
   "server.connect.link.expired":
-    "Оваа врска за спарување истече или е веќе искористена. Извршете opencode pair за да добиете нова.",
+    "Оваа врска за спарување истече или е веќе искористена. Извршете opencodevil-cli pair за да добиете нова.",
   "server.connect.link.unreachable":
     "{{url}} не е достапен. Проверете дали овој уред може да го достигне серверот, а потоа обидете се повторно.",
   "server.connect.link.legacy":
-    "Овој код за спарување е од постара верзија на OpenCode. Ажурирајте го OpenCode на серверот, а потоа повторно извршете opencode pair.",
+    "Овој код за спарување е од постара верзија на OpenCode. Ажурирајте го OpenCode на серверот, а потоа повторно извршете opencodevil-cli pair.",
   "server.connect.camera.native":
     "Оваа страница не може да ја користи камерата преку HTTP. Залепете ја врската за спарување погоре.",
   "dialog.server.signedOut":

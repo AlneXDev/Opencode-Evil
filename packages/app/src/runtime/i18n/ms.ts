@@ -831,7 +831,7 @@ export const dict = {
   "voice.captions.hide": "Sembunyikan sari kata",
   "voice.connecting": "Menyambung…",
   "voice.you": "Anda:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "Panggilan suara memerlukan kunci API OpenAI pada pelayan ini.",
   "voice.failure.microphone": "Akses mikrofon diperlukan untuk membuat panggilan.",
   "voice.failure.dropped": "Panggilan terputus.",
@@ -1059,21 +1059,21 @@ export const dict = {
   "server.connect.link": "Pautan pasangan",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "Tampal pautan pasangan penuh daripada opencode pair, atau daripada Tetapan → Pasangan pada komputer pelayan.",
+    "Tampal pautan pasangan penuh daripada opencodevil-cli pair, atau daripada Tetapan → Pasangan pada komputer pelayan.",
   "server.connect.password.prompt": "Tiada pautan pasangan?",
   "server.connect.password.use": "Gunakan kata laluan",
-  "server.connect.password.hint": "Untuk melihatnya, jalankan opencode service get password pada komputer pelayan.",
+  "server.connect.password.hint": "Untuk melihatnya, jalankan opencodevil-cli service get password pada komputer pelayan.",
   "server.connect.link.prompt": "Ada pautan pasangan?",
   "server.connect.link.use": "Gunakan pautan pasangan",
   "server.connect.pair.link": "Jalankan arahan ini pada komputer pelayan untuk mendapatkan pautan pasangan dan kod QR.",
   "server.connect.scan.failed":
     "Pelayar ini tidak dapat membaca kod QR. Masukkan butiran sambungan anda secara manual.",
   "server.connect.link.expired":
-    "Pautan pasangan ini telah tamat tempoh atau sudah digunakan. Jalankan opencode pair untuk mendapatkan yang baharu.",
+    "Pautan pasangan ini telah tamat tempoh atau sudah digunakan. Jalankan opencodevil-cli pair untuk mendapatkan yang baharu.",
   "server.connect.link.unreachable":
     "Tidak dapat mencapai {{url}}. Pastikan peranti ini boleh mencapai pelayan, kemudian cuba lagi.",
   "server.connect.link.legacy":
-    "Kod pasangan ini daripada versi OpenCode yang lebih lama. Kemas kini OpenCode pada pelayan, kemudian jalankan opencode pair semula.",
+    "Kod pasangan ini daripada versi OpenCode yang lebih lama. Kemas kini OpenCode pada pelayan, kemudian jalankan opencodevil-cli pair semula.",
   "server.connect.camera.native":
     "Halaman ini tidak boleh menggunakan kamera melalui HTTP. Tampal pautan pasangan di atas.",
   "dialog.server.signedOut":

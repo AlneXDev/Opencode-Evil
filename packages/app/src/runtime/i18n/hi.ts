@@ -839,7 +839,7 @@ export const dict = {
   "voice.captions.hide": "कैप्शन छिपाएँ",
   "voice.connecting": "कनेक्ट हो रहा है…",
   "voice.you": "आप:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "वॉइस कॉल के लिए इस सर्वर पर OpenAI API कुंजी आवश्यक है।",
   "voice.failure.microphone": "कॉल करने के लिए माइक्रोफ़ोन की अनुमति आवश्यक है।",
   "voice.failure.dropped": "कॉल डिस्कनेक्ट हो गई।",
@@ -1063,20 +1063,20 @@ export const dict = {
   "server.connect.link": "पेयरिंग लिंक",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair से, या सर्वर वाले कंप्यूटर पर सेटिंग्स → Pairing से पूरा पेयरिंग लिंक चिपकाएँ।",
+    "opencodevil-cli pair से, या सर्वर वाले कंप्यूटर पर सेटिंग्स → Pairing से पूरा पेयरिंग लिंक चिपकाएँ।",
   "server.connect.password.prompt": "पेयरिंग लिंक नहीं है?",
   "server.connect.password.use": "पासवर्ड का उपयोग करें",
-  "server.connect.password.hint": "इसे देखने के लिए, सर्वर वाले कंप्यूटर पर opencode service get password चलाएँ।",
+  "server.connect.password.hint": "इसे देखने के लिए, सर्वर वाले कंप्यूटर पर opencodevil-cli service get password चलाएँ।",
   "server.connect.link.prompt": "पेयरिंग लिंक है?",
   "server.connect.link.use": "पेयरिंग लिंक का उपयोग करें",
   "server.connect.pair.link": "पेयरिंग लिंक और QR कोड पाने के लिए सर्वर वाले कंप्यूटर पर यह कमांड चलाएँ।",
   "server.connect.scan.failed": "यह ब्राउज़र QR कोड नहीं पढ़ सका। अपना कनेक्शन विवरण मैन्युअल रूप से दर्ज करें।",
   "server.connect.link.expired":
-    "यह पेयरिंग लिंक समाप्त हो गया है या पहले ही उपयोग हो चुका है। नया लिंक पाने के लिए opencode pair चलाएँ।",
+    "यह पेयरिंग लिंक समाप्त हो गया है या पहले ही उपयोग हो चुका है। नया लिंक पाने के लिए opencodevil-cli pair चलाएँ।",
   "server.connect.link.unreachable":
     "{{url}} तक नहीं पहुँचा जा सका। जाँचें कि यह डिवाइस सर्वर तक पहुँच सकता है, फिर पुनः प्रयास करें।",
   "server.connect.link.legacy":
-    "यह पेयरिंग कोड OpenCode के पुराने संस्करण का है। सर्वर पर OpenCode अपडेट करें, फिर opencode pair दोबारा चलाएँ।",
+    "यह पेयरिंग कोड OpenCode के पुराने संस्करण का है। सर्वर पर OpenCode अपडेट करें, फिर opencodevil-cli pair दोबारा चलाएँ।",
   "server.connect.camera.native": "यह पेज HTTP पर कैमरे का उपयोग नहीं कर सकता। ऊपर पेयरिंग लिंक चिपकाएँ।",
   "dialog.server.signedOut":
     "इस सर्वर के लिए आपका साइन-इन अब मान्य नहीं है। नया पेयरिंग लिंक चिपकाएँ, या सर्वर पासवर्ड दर्ज करें।",

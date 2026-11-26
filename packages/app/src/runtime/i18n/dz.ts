@@ -725,9 +725,9 @@ export const dict = {
   "server.connect.address.invalid": "ནུས་ཅན་ HTTP ཡང་ན་ HTTPS སར་བར་ཁ་བྱང་ཅིག་བཙུགས།",
   "server.connect.failed": "མཐུད་མ་ཚུགས། སར་བར་ཁ་བྱང་དང་ཆོག་ཡིག་ཞིབ་དཔྱད་འབད་ཞིནམ་ལས་ ལོག་སྟེ་འབད་རྩོལ་བསྐྱེད།",
   "server.connect.scan": "QR གསང་གྲངས་པར་བཤུས་",
-  "server.connect.scan.description": "ཁྱོད་རའི་པར་ཆས་འདི་ opencode pair གིས་སྟོན་མི་ QR གསང་ཡིག་ལུ་སྟོན་དགོ།",
+  "server.connect.scan.description": "ཁྱོད་རའི་པར་ཆས་འདི་ opencodevil-cli pair གིས་སྟོན་མི་ QR གསང་ཡིག་ལུ་སྟོན་དགོ།",
   "server.connect.scan.invalid":
-    "འདི་ OpenCode ཆ་སྒྲིག་ཨང་རྟགས་ཅིག་མེན། opencode pair གིས་སྟོན་ཡོད་པའི་ཨང་རྟགས་འདི་པར་བཤུས་འབད།",
+    "འདི་ OpenCode ཆ་སྒྲིག་ཨང་རྟགས་ཅིག་མེན། opencodevil-cli pair གིས་སྟོན་ཡོད་པའི་ཨང་རྟགས་འདི་པར་བཤུས་འབད།",
   "server.connect.camera": "པར་ཆས་ཆ་སྒྲིག་འབད་དོ།",
   "server.connect.camera.starting": "པར་ཆས་ཁ་ཕྱེ་དོ...",
   "server.connect.mixedContent":
@@ -849,7 +849,7 @@ export const dict = {
   "voice.captions.hide": "ཡིག་བཀོད་སྦ་བཞག",
   "voice.connecting": "མཐུད་དོ…",
   "voice.you": "ཁྱོད:",
-  "voice.assistant": "OpenCode:",
+  "voice.assistant": "OpenCode Eʌil:",
   "voice.failure.unavailable": "སྐད་འབོད་ཀྱི་དོན་ལུ་ སར་བར་འདི་གུ་ OpenAI API ལྡེ་མིག་དགོཔ་ཨིན།",
   "voice.failure.microphone": "འབོད་ནིའི་དོན་ལུ་ སྒྲ་དུང་འཛུལ་སྤྱོད་དགོཔ་ཨིན།",
   "voice.failure.dropped": "སྐད་འབོད་འདི་ མཐུད་ལམ་ཆད་སོང་།",
@@ -1081,10 +1081,10 @@ export const dict = {
   "server.connect.link": "ཆ་སྒྲིག་འབྲེལ་མཐུད།",
   "server.connect.link.placeholder": "http://192.168.1.2:4096/auth/connect/…",
   "server.connect.link.invalid":
-    "opencode pair ལས་ ཡང་ན་ སར་བར་གྱི་གློག་རིག་གུ་ Settings → Pairing ལས་ ཆ་སྒྲིག་འབྲེལ་མཐུད་ཆ་ཚང་འདི་སྦྱར།",
+    "opencodevil-cli pair ལས་ ཡང་ན་ སར་བར་གྱི་གློག་རིག་གུ་ Settings → Pairing ལས་ ཆ་སྒྲིག་འབྲེལ་མཐུད་ཆ་ཚང་འདི་སྦྱར།",
   "server.connect.password.prompt": "ཆ་སྒྲིག་འབྲེལ་མཐུད་མེད་ག?",
   "server.connect.password.use": "ཆོག་ཡིག་ལག་ལེན་འཐབ།",
-  "server.connect.password.hint": "དེ་བལྟ་ནིའི་དོན་ལུ་ སར་བར་གྱི་གློག་རིག་གུ་ opencode service get password གཡོག་བཀོལ།",
+  "server.connect.password.hint": "དེ་བལྟ་ནིའི་དོན་ལུ་ སར་བར་གྱི་གློག་རིག་གུ་ opencodevil-cli service get password གཡོག་བཀོལ།",
   "server.connect.link.prompt": "ཆ་སྒྲིག་འབྲེལ་མཐུད་ཡོད་ག?",
   "server.connect.link.use": "ཆ་སྒྲིག་འབྲེལ་མཐུད་ལག་ལེན་འཐབ།",
   "server.connect.pair.link":
@@ -1092,11 +1092,11 @@ export const dict = {
   "server.connect.scan.failed":
     "བརའུ་ཟར་འདི་གིས་ QR ཨང་རྟགས་ལྷག་མ་ཚུགས། ཁྱོད་ཀྱི་མཐུད་ལམ་རྒྱས་བཤད་ཚུ་ ལག་ཐོག་ལས་བཙུགས།",
   "server.connect.link.expired":
-    "ཆ་སྒྲིག་འབྲེལ་མཐུད་འདི་ དུས་ཚོད་ཡོལ་ཡོདཔ་ ཡང་ན་ ཧེ་མ་ལས་ལག་ལེན་འཐབ་ཡོདཔ། གསརཔ་ཐོབ་ནིའི་དོན་ལུ་ opencode pair གཡོག་བཀོལ།",
+    "ཆ་སྒྲིག་འབྲེལ་མཐུད་འདི་ དུས་ཚོད་ཡོལ་ཡོདཔ་ ཡང་ན་ ཧེ་མ་ལས་ལག་ལེན་འཐབ་ཡོདཔ། གསརཔ་ཐོབ་ནིའི་དོན་ལུ་ opencodevil-cli pair གཡོག་བཀོལ།",
   "server.connect.link.unreachable":
     "{{url}} ལུ་ལྷོད་མ་ཚུགས། ཐབས་འཕྲུལ་འདི་གིས་ སར་བར་ལུ་ལྷོད་ཚུགསཔ་ཨིན་ན་ ཞིབ་དཔྱད་འབད་ཞིནམ་ལས་ ལོག་འབད་རྩོལ་བསྐྱེད།",
   "server.connect.link.legacy":
-    "ཆ་སྒྲིག་ཨང་རྟགས་འདི་ OpenCode གི་ཐོན་རིམ་རྙིངམ་ལས་ཨིན། སར་བར་གུ་ OpenCode དུས་མཐུན་བཟོ་ཞིནམ་ལས་ opencode pair ལོག་གཡོག་བཀོལ།",
+    "ཆ་སྒྲིག་ཨང་རྟགས་འདི་ OpenCode གི་ཐོན་རིམ་རྙིངམ་ལས་ཨིན། སར་བར་གུ་ OpenCode དུས་མཐུན་བཟོ་ཞིནམ་ལས་ opencodevil-cli pair ལོག་གཡོག་བཀོལ།",
   "server.connect.camera.native":
     "ཤོག་ལེབ་འདི་གིས་ HTTP གུ་ པར་ཆས་ལག་ལེན་འཐབ་མི་ཚུགས། གོང་གི་ཆ་སྒྲིག་འབྲེལ་མཐུད་འདི་སྦྱར།",
   "dialog.server.signedOut":

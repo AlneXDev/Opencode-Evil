@@ -136,7 +136,7 @@ fn content(cx: &DialogCx, value: &Pairing) -> View {
     side.add(&links);
     if value.loopback {
         side.add(
-            &Text::new(app, "Run `opencode service set hostname 0.0.0.0` to access the service remotely.")
+            &Text::new(app, "Run `opencodevil-cli service set hostname 0.0.0.0` to access the service remotely.")
                 .fg(theme.text.muted)
                 .wrap(WrapMode::Word),
         );

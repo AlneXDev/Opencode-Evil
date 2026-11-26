@@ -157,9 +157,9 @@ fn draw(tui: &Tui, cx: &Rc<DialogCx>, root: &View, check: &Check) -> Option<Dial
         Shown::Update(UpdateState::Available(_)) => {
             muted("An update is available. After installing, you'll be prompted to restart OpenCode.")
         }
-        Shown::Update(UpdateState::Installing(version)) => spinner(format!("Installing OpenCode {version}…")),
+        Shown::Update(UpdateState::Installing(version)) => spinner(format!("Installing OpenCode Eʌil {version}…")),
         Shown::Update(UpdateState::Installed(_)) => {
-            muted("Update successful! Restart closes OpenCode, then run opencode to use the new version.")
+            muted("Update successful! Restart closes OpenCode, then run opencodevil-cli to use the new version.")
         }
         Shown::Current => muted("OpenCode is already up to date."),
         Shown::Unavailable(message) => muted(message),
