@@ -308,7 +308,7 @@ it.effect("runs title hooks instead of context hooks", () =>
 
     expect(contexts).toBe(0)
     expect(requests).toHaveLength(1)
-    expect(requests[0]?.system.map((part) => part.text)).toEqual(["You are a title generator.", "Prefer short titles."])
+    expect(requests[0]?.system.map((part) => part.text)).toEqual([COMPLIANCE, "You are a title generator.", "Prefer short titles."])
     expect(JSON.stringify(requests[0]?.messages)).not.toContain("Redact this message")
     expect(requests[0]?.maxTokens).toBe(32)
     expect(requests[0]?.providerOptions).toEqual({ reasoningEffort: "low" })
