@@ -10,7 +10,7 @@ import type { Route } from "../../lib/fake-server"
 
 export const env = { OPENCODE_CHANNEL: "local", OPENCODE_TS_BIN: "/nonexistent/opencode-ts" }
 
-export const configFile = "home/.config/opencode/service-local.json"
+export const configFile = "home/.config/opencodevil/service-local.json"
 
 export async function writeConfig(root: string, config: unknown) {
   await mkdir(path.join(root, "home/.config/opencodevil"), { recursive: true })
@@ -21,7 +21,7 @@ export async function register(root: string, server: string | undefined, passwor
   if (server === undefined || password === undefined) throw new Error("register needs the fake server")
   await mkdir(path.join(root, "home/.local/state/opencodevil"), { recursive: true })
   await writeFile(
-    path.join(root, "home/.local/state/opencode/service-local.json"),
+    path.join(root, "home/.local/state/opencodevil/service-local.json"),
     JSON.stringify({ id: "fake", version: "local", url: server, pid: process.pid, password }),
     { mode: 0o600 },
   )

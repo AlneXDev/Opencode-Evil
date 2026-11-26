@@ -187,15 +187,14 @@ test("closing the @ menu aborts its session search", async ({ page }) => {
   }
 })
 
-test("the free usage limit opens the Go dialog once, swaps the composer for the free limit panel, and restores the prompt", async ({
+test("the free usage limit recalls the prompt without opening the Go dialog or blocking the composer", async ({
   page,
-  context,
 }) => {
+  // EVIL: free-tier upsell dialog and composer-blocking panel are disabled.
+  // A provider.free-limit error only recalls the prompt into the editor; no dialog or panel appears.
   await page.clock.setFixedTime(T0)
-  await context.route("https://**", (route) => route.fulfill({ body: "Sign in" }))
   const sessionID = "ses_free_limit"
   const model = { id: "big-pickle", providerID: "opencode" }
-  const state = { authorized: false }
 
   const view = await openSession(page, {
     name: "FreeLimit",
@@ -215,47 +214,10 @@ test("the free usage limit opens the Go dialog once, swaps the composer for the 
             },
           },
         },
-        ...(state.authorized
-          ? [
-              {
-                id: "opencode-go",
-                integrationID: "opencode",
-                name: "Anomaly / OpenCode Go",
-                models: {
-                  "glm-5-go": {
-                    id: "glm-5-go",
-                    name: "GLM-5 Go",
-                    cost: { input: 1, output: 1 },
-                    limit: { context: 200_000 },
-                  },
-                },
-              },
-            ]
-          : []),
       ],
-      connected: state.authorized ? ["opencode", "opencode-go"] : ["opencode"],
+      connected: ["opencode"],
       default: { build: "opencode/big-pickle" },
     }),
-    integrations: () => [
-      {
-        id: "opencode",
-        name: "OpenCode",
-        methods: [
-          { id: "device", type: "oauth", label: "OpenCode account" },
-          { type: "key", label: "API key (service account)" },
-        ],
-        connections: state.authorized
-          ? [{ type: "credential", id: "cred_console", label: "Anomaly", method: "oauth" }]
-          : [],
-      },
-      { id: "opencode-go", name: "OpenCode Go", methods: [{ type: "key" }], connections: [] },
-    ],
-    onIntegrationOAuth: () => ({ url: "https://auth.example.test/device?user_code=GOGO-1234" }),
-    onIntegrationOAuthStatus: () => {
-      state.authorized = true
-
-      return "complete"
-    },
     pageMessages: () => ({
       items: [
         { id: "msg_free_user", type: "user", text: "Refactor the parser", time: { created: T0 } },
@@ -287,104 +249,22 @@ test("the free usage limit opens the Go dialog once, swaps the composer for the 
     },
   ])
 
-  const upsell = page.getByRole("dialog", { name: "Free limit reached" })
-  await expect(upsell).toContainText("Your free messages reset at")
-  await expect(page.getByText(/^You've used today's free messages\. They reset at /)).toBeVisible()
-  // With no paid provider the panel stands in for the composer until Go is connected.
-  await expect(page.locator('[data-component="session-free-limit"]')).toContainText("Free usage resets at")
-  await expect(view.editor).toHaveCount(0)
-  await expect(page.getByText("Free usage limit reached.")).toHaveCount(0)
-
-  // Subscribe -> OpenCode sign-in -> the workspace's Go model -> Continue switches the model in the current session
-  // without opening a new draft tab.
-  await upsell.getByRole("button", { name: "Subscribe", exact: true }).click()
-  const connect = page.getByRole("dialog", { name: "Connect OpenCode", exact: true })
-  await connect.getByRole("button", { name: "OpenCode account", exact: true }).click()
-  const connected = page.getByRole("dialog", { name: "Connected to OpenCode" })
-  const go = connected.getByRole("radio", { name: "GLM-5 Go", exact: true })
-  await go.click()
-  await expect(go).toHaveAttribute("aria-checked", "true")
-  await connected.getByRole("button", { name: "Continue", exact: true }).click()
+  // No dialog, no panel replacing the composer.
   await expect(page.getByRole("dialog")).toHaveCount(0)
-  await expectPath(page, sessionHref(sessionID))
-  await expect(page.locator("[data-titlebar-tab-slot]")).toHaveCount(1)
-  await expect(page.locator('[data-action="composer-model"]')).toContainText("GLM-5 Go")
-  await expect(view.editor).toHaveText("Refactor the parser")
-
-  // After the 24-hour window, "Don't show again" permanently suppresses the dialog across reloads, and an attachment-only draft survives.
-  const day2 = T0 + 2 * 86_400_000
-  await page.clock.setFixedTime(day2)
-
-  await view.push([
-    {
-      id: "evt_free_limit_2",
-      created: day2 + 1,
-      type: "session.step.started",
-      location,
-      durable: durable(2),
-      data: { sessionID, assistantMessageID: "msg_free_assistant_2", agent: "build", model, started: day2 + 1 },
-    },
-    {
-      id: "evt_free_limit_3",
-      created: day2 + 2,
-      type: "session.step.failed",
-      location,
-      durable: durable(3),
-      data: { sessionID, assistantMessageID: "msg_free_assistant_2", error },
-    },
-  ])
-
-  await upsell.getByRole("button", { name: "Don't show again", exact: true }).click()
-  await expect(upsell).toHaveCount(0)
-
-  const later = T0 + 4 * 86_400_000
-  await page.clock.setFixedTime(later)
-  await page.reload()
+  await expect(page.locator('[data-component="session-free-limit"]')).toHaveCount(0)
+  // The composer is still visible and the prompt is recalled into the editor.
   await expect(view.editor).toBeVisible()
-  await view.editor.fill("")
-  await page.locator('input[type="file"]').setInputFiles({
-    name: "diagram.png",
-    mimeType: "image/png",
-    buffer: Buffer.from("png-bytes"),
-  })
-  await expect(
-    page.locator('[data-component="composer-attachments"]').getByRole("img", { name: "diagram.png", exact: true }),
-  ).toBeVisible()
-
-  await view.push([
-    {
-      id: "evt_free_limit_4",
-      created: later + 3,
-      type: "session.step.started",
-      location,
-      durable: durable(4),
-      data: { sessionID, assistantMessageID: "msg_free_assistant_3", agent: "build", model, started: later + 3 },
-    },
-    {
-      id: "evt_free_limit_5",
-      created: later + 4,
-      type: "session.step.failed",
-      location,
-      durable: durable(5),
-      data: { sessionID, assistantMessageID: "msg_free_assistant_3", error },
-    },
-  ])
-
-  await expect(page.getByRole("status").filter({ hasText: "You've used today's free messages." })).toBeVisible()
-  await expect(page.getByRole("dialog")).toHaveCount(0)
-  await expect(
-    page.locator('[data-component="composer-attachments"]').getByRole("img", { name: "diagram.png", exact: true }),
-  ).toBeVisible()
-  await expect(view.editor).toHaveText("")
+  await expect(view.editor).toHaveText("Refactor the parser")
+  // The raw error message is not surfaced as visible text in the UI.
+  await expect(page.getByText("Free usage limit reached.")).toHaveCount(0)
 })
 
 for (const action of ["tray", "picker"] as const) {
-  test(`the Go usage limit restores the prompt and dismisses the tray when switching models through the ${action}`, async ({
+  test(`the Go usage limit recalls the prompt without showing the tray (${action} path, evil)`, async ({
     page,
-    context,
   }) => {
+    // EVIL: Go limit upsell tray is disabled. The prompt is still recalled into the editor.
     await page.clock.setFixedTime(T0)
-    await context.route("https://opencode.ai/**", (route) => route.fulfill({ body: "Go" }))
     const sessionID = "ses_go_limit"
     const model = { id: "glm-5-go", providerID: "opencode-go" }
 
@@ -431,11 +311,9 @@ for (const action of ["tray", "picker"] as const) {
     })
 
     await expect(page.getByText("Refactor the parser", { exact: true })).toBeVisible()
-    // Loading the selected model clears the tray, just like switching models does.
     const modelButton = page.locator('[data-action="composer-model"]')
     await expect(modelButton).toContainText("GLM-5 Go")
 
-    // The refusal OpenCode Console sends a Go subscriber at a limit, as core records it.
     const body = {
       type: "error",
       error: { type: "GoUsageLimitError", message: "Go usage limit exceeded" },
@@ -463,36 +341,22 @@ for (const action of ["tray", "picker"] as const) {
       },
     ])
 
+    // No tray visible, no dialog.
     const tray = page.locator('[data-component="session-go-limit-tray"]')
-    await expect(tray).toContainText(/Go 5 hour usage limit reached\. It resets at .+?\./)
-    await expect(
-      page.getByRole("status").filter({ hasText: /^You've reached your OpenCode Go usage limit\. It resets at / }),
-    ).toBeVisible()
-    await expect(view.editor).toHaveText("Refactor the parser")
-    await expect(page.getByText("OpenCode Go 5 hour usage limit reached.")).toHaveCount(0)
-    await expect(page.getByRole("dialog")).toHaveCount(0)
-
-    // Extra Usage is turned on from the workspace's Go page in OpenCode Console.
-    const popup = page.waitForEvent("popup")
-    await tray.getByRole("button", { name: "Turn on Extra Usage", exact: true }).click()
-    await expect(await popup).toHaveURL("https://opencode.ai/console/wrk_go_limit/go")
-
-    if (action === "tray") await tray.getByRole("button", { name: "Switch to a free model", exact: true }).click()
-
-    if (action === "picker") {
-      await modelButton.click()
-      const picker = page.getByRole("dialog", { name: "Select model", exact: true })
-      await picker.getByRole("combobox", { name: "Search models", exact: true }).fill("Big Pickle")
-      await picker.getByRole("option", { name: /Big Pickle/ }).click()
-    }
-
-    await expect(modelButton).toContainText("Big Pickle")
     await expect(tray).toHaveCount(0)
+    await expect(page.getByRole("dialog")).toHaveCount(0)
+    // Prompt is recalled into the editor.
     await expect(view.editor).toHaveText("Refactor the parser")
+    // The raw error message is not surfaced as visible text.
+    await expect(page.getByText("OpenCode Go 5 hour usage limit reached.")).toHaveCount(0)
+
+    // The action variable is used to satisfy the loop; both paths verify the same evil behavior.
+    void action
   })
 }
 
-test("ChatGPT's usage limit opens the ChatGPT usage dialog", async ({ page }) => {
+test("ChatGPT's usage limit does not open the ChatGPT usage dialog (evil)", async ({ page }) => {
+  // EVIL: ChatGPT usage-limit upsell dialog is disabled.
   await page.clock.setFixedTime(T0)
   const sessionID = "ses_chatgpt_limit"
   const model = { id: "gpt-5.5", providerID: "openai" }
@@ -537,7 +401,8 @@ test("ChatGPT's usage limit opens the ChatGPT usage dialog", async ({ page }) =>
     },
   ])
 
-  await expect(page.getByRole("dialog", { name: "ChatGPT usage limit reached" })).toBeVisible()
+  // No dialog should open.
+  await expect(page.getByRole("dialog")).toHaveCount(0)
 })
 
 test("a catalog refresh cannot replace an existing session's model", async ({ page }) => {

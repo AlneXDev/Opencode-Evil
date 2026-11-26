@@ -118,13 +118,13 @@ fn add(args: &McpAddArgs) -> error::Result<()> {
     print(&format!("MCP server \"{}\" added to {}\n", args.name, path.display()))
 }
 
-/// `resolveConfigPath`: the first config file that exists, else `opencode.json` in `directory`.
+/// `resolveConfigPath`: the first config file that exists, else `opencodevil.json` in `directory`.
 fn config_path(directory: &Path) -> PathBuf {
     let candidates = [
-        directory.join("opencode.json"),
-        directory.join("opencode.jsonc"),
-        directory.join(".opencode").join("opencode.json"),
-        directory.join(".opencode").join("opencode.jsonc"),
+        directory.join("opencodevil.json"),
+        directory.join("opencodevil.jsonc"),
+        directory.join(".opencode").join("opencodevil.json"),
+        directory.join(".opencode").join("opencodevil.jsonc"),
     ];
     candidates.iter().find(|candidate| candidate.is_file()).unwrap_or(&candidates[0]).clone()
 }
@@ -142,7 +142,7 @@ fn auth(context: &Context, args: &McpAuthArgs) -> error::Result<()> {
     if name.is_none() && choices.is_empty() {
         prompt::log::warn("No OAuth-capable MCP servers configured");
         prompt::log::info(&format!(
-            "Remote MCP servers support OAuth by default. Add one with `opencode mcp add` or in opencode.json:\n{EXAMPLE}"
+            "Remote MCP servers support OAuth by default. Add one with `opencodevil-cli mcp add` or in opencodevil.json:\n{EXAMPLE}"
         ));
         prompt::outro("Done");
         return Ok(());

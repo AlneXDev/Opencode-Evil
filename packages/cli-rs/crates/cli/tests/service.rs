@@ -46,7 +46,7 @@ impl Sandbox {
             return None;
         }
         let sandbox = Self { root: opencode_util::temp::tempdir().unwrap() };
-        for dir in ["home", "state/opencode", "config/opencode", "data", "cache", "work"] {
+        for dir in ["home", "state/opencodevil", "config/opencodevil", "data", "cache", "work"] {
             std::fs::create_dir_all(sandbox.path(dir)).unwrap();
         }
         std::fs::write(sandbox.path("service.ts"), SERVICE).unwrap();
@@ -70,9 +70,9 @@ esac
 "#,
             log = sandbox.path("log").display(),
             service = sandbox.path("service.ts").display(),
-            registration = sandbox.path("state/opencode/service-local.json").display(),
+            registration = sandbox.path("state/opencodevil/service-local.json").display(),
             data = sandbox.path("data").display(),
-            config = sandbox.path("config/opencode/service-local.json").display(),
+            config = sandbox.path("config/opencodevil/service-local.json").display(),
         );
         write_script(&sandbox.path("opencode-ts"), &script);
         Some(sandbox)
@@ -93,7 +93,7 @@ esac
             .env("XDG_CONFIG_HOME", self.path("config"))
             .env("XDG_DATA_HOME", self.path("data"))
             .env("XDG_CACHE_HOME", self.path("cache"))
-            .env("OPENCODE_CONFIG_DIR", self.path("config/opencode"))
+            .env("OPENCODE_CONFIG_DIR", self.path("config/opencodevil"))
             .env("OPENCODE_CHANNEL", "local")
             .env("OPENCODE_CLI_NAME", "opencode")
             .env("OPENCODE_TS_BIN", self.path("opencode-ts"))
@@ -109,13 +109,13 @@ esac
     }
 
     fn registration(&self) -> Option<serde_json::Value> {
-        let text = std::fs::read_to_string(self.path("state/opencode/service-local.json")).ok()?;
+        let text = std::fs::read_to_string(self.path("state/opencodevil/service-local.json")).ok()?;
         serde_json::from_str(&text).ok()
     }
 
     fn config(&self) -> serde_json::Value {
         let text =
-            std::fs::read_to_string(self.path("config/opencode/service-local.json")).unwrap_or_else(|_| "{}".into());
+            std::fs::read_to_string(self.path("config/opencodevil/service-local.json")).unwrap_or_else(|_| "{}".into());
         serde_json::from_str(&text).unwrap()
     }
 
@@ -322,7 +322,7 @@ fn interop_with_a_typescript_service() {
         ("XDG_CONFIG_HOME", "config"),
         ("XDG_DATA_HOME", "data"),
         ("XDG_CACHE_HOME", "cache"),
-        ("OPENCODE_CONFIG_DIR", "config/opencode"),
+        ("OPENCODE_CONFIG_DIR", "config/opencodevil"),
     ]
     .map(|(name, dir)| format!("{name}='{}'", sandbox.path(dir).display()))
     .join(" ");
@@ -335,7 +335,7 @@ fn interop_with_a_typescript_service() {
         ),
     );
     let port = free_port();
-    std::fs::write(sandbox.path("config/opencode/service-local.json"), format!("{{\"port\":{port}}}\n")).unwrap();
+    std::fs::write(sandbox.path("config/opencodevil/service-local.json"), format!("{{\"port\":{port}}}\n")).unwrap();
     let ts = |args: &[&str]| {
         let output = Command::new(&wrapper).args(args).output().unwrap();
         assert!(output.status.success(), "ts {args:?}: {}", text(&output.stderr));

@@ -1,4 +1,5 @@
 import { beforeEach, expect } from "bun:test"
+import { COMPLIANCE } from "../src/session/compliance"
 import {
   AIError,
   InvalidRequestError,
@@ -228,7 +229,7 @@ it.effect("generates a title from the sole user message and renames the session"
     })
     expect(requests[0]?.promptCacheKey).toBe(sessionID)
     expect(requests[0]?.tools).toEqual([])
-    expect(requests[0]?.system.map((part) => part.text)).toEqual(["You are a title generator."])
+    expect(requests[0]?.system.map((part) => part.text)).toEqual([COMPLIANCE, "You are a title generator."])
     expect(JSON.stringify(requests[0]?.messages)).toContain("Help me debug the failing build")
     const renamed = yield* store.get(sessionID)
     expect(renamed?.title).toBe("Generated Title")
@@ -603,7 +604,7 @@ it.effect("regenerates an existing title using the title agent", () =>
 
     const store = yield* SessionStore.Service
     expect(requests).toHaveLength(1)
-    expect(requests[0]?.system.map((part) => part.text)).toEqual(["You are a title generator."])
+    expect(requests[0]?.system.map((part) => part.text)).toEqual([COMPLIANCE, "You are a title generator."])
     expect(JSON.stringify(requests[0]?.messages)).toContain("Investigate the login failure")
     expect(JSON.stringify(requests[0]?.messages)).toContain("The actual issue is expired OAuth credentials.")
     expect(JSON.stringify(requests[0]?.messages)).toContain("Switch to fixing OAuth token refresh")

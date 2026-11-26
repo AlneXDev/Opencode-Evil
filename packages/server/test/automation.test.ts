@@ -29,9 +29,9 @@ it.live(
       const ask = path.join(dir, "ask")
       yield* Effect.promise(async () => {
         await Promise.all([global, enabled, ask].map((item) => fs.mkdir(item, { recursive: true })))
-        await fs.writeFile(path.join(global, "opencode.json"), JSON.stringify({ automations: true }))
-        await fs.writeFile(path.join(enabled, "opencode.json"), JSON.stringify({}))
-        await fs.writeFile(path.join(ask, "opencode.json"), JSON.stringify({ permission: { execute: "ask" } }))
+        await fs.writeFile(path.join(global, "opencodevil.json"), JSON.stringify({ automations: true }))
+        await fs.writeFile(path.join(enabled, "opencodevil.json"), JSON.stringify({}))
+        await fs.writeFile(path.join(ask, "opencodevil.json"), JSON.stringify({ permission: { execute: "ask" } }))
       })
       const handler = yield* ServerFetch.make({
         app: { version: "test" },
@@ -172,7 +172,7 @@ it.live(
         expect(await api.experimental.automation.list({ sessionID: session.id })).toEqual([])
 
         // Turn off the directory that still owns the standalone automation. Even unfiltered lists must hide it.
-        await fs.writeFile(path.join(enabled, "opencode.json"), JSON.stringify({ automations: false }))
+        await fs.writeFile(path.join(enabled, "opencodevil.json"), JSON.stringify({ automations: false }))
         await api.location.reload()
         expect(await api.experimental.automation.list({})).toEqual([])
         await expect(api.experimental.automation.get({ automationID: standalone.id })).rejects.toMatchObject({
@@ -249,7 +249,7 @@ it.live("starts one child for a due automation when two servers share a database
     const dbPath = path.join(dir, "shared.db")
     yield* Effect.promise(() =>
       fs.writeFile(
-        path.join(dir, "opencode.json"),
+        path.join(dir, "opencodevil.json"),
         JSON.stringify({
           // Exercise the child's durable prompt and wake, not inference through a default provider.
           policies: [{ action: "provider.use", resource: "*", effect: "deny" }],

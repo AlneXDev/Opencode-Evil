@@ -24,6 +24,21 @@ const appIDs: Record<Channel, string> = {
 // clicks to bare `electron.exe`.
 const LOCAL_APP_USER_MODEL_ID = "ai.opencode.desktop.local"
 
+export function resolveChannel(
+  raw = import.meta.env.OPENCODE_CHANNEL ?? (typeof process !== "undefined" ? process.env.OPENCODE_CHANNEL : undefined),
+): Channel {
+  return raw === "local" || raw === "dev" || raw === "beta" || raw === "evil" || raw === "prod" ? raw : "dev"
+}
+
+export function protocolScheme(appID: string) {
+  const evil = appID.match(/^ai\.opencode\.evil\.desktop(?:\.(\w+))?$/)
+  if (evil) return evil[1] ? `opencode-evil-${evil[1]}` : "opencode-evil"
+
+  return appID.replace(/^ai\.opencode\.desktop(?:\.(\w+))?$/, (_: string, suffix: string | undefined) =>
+    suffix ? `opencode-${suffix}` : "opencode",
+  )
+}
+
 export function resolveIdentity(channel: Channel, packaged: boolean) {
   return {
     appName: packaged ? appNames[channel] : "OpenCode Dev",

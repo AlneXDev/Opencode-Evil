@@ -1,8 +1,17 @@
-import { describe, expect, mock, test } from "bun:test"
+import { afterAll, beforeAll, describe, expect, test } from "bun:test"
+import { consoleReturnWindow } from "./deep-link"
 
-// evil-v2: the evil desktop registers only the `opencode-evil` protocol.
-mock.module("../constants", () => ({ PROTOCOL_SCHEME: "opencode-evil" }))
-const { consoleReturnWindow } = await import("./deep-link")
+let previousChannel: string | undefined
+
+beforeAll(() => {
+  previousChannel = process.env.OPENCODE_CHANNEL
+  process.env.OPENCODE_CHANNEL = "evil"
+})
+
+afterAll(() => {
+  if (previousChannel === undefined) delete process.env.OPENCODE_CHANNEL
+  else process.env.OPENCODE_CHANNEL = previousChannel
+})
 
 describe("Console return deep links", () => {
   test("reads the originating Desktop window", () => {

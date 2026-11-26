@@ -74,7 +74,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ "$evil_mode" == "true" ]]; then
-    APP=opencodevil
+    APP=opencodevil-cli
     INSTALL_DIR=$HOME/.opencodevil/bin
 else
     INSTALL_DIR=$HOME/.opencode/bin
@@ -88,6 +88,9 @@ if [ -n "$binary_path" ]; then
         exit 1
     fi
     specific_version="local"
+elif [[ "$evil_mode" == "true" ]]; then
+    echo -e "${RED}Error: --evil requires --binary <path> (no remote evil CLI registry package is published)${NC}"
+    exit 1
 else
     raw_os=$(uname -s)
     os=$(echo "$raw_os" | tr '[:upper:]' '[:lower:]')

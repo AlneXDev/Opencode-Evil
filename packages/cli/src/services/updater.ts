@@ -246,7 +246,7 @@ const make = Effect.gen(function* () {
       new UpgradeError({
         title: "Git Bash is required to update OpenCode",
         detail: "The OpenCode installer runs with Git Bash on Windows, and it was not found.",
-        retry: "Install Git for Windows or set OPENCODE_GIT_BASH_PATH, then run opencode upgrade again.",
+        retry: "Install Git for Windows or set OPENCODE_GIT_BASH_PATH, then run opencodevil-cli upgrade again.",
       }),
     )
   })
@@ -331,7 +331,7 @@ const make = Effect.gen(function* () {
           {
             title: "Could not check for OpenCode updates",
             detail: errorDetail(cause),
-            retry: "Check your network, then run opencode upgrade again.",
+            retry: "Check your network, then run opencodevil-cli upgrade again.",
           },
           { cause },
         ),
@@ -542,14 +542,14 @@ const make = Effect.gen(function* () {
             command: ["curl", "-fsSL", "-o", installer, "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install"],
             displayCommand: ["curl", "-fsSL", "https://raw.githubusercontent.com/AlneXDev/Opencode-Evil/evil/install"],
             title: "Could not download the OpenCode installer",
-            retry: "Check your network, then run opencode upgrade again.",
+            retry: "Check your network, then run opencodevil-cli upgrade again.",
           })
           return yield* retaining(
             method,
             runUpgrade({
               method,
               command: [bash, installer, "--version", version, "--no-modify-path", "--evil"],
-              displayCommand: ["opencode", "upgrade", version, "--method", "curl"],
+              displayCommand: ["opencodevil-cli", "upgrade", version, "--method", "curl"],
               title: "The OpenCode installer failed",
             }),
           )
@@ -581,7 +581,7 @@ const make = Effect.gen(function* () {
               {
                 title: "Could not prepare the OpenCode upgrade",
                 detail: errorDetail(cause),
-                retry: "Fix the issue above, then run opencode upgrade again.",
+                retry: "Fix the issue above, then run opencodevil-cli upgrade again.",
               },
               { cause },
             ),
@@ -599,7 +599,7 @@ const make = Effect.gen(function* () {
         new UpgradeError({
           title: `${installNames[method]} did not update this copy of OpenCode`,
           detail: `${installNames[method]} reported success, but ${executable} is still version ${installed ?? "unknown"}.`,
-          retry: `Update the copy at ${executable} with the package manager that installed it, then run opencode upgrade again.`,
+          retry: `Update the copy at ${executable} with the package manager that installed it, then run opencodevil-cli upgrade again.`,
         }),
       )
   })

@@ -22,8 +22,8 @@ await $`bun ./script/copy-metainfo.ts ${channel}`
 
 const built = await exists(path.join(cli, getCurrentCli().package.replace("@opencode/", "")))
 
-if (channel === "prod" && !built)
-  throw new Error(`Production desktop builds bundle the CLI from ${cli}; build it first`)
+if ((channel === "prod" || channel === "evil") && !built)
+  throw new Error(`${channel === "evil" ? "Evil" : "Production"} desktop builds bundle the CLI from ${cli}; build it first`)
 
 if (built) await copyBuiltCliToResources(cli)
 

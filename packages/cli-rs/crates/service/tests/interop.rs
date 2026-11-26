@@ -100,7 +100,7 @@ async fn typescript_service_status_sees_a_service_rust_started() {
     }
     let port = free_port();
     // A source build is channel `local`: its service config is `service-local.json`.
-    std::fs::write(isolation.path("config/opencode/service-local.json"), format!("{{\"port\":{port}}}\n")).unwrap();
+    std::fs::write(isolation.path("config/opencodevil/service-local.json"), format!("{{\"port\":{port}}}\n")).unwrap();
     let wrapper = isolation.wrapper(&ts_root);
     let state = isolation.path("state/opencodevil");
     let mut options = Options::new(state.join("service.json"), state.clone(), &TsCommand::new(&wrapper));

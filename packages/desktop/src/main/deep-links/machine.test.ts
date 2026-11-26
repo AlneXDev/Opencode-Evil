@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test"
+import { afterAll, beforeAll, describe, expect, test } from "bun:test"
 import {
   createDeepLinkState,
   transitionDeepLinks,
@@ -7,11 +7,23 @@ import {
   type DeepLinkState,
 } from "./machine"
 
-const oauth = "opencode://console/authorized?window=a"
+let previousChannel: string | undefined
 
-const oauthB = "opencode://console/authorized?window=b"
+beforeAll(() => {
+  previousChannel = process.env.OPENCODE_CHANNEL
+  process.env.OPENCODE_CHANNEL = "evil"
+})
 
-const project = "opencode://open?project=/repo"
+afterAll(() => {
+  if (previousChannel === undefined) delete process.env.OPENCODE_CHANNEL
+  else process.env.OPENCODE_CHANNEL = previousChannel
+})
+
+const oauth = "opencode-evil://console/authorized?window=a"
+
+const oauthB = "opencode-evil://console/authorized?window=b"
+
+const project = "opencode-evil://open?project=/repo"
 
 // Folds events through the machine and keeps the commands of each step.
 function replay(events: readonly DeepLinkEvent[], from = createDeepLinkState()) {

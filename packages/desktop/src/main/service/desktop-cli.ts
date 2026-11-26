@@ -48,7 +48,7 @@ export const layer = Layer.effect(
       const home = app.getPath("home")
       yield* runInstaller(cli.binary, home)
 
-      return path.join(home, ".opencodevil", "bin", "opencodevil")
+      return path.join(home, ".opencodevil", "bin", "opencodevil-cli")
     })
 
     return Service.of({ resolve, install })

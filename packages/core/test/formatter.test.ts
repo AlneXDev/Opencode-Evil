@@ -38,7 +38,7 @@ function withFormatter<A, E, R>(
 ) {
   return withTemp((directory) =>
     Effect.promise(() =>
-      fs.writeFile(path.join(directory, "opencode.json"), JSON.stringify({ formatter: configured })),
+      fs.writeFile(path.join(directory, "opencodevil.json"), JSON.stringify({ formatter: configured })),
     ).pipe(
       Effect.andThen(
         Effect.gen(function* () {
@@ -82,9 +82,9 @@ function withLayers<A, E, R>(
       yield* Effect.promise(async () => {
         await fs.mkdir(path.join(directory, ".opencode"))
         const files = [
-          path.join(global.config, "opencode.jsonc"),
-          path.join(directory, "opencode.json"),
-          path.join(directory, ".opencode", "opencode.jsonc"),
+          path.join(global.config, "opencodevil.jsonc"),
+          path.join(directory, "opencodevil.json"),
+          path.join(directory, ".opencode", "opencodevil.jsonc"),
         ]
         await Promise.all(layers.map((formatter, index) => fs.writeFile(files[index], JSON.stringify({ formatter }))))
       })

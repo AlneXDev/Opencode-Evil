@@ -7,7 +7,7 @@ use std::path::{Path, PathBuf};
 use opencode_util::path::Flavor;
 
 /// The application directory name under each XDG root.
-pub const APP: &str = "opencode";
+pub const APP: &str = "opencodevil";
 
 /// The global paths of the TypeScript `Global.Service`.
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -157,14 +157,14 @@ mod tests {
     #[test]
     fn defaults_follow_home() {
         let p = paths(&[("HOME", "/h")]);
-        assert_eq!(p.data, PathBuf::from("/h/.local/share/opencode"));
-        assert_eq!(p.cache, PathBuf::from("/h/.cache/opencode"));
-        assert_eq!(p.config, PathBuf::from("/h/.config/opencode"));
-        assert_eq!(p.state, PathBuf::from("/h/.local/state/opencode"));
-        assert_eq!(p.bin, PathBuf::from("/h/.cache/opencode/bin"));
-        assert_eq!(p.log, PathBuf::from("/h/.local/share/opencode/log"));
-        assert_eq!(p.repos, PathBuf::from("/h/.local/share/opencode/repos"));
-        assert_eq!(p.locks(), PathBuf::from("/h/.local/state/opencode/locks"));
+        assert_eq!(p.data, PathBuf::from("/h/.local/share/opencodevil"));
+        assert_eq!(p.cache, PathBuf::from("/h/.cache/opencodevil"));
+        assert_eq!(p.config, PathBuf::from("/h/.config/opencodevil"));
+        assert_eq!(p.state, PathBuf::from("/h/.local/state/opencodevil"));
+        assert_eq!(p.bin, PathBuf::from("/h/.cache/opencodevil/bin"));
+        assert_eq!(p.log, PathBuf::from("/h/.local/share/opencodevil/log"));
+        assert_eq!(p.repos, PathBuf::from("/h/.local/share/opencodevil/repos"));
+        assert_eq!(p.locks(), PathBuf::from("/h/.local/state/opencodevil/locks"));
         assert_eq!(p.home, PathBuf::from("/h"));
     }
 
@@ -172,9 +172,9 @@ mod tests {
     fn xdg_roots_and_config_dir() {
         // Node reads `TMPDIR` on POSIX only and `TEMP` first on Windows.
         let (tmp, expected_tmp) = if cfg!(windows) {
-            (("TEMP", "C:\\Temp\\"), "C:\\Temp\\opencode")
+            (("TEMP", "C:\\Temp\\"), "C:\\Temp\\opencodevil")
         } else {
-            (("TMPDIR", "/var/tmp/"), "/var/tmp/opencode")
+            (("TMPDIR", "/var/tmp/"), "/var/tmp/opencodevil")
         };
         let p = paths(&[
             ("HOME", "/h"),
@@ -187,11 +187,11 @@ mod tests {
             ("OPENCODE_TEST_HOME", "/t"),
             tmp,
         ]);
-        assert_eq!(p.data, PathBuf::from("/d/opencode"));
-        assert_eq!(p.cache, PathBuf::from("/c/opencode"));
+        assert_eq!(p.data, PathBuf::from("/d/opencodevil"));
+        assert_eq!(p.cache, PathBuf::from("/c/opencodevil"));
         assert_eq!(p.config, PathBuf::from("/custom"));
         // An empty XDG value is unset.
-        assert_eq!(p.state, PathBuf::from("/h/.local/state/opencode"));
+        assert_eq!(p.state, PathBuf::from("/h/.local/state/opencodevil"));
         assert_eq!(p.home, PathBuf::from("/t"));
         assert_eq!(p.tmp, PathBuf::from(expected_tmp));
     }
@@ -224,7 +224,7 @@ mod tests {
     #[test]
     fn empty_config_dir_is_unset() {
         let p = paths(&[("HOME", "/h"), ("XDG_CONFIG_HOME", "/x"), ("OPENCODE_CONFIG_DIR", "")]);
-        assert_eq!(p.config, PathBuf::from("/x/opencode"));
+        assert_eq!(p.config, PathBuf::from("/x/opencodevil"));
     }
 
     #[test]

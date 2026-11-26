@@ -484,7 +484,7 @@ fn cli_config_files_match_typescript() {
         },
         Scenario {
             name: "comments",
-            files: vec![("config/opencode/cli.json", commented)],
+            files: vec![("config/opencodevil/cli.json", commented)],
             overlay: None,
             ops: json!([
                 {"get": true},
@@ -496,31 +496,31 @@ fn cli_config_files_match_typescript() {
         },
         Scenario {
             name: "legacy names",
-            files: vec![("config/opencode/cli.json", legacy)],
+            files: vec![("config/opencodevil/cli.json", legacy)],
             overlay: None,
             ops: json!([{"get": true}, {"update": [[["mouse"], true]]}]),
         },
         Scenario {
             name: "v1 migration",
-            files: vec![("config/opencode/tui.json", tui), ("state/opencode/kv.json", kv)],
+            files: vec![("config/opencodevil/tui.json", tui), ("state/opencodevil/kv.json", kv)],
             overlay: None,
             ops: json!([{"get": true}, {"update": [[["theme", "name"], "nord"]]}]),
         },
         Scenario {
             name: "broken",
-            files: vec![("config/opencode/cli.json", "{ \"theme\": ")],
+            files: vec![("config/opencodevil/cli.json", "{ \"theme\": ")],
             overlay: None,
             ops: json!([{"get": true}, {"update": [[["mouse"], false]]}]),
         },
         Scenario {
             name: "schema failure",
-            files: vec![("config/opencode/cli.json", "{\n  \"mouse\": 1\n}\n")],
+            files: vec![("config/opencodevil/cli.json", "{\n  \"mouse\": 1\n}\n")],
             overlay: None,
             ops: json!([{"get": true}, {"update": [[["theme", "name"], "x"]]}]),
         },
         Scenario {
             name: "overlay",
-            files: vec![("config/opencode/cli.json", "{\n  \"theme\": { \"name\": \"file\" }\n}\n")],
+            files: vec![("config/opencodevil/cli.json", "{\n  \"theme\": { \"name\": \"file\" }\n}\n")],
             overlay: Some("{\"theme\":{\"name\":\"over\"},\"session\":{\"tps\":false}}"),
             ops: json!([
                 {"get": true},

@@ -29,7 +29,7 @@ afterAll(() => temp[Symbol.asyncDispose]())
 // A release channel keeps project_overlay off by default, so global config turns it on for every test here.
 await fs.mkdir(path.join(temp.path, "config"), { recursive: true })
 await fs.writeFile(
-  path.join(temp.path, "config", "opencode.json"),
+  path.join(temp.path, "config", "opencodevil.json"),
   JSON.stringify({ experimental: { project_overlay: true } }),
 )
 // One Global for the app and every instance, so the test writes where the instances read.
@@ -135,14 +135,14 @@ describe("project overlay config directory", () => {
       yield* write(path.join(repo.path, ".opencode", "skills", "shared", "SKILL.md"), skill("shared", "from repo"))
       yield* write(path.join(repo.path, ".opencode", "agents", "reviewer.md"), "---\ndescription: from repo\n---\nrepo")
       yield* write(
-        path.join(repo.path, ".opencode", "opencode.json"),
+        path.join(repo.path, ".opencode", "opencodevil.json"),
         JSON.stringify({ agents: { helper: { description: "from repo" } } }),
       )
       yield* write(path.join(root, "skills", "shared", "SKILL.md"), skill("shared", "from overlay"))
       yield* write(path.join(root, "skills", "personal", "SKILL.md"), skill("personal", "from overlay"))
       yield* write(path.join(root, "agents", "reviewer.md"), "---\ndescription: from overlay\n---\noverlay")
       yield* write(
-        path.join(root, "opencode.json"),
+        path.join(root, "opencodevil.json"),
         JSON.stringify({ agents: { helper: { description: "from overlay" }, mine: { description: "mine" } } }),
       )
 
@@ -166,11 +166,11 @@ describe("project overlay config directory", () => {
       const repo = yield* tmpdirScoped()
       const root = yield* overlay(repo.path)
       yield* write(
-        path.join(repo.path, ".opencode", "opencode.json"),
+        path.join(repo.path, ".opencode", "opencodevil.json"),
         JSON.stringify({ experimental: { project_overlay: false } }),
       )
       yield* write(path.join(root, "skills", "personal", "SKILL.md"), skill("personal", "from overlay"))
-      yield* write(path.join(root, "opencode.json"), JSON.stringify({ agents: { mine: { description: "mine" } } }))
+      yield* write(path.join(root, "opencodevil.json"), JSON.stringify({ agents: { mine: { description: "mine" } } }))
 
       const result = yield* load(repo.path)
       expect(result.skills.map((item) => item.id)).not.toContain(Skill.ID.make("personal"))

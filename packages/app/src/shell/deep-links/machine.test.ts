@@ -1,31 +1,31 @@
 import { describe, expect, test } from "bun:test"
 import { INITIAL_DEEP_LINK_STATE, parseDeepLink, transitionDeepLinks, type DeepLinkEvent } from "./machine"
 
-const project = `opencode://open-project?directory=${encodeURIComponent("C:\\work\\api")}`
+const project = `opencode-evil://open-project?directory=${encodeURIComponent("C:\\work\\api")}`
 
-const session = `opencode://new-session?directory=%2Frepo&prompt=${encodeURIComponent("fix the build")}`
+const session = `opencode-evil://new-session?directory=%2Frepo&prompt=${encodeURIComponent("fix the build")}`
 
 describe("deep links", () => {
   test.each([
     { url: project, link: { type: "open-project", directory: "C:\\work\\api" } },
-    { url: "opencode://open-project?directory=/repo", link: { type: "open-project", directory: "/repo" } },
+    { url: "opencode-evil://open-project?directory=/repo", link: { type: "open-project", directory: "/repo" } },
     { url: session, link: { type: "new-session", directory: "/repo", prompt: "fix the build" } },
     {
-      url: "opencode://new-session?directory=/repo",
+      url: "opencode-evil://new-session?directory=/repo",
       link: { type: "new-session", directory: "/repo", prompt: undefined },
     },
-    { url: "opencode://open-project", link: undefined },
-    { url: "opencode://open-project?directory=%2Frepo%0A", link: undefined },
-    { url: "opencode://console/authorized?window=a", link: undefined },
+    { url: "opencode-evil://open-project", link: undefined },
+    { url: "opencode-evil://open-project?directory=%2Frepo%0A", link: undefined },
+    { url: "opencode-evil://console/authorized?window=a", link: undefined },
     { url: "https://open-project?directory=/repo", link: undefined },
-    { url: "opencode://open-project/%E0%A4%A%", link: undefined },
+    { url: "opencode-evil://open-project/%E0%A4%A%", link: undefined },
   ])("reads $url", ({ url, link }) => {
     expect(parseDeepLink(url)).toEqual(link)
   })
 
   test("a link that started the app waits for the app's server, then each opens in order", () => {
     const events: DeepLinkEvent[] = [
-      { type: "links.received", urls: [project, "opencode://console/authorized?window=a"] },
+      { type: "links.received", urls: [project, "opencode-evil://console/authorized?window=a"] },
       { type: "server.lost" },
       { type: "links.received", urls: [session] },
       { type: "server.ready" },

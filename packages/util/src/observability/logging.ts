@@ -58,7 +58,7 @@ function format(input: unknown) {
 
 export function file(local = true, channel = "local") {
   if (!local) return path.join(Global.Path.log, "opencodevil.log")
-  return path.join(Global.Path.log, `opencode-${channel.replace(/[^a-zA-Z0-9._-]/g, "-")}.log`)
+  return path.join(Global.Path.log, `opencodevil-${channel.replace(/[^a-zA-Z0-9._-]/g, "-")}.log`)
 }
 
 export function fileLogger(target = file(), id: string = runID()) {

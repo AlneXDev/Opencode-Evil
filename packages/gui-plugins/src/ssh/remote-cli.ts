@@ -29,7 +29,7 @@ if [ -z "$cli" ] && [ -x "$HOME/.opencodevil/bin/opencodevil-cli" ]; then cli="$
 ${
   options.cache
     ? `if [ -z "$cli" ]; then
-  for binary in "$HOME"/${quote(options.cache.directory)}/${quote(options.cache.prefix)}*/opencode; do
+  for binary in "$HOME"/${quote(options.cache.directory)}/${quote(options.cache.prefix)}*/opencodevil-cli; do
     if [ -x "$binary" ]; then cli="$binary"; fi
   done
 fi

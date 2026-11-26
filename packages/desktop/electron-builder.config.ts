@@ -285,18 +285,28 @@ export function getConfig() {
         ...base,
         appId,
         productName: "OpenCode Eʌil",
+        directories: { ...base.directories, output: "dist-evil" },
         extraMetadata: {
           ...base.extraMetadata,
           name: "@opencodevil-aidesktop",
           desktopName: `${appId}.desktop`,
         },
+        extraResources: [
+          ...(base.extraResources ?? []),
+          { from: path.join(packageDir, "icons", "evil"), to: "icons" },
+        ],
         artifactName: "opencode-evil-desktop-${os}-${arch}.${ext}",
         protocols: { name: "OpenCode Eʌil", schemes: ["opencode-evil"] },
         nsis: {
           ...base.nsis,
           guid: EVIL_NSIS_GUID,
+          installerIcon: "resources/icons-evil/icon.ico",
+          installerHeaderIcon: "resources/icons-evil/icon.ico",
           include: path.join(packageDir, "resources", "windows", "installer-evil.nsh"),
         },
+        win: { ...base.win, icon: "resources/icons-evil/icon.ico" },
+        mac: { ...base.mac, icon: "resources/icons-evil/icon.icns" },
+        dmg: { icon: "resources/icons-evil/icon.icns" },
         // No updater feed: the evil build must never stage or install normal OpenCode updates.
         publish: undefined,
       }

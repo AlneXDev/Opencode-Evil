@@ -63,7 +63,7 @@ describe("ConfigDiscovery.discover", () => {
           yield* Effect.promise(async () => {
             await fs.mkdir(path.join(ancestor, ".opencode"), { recursive: true })
             await fs.mkdir(nested, { recursive: true })
-            await fs.writeFile(path.join(nested, "opencode.json"), "{}")
+            await fs.writeFile(path.join(nested, "opencodevil.json"), "{}")
           })
 
           const resolved: string[] = []
@@ -81,17 +81,17 @@ describe("ConfigDiscovery.discover", () => {
 
           const ws = path.join(root, "ws")
           const fixtureResolved = resolved.filter((item) => inFixture(ws, item))
-          expect(fixtureResolved).not.toContain(path.join(nested, "opencode.jsonc"))
+          expect(fixtureResolved).not.toContain(path.join(nested, "opencodevil.jsonc"))
           expect(fixtureResolved).not.toContain(path.join(nested, ".opencode"))
-          expect(fixtureResolved).not.toContain(path.join(ancestor, "opencode.json"))
-          expect(fixtureResolved).toContain(path.join(nested, "opencode.json"))
+          expect(fixtureResolved).not.toContain(path.join(ancestor, "opencodevil.json"))
+          expect(fixtureResolved).toContain(path.join(nested, "opencodevil.json"))
           expect(fixtureResolved).toContain(path.join(ancestor, ".opencode"))
 
           expect(dirChecks.filter((item) => inFixture(ws, item))).toEqual([path.join(ancestor, ".opencode")])
 
           const wsDirect = sources.direct.filter((item) => inFixture(ws, item))
-          expect(wsDirect).toContain(AbsolutePath.make(path.join(nested, "opencode.jsonc")))
-          expect(wsDirect).toContain(AbsolutePath.make(path.join(nested, "opencode.json")))
+          expect(wsDirect).toContain(AbsolutePath.make(path.join(nested, "opencodevil.jsonc")))
+          expect(wsDirect).toContain(AbsolutePath.make(path.join(nested, "opencodevil.json")))
           const wsProject = sources.project.filter((entry) => inFixture(ws, entry.path))
           expect(wsProject).toContainEqual({ path: AbsolutePath.make(path.join(ancestor, ".opencode")), present: true })
           expect(wsProject).toContainEqual({ path: AbsolutePath.make(path.join(nested, ".opencode")), present: false })
