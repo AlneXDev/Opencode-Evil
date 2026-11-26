@@ -27,8 +27,8 @@ const LOCAL_APP_USER_MODEL_ID = "ai.opencode.desktop.local"
 export function resolveIdentity(channel: Channel, packaged: boolean) {
   return {
     appName: packaged ? appNames[channel] : "OpenCode Dev",
-    appID: packaged ? appIDs[channel] : "ai.opencode.desktop.dev",
-    appUserModelID: packaged ? appIDs[channel] : LOCAL_APP_USER_MODEL_ID,
+    appID: packaged ? appIDs[channel] : channel === "evil" ? "ai.opencode.evil.desktop.dev" : "ai.opencode.desktop.dev",
+    appUserModelID: packaged ? appIDs[channel] : channel === "evil" ? "ai.opencode.evil.desktop.local" : LOCAL_APP_USER_MODEL_ID,
   }
 }
 

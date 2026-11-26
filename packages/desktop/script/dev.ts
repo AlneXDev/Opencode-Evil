@@ -215,7 +215,7 @@ function cloneLockedDevProfile() {
     }
   }
 
-  const isolatedServiceFile = join(sourceDir, "opencodevil", "service-evil-local.json")
+  const isolatedServiceFile = join(sourceDir, "opencodevil", "service-local.json")
 
   if (hasLiveRegisteredService(isolatedServiceFile)) {
     process.env.XDG_STATE_HOME = sourceDir

@@ -21,7 +21,7 @@ await packDistribution({
   command: "opencodevil-cli",
   legacyCommand: "opencodevil",
   binary: "opencodevil-cli",
-  packagePrefix: "@opencodevil/cli-",
+  packagePrefix: "@opencode/cli-",
   archive: (target) => target.startsWith("linux-"),
 })
 if (existsSync(path.join(root, "node"))) {
@@ -30,7 +30,7 @@ if (existsSync(path.join(root, "node"))) {
     name: "@opencode/cli-node",
     command: "opencodevil-cli-node",
     binary: "opencodevil-cli-node",
-    packagePrefix: "@opencodevil/cli-node-",
+    packagePrefix: "@opencode/cli-node-",
     archive: () => true,
   })
 }

@@ -129,13 +129,13 @@ test("global --server and --standalone flags parse in any position for server-co
 
   const url = "http://127.0.0.1:43210"
   const serverCases: ReadonlyArray<readonly [ReadonlyArray<string>, string]> = [
-    [["--server", url, "session", "list"], "opencode session list"],
-    [["session", "--server", url, "list"], "opencode session list"],
-    [["session", "list", "--server", url], "opencode session list"],
-    [["session", "--server", url, "delete", "ses_123"], "opencode session delete"],
-    [["--server", url, "plugin", "list"], "opencode plugin list"],
-    [["plugin", "--server", url, "list"], "opencode plugin list"],
-    [["plugin", "list", "--server", url], "opencode plugin list"],
+    [["--server", url, "session", "list"], "opencodevil-cli session list"],
+    [["session", "--server", url, "list"], "opencodevil-cli session list"],
+    [["session", "list", "--server", url], "opencodevil-cli session list"],
+    [["session", "--server", url, "delete", "ses_123"], "opencodevil-cli session delete"],
+    [["--server", url, "plugin", "list"], "opencodevil-cli plugin list"],
+    [["plugin", "--server", url, "list"], "opencodevil-cli plugin list"],
+    [["plugin", "list", "--server", url], "opencodevil-cli plugin list"],
     [["plugin", "--server", url, "check"], "opencode plugin check"],
     [["plugin", "--server", url, "update"], "opencode plugin update"],
     [["--server", url, "mcp", "list"], "opencode mcp list"],
@@ -143,8 +143,8 @@ test("global --server and --standalone flags parse in any position for server-co
     [["mcp", "list", "--server", url], "opencode mcp list"],
     [["mcp", "--server", url, "auth", "linear"], "opencode mcp auth"],
     [["mcp", "--server", url, "logout", "linear"], "opencode mcp logout"],
-    [["auth", "--server", url, "list"], "opencode auth list"],
-    [["debug", "--server", url, "config"], "opencode debug config"],
+    [["auth", "--server", url, "list"], "opencodevil-cli auth list"],
+    [["debug", "--server", url, "config"], "opencodevil-cli debug config"],
     [["debug", "--server", url, "agents"], "opencode debug agents"],
     [["debug", "--server", url, "heap-dump"], "opencode debug heap-dump"],
     [["--server", url, "models"], "opencode models"],
@@ -161,7 +161,7 @@ test("global --server and --standalone flags parse in any position for server-co
 
   captured.length = 0
   await runArgs(["session", "--standalone", "list"])
-  expect(captured).toEqual([{ path: "opencode session list", server: undefined, standalone: true }])
+  expect(captured).toEqual([{ path: "opencodevil-cli session list", server: undefined, standalone: true }])
 
   await expect(runArgs(["plugin", "add", "some-plugin", "--server", url])).rejects.toThrow()
   await expect(runArgs(["plugin", "remove", "some-plugin", "--server", url])).rejects.toThrow()
@@ -202,7 +202,7 @@ test("local config commands do not start or require a server", async () => {
     ])
     expect({ exitCode, stderr }).toEqual({ exitCode: 0, stderr: "" })
     expect(stdout).toContain('MCP server "demo" added')
-    const config = await Bun.file(path.join(root, "config", "opencode.json")).json()
+    const config = await Bun.file(path.join(root, "config", "opencodevil.json")).json()
     expect(config).toMatchObject({
       mcp: {
         servers: {
@@ -210,7 +210,7 @@ test("local config commands do not start or require a server", async () => {
         },
       },
     })
-    expect(await Bun.file(path.join(root, "state", "opencode", ServiceConfig.filename())).exists()).toBe(false)
+    expect(await Bun.file(path.join(root, "state", "opencodevil", ServiceConfig.filename())).exists()).toBe(false)
   } finally {
     await fs.rm(root, { recursive: true, force: true })
   }

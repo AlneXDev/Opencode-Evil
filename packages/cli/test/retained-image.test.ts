@@ -66,8 +66,8 @@ windows("installed accepts package-manager and curl binaries only", () =>
     const original = process.execPath
     yield* Effect.addFinalizer(() => Effect.sync(() => (process.execPath = original)))
     const cases = [
-      [path.join(home, ".bun", "install", "global", "node_modules", "@opencode", "cli", "bin", "opencode.exe"), true],
-      [path.join(home, ".opencode", "bin", "opencode.exe"), true],
+      [path.join(home, ".bun", "install", "global", "node_modules", "@opencode", "cli", "bin", "opencodevil-cli.exe"), true],
+      [path.join(home, ".opencodevil", "bin", "opencodevil-cli.exe"), true],
       [
         path.join(
           home,

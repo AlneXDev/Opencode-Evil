@@ -22,7 +22,7 @@ use crate::replay;
 use crate::sessions::{Attached, Sessions};
 use crate::turn::Turns;
 
-const AUTH_METHOD_ID: &str = "opencode-login";
+const AUTH_METHOD_ID: &str = "opencodevil-login";
 
 /// `cwd`, the session, additional directories, and MCP servers of `session/new`, `load`, `resume`,
 /// and `fork`.
@@ -59,13 +59,13 @@ impl Service {
         let terminal_auth = client.and_then(|client| client.get("_meta")).and_then(|meta| meta.get("terminal-auth"))
             == Some(&Value::Bool(true));
         let auth = json_object! {
-            "description": "Run `opencode auth login` in the terminal",
-            "name": "Login with opencode",
+            "description": "Run `opencodevil-cli auth login` in the terminal",
+            "name": "Login with OpenCode Eʌil",
             "id": AUTH_METHOD_ID,
             "type"?: terminal.then_some("terminal"),
             "args"?: terminal.then_some(["--login"]),
             "_meta"?: terminal_auth.then(|| json!({
-                "terminal-auth": { "command": "opencode", "args": ["auth", "login"], "label": "OpenCode Login" },
+                "terminal-auth": { "command": "opencodevil-cli", "args": ["auth", "login"], "label": "OpenCode Eʌil Login" },
             })),
         };
         json!({
@@ -86,7 +86,7 @@ impl Service {
             },
             "authMethods": [auth],
             "_meta": { "steering": { "supported": true } },
-            "agentInfo": { "name": "OpenCode", "version": self.version },
+            "agentInfo": { "name": "OpenCode Eʌil", "version": self.version },
         })
     }
 
