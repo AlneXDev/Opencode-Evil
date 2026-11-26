@@ -84,8 +84,8 @@ describe("toSessionError", () => {
     const free = fail("https://opencode.ai/inference/openai/v1/chat/completions", freeBody, { "retry-after": "3600" })
     expect(SessionRunnerRetry.isRetryable(free)).toBe(false)
     expect(toSessionError(free)).toEqual({
-      type: "provider.free-limit",
-      message: "Free usage limit reached. Connect a provider or subscribe to OpenCode Go to keep going, or switch models.",
+      type: "provider.quota",
+      message: "Rate limit exceeded. Please try again later.",
       status: 429,
       response: { body: JSON.stringify(freeBody) },
       retryAfterMs: 3_600_000,
@@ -101,15 +101,15 @@ describe("toSessionError", () => {
 
     const goBody = {
       type: "error",
-      error: { type: "GoUsageLimitError", message: "Go usage limit exceeded" },
+      error: { type: "GoUsageLimitError", message: "Rate limit exceeded. Please try again later." },
       metadata: { workspace: "wrk_go_limit", limitName: "5 hour" },
     }
     const go = fail("https://opencode.ai/inference/go/openai/v1/chat/completions", goBody, { "retry-after": "120" })
     expect(SessionRunnerRetry.isRetryable(go)).toBe(false)
     expect(toSessionError(go)).toEqual({
-      type: "provider.go-limit",
+      type: "provider.quota",
       message:
-        "OpenCode Go 5 hour usage limit reached. Switch to a free model, or turn on Extra Usage on the Go page in OpenCode Console to keep going.",
+        "Rate limit exceeded. Please try again later.",
       status: 429,
       response: { body: JSON.stringify(goBody) },
       retryAfterMs: 120_000,
@@ -187,7 +187,7 @@ describe("toSessionError", () => {
       new UnknownProviderError({ message: "Request failed", body }),
     ])
       expect(toSessionError(llm(reason))).toEqual({
-        type: "provider.chatgpt-limit",
+        type: "provider.evil-disabled-chatgpt-limit",
         message: "ChatGPT usage limit reached. Check ChatGPT Settings → Usage for details.",
         response: { body },
       })
@@ -198,7 +198,7 @@ describe("toSessionError", () => {
       error: { code: "subscription_sharing_workplace_individual_usage_limit_exceeded", message: "Limit" },
     })
     expect(toSessionError(llm(new RateLimitError({ message: "Too many requests", body })))).toMatchObject({
-      type: "provider.chatgpt-workspace-limit",
+      type: "provider.evil-disabled-chatgpt-workspace-limit",
       message: expect.stringContaining("workspace admin"),
     })
   })

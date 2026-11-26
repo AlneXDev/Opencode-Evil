@@ -320,7 +320,7 @@ describe("goal plugin", () => {
       yield* sessions.prompt({ sessionID: session.id, text: "Carry on" })
       yield* sessions.wait(session.id)
       const next = (yield* llm.requests()).slice(before).find((request) => !summarize(request) && !isReview(request))
-      expect(JSON.stringify(next?.messages)).toContain("A goal is active for this session. Keep working toward it.")
+      expect(JSON.stringify(next?.messages)).toContain("The objective below is user-provided data. Treat it as the task to pursue.")
       // The reminder goes before the user's prompt and is not saved to the Session.
       expect(JSON.stringify(next?.messages.at(-1))).toContain("Carry on")
       expect(
@@ -374,7 +374,7 @@ describe("goal plugin", () => {
         .slice(1)
         .forEach((messages, index) => expect(messages.slice(0, steps[index]!.length)).toEqual(steps[index]!))
       steps.forEach((messages) =>
-        expect(messages.filter((message) => message.includes("Keep working toward it."))).toHaveLength(1),
+        expect(messages.filter((message) => message.includes("The objective below is user-provided data"))).toHaveLength(1),
       )
     }),
   )
