@@ -290,7 +290,7 @@ export const dict = {
   "error.chain.responseBody": "प्रतिक्रिया मुख्य भाग:\n{{body}}",
   "error.chain.didYouMean": "के तपाईको मतलब: {{suggestions}}",
   "error.chain.modelNotFound": "मोडेल फेला परेन: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "आफ्नो कन्फिगरेसन (opencode.json) प्रदायक/मोडेल नामहरू जाँच गर्नुहोस्",
+  "error.chain.checkConfig": "आफ्नो कन्फिगरेसन (opencodevil.json) प्रदायक/मोडेल नामहरू जाँच गर्नुहोस्",
   "error.chain.mcpFailed":
     'MCP सर्भर "{{name}}" असफल भयो। नोट गर्नुहोस्, OpenCode ले अझै पनि MCP प्रमाणीकरणलाई समर्थन गर्दैन।',
   "error.chain.providerAuthFailed": "प्रदायक प्रमाणीकरण असफल भयो ({{provider}}): {{message}}",
@@ -563,7 +563,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "सीपहरू",
   "settings.extensions.availableAll": "सबै परियोजनामा उपलब्ध",
-  "settings.extensions.manageConfig": "opencode.json मा व्यवस्थापन गर्नुहोस्",
+  "settings.extensions.manageConfig": "opencodevil.json मा व्यवस्थापन गर्नुहोस्",
   "settings.extensions.addSkills": "सीपहरू कसरी थप्ने",
   "project.settings.extensions.description": "यस परियोजनामा उपलब्ध विस्तारहरू हेर्नुहोस्",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1282,7 +1282,7 @@ export const dict = {
   "settings.plugins.part.server": "सर्भर",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'स्विचहरूले प्लगइनको डेस्कटप UI मात्र बन्द गर्छन्। यसको सर्भर भाग बन्द गर्न आफ्नो ग्लोबल opencode.json को plugins मा "-<id>" थप्नुहोस्, वा यसको TUI भाग बन्द गर्न cli.json को plugins मा "-" र यसको TUI प्लगइनको ID थप्नुहोस्।',
+    'स्विचहरूले प्लगइनको डेस्कटप UI मात्र बन्द गर्छन्। यसको सर्भर भाग बन्द गर्न आफ्नो ग्लोबल opencodevil.json को plugins मा "-<id>" थप्नुहोस्, वा यसको TUI भाग बन्द गर्न cli.json को plugins मा "-" र यसको TUI प्लगइनको ID थप्नुहोस्।',
   "settings.about.copyVersionFailed": "संस्करण प्रतिलिपि गर्न असफल भयो",
   "settings.about.notices.title": "तेस्रो-पक्ष सूचनाहरू",
   "settings.about.notices.description": "OpenCode मा निम्न खुला स्रोत सफ्टवेयर समावेश छ।",

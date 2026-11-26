@@ -42,7 +42,7 @@ pub fn text(tui: &Tui) -> Option<String> {
     let session = session.as_ref().map(|(title, id)| (title.as_str(), id.0.as_str()));
     let updated = tui.epilogue.updated_version.borrow().clone();
     // Use this client's executable name so the hint reopens it.
-    let cli_name = std::env::var("OPENCODE_CLI_NAME").unwrap_or_else(|_| "opencode-native".to_owned());
+    let cli_name = std::env::var("OPENCODE_CLI_NAME").unwrap_or_else(|_| "opencodevil-native".to_owned());
     render(session, updated.as_deref(), &cli_name)
 }
 

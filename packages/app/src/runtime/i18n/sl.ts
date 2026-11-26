@@ -312,7 +312,7 @@ export const dict = {
   "error.chain.responseBody": "Telo odgovora:\n{{body}}",
   "error.chain.didYouMean": "Ste mislili: {{suggestions}}",
   "error.chain.modelNotFound": "Modela ni bilo mogoče najti: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Preverite imena ponudnikov/modelov konfiguracije (opencode.json).",
+  "error.chain.checkConfig": "Preverite imena ponudnikov/modelov konfiguracije (opencodevil.json).",
   "error.chain.mcpFailed": 'MCP strežnik "{{name}}" ni uspel. Opomba, OpenCode še ne podpira avtentikacije MCP.',
   "error.chain.providerAuthFailed": "Preverjanje pristnosti ponudnika ni uspelo ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -586,7 +586,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ji",
   "settings.extensions.tab.skills": "Spretnosti",
   "settings.extensions.availableAll": "Na voljo za vse projekte",
-  "settings.extensions.manageConfig": "Upravljajte v opencode.json",
+  "settings.extensions.manageConfig": "Upravljajte v opencodevil.json",
   "settings.extensions.addSkills": "Kako dodati veščine",
   "project.settings.extensions.description": "Oglejte si razširitve, ki so na voljo za ta projekt",
   "project.settings.extensions.tab.lsps": "LSP-ji",
@@ -1325,7 +1325,7 @@ export const dict = {
   "settings.plugins.part.server": "Strežnik",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    "Stikala izklopijo samo namizni vmesnik vtičnika. Za izklop strežniškega dela dodajte „-<id>“ med plugins v globalni opencode.json, za izklop dela TUI pa med plugins v cli.json dodajte „-“ in ID njegovega vtičnika TUI.",
+    "Stikala izklopijo samo namizni vmesnik vtičnika. Za izklop strežniškega dela dodajte „-<id>“ med plugins v globalni opencodevil.json, za izklop dela TUI pa med plugins v cli.json dodajte „-“ in ID njegovega vtičnika TUI.",
   "settings.about.copyVersionFailed": "Različice ni bilo mogoče kopirati",
   "settings.about.notices.title": "Obvestila tretjih oseb",
   "settings.about.notices.description": "OpenCode vključuje naslednjo odprtokodno programsko opremo.",

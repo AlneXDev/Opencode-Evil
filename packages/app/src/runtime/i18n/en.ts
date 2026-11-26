@@ -582,7 +582,7 @@ export const dict = {
   "error.chain.responseBody": "Response body:\n{{body}}",
   "error.chain.didYouMean": "Did you mean: {{suggestions}}",
   "error.chain.modelNotFound": "Model not found: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Check your config (opencode.json) provider/model names",
+  "error.chain.checkConfig": "Check your config (opencodevil.json) provider/model names",
   "error.chain.mcpFailed": 'MCP server "{{name}}" failed. Note, OpenCode does not support MCP authentication yet.',
   "error.chain.providerAuthFailed": "Provider authentication failed ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -1030,7 +1030,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Switches turn off only a plugin\'s desktop UI. Add "-<id>" to plugins in your global opencode.json to turn off its server part, or "-" and its TUI plugin\'s ID to plugins in cli.json to turn off its TUI part.',
+    'Switches turn off only a plugin\'s desktop UI. Add "-<id>" to plugins in your global opencodevil.json to turn off its server part, or "-" and its TUI plugin\'s ID to plugins in cli.json to turn off its TUI part.',
   "settings.tab.about": "About",
   "settings.about.version": "Version {{version}}",
   "settings.about.devVersion": "development",
@@ -1109,7 +1109,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "Skills",
   "settings.extensions.availableAll": "Available to all projects",
-  "settings.extensions.manageConfig": "Manage in opencode.json",
+  "settings.extensions.manageConfig": "Manage in opencodevil.json",
   "settings.extensions.addSkills": "How to add skills",
   "settings.extensions.plugins.loadFailed": "Could not load plugins",
   "settings.extensions.sources.loadFailed": "Could not load extension sources",

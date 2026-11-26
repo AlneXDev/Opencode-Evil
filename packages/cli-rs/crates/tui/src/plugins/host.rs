@@ -1404,7 +1404,7 @@ fn same_machine(local: bool, url: &url::Url) -> bool {
 
 /// Apply global config entries and removals in configuration order.
 fn user_plugins(tui: &Tui, config_dir: &Path) -> Vec<String> {
-    let global = ["opencode.json", "opencode.jsonc"]
+    let global = ["opencodevil.json", "opencodevil.jsonc"]
         .iter()
         .filter_map(|name| std::fs::read_to_string(config_dir.join(name)).ok())
         .filter_map(|text| opencode_local::jsonc::parse(&text))

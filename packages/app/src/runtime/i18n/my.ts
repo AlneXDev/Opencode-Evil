@@ -294,7 +294,7 @@ export const dict = {
   "error.chain.responseBody": "တုံ့ပြန်မှုကိုယ်ထည်-\n{{body}}",
   "error.chain.didYouMean": "ဆိုလိုတာက {{suggestions}}",
   "error.chain.modelNotFound": "မော်ဒယ်ကို ရှာမတွေ့ပါ- {{provider}}/{{model}}",
-  "error.chain.checkConfig": "သင်၏ config (opencode.json) ဝန်ဆောင်မှုပေးသူ/မော်ဒယ်အမည်များကို စစ်ဆေးပါ။",
+  "error.chain.checkConfig": "သင်၏ config (opencodevil.json) ဝန်ဆောင်မှုပေးသူ/မော်ဒယ်အမည်များကို စစ်ဆေးပါ။",
   "error.chain.mcpFailed":
     'MCP ဆာဗာ "{{name}}" မအောင်မြင်ပါ။ မှတ်ချက်၊ OpenCode သည် MCP စစ်မှန်ကြောင်းအထောက်အထားမခိုင်လုံသေးပါ။',
   "error.chain.providerAuthFailed": "ပံ့ပိုးသူ စစ်မှန်ကြောင်း အထောက်အထား မအောင်မြင်ပါ ({{provider}}): {{message}}",
@@ -413,7 +413,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "ကျွမ်းကျင်မှုများ",
   "settings.extensions.availableAll": "ပရောဂျက်အားလုံးတွင် အသုံးပြုနိုင်သည်",
-  "settings.extensions.manageConfig": "opencode.json တွင် စီမံပါ",
+  "settings.extensions.manageConfig": "opencodevil.json တွင် စီမံပါ",
   "settings.extensions.addSkills": "ကျွမ်းကျင်မှုများ ထည့်နည်း",
   "project.settings.extensions.description": "ဤပရောဂျက်အတွက် ရနိုင်သော တိုးချဲ့မှုများကို ကြည့်ပါ",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1291,7 +1291,7 @@ export const dict = {
   "settings.plugins.part.server": "ဆာဗာ",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'ခလုတ်များသည် ပလပ်အင်၏ desktop UI ကိုသာ ပိတ်သည်။ ၎င်း၏ ဆာဗာအပိုင်းကို ပိတ်ရန် သင်၏ global opencode.json ရှိ plugins တွင် "-<id>" ကို ထည့်ပါ၊ သို့မဟုတ် ၎င်း၏ TUI အပိုင်းကို ပိတ်ရန် cli.json ရှိ plugins တွင် "-" နှင့် ၎င်း၏ TUI ပလပ်အင် ID ကို ထည့်ပါ။',
+    'ခလုတ်များသည် ပလပ်အင်၏ desktop UI ကိုသာ ပိတ်သည်။ ၎င်း၏ ဆာဗာအပိုင်းကို ပိတ်ရန် သင်၏ global opencodevil.json ရှိ plugins တွင် "-<id>" ကို ထည့်ပါ၊ သို့မဟုတ် ၎င်း၏ TUI အပိုင်းကို ပိတ်ရန် cli.json ရှိ plugins တွင် "-" နှင့် ၎င်း၏ TUI ပလပ်အင် ID ကို ထည့်ပါ။',
   "settings.about.copyVersionFailed": "ဗားရှင်းကို ကူးယူ၍ မရပါ",
   "settings.about.notices.title": "ပြင်ပအဖွဲ့ အသိပေးချက်များ",
   "settings.about.notices.description": "OpenCode တွင် အောက်ပါ open source ဆော့ဖ်ဝဲများ ပါဝင်သည်။",

@@ -24,7 +24,7 @@ There is no project-local CLI config. `OPENCODE_CLI_CONFIG_CONTENT` merges
 inline JSON over it. Most settings are also under `Ctrl+P` → **Open settings**.
 
 - [CLI settings](https://opencode.ai/docs/cli/config): terminal-only settings;
-  do not put these in `opencode.json(c)`.
+  do not put these in `opencodevil.json(c)`.
 - [Keybinds](https://opencode.ai/docs/cli/keybinds): configured under
   `keybinds` in `cli.json` (`keybinds.leader` for the leader key,
   `leader.timeout` for timing; values can be a string, string array, or object
@@ -41,10 +41,10 @@ Server and project configuration uses JSON or JSONC with the published schema:
 }
 ```
 
-Global config lives at `~/.config/opencode/opencode.json(c)`. Project config
-lives in any directory as `opencode.json(c)` or `.opencode/opencode.json(c)`.
+Global config lives at `~/.config/opencode/opencodevil.json(c)`. Project config
+lives in any directory as `opencodevil.json(c)` or `.opencode/opencodevil.json(c)`.
 Discovery walks from the filesystem root down to the current Location directory,
-merging direct `opencode.json(c)` files first, then `.opencode/opencode.json(c)`
+merging direct `opencodevil.json(c)` files first, then `.opencode/opencodevil.json(c)`
 files — so any `.opencode` config overrides any direct config, and both
 override global config.
 

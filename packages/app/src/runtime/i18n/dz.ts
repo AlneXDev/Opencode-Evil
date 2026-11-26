@@ -298,7 +298,7 @@ export const dict = {
   "error.chain.responseBody": "ལན་འདེབས་ཕུང་པོ།:\n{{body}}",
   "error.chain.didYouMean": "ཁྱོད་ཀྱིས་: {{suggestions}} ཟེར་སླབ་དགོཔ་ཨིན་ན?",
   "error.chain.modelNotFound": "དཔེ་ཚད་འཚོལ་མ་ཐོབ།: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "ཁྱོད་ཀྱི་རིམ་སྒྲིག་ (opencode.json) བྱིན་མི་/དཔེ་ཚད་མིང་ཚུ་ཞིབ་དཔྱད་འབད།",
+  "error.chain.checkConfig": "ཁྱོད་ཀྱི་རིམ་སྒྲིག་ (opencodevil.json) བྱིན་མི་/དཔེ་ཚད་མིང་ཚུ་ཞིབ་དཔྱད་འབད།",
   "error.chain.mcpFailed":
     'MCP སར་བར་ "{{name}}" འཐུས་ཤོར་བྱུང་ཡོདཔ། དྲན་འཛིན་ OpenCode གིས་ ད་ལྟོ་ཡང་ MCP བདེན་བཤད་ལུ་རྒྱབ་སྐྱོར་མི་འབད།',
   "error.chain.providerAuthFailed": "བྱིན་མི་བདེན་བཤད་འཐུས་ཤོར་བྱུང་ཡོདཔ།({{provider}}): {{message}}",
@@ -589,7 +589,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "རིག་རྩལ་ཚུ།",
   "settings.extensions.availableAll": "ལས་གཞི་ཆ་མཉམ་ལུ་འཐོབ་ཚུགས།",
-  "settings.extensions.manageConfig": "opencode.json ནང་འཛིན་སྐྱོང་འཐབ།",
+  "settings.extensions.manageConfig": "opencodevil.json ནང་འཛིན་སྐྱོང་འཐབ།",
   "settings.extensions.addSkills": "རིག་རྩལ་ཚུ་ག་དེ་སྦེ་ཁ་སྐོང་རྐྱབ་ནི་ཨིན་ན།",
   "project.settings.extensions.description": "ལས་གཞི་འདི་ལུ་འཐོབ་ཚུགས་པའི་རྒྱ་བསྐྱེད་ཚུ་བལྟ།",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1307,7 +1307,7 @@ export const dict = {
   "settings.plugins.part.server": "སར་བར།",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'སོར་ལྡེ་ཚུ་གིས་ པ་ལག་ཨིན་གྱི་ ཌེཀསི་ཊོཔ་ UI རྐྱངམ་ཅིག་ ཁ་བསྡམསཔ་ཨིན། དེ་གི་སར་བར་ཆ་ཤས་ཁ་བསྡམས་ནིའི་དོན་ལུ་ ཁྱོད་ཀྱི་ སྤྱི་ཁྱབ་ opencode.json ནང་གི་ plugins ལུ་ "-<id>" ཁ་སྐོང་རྐྱབས། ཡང་ན་ དེ་གི་ TUI ཆ་ཤས་ཁ་བསྡམས་ནིའི་དོན་ལུ་ cli.json ནང་གི་ plugins ལུ་ "-" དང་ དེ་གི་ TUI པ་ལག་ཨིན་ ID ཁ་སྐོང་རྐྱབས།',
+    'སོར་ལྡེ་ཚུ་གིས་ པ་ལག་ཨིན་གྱི་ ཌེཀསི་ཊོཔ་ UI རྐྱངམ་ཅིག་ ཁ་བསྡམསཔ་ཨིན། དེ་གི་སར་བར་ཆ་ཤས་ཁ་བསྡམས་ནིའི་དོན་ལུ་ ཁྱོད་ཀྱི་ སྤྱི་ཁྱབ་ opencodevil.json ནང་གི་ plugins ལུ་ "-<id>" ཁ་སྐོང་རྐྱབས། ཡང་ན་ དེ་གི་ TUI ཆ་ཤས་ཁ་བསྡམས་ནིའི་དོན་ལུ་ cli.json ནང་གི་ plugins ལུ་ "-" དང་ དེ་གི་ TUI པ་ལག་ཨིན་ ID ཁ་སྐོང་རྐྱབས།',
   "settings.about.copyVersionFailed": "ཐོན་རིམ་འདྲ་བཤུས་འབད་མ་ཚུགས།",
   "settings.about.notices.title": "ཕྱོགས་གསུམ་པའི་བརྡ་དོན་ཚུ།",
   "settings.about.notices.description": "OpenCode ནང་ འོག་གི་ཐོན་ཁུངས་ཁ་ཕྱེ་ཡོད་པའི་མཉེན་ཆས་ཚུ་ཚུདཔ་ཨིན།",

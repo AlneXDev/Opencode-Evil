@@ -528,7 +528,7 @@ export const dict = {
   "error.chain.responseBody": "Cuerpo de la respuesta:\n{{body}}",
   "error.chain.didYouMean": "¿Quizá quisiste decir {{suggestions}}?",
   "error.chain.modelNotFound": "Modelo no encontrado: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Comprueba los nombres de proveedor/modelo en tu configuración (opencode.json)",
+  "error.chain.checkConfig": "Comprueba los nombres de proveedor/modelo en tu configuración (opencodevil.json)",
   "error.chain.mcpFailed": 'El servidor MCP "{{name}}" falló. Nota: OpenCode aún no admite la autenticación MCP.',
   "error.chain.providerAuthFailed": "Autenticación de proveedor fallida ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -841,7 +841,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Habilidades",
   "settings.extensions.availableAll": "Disponible para todos los proyectos",
-  "settings.extensions.manageConfig": "Administrar en opencode.json",
+  "settings.extensions.manageConfig": "Administrar en opencodevil.json",
   "settings.extensions.addSkills": "Cómo agregar habilidades",
   "project.settings.extensions.description": "Ver extensiones disponibles para este proyecto",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1371,7 +1371,7 @@ export const dict = {
   "settings.plugins.part.server": "Servidor",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Los interruptores solo desactivan la interfaz de escritorio de un plugin. Añade "-<id>" a plugins en tu opencode.json global para desactivar su parte de servidor, o "-" seguido del ID de su plugin de TUI a plugins en cli.json para desactivar su parte de TUI.',
+    'Los interruptores solo desactivan la interfaz de escritorio de un plugin. Añade "-<id>" a plugins en tu opencodevil.json global para desactivar su parte de servidor, o "-" seguido del ID de su plugin de TUI a plugins en cli.json para desactivar su parte de TUI.',
   "settings.about.copyVersionFailed": "No se pudo copiar la versión",
   "settings.about.notices.title": "Avisos de terceros",
   "settings.about.notices.description": "OpenCode incluye el siguiente software de código abierto.",

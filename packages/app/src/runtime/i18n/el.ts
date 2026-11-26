@@ -288,7 +288,7 @@ export const dict = {
   "error.chain.responseBody": "Σώμα απόκρισης:\n{{body}}",
   "error.chain.didYouMean": "Μήπως εννοείτε: {{suggestions}}",
   "error.chain.modelNotFound": "Το μοντέλο δεν βρέθηκε: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Ελέγξτε τη διαμόρφωση (opencode.json) ονόματα παρόχου/μοντέλων",
+  "error.chain.checkConfig": "Ελέγξτε τη διαμόρφωση (opencodevil.json) ονόματα παρόχου/μοντέλων",
   "error.chain.mcpFailed":
     'MCP διακομιστής "{{name}}" απέτυχε. Σημείωση, το OpenCode δεν υποστηρίζει ακόμη έλεγχο ταυτότητας MCP.',
   "error.chain.providerAuthFailed": "Ο έλεγχος ταυτότητας παρόχου απέτυχε ({{provider}}): {{message}}",
@@ -598,7 +598,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Δεξιότητες",
   "settings.extensions.availableAll": "Διαθέσιμο σε όλα τα έργα",
-  "settings.extensions.manageConfig": "Διαχείριση στο opencode.json",
+  "settings.extensions.manageConfig": "Διαχείριση στο opencodevil.json",
   "settings.extensions.addSkills": "Πώς να προσθέσετε δεξιότητες",
   "project.settings.extensions.description": "Προβολή επεκτάσεων που είναι διαθέσιμες σε αυτό το έργο",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1311,7 +1311,7 @@ export const dict = {
   "settings.plugins.part.server": "Διακομιστής",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Οι διακόπτες απενεργοποιούν μόνο το περιβάλλον επιφάνειας εργασίας ενός πρόσθετου. Προσθέστε "-<id>" στα plugins του καθολικού opencode.json για να απενεργοποιήσετε το τμήμα διακομιστή του, ή "-" και το ID του πρόσθετου TUI του στα plugins του cli.json για να απενεργοποιήσετε το τμήμα TUI του.',
+    'Οι διακόπτες απενεργοποιούν μόνο το περιβάλλον επιφάνειας εργασίας ενός πρόσθετου. Προσθέστε "-<id>" στα plugins του καθολικού opencodevil.json για να απενεργοποιήσετε το τμήμα διακομιστή του, ή "-" και το ID του πρόσθετου TUI του στα plugins του cli.json για να απενεργοποιήσετε το τμήμα TUI του.',
   "settings.about.copyVersionFailed": "Αποτυχία αντιγραφής έκδοσης",
   "settings.about.notices.title": "Σημειώσεις τρίτων",
   "settings.about.notices.description": "Το OpenCode περιλαμβάνει το ακόλουθο λογισμικό ανοιχτού κώδικα.",

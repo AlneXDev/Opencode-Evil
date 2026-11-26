@@ -311,7 +311,7 @@ export const dict = {
   "error.chain.responseBody": "Тело ответа:\n{{body}}",
   "error.chain.didYouMean": "Возможно, вы имели в виду: {{suggestions}}",
   "error.chain.modelNotFound": "Модель не найдена: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Проверьте названия провайдера и модели в конфигурации (opencode.json)",
+  "error.chain.checkConfig": "Проверьте названия провайдера и модели в конфигурации (opencodevil.json)",
   "error.chain.mcpFailed":
     'MCP-сервер "{{name}}" завершился с ошибкой. Обратите внимание: OpenCode пока не поддерживает MCP-авторизацию.',
   "error.chain.providerAuthFailed": "Ошибка аутентификации провайдера ({{provider}}): {{message}}",
@@ -626,7 +626,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "МКП",
   "settings.extensions.tab.skills": "Навыки",
   "settings.extensions.availableAll": "Доступно для всех проектов",
-  "settings.extensions.manageConfig": "Управление в opencode.json",
+  "settings.extensions.manageConfig": "Управление в opencodevil.json",
   "settings.extensions.addSkills": "Как добавить навыки",
   "project.settings.extensions.description": "Посмотреть расширения, доступные для этого проекта",
   "project.settings.extensions.tab.lsps": "ЛСП",
@@ -1393,7 +1393,7 @@ export const dict = {
   "settings.plugins.part.server": "Сервер",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Переключатели отключают только интерфейс плагина в приложении. Чтобы отключить его серверную часть, добавьте "-<id>" в plugins в глобальном opencode.json; чтобы отключить часть TUI, добавьте "-" и ID его TUI-плагина в plugins в cli.json.',
+    'Переключатели отключают только интерфейс плагина в приложении. Чтобы отключить его серверную часть, добавьте "-<id>" в plugins в глобальном opencodevil.json; чтобы отключить часть TUI, добавьте "-" и ID его TUI-плагина в plugins в cli.json.',
   "settings.about.copyVersionFailed": "Не удалось скопировать версию",
   "settings.about.notices.title": "Уведомления о стороннем ПО",
   "settings.about.notices.description":

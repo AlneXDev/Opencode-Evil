@@ -324,7 +324,7 @@ export const dict = {
   "error.chain.responseBody": "Yanıt gövdesi:\n{{body}}",
   "error.chain.didYouMean": "Bunu mu demek istediniz: {{suggestions}}",
   "error.chain.modelNotFound": "Model bulunamadı: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Yapılandırma dosyanızdaki (opencode.json) sağlayıcı/model adlarını kontrol edin",
+  "error.chain.checkConfig": "Yapılandırma dosyanızdaki (opencodevil.json) sağlayıcı/model adlarını kontrol edin",
   "error.chain.mcpFailed":
     'MCP sunucusu "{{name}}" çalıştırılamadı. Not: OpenCode henüz MCP kimlik doğrulamasını desteklemiyor.',
   "error.chain.providerAuthFailed": "Sağlayıcı kimlik doğrulaması başarısız ({{provider}}): {{message}}",
@@ -655,7 +655,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP'ler",
   "settings.extensions.tab.skills": "Beceriler",
   "settings.extensions.availableAll": "Tüm projelerde kullanılabilir",
-  "settings.extensions.manageConfig": "opencode.json içinde yönet",
+  "settings.extensions.manageConfig": "opencodevil.json içinde yönet",
   "settings.extensions.addSkills": "Beceri ekleme",
   "project.settings.extensions.description": "Bu projede kullanılabilen uzantıları görüntüleyin",
   "project.settings.extensions.tab.lsps": "LSP'ler",
@@ -1356,7 +1356,7 @@ export const dict = {
   "settings.plugins.part.server": "Sunucu",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Anahtarlar yalnızca bir eklentinin masaüstü arayüzünü kapatır. Sunucu bölümünü kapatmak için genel opencode.json dosyanızdaki plugins listesine "-<id>" ekleyin; TUI bölümünü kapatmak için ise cli.json dosyasındaki plugins listesine "-" ve TUI eklentisinin kimliğini ekleyin.',
+    'Anahtarlar yalnızca bir eklentinin masaüstü arayüzünü kapatır. Sunucu bölümünü kapatmak için genel opencodevil.json dosyanızdaki plugins listesine "-<id>" ekleyin; TUI bölümünü kapatmak için ise cli.json dosyasındaki plugins listesine "-" ve TUI eklentisinin kimliğini ekleyin.',
   "settings.about.copyVersionFailed": "Sürüm kopyalanamadı",
   "settings.about.notices.title": "Üçüncü taraf bildirimleri",
   "settings.about.notices.description": "OpenCode aşağıdaki açık kaynak yazılımları içerir.",

@@ -285,7 +285,7 @@ export const dict = {
   "error.chain.responseBody": "პასუხის სხეული:\n{{body}}",
   "error.chain.didYouMean": "იგულისხმეთ: {{suggestions}}",
   "error.chain.modelNotFound": "მოდელი ვერ მოიძებნა: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "შეამოწმეთ თქვენი კონფიგურაცია (opencode.json) პროვაიდერის/მოდელების სახელები",
+  "error.chain.checkConfig": "შეამოწმეთ თქვენი კონფიგურაცია (opencodevil.json) პროვაიდერის/მოდელების სახელები",
   "error.chain.mcpFailed":
     'MCP სერვერი "{{name}}" ვერ მოხერხდა. შენიშვნა, OpenCode ჯერ არ უჭერს მხარს MCP ავთენტიფიკაციას.',
   "error.chain.providerAuthFailed": "პროვაიდერის ავთენტიფიკაცია ვერ მოხერხდა ({{provider}}): {{message}}",
@@ -557,7 +557,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ები",
   "settings.extensions.tab.skills": "უნარები",
   "settings.extensions.availableAll": "ხელმისაწვდომია ყველა პროექტისთვის",
-  "settings.extensions.manageConfig": "მართეთ opencode.json-ში",
+  "settings.extensions.manageConfig": "მართეთ opencodevil.json-ში",
   "settings.extensions.addSkills": "როგორ დავამატოთ უნარები",
   "project.settings.extensions.description": "იხილეთ ამ პროექტისთვის ხელმისაწვდომი გაფართოებები",
   "project.settings.extensions.tab.lsps": "LSP-ები",
@@ -1282,7 +1282,7 @@ export const dict = {
   "settings.plugins.part.server": "სერვერი",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'გადამრთველები მხოლოდ დანამატის დესკტოპის ინტერფეისს გამორთავს. მისი სერვერული ნაწილის გამოსართავად დაამატეთ "-<id>" plugins-ში თქვენს გლობალურ opencode.json-ში, ხოლო TUI ნაწილის გამოსართავად დაამატეთ "-" და მისი TUI დანამატის ID plugins-ში cli.json-ში.',
+    'გადამრთველები მხოლოდ დანამატის დესკტოპის ინტერფეისს გამორთავს. მისი სერვერული ნაწილის გამოსართავად დაამატეთ "-<id>" plugins-ში თქვენს გლობალურ opencodevil.json-ში, ხოლო TUI ნაწილის გამოსართავად დაამატეთ "-" და მისი TUI დანამატის ID plugins-ში cli.json-ში.',
   "settings.about.copyVersionFailed": "ვერსიის კოპირება ვერ მოხერხდა",
   "settings.about.notices.title": "მესამე მხარის შეტყობინებები",
   "settings.about.notices.description": "OpenCode შეიცავს შემდეგ ღია კოდის პროგრამულ უზრუნველყოფას.",

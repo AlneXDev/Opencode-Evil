@@ -298,7 +298,7 @@ export const dict = {
   "error.chain.responseBody": "Válasz törzse:\n{{body}}",
   "error.chain.didYouMean": "Erre gondolt: {{suggestions}}?",
   "error.chain.modelNotFound": "A modell nem található: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Ellenőrizze a konfigurációs (opencode.json) szolgáltató/modell nevét",
+  "error.chain.checkConfig": "Ellenőrizze a konfigurációs (opencodevil.json) szolgáltató/modell nevét",
   "error.chain.mcpFailed":
     'A "{{name}}" MCP szerver meghibásodott. Megjegyzés: a OpenCode még nem támogatja a MCP hitelesítést.',
   "error.chain.providerAuthFailed": "A szolgáltató hitelesítése nem sikerült ({{provider}}): {{message}}",
@@ -606,7 +606,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-k",
   "settings.extensions.tab.skills": "Készségek",
   "settings.extensions.availableAll": "Minden projekt számára elérhető",
-  "settings.extensions.manageConfig": "Kezelés az opencode.json fájlban",
+  "settings.extensions.manageConfig": "Kezelés az opencodevil.json fájlban",
   "settings.extensions.addSkills": "Készségek hozzáadása",
   "project.settings.extensions.description": "A projekthez elérhető bővítmények megtekintése",
   "project.settings.extensions.tab.lsps": "LSP-k",
@@ -1294,7 +1294,7 @@ export const dict = {
   "settings.plugins.part.server": "Szerver",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'A kapcsolók csak a beépülő modul asztali felületét kapcsolják ki. A szerverrész kikapcsolásához adja hozzá a "-<id>" bejegyzést a plugins listához a globális opencode.json fájlban, a TUI-rész kikapcsolásához pedig a "-" előtagot és a TUI-beépülő modul azonosítóját a cli.json plugins listájához.',
+    'A kapcsolók csak a beépülő modul asztali felületét kapcsolják ki. A szerverrész kikapcsolásához adja hozzá a "-<id>" bejegyzést a plugins listához a globális opencodevil.json fájlban, a TUI-rész kikapcsolásához pedig a "-" előtagot és a TUI-beépülő modul azonosítóját a cli.json plugins listájához.',
   "settings.about.copyVersionFailed": "Nem sikerült másolni a verziót",
   "settings.about.notices.title": "Harmadik féltől származó közlemények",
   "settings.about.notices.description": "Az OpenCode a következő nyílt forráskódú szoftvereket tartalmazza.",

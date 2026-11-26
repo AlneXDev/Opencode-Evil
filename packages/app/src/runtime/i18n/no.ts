@@ -500,7 +500,7 @@ export const dict = {
   "error.chain.responseBody": "Responsinnhold:\n{{body}}",
   "error.chain.didYouMean": "Mente du: {{suggestions}}",
   "error.chain.modelNotFound": "Modell ikke funnet: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Sjekk leverandør-/modellnavnene i konfigurasjonen din (opencode.json)",
+  "error.chain.checkConfig": "Sjekk leverandør-/modellnavnene i konfigurasjonen din (opencodevil.json)",
   "error.chain.mcpFailed": 'MCP-server "{{name}}" mislyktes. Merk at OpenCode ikke støtter MCP-autentisering ennå.',
   "error.chain.providerAuthFailed": "Leverandørautentisering mislyktes ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -826,7 +826,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-er",
   "settings.extensions.tab.skills": "Ferdigheter",
   "settings.extensions.availableAll": "Tilgjengelig for alle prosjekter",
-  "settings.extensions.manageConfig": "Administrer i opencode.json",
+  "settings.extensions.manageConfig": "Administrer i opencodevil.json",
   "settings.extensions.addSkills": "Hvordan legge til ferdigheter",
   "project.settings.extensions.description": "Se utvidelser som er tilgjengelige for dette prosjektet",
   "project.settings.extensions.tab.lsps": "LSP-er",
@@ -1344,7 +1344,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Bryterne slår bare av et programtilleggs skrivebordsgrensesnitt. Legg til "-<id>" i plugins i den globale opencode.json for å slå av serverdelen, eller "-" og ID-en til TUI-programtillegget i plugins i cli.json for å slå av TUI-delen.',
+    'Bryterne slår bare av et programtilleggs skrivebordsgrensesnitt. Legg til "-<id>" i plugins i den globale opencodevil.json for å slå av serverdelen, eller "-" og ID-en til TUI-programtillegget i plugins i cli.json for å slå av TUI-delen.',
   "settings.about.copyVersionFailed": "Kunne ikke kopiere versjonen",
   "settings.about.notices.title": "Tredjepartsmerknader",
   "settings.about.notices.description": "OpenCode inneholder følgende programvare med åpen kildekode.",

@@ -295,7 +295,7 @@ export const dict = {
   "error.chain.responseBody": "بدنه پاسخگویی:\n{{body}}",
   "error.chain.didYouMean": "آیا منظورتان این بود: {{suggestions}}",
   "error.chain.modelNotFound": "مدل پیدا نشد: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "نام ارائه دهنده/مدل پیکربندی (opencode.json) خود را بررسی کنید",
+  "error.chain.checkConfig": "نام ارائه دهنده/مدل پیکربندی (opencodevil.json) خود را بررسی کنید",
   "error.chain.mcpFailed":
     'سرور MCP "{{name}}" ناموفق بود. توجه داشته باشید، OpenCode هنوز از احراز هویت MCP پشتیبانی نمی کند.',
   "error.chain.providerAuthFailed": "احراز هویت ارائه دهنده ناموفق بود ({{provider}}): {{message}}",
@@ -566,7 +566,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPها",
   "settings.extensions.tab.skills": "مهارت‌ها",
   "settings.extensions.availableAll": "در دسترس همه پروژه‌ها",
-  "settings.extensions.manageConfig": "مدیریت در opencode.json",
+  "settings.extensions.manageConfig": "مدیریت در opencodevil.json",
   "settings.extensions.addSkills": "نحوه افزودن مهارت‌ها",
   "project.settings.extensions.description": "مشاهده افزونه‌های موجود برای این پروژه",
   "project.settings.extensions.tab.lsps": "LSPها",
@@ -1275,7 +1275,7 @@ export const dict = {
   "settings.plugins.part.server": "سرور",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    "کلیدها فقط رابط دسکتاپ افزونه را خاموش می‌کنند. برای خاموش کردن بخش سرور آن، «-<id>» را به plugins در opencode.json سراسری خود اضافه کنید؛ یا برای خاموش کردن بخش TUI آن، «-» و شناسه افزونه TUI را به plugins در cli.json اضافه کنید.",
+    "کلیدها فقط رابط دسکتاپ افزونه را خاموش می‌کنند. برای خاموش کردن بخش سرور آن، «-<id>» را به plugins در opencodevil.json سراسری خود اضافه کنید؛ یا برای خاموش کردن بخش TUI آن، «-» و شناسه افزونه TUI را به plugins در cli.json اضافه کنید.",
   "settings.about.copyVersionFailed": "کپی نسخه ناموفق بود",
   "settings.about.notices.title": "اطلاعیه‌های شخص ثالث",
   "settings.about.notices.description": "OpenCode شامل نرم‌افزارهای متن‌باز زیر است.",

@@ -302,7 +302,7 @@ export const dict = {
   "error.chain.responseBody": "Nội dung phản hồi:\n{{body}}",
   "error.chain.didYouMean": "Có phải ý bạn là: {{suggestions}}",
   "error.chain.modelNotFound": "Không tìm thấy mô hình: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Kiểm tra tên nhà cung cấp/mô hình cấu hình (opencode.json) của bạn",
+  "error.chain.checkConfig": "Kiểm tra tên nhà cung cấp/mô hình cấu hình (opencodevil.json) của bạn",
   "error.chain.mcpFailed": 'Máy chủ MCP "{{name}}" gặp lỗi. Lưu ý: OpenCode chưa hỗ trợ xác thực MCP.',
   "error.chain.providerAuthFailed": "Không xác thực được nhà cung cấp ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -418,7 +418,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Kỹ năng",
   "settings.extensions.availableAll": "Có sẵn cho tất cả dự án",
-  "settings.extensions.manageConfig": "Quản lý trong opencode.json",
+  "settings.extensions.manageConfig": "Quản lý trong opencodevil.json",
   "settings.extensions.addSkills": "Cách thêm kỹ năng",
   "project.settings.extensions.description": "Xem tiện ích mở rộng có sẵn cho dự án này",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1280,7 +1280,7 @@ export const dict = {
   "settings.plugins.part.server": "Máy chủ",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Công tắc chỉ tắt giao diện desktop của plugin. Thêm "-<id>" vào plugins trong opencode.json toàn cục để tắt phần máy chủ, hoặc thêm "-" cùng ID plugin TUI của nó vào plugins trong cli.json để tắt phần TUI.',
+    'Công tắc chỉ tắt giao diện desktop của plugin. Thêm "-<id>" vào plugins trong opencodevil.json toàn cục để tắt phần máy chủ, hoặc thêm "-" cùng ID plugin TUI của nó vào plugins trong cli.json để tắt phần TUI.',
   "settings.about.copyVersionFailed": "Không sao chép được phiên bản",
   "settings.about.notices.title": "Thông báo của bên thứ ba",
   "settings.about.notices.description": "OpenCode bao gồm các phần mềm nguồn mở sau.",

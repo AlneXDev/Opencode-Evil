@@ -285,7 +285,7 @@ export const dict = {
   "error.chain.responseBody": "Vastuse keha:\n{{body}}",
   "error.chain.didYouMean": "Kas mõtlesite: {{suggestions}}",
   "error.chain.modelNotFound": "Mudelit ei leitud: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Kontrollige oma konfiguratsiooni (opencode.json) pakkuja/mudeli nimesid",
+  "error.chain.checkConfig": "Kontrollige oma konfiguratsiooni (opencodevil.json) pakkuja/mudeli nimesid",
   "error.chain.mcpFailed": 'MCP server "{{name}}" ebaõnnestus. Pange tähele, OpenCode ei toeta veel MCP autentimist.',
   "error.chain.providerAuthFailed": "Pakkuja autentimine ebaõnnestus ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -585,7 +585,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-d",
   "settings.extensions.tab.skills": "Oskused",
   "settings.extensions.availableAll": "Saadaval kõigile projektidele",
-  "settings.extensions.manageConfig": "Halda failis opencode.json",
+  "settings.extensions.manageConfig": "Halda failis opencodevil.json",
   "settings.extensions.addSkills": "Kuidas oskusi lisada",
   "project.settings.extensions.description": "Vaadake selle projekti jaoks saadaolevaid laiendusi",
   "project.settings.extensions.tab.lsps": "LSP-d",
@@ -1268,7 +1268,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Lülitid lülitavad välja ainult plugina töölaua kasutajaliidese. Serveriosa väljalülitamiseks lisa globaalse opencode.json-i jaotisesse plugins "-<id>"; TUI-osa väljalülitamiseks lisa cli.json-i jaotisesse plugins "-" koos selle TUI-plugina ID-ga.',
+    'Lülitid lülitavad välja ainult plugina töölaua kasutajaliidese. Serveriosa väljalülitamiseks lisa globaalse opencodevil.json-i jaotisesse plugins "-<id>"; TUI-osa väljalülitamiseks lisa cli.json-i jaotisesse plugins "-" koos selle TUI-plugina ID-ga.',
   "settings.about.copyVersionFailed": "Versiooni kopeerimine ebaõnnestus",
   "settings.about.notices.title": "Kolmandate osapoolte teatised",
   "settings.about.notices.description": "OpenCode sisaldab järgmist avatud lähtekoodiga tarkvara.",

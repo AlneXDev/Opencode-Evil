@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Պատասխանող մարմին՝\n{{body}}",
   "error.chain.didYouMean": "Դուք նկատի ունեք՝ {{suggestions}}",
   "error.chain.modelNotFound": "Մոդելը չի ​​գտնվել՝ {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Ստուգեք ձեր կազմաձևը (opencode.json) մատակարարի/մոդելի անունները",
+  "error.chain.checkConfig": "Ստուգեք ձեր կազմաձևը (opencodevil.json) մատակարարի/մոդելի անունները",
   "error.chain.mcpFailed":
     "MCP «{{name}}» սերվերը ձախողվեց: Նկատի ունեցեք, որ OpenCode-ը դեռ չի աջակցում MCP նույնականացումը:",
   "error.chain.providerAuthFailed": "Մատակարարի նույնականացումը ձախողվեց ({{provider}}): {{message}}",
@@ -560,7 +560,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ներ",
   "settings.extensions.tab.skills": "Հմտություններ",
   "settings.extensions.availableAll": "Հասանելի է բոլոր նախագծերին",
-  "settings.extensions.manageConfig": "Կառավարել opencode.json-ում",
+  "settings.extensions.manageConfig": "Կառավարել opencodevil.json-ում",
   "settings.extensions.addSkills": "Ինչպես ավելացնել հմտություններ",
   "project.settings.extensions.description": "Դիտեք այս նախագծին հասանելի ընդլայնումները",
   "project.settings.extensions.tab.lsps": "LSP-ներ",
@@ -1279,7 +1279,7 @@ export const dict = {
   "settings.plugins.part.server": "Սերվեր",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Փոխարկիչներն անջատում են միայն պլագինի desktop ինտերֆեյսը։ Դրա սերվերային մասն անջատելու համար ձեր գլոբալ opencode.json-ի plugins-ում ավելացրեք "-<id>", իսկ TUI մասն անջատելու համար cli.json-ի plugins-ում ավելացրեք "-" և դրա TUI պլագինի ID-ն։',
+    'Փոխարկիչներն անջատում են միայն պլագինի desktop ինտերֆեյսը։ Դրա սերվերային մասն անջատելու համար ձեր գլոբալ opencodevil.json-ի plugins-ում ավելացրեք "-<id>", իսկ TUI մասն անջատելու համար cli.json-ի plugins-ում ավելացրեք "-" և դրա TUI պլագինի ID-ն։',
   "settings.about.copyVersionFailed": "Չհաջողվեց պատճենել տարբերակը",
   "settings.about.notices.title": "Երրորդ կողմի ծանուցումներ",
   "settings.about.notices.description": "OpenCode-ը ներառում է հետևյալ բաց կոդով ծրագրակազմը։",

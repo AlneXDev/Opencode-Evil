@@ -285,7 +285,7 @@ export const dict = {
   "error.chain.responseBody": "Tělo odpovědi:\n{{body}}",
   "error.chain.didYouMean": "Měli jste na mysli: {{suggestions}}",
   "error.chain.modelNotFound": "Model nenalezen: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Zkontrolujte název poskytovatele/modelu konfigurace (opencode.json).",
+  "error.chain.checkConfig": "Zkontrolujte název poskytovatele/modelu konfigurace (opencodevil.json).",
   "error.chain.mcpFailed": 'MCP server "{{name}}" selhal. Poznámka: OpenCode zatím nepodporuje ověřování MCP.',
   "error.chain.providerAuthFailed": "Ověření poskytovatele se nezdařilo ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -563,7 +563,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Dovednosti",
   "settings.extensions.availableAll": "Dostupné pro všechny projekty",
-  "settings.extensions.manageConfig": "Spravujte v opencode.json",
+  "settings.extensions.manageConfig": "Spravujte v opencodevil.json",
   "settings.extensions.addSkills": "Jak přidat dovednosti",
   "project.settings.extensions.description": "Zobrazit rozšíření dostupná pro tento projekt",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1321,7 +1321,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Přepínače vypínají pouze desktopové rozhraní pluginu. Chcete-li vypnout jeho serverovou část, přidejte "-<id>" do plugins v globálním opencode.json. Chcete-li vypnout jeho TUI část, přidejte "-" a ID jeho TUI pluginu do plugins v cli.json.',
+    'Přepínače vypínají pouze desktopové rozhraní pluginu. Chcete-li vypnout jeho serverovou část, přidejte "-<id>" do plugins v globálním opencodevil.json. Chcete-li vypnout jeho TUI část, přidejte "-" a ID jeho TUI pluginu do plugins v cli.json.',
   "settings.about.copyVersionFailed": "Verzi se nepodařilo zkopírovat",
   "settings.about.notices.title": "Oznámení třetích stran",
   "settings.about.notices.description": "OpenCode obsahuje následující open source software.",

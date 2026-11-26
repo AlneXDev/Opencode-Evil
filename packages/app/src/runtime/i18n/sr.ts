@@ -299,7 +299,7 @@ export const dict = {
   "error.chain.responseBody": "Тело одговора:\n{{body}}",
   "error.chain.didYouMean": "Да ли сте мислили: {{suggestions}}",
   "error.chain.modelNotFound": "Модел није пронађен: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Проверите имена добављача/модела конфигурације (opencode.json).",
+  "error.chain.checkConfig": "Проверите имена добављача/модела конфигурације (opencodevil.json).",
   "error.chain.mcpFailed":
     "MCP сервер „{{name}}“ није успео. Напомена, OpenCode још увек не подржава MCP аутентификацију.",
   "error.chain.providerAuthFailed": "аутентификација добављача није успела ({{provider}}): {{message}}",
@@ -1305,7 +1305,7 @@ export const dict = {
   "settings.plugins.part.server": "Сервер",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Прекидачи искључују само десктоп интерфејс додатка. Додајте "-<id>" у plugins у глобалном opencode.json да бисте искључили његов серверски део, или "-" и ID његовог TUI додатка у plugins у cli.json да бисте искључили његов TUI део.',
+    'Прекидачи искључују само десктоп интерфејс додатка. Додајте "-<id>" у plugins у глобалном opencodevil.json да бисте искључили његов серверски део, или "-" и ID његовог TUI додатка у plugins у cli.json да бисте искључили његов TUI део.',
   "settings.about.copyVersionFailed": "Копирање верзије није успело",
   "settings.about.notices.title": "Обавештења трећих страна",
   "settings.about.notices.description": "OpenCode садржи следећи софтвер отвореног кода.",

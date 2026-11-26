@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Òrgan de resposta:\n{{body}}",
   "error.chain.didYouMean": "Volíeu dir: {{suggestions}}",
   "error.chain.modelNotFound": "No s'ha trobat el model: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Comproveu els noms del vostre proveïdor/model de configuració (opencode.json).",
+  "error.chain.checkConfig": "Comproveu els noms del vostre proveïdor/model de configuració (opencodevil.json).",
   "error.chain.mcpFailed":
     'El servidor MCP "{{name}}" ha fallat. Tingueu en compte que OpenCode encara no admet l\'autenticació MCP.',
   "error.chain.providerAuthFailed": "L'autenticació del proveïdor ha fallat ({{provider}}): {{message}}",
@@ -596,7 +596,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Habilitats",
   "settings.extensions.availableAll": "Disponible per a tots els projectes",
-  "settings.extensions.manageConfig": "Gestiona-ho a opencode.json",
+  "settings.extensions.manageConfig": "Gestiona-ho a opencodevil.json",
   "settings.extensions.addSkills": "Com afegir habilitats",
   "project.settings.extensions.description": "Consulteu les extensions disponibles per a aquest projecte",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1312,7 +1312,7 @@ export const dict = {
   "settings.plugins.part.server": "Servidor",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Els interruptors només desactiven la interfície d\'escriptori d\'un connector. Afegiu "-<id>" a plugins al vostre opencode.json global per desactivar-ne la part del servidor, o "-" i l\'ID del seu connector TUI a plugins a cli.json per desactivar-ne la part TUI.',
+    'Els interruptors només desactiven la interfície d\'escriptori d\'un connector. Afegiu "-<id>" a plugins al vostre opencodevil.json global per desactivar-ne la part del servidor, o "-" i l\'ID del seu connector TUI a plugins a cli.json per desactivar-ne la part TUI.',
   "settings.about.copyVersionFailed": "No s'ha pogut copiar la versió",
   "settings.about.notices.title": "Avisos de tercers",
   "settings.about.notices.description": "OpenCode inclou el programari de codi obert següent.",

@@ -311,7 +311,7 @@ export const dict = {
   "error.chain.responseBody": "Telo odpovede:\n{{body}}",
   "error.chain.didYouMean": "Mysleli ste: {{suggestions}}",
   "error.chain.modelNotFound": "Model nenájdený: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Skontrolujte názvy poskytovateľa/modelu v konfigurácii (opencode.json)",
+  "error.chain.checkConfig": "Skontrolujte názvy poskytovateľa/modelu v konfigurácii (opencodevil.json)",
   "error.chain.mcpFailed": "MCP server „{{name}}“ zlyhal. Poznámka: OpenCode zatiaľ nepodporuje MCP autentifikáciu.",
   "error.chain.providerAuthFailed": "Autentifikácia poskytovateľa zlyhala ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -585,7 +585,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Zručnosti",
   "settings.extensions.availableAll": "Dostupné pre všetky projekty",
-  "settings.extensions.manageConfig": "Spravujte v opencode.json",
+  "settings.extensions.manageConfig": "Spravujte v opencodevil.json",
   "settings.extensions.addSkills": "Ako pridať zručnosti",
   "project.settings.extensions.description": "Zobraziť rozšírenia dostupné pre tento projekt",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1327,7 +1327,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Prepínače vypínajú iba desktopové rozhranie pluginu. Ak chcete vypnúť jeho serverovú časť, pridajte "-<id>" do plugins v globálnom opencode.json; ak chcete vypnúť jeho TUI časť, pridajte "-" a ID jeho TUI pluginu do plugins v cli.json.',
+    'Prepínače vypínajú iba desktopové rozhranie pluginu. Ak chcete vypnúť jeho serverovú časť, pridajte "-<id>" do plugins v globálnom opencodevil.json; ak chcete vypnúť jeho TUI časť, pridajte "-" a ID jeho TUI pluginu do plugins v cli.json.',
   "settings.about.copyVersionFailed": "Verziu sa nepodarilo skopírovať",
   "settings.about.notices.title": "Oznámenia tretích strán",
   "settings.about.notices.description": "OpenCode obsahuje nasledujúci softvér s otvoreným zdrojovým kódom.",

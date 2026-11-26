@@ -289,7 +289,7 @@ export const dict = {
   "error.chain.responseBody": "ප්‍රතිචාර අන්තර්ගතය:\n{{body}}",
   "error.chain.didYouMean": "ඔබ අදහස් කළේ: {{suggestions}}",
   "error.chain.modelNotFound": "ආකෘතිය හමු නොවීය: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "ඔබගේ වින්‍යාසය (opencode.json) සපයන්නා/ආදර්ශ නම් පරීක්ෂා කරන්න",
+  "error.chain.checkConfig": "ඔබගේ වින්‍යාසය (opencodevil.json) සපයන්නා/ආදර්ශ නම් පරීක්ෂා කරන්න",
   "error.chain.mcpFailed": 'MCP සේවාදායකය "{{name}}" අසාර්ථක විය. සටහන, OpenCode තවමත් MCP සත්‍යාපනයට සහය නොදක්වයි.',
   "error.chain.providerAuthFailed": "සැපයුම්කරු සත්‍යාපනය අසාර්ථක විය ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -561,7 +561,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "කුසලතා",
   "settings.extensions.availableAll": "සියලු ව්‍යාපෘති සඳහා ලබා ගත හැකිය",
-  "settings.extensions.manageConfig": "opencode.json තුළ කළමනාකරණය කරන්න",
+  "settings.extensions.manageConfig": "opencodevil.json තුළ කළමනාකරණය කරන්න",
   "settings.extensions.addSkills": "කුසලතා එක් කරන ආකාරය",
   "project.settings.extensions.description": "මෙම ව්‍යාපෘතියට ඇති දිගු බලන්න",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1283,7 +1283,7 @@ export const dict = {
   "settings.plugins.part.server": "සේවාදායකය",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'ස්විච මඟින් ප්ලගිනයක ඩෙස්ක්ටොප් UI පමණක් අක්‍රිය කරයි. එහි සේවාදායක කොටස අක්‍රිය කිරීමට ඔබගේ ගෝලීය opencode.json හි plugins වෙත "-<id>" එක් කරන්න, නැතහොත් එහි TUI කොටස අක්‍රිය කිරීමට cli.json හි plugins වෙත "-" සහ එහි TUI ප්ලගිනයේ ID එක එක් කරන්න.',
+    'ස්විච මඟින් ප්ලගිනයක ඩෙස්ක්ටොප් UI පමණක් අක්‍රිය කරයි. එහි සේවාදායක කොටස අක්‍රිය කිරීමට ඔබගේ ගෝලීය opencodevil.json හි plugins වෙත "-<id>" එක් කරන්න, නැතහොත් එහි TUI කොටස අක්‍රිය කිරීමට cli.json හි plugins වෙත "-" සහ එහි TUI ප්ලගිනයේ ID එක එක් කරන්න.',
   "settings.about.copyVersionFailed": "අනුවාදය පිටපත් කිරීමට අසමත් විය",
   "settings.about.notices.title": "තෙවන පාර්ශ්ව දැන්වීම්",
   "settings.about.notices.description": "OpenCode හි පහත විවෘත මූලාශ්‍ර මෘදුකාංග ඇතුළත් වේ.",

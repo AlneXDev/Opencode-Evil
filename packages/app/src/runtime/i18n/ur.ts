@@ -296,7 +296,7 @@ export const dict = {
   "error.chain.responseBody": "جواب کا متن:\n\u2068{{body}}\u2069",
   "error.chain.didYouMean": "کیا آپ کا مطلب ہے: \u2068{{suggestions}}\u2069؟",
   "error.chain.modelNotFound": "ماڈل نہیں ملا: \u2068{{provider}}\u2069/\u2068{{model}}\u2069",
-  "error.chain.checkConfig": "اپنی تشکیل (opencode.json) فراہم کنندہ/ماڈل کے نام چیک کریں۔",
+  "error.chain.checkConfig": "اپنی تشکیل (opencodevil.json) فراہم کنندہ/ماڈل کے نام چیک کریں۔",
   "error.chain.mcpFailed":
     'MCP سرور "\u2068{{name}}\u2069" ناکام ہو گیا۔ نوٹ، OpenCode ابھی تک MCP تصدیق کو سپورٹ نہیں کرتا ہے۔',
   "error.chain.providerAuthFailed":
@@ -572,7 +572,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "مہارتیں",
   "settings.extensions.availableAll": "تمام پروجیکٹس کے لیے دستیاب",
-  "settings.extensions.manageConfig": "opencode.json میں نظم کریں",
+  "settings.extensions.manageConfig": "opencodevil.json میں نظم کریں",
   "settings.extensions.addSkills": "مہارتیں شامل کرنے کا طریقہ",
   "project.settings.extensions.description": "اس پروجیکٹ کے لیے دستیاب ایکسٹینشنز دیکھیں",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1294,7 +1294,7 @@ export const dict = {
   "settings.plugins.part.server": "سرور",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'سوئچز صرف پلگ ان کا ڈیسک ٹاپ UI بند کرتے ہیں۔ اس کا سرور حصہ بند کرنے کے لیے اپنی عالمی opencode.json میں plugins میں "-<id>" شامل کریں، یا اس کا TUI حصہ بند کرنے کے لیے cli.json میں plugins میں "-" اور اس کے TUI پلگ ان کی ID شامل کریں۔',
+    'سوئچز صرف پلگ ان کا ڈیسک ٹاپ UI بند کرتے ہیں۔ اس کا سرور حصہ بند کرنے کے لیے اپنی عالمی opencodevil.json میں plugins میں "-<id>" شامل کریں، یا اس کا TUI حصہ بند کرنے کے لیے cli.json میں plugins میں "-" اور اس کے TUI پلگ ان کی ID شامل کریں۔',
   "settings.about.copyVersionFailed": "ورژن کاپی کرنے میں ناکام",
   "settings.about.notices.title": "فریق ثالث کے نوٹسز",
   "settings.about.notices.description": "OpenCode میں درج ذیل اوپن سورس سافٹ ویئر شامل ہے۔",

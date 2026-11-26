@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Svarstovnur:\n{{body}}",
   "error.chain.didYouMean": "Meinti tú: {{suggestions}}",
   "error.chain.modelNotFound": "Fyrimynd ikki funnið: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Kanna tíni uppseting (opencode.json) veitara/modell nøvn",
+  "error.chain.checkConfig": "Kanna tíni uppseting (opencodevil.json) veitara/modell nøvn",
   "error.chain.mcpFailed": 'MCP ambætarin "{{name}}" miseydnaðist. Viðmæli, OpenCode stuðlar ikki MCP sannroynd enn.',
   "error.chain.providerAuthFailed": "Veitaragóðkenning miseydnaðist ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -589,7 +589,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ar",
   "settings.extensions.tab.skills": "Førleikar",
   "settings.extensions.availableAll": "Tøkt fyri allar verkætlanir",
-  "settings.extensions.manageConfig": "Umsit í opencode.json",
+  "settings.extensions.manageConfig": "Umsit í opencodevil.json",
   "settings.extensions.addSkills": "Hvussu førleikar verða lagdir afturat",
   "project.settings.extensions.description": "Vís víðkanir, sum eru tøkar fyri hesa verkætlanina",
   "project.settings.extensions.tab.lsps": "LSP-ar",
@@ -1276,7 +1276,7 @@ export const dict = {
   "settings.plugins.part.server": "Ambætari",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Skiftini sløkkja bert skriviborðsviðmótið hjá einum tilskoti. Legg "-<id>" afturat plugins í tíni globalu opencode.json fyri at sløkkja ambætarapartin, ella "-" og ID-ið hjá TUI-tilskotinum afturat plugins í cli.json fyri at sløkkja TUI-partin.',
+    'Skiftini sløkkja bert skriviborðsviðmótið hjá einum tilskoti. Legg "-<id>" afturat plugins í tíni globalu opencodevil.json fyri at sløkkja ambætarapartin, ella "-" og ID-ið hjá TUI-tilskotinum afturat plugins í cli.json fyri at sløkkja TUI-partin.',
   "settings.about.copyVersionFailed": "Tað eydnaðist ikki at avrita útgávuna",
   "settings.about.notices.title": "Fráboðanir frá triðjapørtum",
   "settings.about.notices.description": "OpenCode inniheldur fylgjandi ritbúnað við opnari keldukotu.",

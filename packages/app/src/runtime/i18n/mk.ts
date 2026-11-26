@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Тело за одговор:\n{{body}}",
   "error.chain.didYouMean": "Дали сакаше да каже: {{suggestions}}",
   "error.chain.modelNotFound": "Моделот не е пронајден: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Проверете ги имињата на давателот/моделот за конфигурација (opencode.json).",
+  "error.chain.checkConfig": "Проверете ги имињата на давателот/моделот за конфигурација (opencodevil.json).",
   "error.chain.mcpFailed":
     "MCP серверот „{{name}}“ не успеа. Забелешка, OpenCode сè уште не поддржува автентикација MCP.",
   "error.chain.providerAuthFailed": "Неуспешна автентикација на провајдерот ({{provider}}): {{message}}",
@@ -561,7 +561,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "Вештини",
   "settings.extensions.availableAll": "Достапно за сите проекти",
-  "settings.extensions.manageConfig": "Управувајте во opencode.json",
+  "settings.extensions.manageConfig": "Управувајте во opencodevil.json",
   "settings.extensions.addSkills": "Како да додадете вештини",
   "project.settings.extensions.description": "Погледнете ги наставките достапни за овој проект",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1290,7 +1290,7 @@ export const dict = {
   "settings.plugins.part.server": "Сервер",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Прекинувачите го исклучуваат само десктоп интерфејсот на приклучокот. Додајте "-<id>" во plugins во глобалниот opencode.json за да го исклучите серверскиот дел, или "-" и ID на неговиот TUI приклучок во plugins во cli.json за да го исклучите TUI делот.',
+    'Прекинувачите го исклучуваат само десктоп интерфејсот на приклучокот. Додајте "-<id>" во plugins во глобалниот opencodevil.json за да го исклучите серверскиот дел, или "-" и ID на неговиот TUI приклучок во plugins во cli.json за да го исклучите TUI делот.',
   "settings.about.copyVersionFailed": "Верзијата не можеше да се копира",
   "settings.about.notices.title": "Известувања за трети страни",
   "settings.about.notices.description": "OpenCode го вклучува следниов софтвер со отворен код.",

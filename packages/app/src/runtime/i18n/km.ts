@@ -293,7 +293,7 @@ export const dict = {
   "error.chain.responseBody": "តួការឆ្លើយតប៖\n{{body}}",
   "error.chain.didYouMean": "តើអ្នកមានន័យថា៖ {{suggestions}}",
   "error.chain.modelNotFound": "រកមិនឃើញម៉ូដែល៖ {{provider}}/{{model}}",
-  "error.chain.checkConfig": "ពិនិត្យការកំណត់រចនាសម្ព័ន្ធរបស់អ្នក (opencode.json) អ្នកផ្តល់សេវា/ឈ្មោះម៉ូដែល",
+  "error.chain.checkConfig": "ពិនិត្យការកំណត់រចនាសម្ព័ន្ធរបស់អ្នក (opencodevil.json) អ្នកផ្តល់សេវា/ឈ្មោះម៉ូដែល",
   "error.chain.mcpFailed": 'ម៉ាស៊ីនមេ MCP "{{name}}" បានបរាជ័យ។ ចំណាំ OpenCode មិនគាំទ្រការផ្ទៀងផ្ទាត់ MCP នៅឡើយទេ។',
   "error.chain.providerAuthFailed": "ការផ្ទៀងផ្ទាត់អ្នកផ្តល់សេវាបានបរាជ័យ ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -409,7 +409,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "ជំនាញ",
   "settings.extensions.availableAll": "អាចប្រើបានសម្រាប់គម្រោងទាំងអស់",
-  "settings.extensions.manageConfig": "គ្រប់គ្រងនៅក្នុង opencode.json",
+  "settings.extensions.manageConfig": "គ្រប់គ្រងនៅក្នុង opencodevil.json",
   "settings.extensions.addSkills": "របៀបបន្ថែមជំនាញ",
   "project.settings.extensions.description": "មើលផ្នែកបន្ថែមដែលអាចប្រើបានសម្រាប់គម្រោងនេះ",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1270,7 +1270,7 @@ export const dict = {
   "settings.plugins.part.server": "ម៉ាស៊ីនមេ",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'កុងតាក់បិទតែ UI ផ្ទៃតុរបស់កម្មវិធីជំនួយប៉ុណ្ណោះ។ បន្ថែម "-<id>" ទៅ plugins ក្នុង opencode.json សកលរបស់អ្នក ដើម្បីបិទផ្នែកម៉ាស៊ីនមេរបស់វា ឬបន្ថែម "-" និង ID កម្មវិធីជំនួយ TUI របស់វាទៅ plugins ក្នុង cli.json ដើម្បីបិទផ្នែក TUI របស់វា។',
+    'កុងតាក់បិទតែ UI ផ្ទៃតុរបស់កម្មវិធីជំនួយប៉ុណ្ណោះ។ បន្ថែម "-<id>" ទៅ plugins ក្នុង opencodevil.json សកលរបស់អ្នក ដើម្បីបិទផ្នែកម៉ាស៊ីនមេរបស់វា ឬបន្ថែម "-" និង ID កម្មវិធីជំនួយ TUI របស់វាទៅ plugins ក្នុង cli.json ដើម្បីបិទផ្នែក TUI របស់វា។',
   "settings.about.copyVersionFailed": "បរាជ័យក្នុងការចម្លងកំណែ",
   "settings.about.notices.title": "សេចក្តីជូនដំណឹងភាគីទីបី",
   "settings.about.notices.description": "OpenCode រួមបញ្ចូលកម្មវិធីប្រភពបើកចំហដូចខាងក្រោម។",

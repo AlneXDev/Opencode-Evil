@@ -293,7 +293,7 @@ export const dict = {
   "error.chain.responseBody": "ເນື້ອໃນການຕອບສະໜອງ:\n{{body}}",
   "error.chain.didYouMean": "ເຈົ້າຫມາຍຄວາມວ່າ: {{suggestions}}",
   "error.chain.modelNotFound": "ບໍ່ພົບໂມເດວ: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "ກວດເບິ່ງການຕັ້ງຄ່າ (opencode.json) ຜູ້ໃຫ້ບໍລິການ/ຊື່ແບບຈໍາລອງຂອງທ່ານ",
+  "error.chain.checkConfig": "ກວດເບິ່ງການຕັ້ງຄ່າ (opencodevil.json) ຜູ້ໃຫ້ບໍລິການ/ຊື່ແບບຈໍາລອງຂອງທ່ານ",
   "error.chain.mcpFailed": 'ເຊີບເວີ MCP "{{name}}" ລົ້ມເຫລວ. ໝາຍເຫດ, OpenCode ບໍ່ຮອງຮັບການພິສູດຢືນຢັນ MCP ເທື່ອ.',
   "error.chain.providerAuthFailed": "ການພິສູດຢືນຢັນຜູ້ໃຫ້ບໍລິການລົ້ມເຫລວ ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -414,7 +414,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "ທັກສະ",
   "settings.extensions.availableAll": "ມີໃຫ້ທຸກໂຄງການ",
-  "settings.extensions.manageConfig": "ຈັດການໃນ opencode.json",
+  "settings.extensions.manageConfig": "ຈັດການໃນ opencodevil.json",
   "settings.extensions.addSkills": "ວິທີເພີ່ມທັກສະ",
   "project.settings.extensions.description": "ເບິ່ງສ່ວນຂະຫຍາຍທີ່ມີໃຫ້ໂຄງການນີ້",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1263,7 +1263,7 @@ export const dict = {
   "settings.plugins.part.server": "ເຊີບເວີ",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'ສະວິດຈະປິດສະເພາະ UI ເດສທັອບຂອງປລັກອິນເທົ່ານັ້ນ. ເພີ່ມ "-<id>" ໃສ່ plugins ໃນ opencode.json ສ່ວນກາງຂອງທ່ານເພື່ອປິດສ່ວນເຊີບເວີ, ຫຼືເພີ່ມ "-" ພ້ອມ ID ຂອງປລັກອິນ TUI ໃສ່ plugins ໃນ cli.json ເພື່ອປິດສ່ວນ TUI.',
+    'ສະວິດຈະປິດສະເພາະ UI ເດສທັອບຂອງປລັກອິນເທົ່ານັ້ນ. ເພີ່ມ "-<id>" ໃສ່ plugins ໃນ opencodevil.json ສ່ວນກາງຂອງທ່ານເພື່ອປິດສ່ວນເຊີບເວີ, ຫຼືເພີ່ມ "-" ພ້ອມ ID ຂອງປລັກອິນ TUI ໃສ່ plugins ໃນ cli.json ເພື່ອປິດສ່ວນ TUI.',
   "settings.about.copyVersionFailed": "ສຳເນົາລຸ້ນບໍ່ສຳເລັດ",
   "settings.about.notices.title": "ແຈ້ງການຂອງບຸກຄົນທີສາມ",
   "settings.about.notices.description": "OpenCode ປະກອບມີຊອບແວໂອເພນຊອດຕໍ່ໄປນີ້.",

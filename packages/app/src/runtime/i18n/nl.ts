@@ -494,7 +494,7 @@ export const dict = {
   "error.chain.responseBody": "Antwoordtekst:\n{{body}}",
   "error.chain.didYouMean": "Bedoelde je: {{suggestions}}",
   "error.chain.modelNotFound": "Model niet gevonden: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Controleer de provider- en modelnamen in je configuratie (opencode.json)",
+  "error.chain.checkConfig": "Controleer de provider- en modelnamen in je configuratie (opencodevil.json)",
   "error.chain.mcpFailed": 'MCP-server "{{name}}" is mislukt. Let op: OpenCode ondersteunt nog geen MCP-authenticatie.',
   "error.chain.providerAuthFailed": "Authenticatie bij aanbieder mislukt ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -770,7 +770,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP's",
   "settings.extensions.tab.skills": "Vaardigheden",
   "settings.extensions.availableAll": "Beschikbaar voor alle projecten",
-  "settings.extensions.manageConfig": "Beheer in opencode.json",
+  "settings.extensions.manageConfig": "Beheer in opencodevil.json",
   "settings.extensions.addSkills": "Hoe vaardigheden toe te voegen",
   "project.settings.extensions.description": "Bekijk de extensies die beschikbaar zijn voor dit project",
   "project.settings.extensions.tab.lsps": "LSP's",
@@ -1296,7 +1296,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Schakelaars zetten alleen de desktop-UI van een plug-in uit. Voeg "-<id>" toe aan plugins in je globale opencode.json om het serverdeel uit te zetten, of "-" plus de ID van de TUI-plug-in aan plugins in cli.json om het TUI-deel uit te zetten.',
+    'Schakelaars zetten alleen de desktop-UI van een plug-in uit. Voeg "-<id>" toe aan plugins in je globale opencodevil.json om het serverdeel uit te zetten, of "-" plus de ID van de TUI-plug-in aan plugins in cli.json om het TUI-deel uit te zetten.',
   "settings.about.copyVersionFailed": "Kan versie niet kopiëren",
   "settings.about.notices.title": "Kennisgevingen van derden",
   "settings.about.notices.description": "OpenCode bevat de volgende opensourcesoftware.",

@@ -423,7 +423,7 @@ export const dict = {
   "error.chain.responseBody": "Vastausteksti:\n{{body}}",
   "error.chain.didYouMean": "Tarkoititko: {{suggestions}}",
   "error.chain.modelNotFound": "Mallia ei löydy: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Tarkista määritysten (opencode.json) palveluntarjoajien ja mallien nimet",
+  "error.chain.checkConfig": "Tarkista määritysten (opencodevil.json) palveluntarjoajien ja mallien nimet",
   "error.chain.mcpFailed": 'MCP-palvelin "{{name}}" epäonnistui. Huomaa, että OpenCode ei vielä tue MCP-todennusta.',
   "error.chain.providerAuthFailed": "Palveluntarjoajan todennus epäonnistui ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -761,7 +761,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP:t",
   "settings.extensions.tab.skills": "Taidot",
   "settings.extensions.availableAll": "Saatavilla kaikkiin projekteihin",
-  "settings.extensions.manageConfig": "Hallinnoi osoitteessa opencode.json",
+  "settings.extensions.manageConfig": "Hallinnoi osoitteessa opencodevil.json",
   "settings.extensions.addSkills": "Kuinka lisätä taitoja",
   "project.settings.extensions.description": "Näytä tämän projektin saatavilla olevat laajennukset",
   "project.settings.extensions.tab.lsps": "LSP:t",
@@ -1280,7 +1280,7 @@ export const dict = {
   "settings.plugins.part.server": "Palvelin",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Kytkimet poistavat käytöstä vain laajennuksen työpöytäkäyttöliittymän. Poista sen palvelinosa käytöstä lisäämällä "-<id>" plugins-kohtaan globaalissa opencode.json-tiedostossasi, tai sen TUI-osa lisäämällä "-" ja sen TUI-laajennuksen tunnus plugins-kohtaan cli.json-tiedostossa.',
+    'Kytkimet poistavat käytöstä vain laajennuksen työpöytäkäyttöliittymän. Poista sen palvelinosa käytöstä lisäämällä "-<id>" plugins-kohtaan globaalissa opencodevil.json-tiedostossasi, tai sen TUI-osa lisäämällä "-" ja sen TUI-laajennuksen tunnus plugins-kohtaan cli.json-tiedostossa.',
   "settings.about.copyVersionFailed": "Version kopiointi epäonnistui",
   "settings.about.notices.title": "Kolmannen osapuolen ilmoitukset",
   "settings.about.notices.description": "OpenCode sisältää seuraavia avoimen lähdekoodin ohjelmistoja.",

@@ -294,7 +294,7 @@ export const dict = {
   "error.chain.responseBody": "प्रतिक्रिया निकाय:\n{{body}}",
   "error.chain.didYouMean": "क्या आपका मतलब था: {{suggestions}}",
   "error.chain.modelNotFound": "मॉडल नहीं मिला: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "अपने कॉन्फ़िगरेशन (opencode.json) प्रोवाइडर/मॉडल नामों की जाँच करें",
+  "error.chain.checkConfig": "अपने कॉन्फ़िगरेशन (opencodevil.json) प्रोवाइडर/मॉडल नामों की जाँच करें",
   "error.chain.mcpFailed":
     'MCP सर्वर "{{name}}" विफल रहा। ध्यान दें, OpenCode अभी तक MCP प्रमाणीकरण का समर्थन नहीं करता है।',
   "error.chain.providerAuthFailed": "प्रोवाइडर प्रमाणीकरण विफल ({{provider}}): {{message}}",
@@ -563,7 +563,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "कौशल",
   "settings.extensions.availableAll": "सभी प्रोजेक्ट के लिए उपलब्ध",
-  "settings.extensions.manageConfig": "opencode.json में प्रबंधित करें",
+  "settings.extensions.manageConfig": "opencodevil.json में प्रबंधित करें",
   "settings.extensions.addSkills": "कौशल कैसे जोड़ें",
   "project.settings.extensions.description": "इस प्रोजेक्ट के लिए उपलब्ध एक्सटेंशन देखें",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1284,7 +1284,7 @@ export const dict = {
   "settings.plugins.part.server": "सर्वर",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'स्विच केवल प्लग-इन का डेस्कटॉप UI बंद करते हैं। इसका सर्वर भाग बंद करने के लिए अपनी ग्लोबल opencode.json में plugins में "-<id>" जोड़ें, या इसका TUI भाग बंद करने के लिए cli.json में plugins में "-" और इसके TUI प्लग-इन की ID जोड़ें।',
+    'स्विच केवल प्लग-इन का डेस्कटॉप UI बंद करते हैं। इसका सर्वर भाग बंद करने के लिए अपनी ग्लोबल opencodevil.json में plugins में "-<id>" जोड़ें, या इसका TUI भाग बंद करने के लिए cli.json में plugins में "-" और इसके TUI प्लग-इन की ID जोड़ें।',
   "settings.about.copyVersionFailed": "संस्करण कॉपी करने में विफल",
   "settings.about.notices.title": "तृतीय-पक्ष सूचनाएँ",
   "settings.about.notices.description": "OpenCode में निम्नलिखित ओपन-सोर्स सॉफ़्टवेयर शामिल है।",

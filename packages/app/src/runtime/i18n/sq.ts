@@ -287,7 +287,7 @@ export const dict = {
   "error.chain.responseBody": "Trupi i përgjigjes:\n{{body}}",
   "error.chain.didYouMean": "A do të thuash: {{suggestions}}",
   "error.chain.modelNotFound": "Modeli nuk u gjet: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Kontrolloni emrat e ofruesit/modelit tuaj të konfigurimit (opencode.json).",
+  "error.chain.checkConfig": "Kontrolloni emrat e ofruesit/modelit tuaj të konfigurimit (opencodevil.json).",
   "error.chain.mcpFailed": 'Serveri MCP "{{name}}" dështoi. Shënim, OpenCode nuk e mbështet ende vërtetimin MCP.',
   "error.chain.providerAuthFailed": "Autentifikimi i ofruesit dështoi ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -590,7 +590,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-të",
   "settings.extensions.tab.skills": "Aftësitë",
   "settings.extensions.availableAll": "Në dispozicion për të gjitha projektet",
-  "settings.extensions.manageConfig": "Menaxho në opencode.json",
+  "settings.extensions.manageConfig": "Menaxho në opencodevil.json",
   "settings.extensions.addSkills": "Si të shtoni aftësi",
   "project.settings.extensions.description": "Shikoni zgjerimet e disponueshme për këtë projekt",
   "project.settings.extensions.tab.lsps": "LSP-të",
@@ -1286,7 +1286,7 @@ export const dict = {
   "settings.plugins.part.server": "Serveri",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Çelësat çaktivizojnë vetëm ndërfaqen desktop të një shtojce. Shtoni "-<id>" te plugins në opencode.json global për të çaktivizuar pjesën e saj të serverit, ose "-" dhe ID-në e shtojcës TUI te plugins në cli.json për të çaktivizuar pjesën TUI.',
+    'Çelësat çaktivizojnë vetëm ndërfaqen desktop të një shtojce. Shtoni "-<id>" te plugins në opencodevil.json global për të çaktivizuar pjesën e saj të serverit, ose "-" dhe ID-në e shtojcës TUI te plugins në cli.json për të çaktivizuar pjesën TUI.',
   "settings.about.copyVersionFailed": "Kopjimi i versionit dështoi",
   "settings.about.notices.title": "Njoftimet e palëve të treta",
   "settings.about.notices.description": "OpenCode përfshin softuerin me burim të hapur të mëposhtëm.",

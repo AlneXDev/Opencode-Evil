@@ -312,7 +312,7 @@ export const dict = {
   "error.chain.responseBody": "Tijelo odgovora:\n{{body}}",
   "error.chain.didYouMean": "Da li si mislio: {{suggestions}}",
   "error.chain.modelNotFound": "Model nije pronađen: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Provjeri nazive provajdera/modela u konfiguraciji (opencode.json)",
+  "error.chain.checkConfig": "Provjeri nazive provajdera/modela u konfiguraciji (opencodevil.json)",
   "error.chain.mcpFailed": 'MCP server "{{name}}" nije uspio. Napomena: OpenCode još ne podržava MCP autentifikaciju.',
   "error.chain.providerAuthFailed": "Autentifikacija provajdera nije uspjela ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -623,7 +623,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ovi",
   "settings.extensions.tab.skills": "Vještine",
   "settings.extensions.availableAll": "Dostupan za sve projekte",
-  "settings.extensions.manageConfig": "Upravljajte u opencode.json",
+  "settings.extensions.manageConfig": "Upravljajte u opencodevil.json",
   "settings.extensions.addSkills": "Kako dodati vještine",
   "project.settings.extensions.description": "Pogledajte proširenja dostupna za ovaj projekat",
   "project.settings.extensions.tab.lsps": "LSP-ovi",
@@ -1364,7 +1364,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Prekidači isključuju samo desktop interfejs dodatka. Dodajte "-<id>" u plugins u globalnom opencode.json da isključite njegov serverski dio, ili "-" i ID njegovog TUI dodatka u plugins u cli.json da isključite njegov TUI dio.',
+    'Prekidači isključuju samo desktop interfejs dodatka. Dodajte "-<id>" u plugins u globalnom opencodevil.json da isključite njegov serverski dio, ili "-" i ID njegovog TUI dodatka u plugins u cli.json da isključite njegov TUI dio.',
   "settings.about.copyVersionFailed": "Kopiranje verzije nije uspjelo",
   "settings.about.notices.title": "Obavještenja trećih strana",
   "settings.about.notices.description": "OpenCode uključuje sljedeći softver otvorenog koda.",

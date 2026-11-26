@@ -283,7 +283,7 @@ export const dict = {
   "error.chain.responseBody": "Treść odpowiedzi:\n{{body}}",
   "error.chain.didYouMean": "Czy miałeś na myśli: {{suggestions}}",
   "error.chain.modelNotFound": "Model nie znaleziony: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Sprawdź nazwy dostawców i modeli w konfiguracji (opencode.json)",
+  "error.chain.checkConfig": "Sprawdź nazwy dostawców i modeli w konfiguracji (opencodevil.json)",
   "error.chain.mcpFailed":
     "Serwer MCP „{{name}}” nie uruchomił się. Uwaga: OpenCode nie obsługuje jeszcze uwierzytelniania MCP.",
   "error.chain.providerAuthFailed": "Uwierzytelnianie dostawcy nie powiodło się ({{provider}}): {{message}}",
@@ -575,7 +575,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "Umiejętności",
   "settings.extensions.availableAll": "Dostępne dla wszystkich projektów",
-  "settings.extensions.manageConfig": "Zarządzaj w opencode.json",
+  "settings.extensions.manageConfig": "Zarządzaj w opencodevil.json",
   "settings.extensions.addSkills": "Jak dodać umiejętności",
   "project.settings.extensions.description": "Wyświetl rozszerzenia dostępne dla tego projektu",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1339,7 +1339,7 @@ export const dict = {
   "settings.plugins.part.server": "Serwer",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Przełączniki wyłączają tylko interfejs desktopowy wtyczki. Dodaj "-<id>" do plugins w globalnym opencode.json, aby wyłączyć jej część serwerową, lub "-" i ID jej wtyczki TUI do plugins w cli.json, aby wyłączyć część TUI.',
+    'Przełączniki wyłączają tylko interfejs desktopowy wtyczki. Dodaj "-<id>" do plugins w globalnym opencodevil.json, aby wyłączyć jej część serwerową, lub "-" i ID jej wtyczki TUI do plugins w cli.json, aby wyłączyć część TUI.',
   "settings.about.copyVersionFailed": "Nie udało się skopiować wersji",
   "settings.about.notices.title": "Informacje o oprogramowaniu firm trzecich",
   "settings.about.notices.description": "OpenCode zawiera następujące oprogramowanie open source.",

@@ -292,7 +292,7 @@ export const dict = {
   "error.chain.responseBody": "レスポンス本文:\n{{body}}",
   "error.chain.didYouMean": "もしかして: {{suggestions}}",
   "error.chain.modelNotFound": "モデルが見つかりません: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "config (opencode.json) のプロバイダー/モデル名を確認してください",
+  "error.chain.checkConfig": "config (opencodevil.json) のプロバイダー/モデル名を確認してください",
   "error.chain.mcpFailed": 'MCPサーバー "{{name}}" が失敗しました。注意: OpenCodeはまだMCP認証をサポートしていません。',
   "error.chain.providerAuthFailed": "プロバイダー認証に失敗しました ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -385,7 +385,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP",
   "settings.extensions.tab.skills": "スキル",
   "settings.extensions.availableAll": "すべてのプロジェクトで利用可能",
-  "settings.extensions.manageConfig": "opencode.jsonで管理",
+  "settings.extensions.manageConfig": "opencodevil.jsonで管理",
   "settings.extensions.addSkills": "スキルの追加方法",
   "project.settings.extensions.description": "このプロジェクトで利用可能な拡張機能を表示します",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1292,7 +1292,7 @@ export const dict = {
   "settings.plugins.part.server": "サーバー",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'スイッチでオフになるのはプラグインのデスクトップUIのみです。サーバー部分をオフにするには、グローバルの opencode.json の plugins に "-<id>" を追加します。TUI部分をオフにするには、cli.json の plugins に "-" とそのTUIプラグインのIDを追加します。',
+    'スイッチでオフになるのはプラグインのデスクトップUIのみです。サーバー部分をオフにするには、グローバルの opencodevil.json の plugins に "-<id>" を追加します。TUI部分をオフにするには、cli.json の plugins に "-" とそのTUIプラグインのIDを追加します。',
   "settings.about.copyVersionFailed": "バージョンをコピーできませんでした",
   "settings.about.notices.title": "サードパーティに関する通知",
   "settings.about.notices.description": "OpenCodeには次のオープンソースソフトウェアが含まれています。",

@@ -290,7 +290,7 @@ export const dict = {
   "error.chain.responseBody": "প্রতিক্রিয়ার অংশ:\n{{body}}৷",
   "error.chain.didYouMean": "আপনি কি বলতে চাইছেন: {{suggestions}}",
   "error.chain.modelNotFound": "মডেল পাওয়া যায়নি: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "আপনার কনফিগারেশন (opencode.json) প্রদানকারী/মডেলের নাম পরীক্ষা করুন",
+  "error.chain.checkConfig": "আপনার কনফিগারেশন (opencodevil.json) প্রদানকারী/মডেলের নাম পরীক্ষা করুন",
   "error.chain.mcpFailed":
     'MCP সার্ভার "{{name}}" ব্যর্থ হয়েছে৷ মনে রাখবেন, OpenCode এখনও MCP প্রমাণীকরণ সমর্থন করে না।',
   "error.chain.providerAuthFailed": "প্রদানকারীর প্রমাণীকরণ ব্যর্থ হয়েছে ({{provider}}): {{message}}",
@@ -561,7 +561,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCPs",
   "settings.extensions.tab.skills": "স্কিল",
   "settings.extensions.availableAll": "সব প্রকল্পে উপলভ্য",
-  "settings.extensions.manageConfig": "opencode.json-এ পরিচালনা করুন",
+  "settings.extensions.manageConfig": "opencodevil.json-এ পরিচালনা করুন",
   "settings.extensions.addSkills": "স্কিল যোগ করার নিয়ম",
   "project.settings.extensions.description": "এই প্রকল্পে উপলভ্য এক্সটেনশন দেখুন",
   "project.settings.extensions.tab.lsps": "LSPs",
@@ -1283,7 +1283,7 @@ export const dict = {
   "settings.plugins.part.server": "সার্ভার",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'সুইচগুলো শুধুমাত্র একটি প্লাগইনের ডেস্কটপ UI বন্ধ করে। এর সার্ভার অংশ বন্ধ করতে আপনার গ্লোবাল opencode.json-এর plugins-এ "-<id>" যোগ করুন, অথবা এর TUI অংশ বন্ধ করতে cli.json-এর plugins-এ "-" এবং এর TUI প্লাগইনের ID যোগ করুন।',
+    'সুইচগুলো শুধুমাত্র একটি প্লাগইনের ডেস্কটপ UI বন্ধ করে। এর সার্ভার অংশ বন্ধ করতে আপনার গ্লোবাল opencodevil.json-এর plugins-এ "-<id>" যোগ করুন, অথবা এর TUI অংশ বন্ধ করতে cli.json-এর plugins-এ "-" এবং এর TUI প্লাগইনের ID যোগ করুন।',
   "settings.about.copyVersionFailed": "সংস্করণ কপি করা যায়নি",
   "settings.about.notices.title": "তৃতীয়-পক্ষের বিজ্ঞপ্তি",
   "settings.about.notices.description": "OpenCode-এ নিম্নলিখিত ওপেন সোর্স সফটওয়্যার অন্তর্ভুক্ত রয়েছে।",

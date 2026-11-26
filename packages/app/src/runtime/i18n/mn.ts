@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Хариу өгөх байгууллага:\n{{body}}",
   "error.chain.didYouMean": "Та: {{suggestions}} гэсэн үг үү",
   "error.chain.modelNotFound": "Загвар олдсонгүй: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Өөрийн тохиргооны (opencode.json) үйлчилгээ үзүүлэгч/загварын нэрийг шалгана уу",
+  "error.chain.checkConfig": "Өөрийн тохиргооны (opencodevil.json) үйлчилгээ үзүүлэгч/загварын нэрийг шалгана уу",
   "error.chain.mcpFailed":
     'MCP сервер "{{name}}" амжилтгүй боллоо. OpenCode нь MCP баталгаажуулалтыг хараахан дэмждэггүйг анхаарна уу.',
   "error.chain.providerAuthFailed":
@@ -562,7 +562,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-үүд",
   "settings.extensions.tab.skills": "Ур чадварууд",
   "settings.extensions.availableAll": "Бүх төсөлд ашиглах боломжтой",
-  "settings.extensions.manageConfig": "opencode.json дотор удирдах",
+  "settings.extensions.manageConfig": "opencodevil.json дотор удирдах",
   "settings.extensions.addSkills": "Ур чадвар хэрхэн нэмэх вэ",
   "project.settings.extensions.description": "Энэ төсөлд ашиглах боломжтой өргөтгөлүүдийг харах",
   "project.settings.extensions.tab.lsps": "LSP-үүд",
@@ -1291,7 +1291,7 @@ export const dict = {
   "settings.plugins.part.server": "Сервер",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Унтраалга нь зөвхөн нэмэлтийн ширээний аппын UI-г унтраана. Серверийн хэсгийг унтраахын тулд глобал opencode.json дахь plugins-д "-<id>" нэмнэ үү, TUI хэсгийг унтраахын тулд cli.json дахь plugins-д "-" болон TUI нэмэлтийн ID-г нэмнэ үү.',
+    'Унтраалга нь зөвхөн нэмэлтийн ширээний аппын UI-г унтраана. Серверийн хэсгийг унтраахын тулд глобал opencodevil.json дахь plugins-д "-<id>" нэмнэ үү, TUI хэсгийг унтраахын тулд cli.json дахь plugins-д "-" болон TUI нэмэлтийн ID-г нэмнэ үү.',
   "settings.about.copyVersionFailed": "Хувилбарыг хуулж чадсангүй",
   "settings.about.notices.title": "Гуравдагч талын мэдэгдлүүд",
   "settings.about.notices.description": "OpenCode дараах нээлттэй эхийн програм хангамжийг агуулдаг.",

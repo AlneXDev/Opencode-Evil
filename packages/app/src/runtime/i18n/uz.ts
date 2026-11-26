@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Javob organi:\n{{body}}",
   "error.chain.didYouMean": "Buni nazarda tutdingizmi: {{suggestions}}",
   "error.chain.modelNotFound": "Model topilmadi: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Konfiguratsiya (opencode.json) provayder/model nomlarini tekshiring",
+  "error.chain.checkConfig": "Konfiguratsiya (opencodevil.json) provayder/model nomlarini tekshiring",
   "error.chain.mcpFailed":
     "MCP \"{{name}}\" serveri muvaffaqiyatsiz tugadi. E'tibor bering, OpenCode hali MCP autentifikatsiyasini qo'llab-quvvatlamaydi.",
   "error.chain.providerAuthFailed": "Provayder autentifikatsiyasi amalga oshmadi ({{provider}}): {{message}}",
@@ -561,7 +561,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-lar",
   "settings.extensions.tab.skills": "Ko‘nikmalar",
   "settings.extensions.availableAll": "Barcha loyihalar uchun mavjud",
-  "settings.extensions.manageConfig": "opencode.json faylida boshqarish",
+  "settings.extensions.manageConfig": "opencodevil.json faylida boshqarish",
   "settings.extensions.addSkills": "Ko‘nikmalarni qanday qo‘shish kerak",
   "project.settings.extensions.description": "Ushbu loyiha uchun mavjud kengaytmalarni ko‘ring",
   "project.settings.extensions.tab.lsps": "LSP-lar",
@@ -1294,7 +1294,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Kalitlar faqat plaginning desktop interfeysini o‘chiradi. Server qismini o‘chirish uchun global opencode.json dagi plugins ga "-<id>" qo‘shing, TUI qismini o‘chirish uchun esa cli.json dagi plugins ga "-" va uning TUI plagini ID’sini qo‘shing.',
+    'Kalitlar faqat plaginning desktop interfeysini o‘chiradi. Server qismini o‘chirish uchun global opencodevil.json dagi plugins ga "-<id>" qo‘shing, TUI qismini o‘chirish uchun esa cli.json dagi plugins ga "-" va uning TUI plagini ID’sini qo‘shing.',
   "settings.about.copyVersionFailed": "Versiyani nusxalab bo‘lmadi",
   "settings.about.notices.title": "Uchinchi tomon bildirishnomalari",
   "settings.about.notices.description": "OpenCode quyidagi ochiq manbali dasturlarni o‘z ichiga oladi.",

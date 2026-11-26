@@ -488,7 +488,7 @@ export const dict = {
   "error.chain.responseBody": "Svarstext:\n{{body}}",
   "error.chain.didYouMean": "Menade du: {{suggestions}}",
   "error.chain.modelNotFound": "Modellen hittades inte: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Kontrollera leverantörs- och modellnamnen i konfigurationen (opencode.json)",
+  "error.chain.checkConfig": "Kontrollera leverantörs- och modellnamnen i konfigurationen (opencodevil.json)",
   "error.chain.mcpFailed": 'MCP-servern "{{name}}" misslyckades. Obs, OpenCode stöder inte MCP-autentisering ännu.',
   "error.chain.providerAuthFailed": "Leverantörsautentisering misslyckades ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -761,7 +761,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP:er",
   "settings.extensions.tab.skills": "Färdigheter",
   "settings.extensions.availableAll": "Tillgänglig för alla projekt",
-  "settings.extensions.manageConfig": "Hantera i opencode.json",
+  "settings.extensions.manageConfig": "Hantera i opencodevil.json",
   "settings.extensions.addSkills": "Hur man lägger till färdigheter",
   "project.settings.extensions.description": "Visa tillägg som är tillgängliga för detta projekt",
   "project.settings.extensions.tab.lsps": "LSP:er",
@@ -1284,7 +1284,7 @@ export const dict = {
   "settings.plugins.part.server": "Server",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Reglagen stänger bara av ett plugins skrivbordsgränssnitt. Lägg till "-<id>" i plugins i din globala opencode.json för att stänga av serverdelen, eller "-" följt av TUI-pluginets ID i plugins i cli.json för att stänga av TUI-delen.',
+    'Reglagen stänger bara av ett plugins skrivbordsgränssnitt. Lägg till "-<id>" i plugins i din globala opencodevil.json för att stänga av serverdelen, eller "-" följt av TUI-pluginets ID i plugins i cli.json för att stänga av TUI-delen.',
   "settings.about.copyVersionFailed": "Det gick inte att kopiera versionen",
   "settings.about.notices.title": "Meddelanden från tredje part",
   "settings.about.notices.description": "OpenCode innehåller följande programvara med öppen källkod.",

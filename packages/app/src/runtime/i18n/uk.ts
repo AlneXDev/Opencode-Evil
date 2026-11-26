@@ -350,7 +350,7 @@ export const dict = {
   "error.chain.responseBody": "Тіло відповіді:\n{{body}}",
   "error.chain.didYouMean": "Можливо, ви мали на увазі: {{suggestions}}",
   "error.chain.modelNotFound": "Модель не знайдено: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Перевірте назви провайдерів/моделей у конфігурації (opencode.json)",
+  "error.chain.checkConfig": "Перевірте назви провайдерів/моделей у конфігурації (opencodevil.json)",
   "error.chain.mcpFailed":
     'Сервер MCP "{{name}}" не працює. Зверніть увагу, OpenCode ще не підтримує автентифікацію MCP.',
   "error.chain.providerAuthFailed": "Автентифікація провайдера не вдалася ({{provider}}): {{message}}",
@@ -652,7 +652,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "МКП",
   "settings.extensions.tab.skills": "Навички",
   "settings.extensions.availableAll": "Доступно для всіх проектів",
-  "settings.extensions.manageConfig": "Керуйте в opencode.json",
+  "settings.extensions.manageConfig": "Керуйте в opencodevil.json",
   "settings.extensions.addSkills": "Як додати навички",
   "project.settings.extensions.description": "Переглянути розширення, доступні для цього проекту",
   "project.settings.extensions.tab.lsps": "LSP",
@@ -1394,7 +1394,7 @@ export const dict = {
   "settings.plugins.part.server": "Сервер",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Перемикачі вимикають лише інтерфейс плагіна в настільному застосунку. Щоб вимкнути його серверну частину, додайте "-<id>" до plugins у глобальному opencode.json, а щоб вимкнути частину TUI — додайте "-" та ID його TUI-плагіна до plugins у cli.json.',
+    'Перемикачі вимикають лише інтерфейс плагіна в настільному застосунку. Щоб вимкнути його серверну частину, додайте "-<id>" до plugins у глобальному opencodevil.json, а щоб вимкнути частину TUI — додайте "-" та ID його TUI-плагіна до plugins у cli.json.',
   "settings.about.copyVersionFailed": "Не вдалося скопіювати версію",
   "settings.about.notices.title": "Повідомлення третіх сторін",
   "settings.about.notices.description": "OpenCode містить таке програмне забезпечення з відкритим кодом.",

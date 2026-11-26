@@ -286,7 +286,7 @@ export const dict = {
   "error.chain.responseBody": "Jogap beriji organ:\n{{body}}",
   "error.chain.didYouMean": "Diýjek bolduňmy: {{suggestions}}",
   "error.chain.modelNotFound": "Model tapylmady: {{provider}} / {{model}}",
-  "error.chain.checkConfig": "Konfigurasiýaňyzy (opencode.json) üpjün edijiniň / model atlaryny barlaň",
+  "error.chain.checkConfig": "Konfigurasiýaňyzy (opencodevil.json) üpjün edijiniň / model atlaryny barlaň",
   "error.chain.mcpFailed": 'MCP serweri "{{name}}" şowsuz. Üns beriň, OpenCode entek MCP tassyklamasyny goldamaýar.',
   "error.chain.providerAuthFailed": "Prowaýderiň tassyklamasy şowsuz ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
@@ -557,7 +557,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ler",
   "settings.extensions.tab.skills": "Başarnyklar",
   "settings.extensions.availableAll": "Ähli taslamalar üçin elýeterli",
-  "settings.extensions.manageConfig": "opencode.json-da dolandyryň",
+  "settings.extensions.manageConfig": "opencodevil.json-da dolandyryň",
   "settings.extensions.addSkills": "Başarnyklary nädip goşmaly",
   "project.settings.extensions.description": "Bu taslama üçin elýeterli giňeltmeleri görüň",
   "project.settings.extensions.tab.lsps": "LSP-ler",
@@ -1276,7 +1276,7 @@ export const dict = {
   "settings.plugins.part.server": "Serwer",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Açarlar diňe pluginiň iş stoly interfeýsini öçürýär. Onuň serwer bölegini öçürmek üçin global opencode.json faýlyňyzdaky plugins-e "-<id>" goşuň, TUI bölegini öçürmek üçin bolsa cli.json-daky plugins-e "-" we onuň TUI plugininiň ID-sini goşuň.',
+    'Açarlar diňe pluginiň iş stoly interfeýsini öçürýär. Onuň serwer bölegini öçürmek üçin global opencodevil.json faýlyňyzdaky plugins-e "-<id>" goşuň, TUI bölegini öçürmek üçin bolsa cli.json-daky plugins-e "-" we onuň TUI plugininiň ID-sini goşuň.',
   "settings.about.copyVersionFailed": "Wersiýany göçürip bolmady",
   "settings.about.notices.title": "Üçünji tarap bildirişleri",
   "settings.about.notices.description": "OpenCode aşakdaky açyk çeşmeli programma üpjünçiligini öz içine alýar.",

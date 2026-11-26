@@ -299,7 +299,7 @@ export const dict = {
   "error.chain.responseBody": "Tijelo odgovora:\n{{body}}",
   "error.chain.didYouMean": "Jeste li mislili: {{suggestions}}",
   "error.chain.modelNotFound": "Model nije pronađen: {{provider}}/{{model}}",
-  "error.chain.checkConfig": "Provjerite nazive dobavljača/modela svoje konfiguracije (opencode.json).",
+  "error.chain.checkConfig": "Provjerite nazive dobavljača/modela svoje konfiguracije (opencodevil.json).",
   "error.chain.mcpFailed":
     'MCP poslužitelj "{{name}}" nije uspio. Napomena, OpenCode još ne podržava MCP autentifikaciju.',
   "error.chain.providerAuthFailed": "Provjera autentičnosti davatelja nije uspjela ({{provider}}): {{message}}",
@@ -576,7 +576,7 @@ export const dict = {
   "settings.extensions.tab.mcps": "MCP-ovi",
   "settings.extensions.tab.skills": "Vještine",
   "settings.extensions.availableAll": "Dostupno za sve projekte",
-  "settings.extensions.manageConfig": "Upravljanje u opencode.json",
+  "settings.extensions.manageConfig": "Upravljanje u opencodevil.json",
   "settings.extensions.addSkills": "Kako dodati vještine",
   "project.settings.extensions.description": "Pogledajte proširenja dostupna za ovaj projekt",
   "project.settings.extensions.tab.lsps": "LSP-ovi",
@@ -1308,7 +1308,7 @@ export const dict = {
   "settings.plugins.part.server": "Poslužitelj",
   "settings.plugins.part.tui": "TUI",
   "settings.plugins.parts.note":
-    'Prekidači isključuju samo desktop sučelje dodatka. Dodajte "-<id>" u plugins u globalnoj datoteci opencode.json da biste isključili njegov poslužiteljski dio, ili "-" i ID njegova TUI dodatka u plugins u datoteci cli.json da biste isključili njegov TUI dio.',
+    'Prekidači isključuju samo desktop sučelje dodatka. Dodajte "-<id>" u plugins u globalnoj datoteci opencodevil.json da biste isključili njegov poslužiteljski dio, ili "-" i ID njegova TUI dodatka u plugins u datoteci cli.json da biste isključili njegov TUI dio.',
   "settings.about.copyVersionFailed": "Kopiranje verzije nije uspjelo",
   "settings.about.notices.title": "Obavijesti trećih strana",
   "settings.about.notices.description": "OpenCode uključuje sljedeći softver otvorenog koda.",
