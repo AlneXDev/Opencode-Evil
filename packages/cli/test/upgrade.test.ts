@@ -6,6 +6,7 @@ import path from "node:path"
 describe("upgrade command", () => {
   test("is registered in root help and documents its options", async () => {
     const root = await cli(["--help"], {}, "../src/index.ts")
+    // Windows subprocess startup can exceed Bun's 5s default for spawned Bun processes.
     const help = await cli(["upgrade", "--help"], {}, "../src/index.ts")
     expect(root.exitCode).toBe(0)
     expect(root.stdout).toContain("upgrade")
@@ -13,7 +14,7 @@ describe("upgrade command", () => {
     expect(help.stdout).toContain("[<target>]")
     expect(help.stdout).toContain("--method")
     expect(help.stdout).toContain("-m")
-  })
+  }, 60_000)
 
   test("detects the installation method and resolves the latest version", async () => {
     const result = await cli([])
