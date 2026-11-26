@@ -66,8 +66,8 @@ Configured under `mcp.servers`. Prefer the CLI so unrelated config is
 preserved; pass `--global` unless the user wants project-local config:
 
 ```sh
-opencode mcp add <name> --global --url <remote-url>
-opencode mcp list
+opencodevil-cli mcp add <name> --global --url <remote-url>
+opencodevil-cli mcp list
 ```
 
 Remote servers use OAuth by default. If `mcp list` shows a server needs auth,
@@ -101,8 +101,8 @@ sessions, config, plugins, permissions, and tool execution. It starts
 automatically; only restart it if stuck or unhealthy, not for config changes:
 
 ```sh
-opencode service restart
-opencode service status
+opencodevil-cli service restart
+opencodevil-cli service status
 ```
 
 ## [API](https://opencode.ai/docs/api)
@@ -111,14 +111,14 @@ The server exposes an HTTP API described at `/openapi.json` (and published at
 <https://opencode.ai/docs/openapi.json>).
 
 Use your built-in tools first (including `tools.opencode.*` and other Code Mode
-namespaces in `search(...)`). Only fall back to `opencode api` for things they
+namespaces in `search(...)`). Only fall back to `opencodevil-cli api` for things they
 do not cover; it handles service discovery and auth and accepts either
 `<method> <path>` or an OpenAPI operation ID:
 
 ```sh
-opencode api get /api/info
-opencode api post /api/example --data '{"key":"value"}'
-opencode api get /api/example --header 'X-Example:value'
+opencodevil-cli api get /api/info
+opencodevil-cli api post /api/example --data '{"key":"value"}'
+opencodevil-cli api get /api/example --header 'X-Example:value'
 ```
 
 Request bodies default to `Content-Type: application/json`. When connected to
@@ -144,7 +144,7 @@ guides.
 First determine whether the problem is in the client, shared server, or one
 project:
 
-- Check `opencodevil-cli service status` and `opencode api get /api/info`.
+- Check `opencodevil-cli service status` and `opencodevil-cli api get /api/info`.
 - Run `opencode --standalone` (private server) to isolate shared-service issues.
 - Inspect `~/.local/share/opencodevil/log/opencodevil.log` (`role=cli` for client
   startup, `role=server` for sessions, providers, plugins, permissions, tools).
