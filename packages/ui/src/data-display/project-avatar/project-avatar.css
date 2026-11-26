@@ -10,9 +10,8 @@
 }
 
 [data-slot="project-avatar-surface"] {
-  /* evil-v2: letter avatars are red by default; explicit color overrides still win. */
-  --project-avatar-bg: #ff5959;
-  --project-avatar-border: #cc3b3b;
+  --project-avatar-bg: var(--v2-avatar-bg-gray);
+  --project-avatar-border: var(--v2-avatar-border-gray);
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -79,9 +78,8 @@
 }
 
 [data-slot="project-avatar-surface"][data-variant="gray"] {
-  /* evil-v2: no explicit color -> red letter tile. */
-  --project-avatar-bg: #ff5959;
-  --project-avatar-border: #cc3b3b;
+  --project-avatar-bg: var(--v2-avatar-bg-gray);
+  --project-avatar-border: var(--v2-avatar-border-gray);
 }
 
 [data-slot="project-avatar-surface"][data-variant="outline"] {
