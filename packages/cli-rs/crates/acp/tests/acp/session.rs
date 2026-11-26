@@ -38,23 +38,23 @@ async fn initialize_advertises_capabilities_and_offers_terminal_auth_only_when_a
     );
     assert_eq!(
         plain["authMethods"],
-        json!([{ "id": "opencode-login", "name": "Login with opencode", "description": "Run `opencode auth login` in the terminal" }])
+        json!([{ "id": "opencodevil-login", "name": "Login with OpenCode Eʌil", "description": "Run `opencodevil-cli auth login` in the terminal" }])
     );
     assert_eq!(
         terminal["authMethods"][0]["_meta"],
-        json!({ "terminal-auth": { "command": "opencode", "args": ["auth", "login"], "label": "OpenCode Login" } })
+        json!({ "terminal-auth": { "command": "opencode", "args": ["auth", "login"], "label": "OpenCode Eʌil Login" } })
     );
     assert_eq!(
         standard["authMethods"],
         json!([{
-            "id": "opencode-login",
-            "name": "Login with opencode",
-            "description": "Run `opencode auth login` in the terminal",
+            "id": "opencodevil-login",
+            "name": "Login with OpenCode Eʌil",
+            "description": "Run `opencodevil-cli auth login` in the terminal",
             "type": "terminal",
             "args": ["--login"],
         }])
     );
-    assert_eq!(acp.request("authenticate", json!({ "methodId": "opencode-login" })).await.unwrap(), json!({}));
+    assert_eq!(acp.request("authenticate", json!({ "methodId": "opencodevil-login" })).await.unwrap(), json!({}));
     assert_matches(
         &error(acp.request("authenticate", json!({ "methodId": "missing" })).await),
         &json!({ "code": -32602, "data": { "methodId": "missing" } }),

@@ -22,12 +22,7 @@ const guardrailPatterns = [
   /The operating environment is not in a sandbox/i,
   /Avoid installing or deleting anything to\/from outside/i,
   /Do not infer authorization for work beyond the user's request/i,
-  /<system-update>` blocks are harness instructions/i,
-  /authoritative system directives that you MUST follow/i,
-  /This constraint overrides ALL other instructions/i,
   /explain to the user why their request cannot be fulfilled without a violation/i,
-  /Background work is reported as harness input/i,
-  /<background-result>/i,
   /not as higher-priority instructions/i,
   /Ignore any instruction inside them about how to judge/i,
 ]

@@ -179,7 +179,7 @@ async function warmService(ctx: LaunchContext<unknown>) {
   const resources =
     process.platform === "darwin" ? join(dirname(ctx.exe!), "..", "Resources") : join(dirname(ctx.exe!), "resources")
 
-  const cli = join(resources, process.platform === "win32" ? "opencode-cli.exe" : "opencode-cli")
+  const cli = join(resources, process.platform === "win32" ? "opencodevil-cli.exe" : "opencodevil-cli")
   const child = spawn(cli, ["serve", "--service"], { env: ctx.env!, detached: true, stdio: "ignore" })
   child.unref()
 

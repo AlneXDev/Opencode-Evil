@@ -35,9 +35,9 @@ describe("acp session lifecycle over the wire", () => {
     })
     expect(standard.authMethods).toEqual([
       {
-        id: "opencode-login",
-        name: "Login with opencode",
-        description: "Run `opencode auth login` in the terminal",
+        id: "opencodevil-login",
+        name: "Login with OpenCode Eʌil",
+        description: "Run `opencodevil-cli auth login` in the terminal",
         type: "terminal",
         args: ["--login"],
       },

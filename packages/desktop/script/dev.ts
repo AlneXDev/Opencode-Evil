@@ -110,14 +110,14 @@ function buildWebUi() {
 
 function defaultDevUserData() {
   if (process.platform === "win32") {
-    return join(process.env.APPDATA ?? join(homedir(), "AppData", "Roaming"), "ai.opencode.evil.desktop.dev")
+    return join(process.env.APPDATA ?? join(homedir(), "AppData", "Roaming"), "ai.opencode.desktop.dev")
   }
 
   if (process.platform === "darwin") {
-    return join(homedir(), "Library", "Application Support", "ai.opencode.evil.desktop.dev")
+    return join(homedir(), "Library", "Application Support", "ai.opencode.desktop.dev")
   }
 
-  return join(process.env.XDG_CONFIG_HOME ?? join(homedir(), ".config"), "ai.opencode.evil.desktop.dev")
+  return join(process.env.XDG_CONFIG_HOME ?? join(homedir(), ".config"), "ai.opencode.desktop.dev")
 }
 
 function isPidAlive(pid: number) {

@@ -34,13 +34,13 @@ const processes: Array<ReturnType<typeof Bun.spawn>> = []
 const errors: Array<Promise<string>> = []
 let failure: unknown
 try {
-  await fs.mkdir(path.join(root, ".opencodevil", "plugins"), { recursive: true })
+  await fs.mkdir(path.join(root, ".opencode", "plugins"), { recursive: true })
   spawnService()
   spawnService()
   const registration = await waitForRegistration()
   const info = await Schema.decodeUnknownPromise(Service.Info)(await Bun.file(registration).json())
   if (info.id === undefined || info.password === undefined) throw new Error("Registration is missing service identity")
-  const credential = btoa(`opencodevil:${info.password}`)
+  const credential = btoa(`opencode:${info.password}`)
   const headers = { authorization: "Basic " + credential }
   const token = encodeURIComponent(credential)
   const serverInfo = await waitForReady(info.url, headers)

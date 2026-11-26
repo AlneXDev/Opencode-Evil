@@ -19,7 +19,7 @@ say so instead of falling back to V1.
 
 Terminal and TUI preferences (`run`, `mini`, themes, input, sessions, tabs,
 diffs, alerts, keybindings, terminal plugins, debugging) live in global
-`~/.config/opencodevil/cli.json` (or `$XDG_CONFIG_HOME/opencode/cli.json`).
+`~/.config/opencodevil/cli.json` (or `$XDG_CONFIG_HOME/opencodevil/cli.json`).
 There is no project-local CLI config. `OPENCODE_CLI_CONFIG_CONTENT` merges
 inline JSON over it. Most settings are also under `Ctrl+P` → **Open settings**.
 
@@ -41,7 +41,7 @@ Server and project configuration uses JSON or JSONC with the published schema:
 }
 ```
 
-Global config lives at `~/.config/opencode/opencodevil.json(c)`. Project config
+Global config lives at `~/.config/opencodevil/opencodevil.json(c)`. Project config
 lives in any directory as `opencodevil.json(c)` or `.opencode/opencodevil.json(c)`.
 Discovery walks from the filesystem root down to the current Location directory,
 merging direct `opencodevil.json(c)` files first, then `.opencode/opencodevil.json(c)`
@@ -145,7 +145,7 @@ First determine whether the problem is in the client, shared server, or one
 project:
 
 - Check `opencodevil-cli service status` and `opencodevil-cli api get /api/info`.
-- Run `opencode --standalone` (private server) to isolate shared-service issues.
+- Run `opencodevil-cli --standalone` (private server) to isolate shared-service issues.
 - Inspect `~/.local/share/opencodevil/log/opencodevil.log` (`role=cli` for client
   startup, `role=server` for sessions, providers, plugins, permissions, tools).
 - Reproduce once with `OPENCODE_LOG_LEVEL=DEBUG` when normal logs aren't enough.

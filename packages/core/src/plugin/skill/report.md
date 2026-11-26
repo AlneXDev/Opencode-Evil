@@ -16,11 +16,11 @@ diagnostics plus the context needed to reproduce and resolve it.
    <https://opencode.ai/docs/>. If OpenCode works as documented, tell the user
    instead of filing an issue.
 2. Search for an existing issue with
-   `gh issue list --repo anomalyco/opencode --state all --search "<keywords>"`.
+   `gh issue list --repo AlneXDev/Opencode-Evil --state all --search "<keywords>"`.
    If one matches, give the user its URL and offer to add their details there
    instead of opening a new one.
 3. Collect the standard diagnostics below. Compare the opencode version with the
-   latest release (`gh release view --repo anomalyco/opencode --json tagName`).
+   latest release (`gh release view --repo AlneXDev/Opencode-Evil --json tagName`).
    If the user is behind, ask them to update and check whether it still happens.
 4. Ask only for missing details that are necessary to reproduce or understand
    impact.
@@ -39,9 +39,9 @@ that the user says differ, for example when the bug is in another install.
 
 Collect these values when possible:
 
-- opencode version: run `opencode --version`.
-- Client: the TUI, the desktop app, `opencode run`, the web app, or a server
-  started with `opencode serve`.
+- opencode version: run `opencodevil-cli --version`.
+- Client: the TUI, the desktop app, `opencodevil-cli run`, the web app, or a server
+  started with `opencodevil-cli serve`.
 - Model and provider: the provider and model ID in use when the problem
   happened, if the problem involves a model.
 - Operating system: run `uname -a` on Unix-like systems, or `ver` on Windows.
@@ -52,7 +52,7 @@ Collect these values when possible:
 - Install/channel context: include whether this appears to be local, dev, beta,
   or release if the version output or environment reveals it.
 - Active plugins: the snapshot lists plugins from opencode config only. Also
-  check `plugins` in `~/.config/opencode/cli.json` for terminal plugins, and
+  check `plugins` in `~/.config/opencodevil/cli.json` for terminal plugins, and
   local plugin files under `.opencode/plugin/` or `.opencode/plugins/`. Record
   plugin names and versions, and note if plugin status could not be determined.
 
